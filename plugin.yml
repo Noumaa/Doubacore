@@ -1,0 +1,30 @@
+name: Doubacore
+description: A bunch of essential tools for a PocketMine server
+main: Nouma\Doubacore\Doubacore
+api: 5.0.0
+version: 0.1.0
+author: Nouma
+
+permissions:
+  doubacore.command.god:
+    default: op
+  doubacore.command.god.self:
+    default: op
+  doubacore.command.god.other:
+    default: op
+
+  doubacore.command.heal:
+    default: op
+  doubacore.command.heal.self:
+    default: op
+  doubacore.command.heal.other:
+    default: op
+
+  doubacore.command.warp:
+    default: op
+  doubacore.command.warp.list:
+    default: true
+  doubacore.command.setwarp:
+    default: op
+  doubacore.command.delwarp:
+    default: op

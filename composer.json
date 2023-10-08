@@ -1,0 +1,31 @@
+{
+  "name": "nouma/doubacore",
+  "description": "A bunch of essential tools for a PocketMine server",
+  "autoload": {
+    "psr-4": {
+      "Nouma\\Doubacore\\": ["src/Nouma/Doubacore/"],
+      "CortexPE\\Commando\\": ["src/Paroxity/Commando"]
+    }
+  },
+  "require": {
+    "muqsit/simple-packet-handler": "*"
+  },
+  "require-dev": {
+    "pocketmine/pocketmine-mp": "^5.6"
+  },
+  "repositories": [{
+    "type": "package",
+    "package": {
+      "name": "muqsit/simple-packet-handler",
+      "version": "1.0.0",
+      "source": {
+        "url": "https://github.com/Muqsit/SimplePacketHandler.git",
+        "type": "git",
+        "reference": "71af78006b2bbed324f48deebbdabfae222b432a"
+      },
+      "autoload": {
+        "classmap": ["src/"]
+      }
+    }
+  }]
+}
