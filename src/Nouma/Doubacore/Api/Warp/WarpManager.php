@@ -1,6 +1,6 @@
 <?php
 
-namespace Nouma\Doubacore\Managers;
+namespace Nouma\Doubacore\Api\Warp;
 
 use JsonException;
 use Nouma\Doubacore\Doubacore;

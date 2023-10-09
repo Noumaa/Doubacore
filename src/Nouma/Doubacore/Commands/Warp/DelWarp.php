@@ -6,8 +6,8 @@ use CortexPE\Commando\args\RawStringArgument;
 use CortexPE\Commando\BaseCommand;
 use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
+use Nouma\Doubacore\Api\Warp\WarpManager;
 use Nouma\Doubacore\Doubacore;
-use Nouma\Doubacore\Managers\WarpManager;
 use pocketmine\command\CommandSender;
 
 class DelWarp extends BaseCommand

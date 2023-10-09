@@ -4,6 +4,7 @@ namespace Nouma\Doubacore;
 
 use CortexPE\Commando\exception\HookAlreadyRegistered;
 use CortexPE\Commando\PacketHooker;
+use Nouma\Doubacore\Api\Warp\WarpManager;
 use Nouma\Doubacore\Commands\God;
 use Nouma\Doubacore\Commands\Heal;
 use Nouma\Doubacore\Commands\Warp\DelWarp;
@@ -11,7 +12,6 @@ use Nouma\Doubacore\Commands\Warp\SetWarp;
 use Nouma\Doubacore\Commands\Warp\Warp;
 use Nouma\Doubacore\Listeners\DamageListener;
 use Nouma\Doubacore\Listeners\SessionListener;
-use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Session\SessionManager;
 use pocketmine\plugin\PluginBase;
 
