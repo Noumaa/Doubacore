@@ -2,7 +2,7 @@ name: Doubacore
 description: A bunch of essential tools for a PocketMine server
 main: Nouma\Doubacore\Doubacore
 api: 5.0.0
-version: 0.1.0
+version: 0.2.0
 author: Nouma
 
 permissions:
@@ -24,7 +24,16 @@ permissions:
     default: op
   doubacore.command.warp.list:
     default: true
+  doubacore.command.warp.*:
+    default: op
   doubacore.command.setwarp:
     default: op
   doubacore.command.delwarp:
+    default: op
+
+  doubacore.command.kit:
+    default: op
+  doubacore.command.kit.list:
+    default: true
+  doubacore.command.kit.*:
     default: op

@@ -6,7 +6,7 @@ use CortexPE\Commando\args\RawStringArgument;
 use CortexPE\Commando\BaseCommand;
 use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
-use Nouma\Doubacore\Api\Warp\WarpManager;
+use Nouma\Doubacore\Api\WarpManager;
 use Nouma\Doubacore\Doubacore;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
