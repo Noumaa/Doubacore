@@ -3,6 +3,7 @@
 namespace Nouma\Doubacore\Managers;
 
 use Nouma\Doubacore\Doubacore;
+use pocketmine\utils\BroadcastLoggerForwarder;
 use pocketmine\utils\Config;
 
 abstract class BaseManager
@@ -11,6 +12,7 @@ abstract class BaseManager
     protected Config $config;
 
     public function __construct(Doubacore $plugin, string $filename) {
+        $plugin->saveResource("$filename.yml");
         $this->config = new Config($plugin->getDataFolder() . "$filename.yml", Config::YAML);
     }
 
@@ -33,7 +35,9 @@ abstract class BaseManager
     public function getAll(): array
     {
         $models = [];
-        foreach ($this->config->getAll() as $key => $_) $models[] = $this->get($key);
+        foreach ($this->config->getAll() as $key => $_) {
+            if ($this->get($key) != null) $models[] = $this->get($key);
+        }
         return $models;
     }
 

@@ -8,6 +8,7 @@ class Session
 {
 
     private Player $player;
+
     private bool $isGod;
 
     public function __construct(Player $player)

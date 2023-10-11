@@ -1,0 +1,6 @@
+test:
+  name: "Test"
+  x: 150
+  y: 300
+  z: 200
+  world: "world"

@@ -2,64 +2,55 @@
 
 namespace Nouma\Doubacore\Managers;
 
-use JsonException;
 use Nouma\Doubacore\Doubacore;
+use Nouma\Doubacore\Models\Kit;
+use Nouma\Doubacore\Models\Warp;
+use Nouma\Doubacore\Utils\ItemUtils;
 use pocketmine\Server;
-use pocketmine\utils\Config;
+use pocketmine\utils\SingletonTrait;
 use pocketmine\world\Position;
 
-class WarpManager
+class WarpManager extends BaseManager
 {
+    use SingletonTrait;
 
-    private static array $warps = [];
-    private static Config $config;
-
-    public static function init(Doubacore $plugin): void
+    public function __construct(Doubacore $plugin)
     {
-        $plugin->saveResource("warps.json");
-        $config = new Config($plugin->getDataFolder() . "warps.json", Config::JSON);
-        self::$config = $config;
-        self::$warps = $config->getAll();
+        parent::__construct($plugin, "warps");
     }
 
-    public static function getWarp(string $warpName): ?Position
+    public function save($model)
     {
-        if (isset(self::$warps[$warpName])) {
-            $warpData = self::$warps[$warpName];
-            return new Position($warpData["x"], $warpData["y"], $warpData["z"], Server::getInstance()->getWorldManager()->getWorldByName($warpData["level"]));
-        } else {
-            return null;
+        // TODO: Implement serialize() method.
+    }
+
+    public function get(string $key): ?Warp
+    {
+        $data = $this->deserializeArray($key);
+        if ($data == null) return null;
+
+        if (!array_key_exists("name", $data)) return null;
+        $warp = new Warp($key);
+        $warp->setName($data["name"]);
+
+        $world = null;
+        Server::getInstance()->getPluginManager()->getPlugin();
+
+        if (array_key_exists("world", $data))
+            $world = Server::getInstance()->getWorldManager()->getWorldByName($data['world']);
+
+        if ($world == null)
+            Server::getInstance()->getWorldManager()->getDefaultWorld();
+
+        $vector3 = [];
+        foreach(['x', 'y', 'z'] as $vector) {
+            if (!array_key_exists($vector, $data)) return null;
+            $vector3[$vector] = $data[$vector];
         }
-    }
 
-    public static function getAllWarps(): array {
-        return self::$warps;
-    }
+        $position = new Position($vector3['x'], $vector3['y'], $vector3['z'], $world);
+        $warp->setPosition($position);
 
-    /**
-     * @throws JsonException
-     */
-    public static function setWarp(string $warpName, Position $position): void
-    {
-        self::$warps[$warpName] = [
-            "x" => $position->x,
-            "y" => $position->y,
-            "z" => $position->z,
-            "level" => $position->getWorld()->getFolderName()
-        ];
-        self::$config->set($warpName, self::$warps[$warpName]);
-        self::$config->save();
-    }
-
-    /**
-     * @throws JsonException
-     */
-    public static function removeWarp(string $warpName): void
-    {
-        if (isset(self::$warps[$warpName])) {
-            unset(self::$warps[$warpName]);
-            self::$config->remove($warpName);
-            self::$config->save();
-        }
+        return $warp;
     }
 }

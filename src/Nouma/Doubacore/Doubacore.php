@@ -29,7 +29,9 @@ class Doubacore extends PluginBase
     {
         $this->sessionManager = new SessionManager($this);
 
-        WarpManager::init($this);
+        WarpManager::getInstance()->get("test")->getPosition();
+
+        WarpManager::setInstance(new WarpManager($this));
         KitManager::setInstance(new KitManager($this));
 
         if (!PacketHooker::isRegistered()) {

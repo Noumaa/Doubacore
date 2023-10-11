@@ -41,16 +41,15 @@ class Warp extends BaseCommand
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
         if (!isset($args['warp'])) {
-            if (count(WarpManager::getAllWarps()) == 0) {
+            if (count(WarpManager::getInstance()->getAll()) == 0) {
                 $sender->sendMessage("§6Aucun warp disponible.");
                 return;
             }
 
             $sender->sendMessage("§6Liste des warps :");
-            foreach (WarpManager::getAllWarps() as $name => $data) {
-                $position = WarpManager::getWarp($name);
-                $sender->sendMessage(" §6- §e{$name}§6: §e$position");
-            }
+            foreach (WarpManager::getInstance()->getAll() as $warp)
+                $sender->sendMessage(" §6- §e{$warp->getName()}§6: §e{$warp->getPosition()}");
+
             return;
         }
 
@@ -59,18 +58,18 @@ class Warp extends BaseCommand
             return;
         }
 
-        $warp = WarpManager::getWarp($args['warp']);
+        $warp = WarpManager::getInstance()->get($args['warp']);
         if ($warp == null) {
             $sender->sendMessage("§cLe warp n'existe pas !");
             return;
         }
 
-        if (!$sender->hasPermission("doubacore.command.warp.*") && !$sender->hasPermission("doubacore.command.warp.{$args['warp']}")) {
+        if (!$sender->hasPermission("doubacore.command.warp.*") && !$sender->hasPermission("doubacore.command.warp.{$warp->getKey()}")) {
             $sender->sendMessage("§cVous n'avez pas la permission !");
             return;
         }
 
-        $sender->teleport($warp);
+        $warp->teleport($sender);
         $sender->sendMessage("§6Pouf !");
     }
 }
