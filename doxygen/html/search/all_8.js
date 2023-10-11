@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['removewarp_0',['removeWarp',['../class_nouma_1_1_doubacore_1_1_api_1_1_warp_manager.html#aad11182140bc213375e1ec8d62af215d',1,'Nouma::Doubacore::Api::WarpManager']]]
+  ['permissions_0',['Permissions',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
+  ['prepare_1',['prepare',['../class_nouma_1_1_doubacore_1_1_commands_1_1_god.html#a32e0e5706081bb375644c87395a4a694',1,'Nouma\Doubacore\Commands\God\prepare()'],['../class_nouma_1_1_doubacore_1_1_commands_1_1_heal.html#a0aeb695102cf039fb047e3fbb7921ab3',1,'Nouma\Doubacore\Commands\Heal\prepare()'],['../class_nouma_1_1_doubacore_1_1_commands_1_1_kit.html#aac63e8652b2523f2fdf7a0aa26ba72a9',1,'Nouma\Doubacore\Commands\Kit\prepare()'],['../class_nouma_1_1_doubacore_1_1_commands_1_1_warp_1_1_del_warp.html#a70605429d381188aee642f457df9b10d',1,'Nouma\Doubacore\Commands\Warp\DelWarp\prepare()'],['../class_nouma_1_1_doubacore_1_1_commands_1_1_warp_1_1_set_warp.html#a0705eb43612de3f026efbd4a4eada139',1,'Nouma\Doubacore\Commands\Warp\SetWarp\prepare()'],['../class_nouma_1_1_doubacore_1_1_commands_1_1_warp_1_1_warp.html#a16f2ef2dbee3579805a3c87def277573',1,'Nouma\Doubacore\Commands\Warp\Warp\prepare()']]]
 ];

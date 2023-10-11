@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['itemutils_0',['ItemUtils',['../class_nouma_1_1_doubacore_1_1_utils_1_1_item_utils.html',1,'Nouma::Doubacore::Utils']]]
+  ['heal_0',['Heal',['../class_nouma_1_1_doubacore_1_1_commands_1_1_heal.html',1,'Nouma::Doubacore::Commands']]]
 ];
