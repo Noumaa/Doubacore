@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 5.2.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">5.2.0</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md1558"></a>Released 4th July 2023.</p>
+<p><b>For Minecraft: Bedrock Edition 1.20.0</b></p>
+<p>This is a minor technical update, including changes <a class="el" href="protocolto-p.html">to</a> AsyncTask error handling and support for BedrockBlockUpgradeSchema version 3.0.0.</p>
+<p><b>Plugin compatibility:</b> Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the <code>pocketmine\network\mcpe</code> or <code>pocketmine\data</code> namespace. Do not update plugin minimum API versions unless you need new features added in this release.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h1><a class="anchor" id="autotoc_md1559"></a>
+Core</h1>
+<ul>
+<li><a href="https://github.com/pmmp/BedrockBlockUpgradeSchema/releases/tag/3.0.0">BedrockBlockUpgradeSchema version 3.0.0</a> is now supported.</li>
+<li><a href="https://github.com/pmmp/ext-pmmpthread/releases/tag/6.0.4"><code>ext-pmmpthread</code> version 6.0.4</a> is now required (bug fixes required <a class="el" href="protocolto-p.html">to</a> support technical changes in this release).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1560"></a>
+Performance</h1>
+<ul>
+<li>Improved performance of <code>AsyncPool-&gt;submitTask()</code> and <code>AsyncPool-&gt;submitTaskToWorker()</code>.</li>
+<li>Added new timings for <code>AsyncTask-&gt;onProgressUpdate()</code> and <code>AsyncTask-&gt;onCompletion()</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1561"></a>
+Gameplay</h1>
+<h2><a class="anchor" id="autotoc_md1562"></a>
+Blocks</h2>
+<ul>
+<li>Added the following new blocks:<ul>
+<li>Cherry Button</li>
+<li>Cherry Door</li>
+<li>Cherry Fence</li>
+<li>Cherry Fence Gate</li>
+<li>Cherry Leaves</li>
+<li>Cherry Log</li>
+<li>Cherry Planks</li>
+<li>Cherry Pressure Plate</li>
+<li>Cherry Sign</li>
+<li>Cherry Slab</li>
+<li>Cherry Stairs</li>
+<li>Cherry Trapdoor</li>
+<li>Cherry Wood</li>
+<li>Glow Lichen</li>
+<li>Piglin Head</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1563"></a>
+Tools</h1>
+<ul>
+<li><code>generate-block-upgrade-schema.php</code> now supports generating schemas a la BedrockBlockUpgradeSchema version 3.0.0, using <code>newFlattenedName</code> <a class="el" href="protocolto-p.html">to</a> reduce schema size.</li>
+<li>Improved property remapping detection in <code>generate-block-upgrade-schema.php</code>. It now detects related properties with more confidence (even when multiple properties were change), and no longer considers unrelated properties as mapped (e.g. <code>mapped_type</code> and <code>deprecated</code> in 1.9-&gt;1.10).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1564"></a>
+API</h1>
+<h2><a class="anchor" id="autotoc_md1565"></a>
+&lt;tt&gt;pocketmine\data\bedrock\block&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public BlockStateData-&gt;toVanillaNbt() : CompoundTag</code> - returns the NBT for the blockstate without any PMMP extra metadata (<code>toNbt()</code> will normally include a <code>PMMPDataVersion</code> tag).</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1566"></a>
+&lt;tt&gt;pocketmine\data\runtime&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public RuntimeDataDescriber-&gt;facingFlags(list&lt;int&gt; $faces) : void</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1567"></a>
+&lt;tt&gt;pocketmine\scheduler&lt;/tt&gt;</h2>
+<ul>
+<li><code>AsyncTask-&gt;onRun()</code> no longer tolerates uncaught exceptions.<ul>
+<li>This means that any uncaught exceptions thrown from <code>AsyncTask-&gt;onRun()</code> will now crash the worker thread, and by extension, the server.</li>
+<li>This change makes it easier <a class="el" href="protocolto-p.html">to</a> debug errors by detecting them earlier.</li>
+</ul>
+</li>
+<li>The following API methods have been deprecated:<ul>
+<li><code>AsyncTask-&gt;onError()</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1568"></a>
+Internals</h1>
+<ul>
+<li><code>AsyncTask-&gt;progressUpdates</code> is now lazily initialized when a task publishes a progress update.<ul>
+<li>This was previously not possible due <a class="el" href="protocolto-p.html">to</a> technical limitations of the <code>ext-pmmpthread</code> extension.</li>
+<li>This change improves performance of <code>AsyncPool-&gt;submitTask()</code> and <code>AsyncPool-&gt;submitTaskToWorker()</code>, as well as reducing the amount of work needed <a class="el" href="protocolto-p.html">to</a> check for progress updates on tick.</li>
+</ul>
+</li>
+<li>Errors in <code>AsyncWorker</code> now cascade and crash the whole server.<ul>
+<li>This makes it easier <a class="el" href="protocolto-p.html">to</a> debug errors by detecting them earlier.</li>
+<li>This includes all types of unexpected errors, such as OOM, uncaught exceptions, etc.</li>
+<li>This change is not expected <a class="el" href="protocolto-p.html">to</a> affect normal server operation, as worker threads are not expected <a class="el" href="protocolto-p.html">to</a> crash under normal circumstances.</li>
+</ul>
+</li>
+<li><code>AsyncTask::$threadLocalStorage</code> now uses a plain <code>array</code> instead of <code>ArrayObject</code>. The <code>ArrayObject</code> was a workaround for <code>ext-pthreads</code> <a class="el" href="protocolto-p.html">to</a> prevent thread-locals getting copied <a class="el" href="protocolto-p.html">to</a> the worker thread, and is no longer necessary.</li>
+<li>Regenerated <code>pocketmine\data\bedrock\item\ItemTypeNames</code> for Bedrock 1.20 (BC breaking, some item names have changed).</li>
+<li>Fixed <code>build/generate-item-type-names.php</code> not including some newer blockitems, such as doors and hanging signs.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1569"></a>
+5.2.1</h1>
+<p>Released 11th July 2023.</p>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.22.3/changelogs/4.22.md#4223">4.22.3</a> - Fixes for some crash issues</li>
+</ul>
+<p>This release contains no other changes. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

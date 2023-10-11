@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.16</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.16</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.62</b></p>
+<h3><a class="anchor" id="autotoc_md1078"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md1079"></a>
+4.16.0</h1>
+<p>Released 7th March 2023.</p>
+<h2><a class="anchor" id="autotoc_md1080"></a>
+General</h2>
+<ul>
+<li>Added granular timings for packet encode, similar <a class="el" href="protocolto-p.html">to</a> the existing timings for packet decode.</li>
+<li>Split <code>Player Network Send - Compression</code> timings into two timers, one for <code>Session Buffer</code> compression and one for <code>Broadcast</code> compression.</li>
+<li>Timings now covers several areas of the network system which were previously not counted by network timings, but were counted by total timings. This provides a better insight into the performance of the network system.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1081"></a>
+Performance</h2>
+<ul>
+<li>Improved performance of packet batch handling by avoiding unnecessary object allocations.</li>
+<li>Improved performance of packet broadcasting when the broadcast size is below the batch threshold. Previously, the packets would be encoded once by every recipient, but now they are encoded once and then added <a class="el" href="protocolto-p.html">to</a> the send buffer of each session in their raw form.<ul>
+<li>This change mostly affects servers with larger maps, where players are more widely distributed.</li>
+</ul>
+</li>
+<li>Improved performance of packet broadcasting when the broadcast has only one recipient (allow the session <a class="el" href="protocolto-p.html">to</a> compress the packet with the rest of its buffer).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1082"></a>
+Build system</h2>
+<ul>
+<li>Added a new script <code>build/generate-bedrockdata-path-consts.php</code>, which must be run whenever BedrockData is updated. This script generates a class of constants with the file paths of all BedrockData files.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1083"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1084"></a>
+&lt;tt&gt;pocketmine\entity&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Entity-&gt;getGravity() : float</code> - returns the entity's gravity acceleration in blocks/tick^2</li>
+<li><code>public Entity-&gt;setGravity(float $gravity) : void</code> - sets the entity's gravity acceleration in blocks/tick^2</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1085"></a>
+Internals</h2>
+<ul>
+<li>Now uses <a href="https://github.com/pmmp/BedrockData/releases/tag/2.0.0+bedrock-1.19.60"><code>pocketmine/bedrock-data</code> 2.0.0</a>.<ul>
+<li>This version is now used by both PM4 and PM5, reducing maintenance burden.</li>
+</ul>
+</li>
+<li>Now uses <a href="https://github.com/pmmp/BedrockProtocol/releases/tag/19.3.0+bedrock-1.19.62"><code>pocketmine/bedrock-protocol</code> 19.3.0</a>.<ul>
+<li>This version provides new APIs for handling packet batches which enabled improving performance and adding new features, such as detailed packet encode timings.</li>
+</ul>
+</li>
+<li>Crafting recipes and creative inventory data are now loaded from <code>recipes/legacy_recipes.json</code> and <code>recipes/legacy_creativeitems.json</code> respectively. Previously, these were loaded from BedrockData directly, but BedrockData 2.0 now uses a format which can't be supported in 4.x without BC breaks.</li>
+<li>Added dependencies on <a href="https://github.com/pmmp/BedrockBlockUpgradeSchema"><code>pocketmine/bedrock-block-upgrade-schema</code></a> and <a href="https://github.com/pmmp/BedrockItemUpgradeSchema"><code>pocketmine/bedrock-item-upgrade-schema</code></a>. These provide mapping files no longer present in BedrockData 2.0.</li>
+<li>Reduced and/or eliminated most usages of <code>PacketBatch</code>, since it only appeared as a throwaway object and was therefore wasting performance.</li>
+<li><code>Compressor</code> now exposes <code>getCompressionThreshold()</code> instead of <code>willCompress()</code>, which allows determining whether a batch will be compressed without allocating it.</li>
+<li>Added <code>pocketmine\data\bedrock\BedrockDataFiles</code>, an auto-generated class of constants with the file paths of all BedrockData files. This makes it easier <a class="el" href="protocolto-p.html">to</a> locate usages, detect unused files and avoid typos. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

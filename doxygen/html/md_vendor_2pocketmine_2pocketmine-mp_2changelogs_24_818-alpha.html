@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.18-alpha</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.18-alpha</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.70</b></p>
+<h3><a class="anchor" id="autotoc_md1095"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the <code>pocketmine\network\mcpe</code> namespace are compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h3><a class="anchor" id="autotoc_md1096"></a>
+Alpha release warning</h3>
+<p>Alpha releases are <b>experimental</b>. Features introduced in these releases are subject <a class="el" href="protocolto-p.html">to</a> change or removal.</p>
+<p>APIs which existed <b>prior</b> <a class="el" href="protocolto-p.html">to</a> this version will continue <a class="el" href="protocolto-p.html">to</a> work as normal, so plugins which use them will continue <a class="el" href="protocolto-p.html">to</a> work.</p>
+<h3><a class="anchor" id="autotoc_md1097"></a>
+Highlights</h3>
+<p>This version makes changes <a class="el" href="protocolto-p.html">to</a> the internal network system <a class="el" href="protocolto-p.html">to</a> improve server performance and reduce memory usage.</p>
+<p>While these changes don't affect non-internal API, they are still significant enough <a class="el" href="protocolto-p.html">to</a> warrant a new minor version, as they may break plugins which use the internal network API (not recommended).</p>
+<h1><a class="anchor" id="autotoc_md1098"></a>
+4.18.0-ALPHA1</h1>
+<p>Released 16th March 2023.</p>
+<h2><a class="anchor" id="autotoc_md1099"></a>
+General</h2>
+<ul>
+<li>Improved server performance in congested areas of the world (lots of players and/or entities in the same area).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1100"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1101"></a>
+&lt;tt&gt;pocketmine\event\server&lt;/tt&gt;</h3>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>DataPacketDecodeEvent</code> - called before a packet is decoded by a <code>NetworkSession</code>; useful <a class="el" href="protocolto-p.html">to</a> mitigate DoS attacks if PocketMine-MP hasn't been patched against new bugs yet</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1102"></a>
+Internals</h2>
+<ul>
+<li>Introduced new system for broadcasting entity events <a class="el" href="protocolto-p.html">to</a> network sessions.<ul>
+<li>This change improves performance when lots of players and/or entities are in the same area.</li>
+<li>New interface <code>EntityEventBroadcaster</code> and class <code>StandardEntityEventBroadcaster</code> have been added <a class="el" href="protocolto-p.html">to</a> implement this.</li>
+<li>All entity-specific <code>on*()</code> and <code>sync*()</code> methods have been removed from <code>NetworkSession</code> (BC break).</li>
+<li><code>NetworkSession</code> now accepts an <code>EntityEventBroadcaster</code> instance in its constructor.</li>
+<li><code>NetworkBroadcastUtils::broadcastEntityEvent()</code> can be used <a class="el" href="protocolto-p.html">to</a> efficiently broadcast events <a class="el" href="protocolto-p.html">to</a> unique broadcasters shared by several network sessions.</li>
+</ul>
+</li>
+<li>All network sessions now share the same <code>PacketSerializerContext</code> and <code>PacketBroadcaster</code> by default.<ul>
+<li>Previously, every session had its own context, meaning that broadcast optimisations were not used, causing significant performance losses compared <a class="el" href="protocolto-p.html">to</a> 3.x.</li>
+<li>This change improves performance in congested areas by allowing reuse of previously encoded packet buffers for all sessions sharing the same context.</li>
+<li>Packet broadcasts are automatically encoded separately per unique <code>PacketSerializerContext</code> instance. This allows, for example, a multi-version fork <a class="el" href="protocolto-p.html">to</a> have a separate context for each protocol version, <a class="el" href="protocolto-p.html">to</a> ensure maximum broadcast efficiency while encoding different packets for different versions.</li>
+<li><code>PacketSerializerContext</code> is now passed in <code>NetworkSession::__construct()</code>, instead of being created by the session.</li>
+</ul>
+</li>
+<li><code>StandardPacketBroadcaster</code> is now locked <a class="el" href="protocolto-p.html">to</a> a single <code>PacketSerializer</code> context, reducing complexity.</li>
+<li>Introduced <code>NetworkBroadcastUtils::broadcastPackets()</code>, replacing <code>Server-&gt;broadcastPackets()</code>.</li>
+<li><code>Server-&gt;broadcastPackets()</code> has been deprecated. It will be removed in a future version.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1103"></a>
+4.18.0-ALPHA2</h1>
+<p>Released 21st March 2023.</p>
+<h2><a class="anchor" id="autotoc_md1104"></a>
+General</h2>
+<ul>
+<li>Included more sections of the network system in Player Network Send timings.</li>
+<li>Changed the names of some timings <a class="el" href="protocolto-p.html">to</a> make them more user-friendly.</li>
+<li>Removed packet IDs from <code>receivePacket</code> and <code>sendPacket</code> timings, as they were not very useful.</li>
+<li>Added new specialized timers for the following:<ul>
+<li>Item entity base ticking (merging)</li>
+<li>Player movement processing</li>
+<li>Entity movement processing (collision checking section)</li>
+<li>Projectile movement (all)</li>
+<li>Projectile movement processing (ray tracing section)</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1105"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1106"></a>
+&lt;tt&gt;pocketmine\crafting&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>CraftingManager-&gt;getCraftingRecipeIndex() : array&lt;int, CraftingRecipe&gt;</code> - returns a list of all crafting recipes</li>
+<li><code>CraftingManager-&gt;getCraftingRecipeFromIndex(int $index) : ?CraftingRecipe</code> - returns the crafting recipe at the given index, or null if it doesn't exist</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1107"></a>
+&lt;tt&gt;pocketmine\inventory\transaction&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have changed signatures:<ul>
+<li><code>CraftingTransaction-&gt;__construct()</code> now accepts additional arguments <code>?CraftingRecipe $recipe = null, ?int $repetitions = null</code></li>
+</ul>
+</li>
+<li>The following new API methods have been added:<ul>
+<li><code>TransactionBuilderInventory-&gt;getActualInventory() : Inventory</code> - returns the actual inventory that this inventory is a proxy for</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1108"></a>
+Internals</h2>
+<h3><a class="anchor" id="autotoc_md1109"></a>
+Network</h3>
+<ul>
+<li>Introduced support for the <code>ItemStackRequest</code> Minecraft: Bedrock network protocol.<ul>
+<li>This fixes a large number of inventory- and crafting-related bugs.</li>
+<li>This also improves server security by closing off many code pathways that might have been used for exploits. <code>TypeConverter-&gt;netItemStackToCore()</code> is no longer used in server code, and remains for tool usage only.</li>
+<li>This system is also significantly more bandwidth-efficient and has lower overhead than the legacy system.</li>
+<li>This now opens the gateway <a class="el" href="protocolto-p.html">to</a> easily implement lots of gameplay features which have been missing for a long time, such as enchanting, anvils, looms, and more.</li>
+<li>Significant changes have been made <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\network\mcpe\InventoryManager</code> internals. These shouldn't affect plugins, but may affect plugins which use internal network API.</li>
+<li><b>No changes have been made <a class="el" href="protocolto-p.html">to</a> the plugin <code>InventoryTransaction</code> API</b>.<ul>
+<li>This system has been implemented as a shim for the existing PocketMine-MP transaction system <a class="el" href="protocolto-p.html">to</a> preserve plugin compatibility. Plugins using <code>InventoryTransactionEvent</code> should continue <a class="el" href="protocolto-p.html">to</a> work seamlessly.</li>
+<li>The <code>InventoryTransaction</code> API will be redesigned in a future major version <a class="el" href="protocolto-p.html">to</a> make use of the new information provided by the <code>ItemStackRequest</code> system.</li>
+</ul>
+</li>
+<li><code>InventoryTransactionPacket</code> is no longer sent by the client for "regular" inventory actions. However, it is still sent when dropping items, interacting with blocks, and using items.</li>
+</ul>
+</li>
+<li>Inventory slot and content syncing is now buffered until the end of the tick. This reduces outbound network usage when the client performs multiple transactions in a single tick (e.g. crafting a stack of items).</li>
+<li>Renamed some <code>InventoryManager</code> internal properties <a class="el" href="protocolto-p.html">to</a> make them easier <a class="el" href="protocolto-p.html">to</a> understand.</li>
+<li><code>TypeConverter-&gt;createInventoryAction()</code> has been removed.</li>
+<li>Packet batch limit has been lowered <a class="el" href="protocolto-p.html">to</a> <code>100</code> packets. With the introduction of <code>ItemStackRequest</code>, this is more than sufficient for normal gameplay.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1110"></a>
+Other</h3>
+<ul>
+<li>Use <code>Vector3::zero()</code> instead of <code>new Vector3()</code> in some places. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

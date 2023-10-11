@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.9</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.9</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.12.0</b></p>
+<h3><a class="anchor" id="autotoc_md643"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md644"></a>
+3.9.0</h1>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.12.0</li>
+<li>Removed compatibility with 1.11.0</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md645"></a>
+Protocol</h2>
+<ul>
+<li>The following classes in the <code>\pocketmine\network\mcpe\protocol</code> namespace have been renamed:<ul>
+<li><code>AddEntityPacket</code> -&gt; <code>AddActorPacket</code></li>
+<li><code>AddItemEntityPacket</code> -&gt; <code>AddItemActorPacket</code></li>
+<li><code>AvailableEntityIdentifiersPacket</code> -&gt; <code>AvailableActorIdentifiersPacket</code></li>
+<li><code>BlockEntityDataPacket</code> -&gt; <code>BlockActorDataPacket</code></li>
+<li><code>EntityEventPacket</code> -&gt; <code>ActorEventPacket</code></li>
+<li><code>EntityFallPacket</code> -&gt; <code>ActorFallPacket</code></li>
+<li><code>EntityPickRequestPacket</code> -&gt; <code>ActorPickRequestPacket</code></li>
+<li><code>MoveEntityAbsolutePacket</code> -&gt; <code>MoveActorAbsolutePacket</code></li>
+<li><code>MoveEntityDeltaPacket</code> -&gt; <code>MoveActorDeltaPacket</code></li>
+<li><code>RemoveEntityPacket</code> -&gt; <code>RemoveActorPacket</code></li>
+<li><code>SetEntityDataPacket</code> -&gt; <code>SetActorDataPacket</code></li>
+<li><code>SetEntityLinkPacket</code> -&gt; <code>SetActorLinkPacket</code></li>
+<li><code>SetEntityMotionPacket</code> -&gt; <code>SetActorMotionPacket</code></li>
+<li><code>TakeItemEntityPacket</code> -&gt; <code>TakeItemActorPacket</code></li>
+</ul>
+</li>
+<li>The following classes in the <code>\pocketmine\network\mcpe\protocol</code> namespace have been removed:<ul>
+<li><code>FullChunkDataPacket</code></li>
+</ul>
+</li>
+<li>The following classes in the <code>\pocketmine\network\mcpe\protocol</code> namespace have been added:<ul>
+<li><code>AddEntityPacket</code> (not <a class="el" href="protocolto-p.html">to</a> be confused with the old one)</li>
+<li><code>ClientCacheBlobStatusPacket</code></li>
+<li><code>ClientCacheMissResponsePacket</code></li>
+<li><code>ClientCacheStatusPacket</code></li>
+<li><code>LevelChunkPacket</code></li>
+<li><code>RemoveEntityPacket</code> (not <a class="el" href="protocolto-p.html">to</a> be confused with the old one)</li>
+<li><code>StructureTemplateDataExportRequestPacket</code></li>
+<li><code>StructureTemplateDataExportResponsePacket</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md646"></a>
+3.9.1</h1>
+<ul>
+<li>Fixed resource packs not working on 1.12 clients.</li>
+<li>Fixed some particles displaying incorrectly (some still don't render at all).</li>
+<li>Fixed <code>Entity-&gt;setFireTicks()</code> with a value of <code>0</code> setting the on-fire flag.</li>
+<li>Silenced a debug message which appeared every time a player right-clicked a block.</li>
+<li>Updated constants for <code>LevelSoundEventPacket</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md647"></a>
+3.9.2</h1>
+<ul>
+<li><a class="el" href="interface_logger.html">Logger</a> warnings for illegal player movements have been lowered <a class="el" href="protocolto-p.html">to</a> debug.</li>
+<li>TNT explosions now start from the center instead of the base. This fixes unexpected results when TNT is lit on top of obsidian.</li>
+<li>Fixed the <code>loadbefore</code> directive in <code>plugin.yml</code> sometimes being ignored.</li>
+<li>Fixed <code>Item-&gt;setCustomName()</code> with an empty string leaving behind an empty tag.</li>
+<li>Fixed incorrect positioning of bucket empty sound.</li>
+<li>Fixed some incorrect tag parsing in <code>/give</code> involving quoted numbers.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md648"></a>
+3.9.3</h1>
+<ul>
+<li>Fixed a memory leak on async task removal in error conditions.</li>
+<li>Fixed scheduled block updates (for example liquid) triggering chunk reloading. This could cause a significant performance issue in some conditions.</li>
+<li>Fixed some minor cosmetic issues in documentation.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md649"></a>
+3.9.4</h1>
+<ul>
+<li>Fixed a memory leak when scheduled updates were pending on a chunk being unloaded.</li>
+<li>Fixed plugin detection in crashdumps. Previously <code>src/pocketmine</code> anywhere in the path would cause the error <a class="el" href="protocolto-p.html">to</a> be considered a core crash, regardless of the preceding path.</li>
+<li>Fixed entity metadata types for 1.12. The SLOT type was removed and a COMPOUND_TAG type added. This change involves changes <a class="el" href="protocolto-p.html">to</a> internal API which may break plugins. <b>See the warning at the top of this changelog about API versioning.</b></li>
+<li>Fixed random and base populator amounts of trees and tallgrass never being initialized. This bug had no obvious effect, but may have become a problem in future PHP versions.</li>
+<li>The following internal methods have been marked as <code>@deprecated</code> and documentation warnings added:<ul>
+<li><code>Entity-&gt;getBlocksAround()</code></li>
+<li><code>Entity-&gt;despawnFrom()</code></li>
+<li><code>Entity-&gt;despawnFromAll()</code></li>
+</ul>
+</li>
+<li>Fixed plugin <code>softdepend</code> not influencing load order when a soft-depended plugin had an unresolved soft dependency of its own.</li>
+<li>Fixed endless falling of sand on top of fences.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md650"></a>
+3.9.5</h1>
+<ul>
+<li>Fixed some issues with multiple consecutive commas inside quotes in form responses.</li>
+<li>Fixed server crash when the manifest json does not contain a json object in a resource pack.</li>
+<li>Ender pearls no longer collide with blocks that do not have any collision boxes.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md651"></a>
+3.9.6</h1>
+<ul>
+<li>Updated Composer dependencies <a class="el" href="protocolto-p.html">to</a> their latest versions.</li>
+<li>Prevent clients repeating the resource pack sequence. This fixes error spam with bugged 1.12 clients.</li>
+<li><code>Internet::simpleCurl()</code> now includes the PocketMine-MP version in the user-agent string.</li>
+<li>Spawn protection is now disabled by default in the setup wizard.</li>
+<li>Default difficulty is now NORMAL(2) instead of EASY(1).</li>
+<li>Fixed crashing on corrupted world manifest and unsupported world formats.</li>
+<li>Fixed <code>/transferserver</code> being usable without appropriate permissions.</li>
+<li><code>RegionLoader-&gt;removeChunk()</code> now writes the region header as appropriate.</li>
+<li>Fixed performance issue when loading large regions (bug in header validation).</li>
+<li>Fixed skin geometry being removed when the JSON contained comments.</li>
+<li>Added new constants <a class="el" href="protocolto-p.html">to</a> <code>EventPacket</code>.</li>
+<li>Added encode/decode for <code>StructureTemplateDataExportRequestPacket</code> and <code>StructureTemplateDataExportResponsePacket</code>.</li>
+<li>Fixed broken type asserts in <code>LevelChunkPacket::withCache()</code> and <code>ClientCacheMissResponsePacket::create()</code>.</li>
+<li><code>types\CommandParameter</code> field <code>byte1</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>flags</code>.</li>
+<li>Cleaned up public interface of <code>AvailableCommandsPacket</code>, removing fields which exposed details of the encoding scheme.</li>
+<li>Improved documentation for the following API methods:<ul>
+<li><code>pocketmine\item\Item</code>:<ul>
+<li><code>addCreativeItem()</code></li>
+<li><code>removeCreativeItem()</code></li>
+<li><code>clearCreativeItems()</code></li>
+</ul>
+</li>
+<li><code>pocketmine\level\Explosion</code>:<ul>
+<li><code>explodeA()</code></li>
+<li><code>explodeB()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fixed various cosmetic documentation inconsistencies in the core and dependencies.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md652"></a>
+3.9.7</h1>
+<ul>
+<li>Fixed a crash that could occur during timezone detection.</li>
+<li>Squid no longer spin around constantly in enclosed spaces. Their performance impact is reduced.</li>
+<li>Cleaned up the bootstrap file.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md653"></a>
+3.9.8</h1>
+<ul>
+<li>Added <a href="https://github.com/phpstan/phpstan">PHPStan</a> configuration. PHPStan is now used on CI for automated QA, which should improve stability and quality going forward.</li>
+<li>The following constants are now autoloaded when loading the Composer autoloader:<ul>
+<li><code>pocketmine\NAME</code></li>
+<li><code>pocketmine\BASE_VERSION</code></li>
+<li><code>pocketmine\IS_DEVELOPMENT_BUILD</code></li>
+<li><code>pocketmine\BUILD_NUMBER</code></li>
+<li><code>INT32_MIN</code></li>
+<li><code>INT32_MAX</code></li>
+<li><code>INT32_MASK</code></li>
+</ul>
+</li>
+<li>Fixed memory leaks and crashes caused by plugin use of <code>Player-&gt;showPlayer()</code> and <code>Entity-&gt;spawnTo()</code>.</li>
+<li>Fixed crashes that could occur when tile classes were overridden with classes incompatible with the originals.</li>
+<li>Fixed improper handling of non-Compound root NBT tags on network itemstack decoding.</li>
+<li>Fixed paintings dropping multiple items when destroyed by block updates.</li>
+<li>Fixed <code>var_dump()</code> not showing private and protected properties of <code>DataPacket</code> subclasses.</li>
+<li>Fixed overloads with zero arguments being missing when decoding <code>AvailableCommandsPacket</code>.</li>
+<li><code>CraftingDataPacket</code> now retains the <code>cleanRecipes</code> field when decoding.</li>
+<li>Fixed <code>Block-&gt;getMetadata()</code> returning null (non-iterable).</li>
+<li><code>PlayerChatEvent</code> documentation has been updated <a class="el" href="protocolto-p.html">to</a> specify that <code>CommandSender</code> recipients are accepted. This behaviour was already present in previous versions, but incorrectly documented.</li>
+<li>Fixed various issues with PHPDoc comments reported by PHPStan.</li>
+<li>Fixed various minor code nits reported by PHPStan. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: BlockStateUpgradeSchema</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">BlockStateUpgradeSchema</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md98"></a>(Mostly) auto-generated schemas for upgrading blockstates found in older Minecraft: Bedrock worlds</p>
+<h1><a class="anchor" id="autotoc_md99"></a>
+Contents</h1>
+<h2><a class="anchor" id="autotoc_md100"></a>
+&lt;tt&gt;nbt_upgrade_schema/*.json&lt;/tt&gt;</h2>
+<p>These schemas describe how <a class="el" href="protocolto-p.html">to</a> upgrade blockstate NBT from one version <a class="el" href="protocolto-p.html">to</a> the next. The structure of the schema is described in <code>nbt_upgrade_schema_schema.json</code>. An example implementation can be seen <a href="https://github.com/pmmp/PocketMine-MP/blob/5.4.2/src/data/bedrock/block/upgrade/BlockStateUpgrader.php#L37">in PocketMine-MP 5.4.2</a>.</p>
+<h3><a class="anchor" id="autotoc_md101"></a>
+Notes</h3>
+<ul>
+<li>Mojang don't always bump the format version when making backwards-incompatible changes. A prominent example of this is in the <a href="/nbt_upgrade_schema/0131_1.18.20.27_beta_to_1.18.30.json"><code>0131_1.18.20.27_beta_to_1.18.30.json</code></a>.</li>
+<li><code>remappedStates</code> requires different treatment than other rules:<ul>
+<li>It <b>must have highest priority</b></li>
+<li>If a blockstate matches a remap rule, <b>do not apply any other transformations</b> (the newly mapped state will be correct for the new version).</li>
+<li><code>oldState</code> acts as a <b>search criteria, not an exact match</b>.<ul>
+<li>Because of this, the remapped state rules must be tested in the order of most criteria <a class="el" href="protocolto-p.html">to</a> least criteria (this is the order they are provided in by the JSON).</li>
+<li>For example, the transformation of <code>minecraft:concrete</code> with <code>silver</code> colour is different from other colours, as seen in <a href="/nbt_upgrade_schema/0201_1.20.0.23_beta_to_1.20.10.24_beta.json#L69-L88"><code>0201_1.20.0.23_beta_to_1.20.10.24_beta.json</code></a>. If matches were tested in the wrong order, <code>silver</code> concrete would be transformed incorrectly.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>With the exception of <code>remappedStates</code>, modifications can be applied in any order, e.g. <code>renamedIds</code> can be applied before or after <code>renamedProperties</code>.<ul>
+<li>To facilitate this, <code>addedProperties</code>, <code>renamedProperties</code>, <code>removedProperties</code> and <code>remappedPropertyValues</code> always use the old blockID and old property names for indexing.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md102"></a>
+&lt;tt&gt;block_legacy_id_map.json&lt;/tt&gt;</h2>
+<p>This JSON file contains a mapping of string ID -&gt; legacy ID for all blocks known up 1.16.0.</p>
+<p>Technically, you'd only need everything up <a class="el" href="protocolto-p.html">to</a> 1.2.13, but the excess might be handy in some cases.</p>
+<h2><a class="anchor" id="autotoc_md103"></a>
+&lt;tt&gt;id_meta_to_nbt/*.bin&lt;/tt&gt;</h2>
+<p>These binary files contain mappings of all known valid ID/meta combinations <a class="el" href="protocolto-p.html">to</a> their corresponding blockstate NBTs for that version. For example, <code>1.12.0.bin</code> allows you <a class="el" href="protocolto-p.html">to</a> convert 1.12.0 ID/meta into 1.12.0 NBTs.</p>
+<h3><a class="anchor" id="autotoc_md104"></a>
+Usage</h3>
+<p>If you only plan <a class="el" href="protocolto-p.html">to</a> upgrade worlds <a class="el" href="protocolto-p.html">to</a> the latest version (1.20.1 at the time of writing), you will only need the 1.12.0 file, which will suffice for upgrading all older blocks (and blockitems) <a class="el" href="protocolto-p.html">to</a> 1.12 and newer.</p>
+<p>However, if you want <a class="el" href="protocolto-p.html">to</a> upgrade <a class="el" href="protocolto-p.html">to</a> 1.9, 1.10 or 1.11, you may need the 1.9.0 file in order <a class="el" href="protocolto-p.html">to</a> upgrade saved blockitems, as 1.9 started <a class="el" href="protocolto-p.html">to</a> save blockitems using blockstate NBT on disk. The 1.12.0 file won't be suitable for this case, as it contains the NBT blockstates appropriate for 1.12, which will not work on earlier versions.</p>
+<p>If you previously used the now-deleted <code>1.12.0_to_1.18.10_blockstate_map.bin</code>, you can replace it directly with the <code>1.12.0.bin</code>. You will need <a class="el" href="protocolto-p.html">to</a> upgrade the states within as before.</p>
+<h3><a class="anchor" id="autotoc_md105"></a>
+Schema</h3>
+<p>The file is structured as described below.</p>
+<ul>
+<li>unsigned varint32 - Number of entries<ul>
+<li>unsigned varint32 - block string ID length</li>
+<li>byte[] - block string ID</li>
+<li>unsigned varint32 - Number of meta -&gt; blockstate pairings<ul>
+<li>unsigned varint32 - Meta value</li>
+<li>TAG_Compound (standard little-endian) - NBT blockstate (as of that file's version) corresponding <a class="el" href="protocolto-p.html">to</a> the ID and meta pair</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md106"></a>
+Generating NBT upgrade schemas for new versions</h1>
+<p>First, you need <a class="el" href="protocolto-p.html">to</a> get a <code>.bin</code> mapping file, which you can obtain using the current version of BDS + <a href="https://github.com/pmmp/mapping">pmmp/mapping mod</a>. It requires that you place the palette for the previous version in <code>input_files/old_block_palettes</code>.</p>
+<p>The output file will be placed in <code>mapping_files/old_palette_mappings</code>. This file is then provided as the input for the <a href="https://github.com/pmmp/PocketMine-MP/blob/5.4.2/tools/generate-blockstate-upgrade-schema.php">schema generator script</a>, which produces the JSON schemas like the ones you see in this repo.</p>
+<p>Currently the code needed for this is baked into an experimental branch of PocketMine-MP; it's planned <a class="el" href="protocolto-p.html">to</a> separate it into its own library in the future.</p>
+<h1><a class="anchor" id="autotoc_md107"></a>
+Background</h1>
+<p>Since Minecraft Bedrock doesn't auto-upgrade terrain or inventories unless they've been loaded during a game session, any software that supports Minecraft Bedrock worlds has <a class="el" href="protocolto-p.html">to</a> accommodate all of the old blockstates all the way back <a class="el" href="protocolto-p.html">to</a> the first versions that used them, and many backwards-incompatible changes were made since then. If they do not, they may randomly fail <a class="el" href="protocolto-p.html">to</a> load chunks in older worlds that work just fine in latest Bedrock.</p>
+<p>Other projects such as <a href="https://github.com/CloudburstMC/BlockStateUpdater">CloudburstMC/BlockStateUpdater</a> attempted <a class="el" href="protocolto-p.html">to</a> address this by writing library code <a class="el" href="protocolto-p.html">to</a> deal with the problem; however, this approach comes with several problems:</p><ul>
+<li>it is non-portable (can't be used by a non-JVM language)</li>
+<li>it relies on manual analysis of the Minecraft server binary</li>
+<li>it is created manually by humans, which is naturally an error-prone process</li>
+<li>it may not include all changes due <a class="el" href="protocolto-p.html">to</a> the game's own code not accounting for all changes (i.e. Mojang themselves sometimes miss things or don't bother <a class="el" href="protocolto-p.html">to</a> account for things, such as the addition of <code>item_frame_photo_bit</code>)</li>
+</ul>
+<p>This project aims <a class="el" href="protocolto-p.html">to</a> address the problem by providing schemas describing how <a class="el" href="protocolto-p.html">to</a> upgrade blockstates without binding the information <a class="el" href="protocolto-p.html">to</a> any particular language. These schemas are developed for future use in <a href="https://github.com/pmmp/PocketMine-MP">PocketMine-MP</a>.</p>
+<p>It has the following advantages which make it desirable:</p><ul>
+<li>the schemas are JSON - any language and any implementation can parse and use them</li>
+<li>the quality of the mappings is guaranteed <a class="el" href="protocolto-p.html">to</a> be at least as good as Bedrock's own, due <a class="el" href="protocolto-p.html">to</a> being generated[^1] from information created by BDS itself using <a href="https://github.com/pmmp/mapping">pmmp/mapping</a> and <a href="https://github.com/pmmp/BlockPaletteArchive">pmmp/BlockPaletteArchive</a></li>
+<li>it includes changes which are not obvious from analysing the game code - e.g. properties such as <code>item_frame_photo_bit</code> were added without a version bump, and the game itself does not have an upgrader <a class="el" href="protocolto-p.html">to</a> add it</li>
+<li>tiny footprint - the schemas can be added <a class="el" href="protocolto-p.html">to</a> a binary with almost no noticeable increase in size after compression</li>
+</ul>
+<p>[^1]: Amended by hand in some cases, due <a class="el" href="protocolto-p.html">to</a> errors in Bedrock's own blockstate upgrader </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

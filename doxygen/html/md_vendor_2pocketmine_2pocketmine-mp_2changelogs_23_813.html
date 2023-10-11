@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.13</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.13</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.14.60</b></p>
+<p>This is a feature release, containing various minor API additions, deprecations and a few minor features.</p>
+<h3><a class="anchor" id="autotoc_md467"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md468"></a>
+3.13.0</h1>
+<h2><a class="anchor" id="autotoc_md469"></a>
+Core</h2>
+<ul>
+<li>PHP 7.3.0 or newer is now required.</li>
+<li>Player movement processing has been revamped. It's now more tolerant of network lag and doesn't have as many problems with falling.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md470"></a>
+User Interface</h2>
+<ul>
+<li><code>/time</code> now supports additional aliases <code>noon</code>, <code>sunset</code>, <code>midnight</code> and <code>sunrise</code>.</li>
+<li>Removed warnings when a plugin registers a handler for a deprecated event. Since this warning is developer-focused, and too specific <a class="el" href="protocolto-p.html">to</a> be useful, it just caused annoyance and confusion <a class="el" href="protocolto-p.html">to</a> users who didn't know what it meant.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md471"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md472"></a>
+General</h3>
+<ul>
+<li>It's now possible <a class="el" href="protocolto-p.html">to</a> require a specific operating system using the <code>os</code> directive in <code>plugin.yml</code>. More information about this directive can be found in the <a href="https://github.com/pmmp/DeveloperDocs">developer documentation</a>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md473"></a>
+Player</h3>
+<ul>
+<li><code>Player-&gt;resetItemCooldown()</code> now accepts a second parameter, allowing plugins <a class="el" href="protocolto-p.html">to</a> provide a custom duration.</li>
+<li>The following methods have been deprecated and have recommended replacements:<ul>
+<li><code>Player-&gt;addTitle()</code> -&gt; <code>Player-&gt;sendTitle()</code></li>
+<li><code>Player-&gt;addSubTitle()</code> -&gt; <code>Player-&gt;sendSubTitle()</code></li>
+<li><code>Player-&gt;addActionBarMessage()</code> -&gt; <code>Player-&gt;sendActionBarMessage()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md474"></a>
+Event</h3>
+<ul>
+<li>The following methods have been deprecated:<ul>
+<li><code>EntityDespawnEvent-&gt;getType()</code></li>
+<li><code>EntityDespawnEvent-&gt;getPosition()</code></li>
+<li><code>EntityDespawnEvent-&gt;isCreature()</code></li>
+<li><code>EntityDespawnEvent-&gt;isHuman()</code></li>
+<li><code>EntityDespawnEvent-&gt;isProjectile()</code></li>
+<li><code>EntityDespawnEvent-&gt;isVehicle()</code></li>
+<li><code>EntityDespawnEvent-&gt;isItem()</code></li>
+<li><code>EntitySpawnEvent-&gt;getType()</code></li>
+<li><code>EntitySpawnEvent-&gt;getPosition()</code></li>
+<li><code>EntitySpawnEvent-&gt;isCreature()</code></li>
+<li><code>EntitySpawnEvent-&gt;isHuman()</code></li>
+<li><code>EntitySpawnEvent-&gt;isProjectile()</code></li>
+<li><code>EntitySpawnEvent-&gt;isVehicle()</code></li>
+<li><code>EntitySpawnEvent-&gt;isItem()</code></li>
+</ul>
+</li>
+<li>Added the following API methods:<ul>
+<li><code>EntityDeathEvent-&gt;getXpDropAmount()</code></li>
+<li><code>EntityDeathEvent-&gt;setXpDropAmount()</code></li>
+</ul>
+</li>
+<li><code>PlayerDeathEvent::__construct()</code> now accepts a fourth (optional) parameter <code>int $xp</code>.</li>
+<li><code>EntityDeathEvent::__construct()</code> now accepts a third (optional) parameter <code>int $xp</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md475"></a>
+Inventory</h3>
+<ul>
+<li>The following classes have been deprecated:<ul>
+<li><code>Recipe</code></li>
+</ul>
+</li>
+<li>The following methods have been deprecated:<ul>
+<li><code>CraftingManager-&gt;registerRecipe()</code></li>
+<li><code>Recipe-&gt;registerToCraftingManager()</code> (and all its implementations)</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md476"></a>
+Item</h3>
+<ul>
+<li>New <code>Enchantment</code> type ID constants have been added.</li>
+<li><code>ItemFactory::fromStringSingle()</code> has been added. This works exactly the same as <code>ItemFactory::fromString()</code>, but it has a return type of <code>Item</code> instead of <code>Item|Item[]</code> (more static analysis friendly).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md477"></a>
+Level</h3>
+<ul>
+<li>Added the following API methods:<ul>
+<li><code>Position-&gt;getLevelNonNull()</code>: this is the same as <code>Position-&gt;getLevel()</code>, but throws an <code>AssumptionFailedError</code> if the level is null or invalid (more static analysis friendly).</li>
+<li><code>Level-&gt;getTimeOfDay()</code></li>
+</ul>
+</li>
+<li>The following constants have been changed:<ul>
+<li><code>Level::TIME_DAY</code> now has a value of <code>1000</code></li>
+<li><code>Level::TIME_NIGHT</code> now has a value of <code>13000</code></li>
+</ul>
+</li>
+<li>Added the following constants:<ul>
+<li><code>Level::TIME_MIDNIGHT</code></li>
+<li><code>Level::TIME_NOON</code></li>
+</ul>
+</li>
+<li>The following types of particles now accept optional <code>Color</code> parameters in the constructor:<ul>
+<li><code>EnchantParticle</code></li>
+<li><code>InstantEnchantParticle</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md478"></a>
+Network</h3>
+<ul>
+<li>Added the following API methods:<ul>
+<li><code>RakLibInterface-&gt;setPacketLimit()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md479"></a>
+Scheduler</h3>
+<p>AsyncTask thread-local storage has been improved, making it simpler and easier <a class="el" href="protocolto-p.html">to</a> use.</p><ul>
+<li><code>AsyncTask-&gt;fetchLocal()</code> no longer deletes stored thread-local data. Instead, the storage behaves more like properties, and gets deleted when the AsyncTask object goes out of scope.</li>
+<li><code>AsyncTask-&gt;peekLocal()</code> has been <code>@deprecated</code> (use <code>fetchLocal()</code> instead).</li>
+<li>Notices are no longer emitted if an async task doesn't fetch its locally stored data.</li>
+<li>The following methods have been deprecated:<ul>
+<li><code>AsyncTask-&gt;getFromThreadStore()</code> (use its worker's corresponding method)</li>
+<li><code>AsyncTask-&gt;saveToThreadStore()</code> (use its worker's corresponding method)</li>
+<li><code>AsyncTask-&gt;removeFromThreadStore()</code> (use its worker's corresponding method)</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md480"></a>
+Utils</h3>
+<ul>
+<li>The following functions have been deprecated and have recommended replacements:<ul>
+<li><code>Utils::getMemoryUsage()</code> -&gt; split into <code>Process::getMemoryUsage()</code> and <code>Process::getAdvancedMemoryUsage()</code> (not 1:1 replacement!!)</li>
+<li><code>Utils::getRealMemoryUsage()</code> -&gt; <code>Process::getRealMemoryUsage()</code></li>
+<li><code>Utils::getThreadCount()</code> -&gt; <code>Process::getThreadCount()</code></li>
+<li><code>Utils::kill()</code> -&gt; <code>Process::kill()</code></li>
+<li><code>Utils::execute()</code> -&gt; <code>Process::execute()</code></li>
+</ul>
+</li>
+<li>Added the following constants:<ul>
+<li><code>Utils::OS_WINDOWS</code></li>
+<li><code>Utils::OS_IOS</code></li>
+<li><code>Utils::OS_MACOS</code></li>
+<li><code>Utils::OS_ANDROID</code></li>
+<li><code>Utils::OS_LINUX</code></li>
+<li><code>Utils::OS_BSD</code></li>
+<li><code>Utils::OS_UNKNOWN</code></li>
+</ul>
+</li>
+<li>Added the following API methods:<ul>
+<li><code>Config-&gt;getPath()</code></li>
+<li><code>Utils::recursiveUnlink()</code></li>
+<li><code>Terminal::write()</code></li>
+<li><code>Terminal::writeLine()</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md481"></a>
+3.13.1</h1>
+<ul>
+<li>Fixed issues with <code>server.lock</code> not being unlocked on some platforms. Now, the server explicitly releases it before exiting.</li>
+<li><code>/timings</code> now sends a usage message when using an unknown subcommand. Previously, it would just give no output.</li>
+<li><code>/whitelist</code> now sends a usage message when using an unknown subcommand. Previously, it would just give no output.</li>
+<li>The output from <code>/timings</code> is now broadcasted on the <code>pocketmine.broadcast.admin</code> broadcast channel for auditability, similarly <a class="el" href="protocolto-p.html">to</a> other operator commands.</li>
+<li>Fixed <code>ShapedRecipe</code> deprecation warning on PHP 7.4.</li>
+<li>Fixed some potential crashes with Bedrock worlds when chunk data is corrupted or missing.</li>
+<li>Fixed a bug in region handling that caused region loaders <a class="el" href="protocolto-p.html">to</a> overestimate the amount of space used in the file. This resulted in an up <a class="el" href="protocolto-p.html">to</a> 4 MB growth of the file size every time the region was reloaded after writing a chunk.</li>
+<li>Region handlers now try <a class="el" href="protocolto-p.html">to</a> reuse free space in region files before putting the chunk at the end of the file. Previously, space was only reused if the new version of the chunk was &lt;= the size of the old. This fixes endless growth of region files.</li>
+<li>Regions now never directly overwrite old copies of chunks when saving; instead they try <a class="el" href="protocolto-p.html">to</a> find an alternative location (preferring unused space within the file first). This avoids chunk corruption on power failure (the old copy of the chunk won't be damaged, so a rollback might occur instead), and as happy side effect, causes oversized regions <a class="el" href="protocolto-p.html">to</a> gradually shrink towards their most packed state over time, saving disk space.</li>
+<li>Regions now have a hard size cap at 64 GB. This is because the header pointers will overflow beyond 64 GB (besides, a normal region shouldn't be this big anyway).</li>
+<li>Fixed a crash that could occur when reading a too-short region header.</li>
+<li><code>VerifyLoginTask</code> now only copies JWTs <a class="el" href="protocolto-p.html">to</a> verify instead of the entire login packet. This reduces the amount of data copied between threads, improving performance.</li>
+<li>Added a fast-fail check <a class="el" href="protocolto-p.html">to</a> <code>VerifyLoginTask</code> by checking the JWT header's <code>x5u</code> against the expected public key.</li>
+<li><code>Skin-&gt;validate()</code> now throws <code>InvalidSkinException</code> instead of <code>\InvalidArgumentException</code>.</li>
+<li>A debug message is now logged when a player is kicked for having an invalid skin, giving a brief line of detail why.</li>
+<li>Fixed players not being kicked for having an invalid <code>resourcePatch</code>.</li>
+<li>Fixed block meta value of cake being preserved when using pick-block.</li>
+<li>Fixed explosions not fully destroying multi-block objects like beds and doors. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

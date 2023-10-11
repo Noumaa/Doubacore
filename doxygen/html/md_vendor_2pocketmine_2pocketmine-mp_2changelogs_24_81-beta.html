@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.1-beta</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.1-beta</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.18.0</b></p>
+<h3><a class="anchor" id="autotoc_md894"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md895"></a>
+4.1.0-BETA1</h1>
+<p>Released 22nd January 2022.</p>
+<h2><a class="anchor" id="autotoc_md896"></a>
+General</h2>
+<ul>
+<li>Game mode names (e.g. <code>survival</code>, <code>creative</code>) may now be used for the <code>gamemode</code> property in <code>server.properties</code>.</li>
+<li>Increased default maximum render distance <a class="el" href="protocolto-p.html">to</a> 16 chunks. Players with a render distance smaller than this will notice no difference.</li>
+<li>The setup wizard now prompts for a maximum render distance value.</li>
+<li>The setup wizard now prompts for an IPv6 port selection. Previously it would always use 19133.</li>
+<li><code>chunk-ticking.disable-block-ticking</code> now accepts block names like those used in the <code>/give</code> command.</li>
+<li>The <code>/clear</code> command now behaves more like vanilla:<ul>
+<li>The order of inventories is now the same as Bedrock.</li>
+<li>The cursor and offhand inventories are now cleared if necessary.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md897"></a>
+Technical</h2>
+<ul>
+<li><code>PlayerAuthInputPacket</code> is now used instead of <code>MovePlayerPacket</code> for processing movements. This improves position and rotation accuracy.</li>
+<li><code>&amp;&amp;</code> and <code>||</code> are now always used instead of <code>and</code> and <code>or</code>.</li>
+<li>New version of <code>pocketmine/errorhandler</code> is used by this version, adding support for <code>ErrorToExceptionHandler::trap()</code>. This enables reliably capturing <code>E_WARNING</code> and <code>E_NOTICE</code> from functions such as <code>yaml_parse()</code> and friends.</li>
+<li>New dependency versions are required by this version:<ul>
+<li><code>pocketmine/bedrock-protocol</code> has been updated from 7.1.0 <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/pmmp/BedrockProtocol/releases/tag/7.3.0%2Bbedrock-1.18.0">7.3.0</a>.</li>
+<li><code>pocketmine/errorhandler</code> has been updated from 0.3.0 <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/pmmp/ErrorHandler/releases/tag/0.6.0">0.6.0</a>.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md898"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md899"></a>
+Block</h3>
+<ul>
+<li>The following classes have been added:<ul>
+<li><code>Lectern</code></li>
+<li><code>Pumpkin</code></li>
+</ul>
+</li>
+<li>The following public API methods have been added:<ul>
+<li><code>Block-&gt;getTypeId() : int</code> - returns an integer which uniquely identifies the block type, ignoring things like facing, colour etc.</li>
+<li><code>VanillaBlocks::LECTERN()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md900"></a>
+Entity</h3>
+<ul>
+<li>The following classes have been added:<ul>
+<li><code>animation\ItemEntityStackSizeChangeAnimation</code></li>
+</ul>
+</li>
+<li>The following public API methods have been added:<ul>
+<li><code>object\ItemEntity-&gt;isMergeable(object\ItemEntity $other) : bool</code></li>
+<li><code>object\ItemEntity-&gt;setStackSize(int $size) : void</code></li>
+<li><code>object\ItemEntity-&gt;tryMergeInto(object\ItemEntity $other) : bool</code></li>
+<li><code>ExperienceManager-&gt;canAttractXpOrbs() : bool</code></li>
+<li><code>ExperienceManager-&gt;setCanAttractXpOrbs(bool $v = true) : void</code></li>
+<li><code>Entity-&gt;getSize() : EntitySizeInfo</code></li>
+<li><code>Living-&gt;isGliding() : bool</code></li>
+<li><code>Living-&gt;isSwimming() : bool</code></li>
+<li><code>Living-&gt;setGliding(bool $value = true) : void</code></li>
+<li><code>Living-&gt;setSwimming(bool $value = true) : void</code></li>
+</ul>
+</li>
+<li>The following protected API methods have been added:<ul>
+<li><code>Entity-&gt;getBlocksIntersected(float $inset) : \Generator&lt;int, Block, void, void&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md901"></a>
+Event</h3>
+<ul>
+<li><code>BlockSpreadEvent</code> is now called when fire spreads <a class="el" href="protocolto-p.html">to</a> the positions of blocks it burns away.</li>
+<li><code>BlockFormEvent</code> is now called when concrete powder turns into concrete due <a class="el" href="protocolto-p.html">to</a> contact with water.</li>
+<li>The following classes have been added:<ul>
+<li><code>BlockMeltEvent</code> - called when ice or snow melts</li>
+<li><code>ChestPairEvent</code> - called when two chests try <a class="el" href="protocolto-p.html">to</a> form a pair</li>
+<li><code>PlayerToggleGlideEvent</code> - called when a player starts or stops gliding</li>
+<li><code>PlayerToggleSwimEvent</code> - called when a player starts or stops swimming</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md902"></a>
+Item</h3>
+<ul>
+<li>The following public API methods have been added:<ul>
+<li><code>SplashPotion-&gt;getType() : PotionType</code></li>
+<li><code>VanillaItems::AIR()</code></li>
+</ul>
+</li>
+<li>The following API methods have been deprecated:<ul>
+<li><code>ItemFactory::air()</code> - use <code>VanillaItems::AIR()</code> instead</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md903"></a>
+Player</h3>
+<ul>
+<li>The following public API methods have been added:<ul>
+<li><code>Player-&gt;hasBlockCollision() : bool</code></li>
+<li><code>Player-&gt;setHasBlockCollision(bool $value)</code> - allows controlling spectator-like no-clip behaviour without changing game mode</li>
+<li><code>Player-&gt;toggleSwim(bool $swim) : bool</code> - called by the network system when the client tries <a class="el" href="protocolto-p.html">to</a> start/stop swimming</li>
+<li><code>Player-&gt;toggleGlide(bool $glide) : bool</code> - called by the network system when the client tries <a class="el" href="protocolto-p.html">to</a> start/stop gliding</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md904"></a>
+Server</h3>
+<ul>
+<li>The following public API constants have been added:<ul>
+<li><code>Server::DEFAULT_SERVER_NAME</code></li>
+<li><code>Server::DEFAULT_MAX_PLAYERS</code></li>
+<li><code>Server::DEFAULT_PORT_IPV4</code></li>
+<li><code>Server::DEFAULT_PORT_IPV6</code></li>
+<li><code>Server::DEFAULT_MAX_VIEW_DISTANCE</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md905"></a>
+Utils</h3>
+<ul>
+<li>Config parsing errors are now always represented by <code>ConfigLoadException</code> and include the path <a class="el" href="protocolto-p.html">to</a> the file in the message.</li>
+<li>Added <code>TextFormat::MINECOIN_GOLD</code>, and support for it <a class="el" href="protocolto-p.html">to</a> the various <code>TextFormat</code> methods.</li>
+<li>The following public API methods have been added:<ul>
+<li><code>Utils::assumeNotFalse()</code> - static analysis crutch <a class="el" href="protocolto-p.html">to</a> silence PHPStan errors without using <code>ignoreErrors</code> or <code>@phpstan-ignore-line</code>, which are both too coarse.</li>
+</ul>
+</li>
+<li>The following public API properties have been added:<ul>
+<li><code>Terminal::$COLOR_MINECOIN_GOLD</code></li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>ConfigLoadException</code></li>
+</ul>
+</li>
+<li>Fixed <code>Random-&gt;nextSignedInt()</code> <a class="el" href="protocolto-p.html">to</a> actually return a signed int. Previously it would return any integer value between 0 and 4,294,957,295.</li>
+<li>Fixed <code>Random-&gt;nextSignedFloat()</code> <a class="el" href="protocolto-p.html">to</a> return a float between <code>-1.0</code> and <code>1.0</code>. Previously it would return any value between <code>0.0</code> and <code>2.0</code>.</li>
+<li><code>VersionString-&gt;getNumber()</code> output is now structured differently <a class="el" href="protocolto-p.html">to</a> fix overflow issues caused by the old format.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md906"></a>
+World</h3>
+<ul>
+<li>The following classes have been added:<ul>
+<li><code>sound\ItemUseOnBlockSound</code></li>
+<li><code>sound\LecternPlaceBookSound</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md907"></a>
+Gameplay</h2>
+<h3><a class="anchor" id="autotoc_md908"></a>
+Blocks</h3>
+<ul>
+<li>Fire now spreads.</li>
+<li>Implemented lectern blocks.</li>
+<li>Added missing sounds for hoeing grass and dirt.</li>
+<li>Added missing sounds for using a shovel on grass <a class="el" href="protocolto-p.html">to</a> create grass path.</li>
+<li>Pumpkins can now be carved using shears.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md909"></a>
+Items</h3>
+<ul>
+<li>Dropped items of the same type now merge with each other.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md910"></a>
+Misc</h3>
+<ul>
+<li>Implemented player swimming.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md911"></a>
+4.1.0-BETA2</h1>
+<p>Released 27th January 2022.</p>
+<h2><a class="anchor" id="autotoc_md912"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md913"></a>
+Block</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>utils\BrewingStandSlot-&gt;getSlotNumber() : int</code></li>
+<li><code>utils\FurnaceType-&gt;getCookSound() : Sound</code></li>
+</ul>
+</li>
+<li>The following API constants have been added:<ul>
+<li><code>tile\BrewingStand::BREW_TIME_TICKS</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md914"></a>
+Crafting</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>CraftingManager-&gt;getPotionContainerChangeRecipes() : array&lt;int, array&lt;string, PotionContainerChangeRecipe&gt;&gt;</code></li>
+<li><code>CraftingManager-&gt;getPotionTypeRecipes() : array&lt;string, array&lt;string, PotionTypeRecipe&gt;&gt;</code></li>
+<li><code>CraftingManager-&gt;registerPotionContainerChangeRecipe(PotionContainerChangeRecipe $recipe) : void</code></li>
+<li><code>CraftingManager-&gt;registerPotionTypeRecipe(PotionTypeRecipe $recipe) : void</code></li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>BrewingRecipe</code></li>
+<li><code>PotionContainerChangeRecipe</code></li>
+<li><code>PotionTypeRecipe</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md915"></a>
+Event</h3>
+<ul>
+<li>The following classes have been added:<ul>
+<li><code>BrewItemEvent</code> - called when a brewing stand finishes brewing potions; this is called up <a class="el" href="protocolto-p.html">to</a> 3 times (once for each brewing slot, as needed)</li>
+<li><code>BrewingFuelUseEvent</code> - called when a brewing stand consumes blaze powder</li>
+<li><code>PlayerViewDistanceChangeEvent</code> - called whenever a player alters their render distance or requests one for the first time when connecting</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md916"></a>
+World</h3>
+<h4><a class="anchor" id="autotoc_md917"></a>
+Sound</h4>
+<ul>
+<li>The following classes have been added:<ul>
+<li><code>BlastFurnaceSound</code> - the sound made by a blast furnace during smelting</li>
+<li><code>FurnaceSound</code> - the sound made by a regular furnace during cooking or smelting</li>
+<li><code>PotionFinishBrewingSound</code> - the sound made by a brewing stand when a potion finishes being brewed</li>
+<li><code>SmokerSound</code> - the sound made by a smoker during cooking</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md918"></a>
+Gameplay</h2>
+<h3><a class="anchor" id="autotoc_md919"></a>
+Blocks</h3>
+<ul>
+<li>Brewing stands can now be used for brewing potions.</li>
+<li>The visual appearance of a brewing stand now updates correctly when the contents of its inventory changes (adding/removing potions).</li>
+<li>Added missing sounds for furnace, blast furnace and smoker.</li>
+<li>Fixed ender chest not dropping itself when mined with a Silk Touch pickaxe.</li>
+<li>Cobwebs now drop themselves when mined using shears.</li>
+<li>The correct amount of fall damage is now taken when falling from a height onto hay bales.</li>
+<li>Fixed block updating bug introduced by beta1 which caused crops and other plants <a class="el" href="protocolto-p.html">to</a> never grow.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md920"></a>
+Misc</h3>
+<ul>
+<li>Added a workaround for client hitbox size bug after swimming which caused the player <a class="el" href="protocolto-p.html">to</a> be able <a class="el" href="protocolto-p.html">to</a> fit into one-block-tall gaps. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

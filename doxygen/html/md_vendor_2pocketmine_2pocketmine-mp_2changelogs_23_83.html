@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.3</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.3</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.7.0</b></p>
+<h3><a class="anchor" id="autotoc_md578"></a>
+Note</h3>
+<p>Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the bug fixes in this build.</p>
+<h1><a class="anchor" id="autotoc_md579"></a>
+3.3.0</h1>
+<ul>
+<li>Compatibility with Minecraft: Bedrock Edition 1.7.0</li>
+<li>Removed compatibility with 1.6.0</li>
+<li><code>Player-&gt;sendForm()</code> now throws a proper exception when failing <a class="el" href="protocolto-p.html">to</a> JSON-encode <code>Form</code> objects given <a class="el" href="protocolto-p.html">to</a> it.</li>
+<li>Fixed crash when handling later packets in a batch when an earlier packet triggered termination of the player's connection.</li>
+<li>Fixed a race condition causing progress updates in <code>AsyncTasks</code> <a class="el" href="protocolto-p.html">to</a> be lost when published near completion.</li>
+<li>Fixed bad decoding for some packets with unsupported structures.</li>
+<li>Crash dumps no longer report 20 empty lines when an error occurs in <code>eval()</code>'d code.</li>
+<li><code>pocketmine/nbt</code> dependency updated <a class="el" href="protocolto-p.html">to</a> <code>0.2.2</code> <a class="el" href="protocolto-p.html">to</a> fix bugs (see NBT repo for changelog).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md580"></a>
+3.3.1</h1>
+<ul>
+<li>Chunk ticking no longer occurs in chunks which have an adjacent unloaded chunks, fixing things like grass ticking triggering unintentional chunk loading.</li>
+<li>Fixed some lighting propagation issues where step count is the same but light level is different.</li>
+<li>Fixed full-chunk light repopulation producing broken lighting when the generator hasn't been registered on a worker.</li>
+<li>Fixed a missing field in <code>MoveEntityDeltaPacket</code>.</li>
+<li>Added client-sided rate limiting for crashdump reporting <a class="el" href="protocolto-p.html">to</a> mitigate involuntary DDoS of the crash archive.</li>
+<li>Fixed a bug in <code>start.cmd</code> where quotes would appear around the "couldn't find installation" message.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md581"></a>
+3.3.2</h1>
+<ul>
+<li>Added a network-layer check for item NBT size <a class="el" href="protocolto-p.html">to</a> avoid unexplained client-sided crashes due <a class="el" href="protocolto-p.html">to</a> length overflow.</li>
+<li>Fixed some desync bugs with double chests when one half of a double chest is unloaded.</li>
+<li>Anonymous class timings will now have a cleaned path for the identifier relative <a class="el" href="protocolto-p.html">to</a> the plugins directory.</li>
+<li>Anonymous class timings now render correctly on timings.pmmp.io.</li>
+<li>Fixed empty garbage subchunks not getting removed from long-life chunks.</li>
+<li><code>start.ps1</code>, <code>start.sh</code> and <code>start.cmd</code> no longer recognize source-code installations. Since source-code installations should only be used by developers who know what they are doing anyway, this was considered unwise <a class="el" href="protocolto-p.html">to</a> keep.</li>
+<li>Fixed a bug/oversight in network chunk preparation that caused chunk prepare <a class="el" href="protocolto-p.html">to</a> be 4x slower than necessary.</li>
+<li><code>Chunk-&gt;fastSerialize()</code> now doesn't serialize useless data (data is omitted based on chunk flags). This significantly reduces the amount of useless data getting copied for generation, population and light calculation.</li>
+<li><code>TaskHandler-&gt;cancel()</code> was incorrectly marked as <code>@internal</code> in 2014. This has been fixed. Plugin developers should in fact prefer <code>TaskHandler-&gt;cancel()</code> since it does not require a task <a class="el" href="protocolto-p.html">to</a> have a circular dependency on its own executor.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md582"></a>
+3.3.3</h1>
+<ul>
+<li>Development build error messages are now more user friendly.</li>
+<li>Fixed meta-only changes not getting saved correctly in <code>SubChunk-&gt;setBlock()</code>.</li>
+<li>Server will now sleep for up <a class="el" href="protocolto-p.html">to</a> 120 seconds on a crash if the uptime was less than 120 seconds. This delay is intended <a class="el" href="protocolto-p.html">to</a> reduce crash archive spam and can be skipped by the user if attended by pressing CTRL+C.</li>
+<li>Fixed preprocessed builds sometimes having <code>new</code> calls treated as function calls.</li>
+<li>Fixed a rare corruption case where player data could be written incorrectly due <a class="el" href="protocolto-p.html">to</a> a race condition.</li>
+<li><code>DataPacket</code> will now throw errors when attempting <a class="el" href="protocolto-p.html">to</a> read/write nonexisting fields <a class="el" href="protocolto-p.html">to</a> make it easier <a class="el" href="protocolto-p.html">to</a> debug protocol change errors.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md583"></a>
+3.3.4</h1>
+<ul>
+<li>Fixed an undefined <code>DataPacket</code> field making the previous release unusable. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

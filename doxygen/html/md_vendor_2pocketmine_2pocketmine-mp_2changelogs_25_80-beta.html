@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 5.0-beta</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">5.0-beta</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.62</b></p>
+<p>5.0.0 is a major update <a class="el" href="protocolto-p.html">to</a> PocketMine-MP, including many new features and API changes. It is <b>not</b> compatible with plugins written for previous versions of PocketMine-MP.</p>
+<p><b>During the beta phase, no new features will be added.</b></p>
+<p>This stage of development is focused on stability and cleaning up any major issues introduced during the alpha stage.</p>
+<h2><a class="anchor" id="autotoc_md1468"></a>
+WARNING</h2>
+<p><b>This is a BETA release.</b> This means that it may be unstable, and is not yet ready for production use.</p>
+<p>Since this version has undergone substantial changes compared <a class="el" href="protocolto-p.html">to</a> 4.x, plugins written for 4.x will need <a class="el" href="protocolto-p.html">to</a> be updated <a class="el" href="protocolto-p.html">to</a> work on this version.</p>
+<p>Breaking API changes may still occur during the beta phase, but only if they are strictly necessary <a class="el" href="protocolto-p.html">to</a> fix a problem prior <a class="el" href="protocolto-p.html">to</a> full release.</p>
+<p><b>BACK UP your data before testing this.</b> This version will work with worlds and player data from 4.x, BUT any world or player data loaded in 5.0.0 will not work in 4.x due <a class="el" href="protocolto-p.html">to</a> backwards-incompatible storage format changes.</p>
+<h1><a class="anchor" id="autotoc_md1469"></a>
+5.0.0-BETA1</h1>
+<p>Released 7th March 2023.</p>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA1/changelogs/5.0-alpha.md">All 5.0.0 alpha releases</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA1/changelogs/4.15.md#4152">4.15.2</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA1/changelogs/4.15.md#4153">4.15.3</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA1/changelogs/4.16.md#4160">4.16.0</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1470"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1471"></a>
+&lt;tt&gt;pocketmine\block&lt;/tt&gt;</h3>
+<ul>
+<li>Improved documentation for the following methods:<ul>
+<li><code>Block-&gt;getTypeId()</code></li>
+<li><code>Block-&gt;getStateId()</code></li>
+<li><code>Block-&gt;describeType()</code></li>
+<li><code>Block-&gt;describeState()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1472"></a>
+&lt;tt&gt;pocketmine\command&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have been renamed:<ul>
+<li><code>Command-&gt;getPermission()</code> -&gt; <code>Command-&gt;getPermissions()</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1473"></a>
+Internals</h2>
+<ul>
+<li>The following methods have been renamed:<ul>
+<li><code>Block-&gt;computeStateData()</code> -&gt; <code>Block-&gt;computeTypeAndStateData()</code></li>
+<li><code>Block-&gt;decodeStateData()</code> -&gt; <code>Block-&gt;decodeTypeAndStateData()</code></li>
+</ul>
+</li>
+<li>Wall state data now packs connections into 7 bits instead of 8.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1474"></a>
+5.0.0-BETA2</h1>
+<p>Released 11th April 2023.</p>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.17.md#4170">4.17.0</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.17.md#4171">4.17.1</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.17.md#4172">4.17.2</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.18.md#4180">4.18.0</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.18.md#4181">4.18.1</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.18.md#4182">4.18.2</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.18.md#4183">4.18.3</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.18.md#4184">4.18.4</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA2/changelogs/4.19.md#4190">4.19.0</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1475"></a>
+Tools</h2>
+<ul>
+<li>Added script <code>tools/generate-bedrock-data-from-packets.php</code>. This tool accepts a txt file containing base64-encoded packet dumps.<ul>
+<li>This script has been used <a class="el" href="protocolto-p.html">to</a> generate data for <a href="https://github.com/pmmp/BedrockData">BedrockData</a> for several years, but has only now been open-sourced.</li>
+<li>It's used <a class="el" href="protocolto-p.html">to</a> generate data such as crafting recipes, creative inventory data, and various other blobs of data needed <a class="el" href="protocolto-p.html">to</a> support the current version of Minecraft: Bedrock Edition.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1476"></a>
+Gameplay</h2>
+<ul>
+<li>Anvils now damage entities when they fall on top of them.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1477"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1478"></a>
+&lt;tt&gt;pocketmine\block\utils&lt;/tt&gt;</h3>
+<ul>
+<li>The following API interface requirements have been added (BC breaking):<ul>
+<li><code>public Fallable-&gt;getFallDamagePerBlock() : float</code> (default implementation provided by <code>FallableTrait</code>)</li>
+<li><code>public Fallable-&gt;getMaxFallDamage() : float</code> (default implementation provided by <code>FallableTrait</code>)</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1479"></a>
+&lt;tt&gt;pocketmine\data\bedrock\block&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public BlockStateData-&gt;getVersionAsString() : string</code></li>
+</ul>
+</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md1480"></a>
+&lt;tt&gt;pocketmine\data\bedrock\block\upgrade\model&lt;/tt&gt;</h4>
+<ul>
+<li><code>BlockStateUpgradeSchemaModelBlockRemap</code> now accepts <code>null</code> for <code>oldState</code> and <code>newState</code>. This makes it easier <a class="el" href="protocolto-p.html">to</a> generate portable schemas for other languages <a class="el" href="protocolto-p.html">to</a> read.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1481"></a>
+&lt;tt&gt;pocketmine\event\entity&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API constants have been added:<ul>
+<li><code>EntityDamageEvent::CAUSE_FALLING_BLOCK</code></li>
+<li><code>EntityDamageEvent::MODIFIER_ARMOR_HELMET</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1482"></a>
+&lt;tt&gt;pocketmine\item&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have signature changes:<ul>
+<li><code>ItemTypeIds::toBlockTypeId()</code> may now return <code>null</code> if the item type ID is not a block.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1483"></a>
+&lt;tt&gt;pocketmine\player&lt;/tt&gt;</h3>
+<ul>
+<li>The following classes have been removed:<ul>
+<li><code>PlayerChunkLoader</code> - deprecated in 4.19.0 (this was technically internal, but never marked as such)</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1484"></a>
+Internals</h2>
+<ul>
+<li>Make use of <code>Item-&gt;canStackWith()</code> instead of <code>Item-&gt;equals()</code> wherever possible, <a class="el" href="protocolto-p.html">to</a> make the code more readable.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1485"></a>
+5.0.0-BETA3</h1>
+<p>Released 17th May 2023.</p>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.19.md#4191">4.19.1</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.19.md#4192">4.19.2</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.19.md#4193">4.19.3</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.20.md#4200">4.20.0</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.20.md#4201">4.20.1</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.20.md#4202">4.20.2</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.20.md#4203">4.20.3</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.20.md#4204">4.20.4</a></li>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.0.0-BETA3/changelogs/4.21.md#4210">4.21.0</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1486"></a>
+General</h2>
+<ul>
+<li>Improved light propagation performance by 10-15%.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1487"></a>
+Fixes</h2>
+<ul>
+<li>Fixed late initialization of coral type in <code>BaseCoral</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1488"></a>
+Tools</h2>
+<ul>
+<li><code>tools/generate-blockstate-upgrade-schema.php</code> has the following improvements:<ul>
+<li>Now generates better errors when inconsistent blockstate versions are encountered.</li>
+<li>Now generates more stable outputs when re-run on the same input.</li>
+<li>Output now uses <code>copiedState</code> in <code>remappedStates</code> where possible. This significantly reduces the size of the output for blocks with partially flattened states.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1489"></a>
+Gameplay</h2>
+<ul>
+<li>The following blocks have been added:<ul>
+<li>Cave Vines</li>
+</ul>
+</li>
+<li>The following items have been added:<ul>
+<li>Glow Berries</li>
+<li>Mangrove Boat (incomplete)</li>
+</ul>
+</li>
+<li>Fixed flower pots being able <a class="el" href="protocolto-p.html">to</a> be placed inside flower pots.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1490"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1491"></a>
+&lt;tt&gt;pocketmine\block&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have been renamed:<ul>
+<li><code>Block-&gt;isSameType()</code> -&gt; <code>Block-&gt;hasSameTypeId()</code></li>
+<li><code>Block-&gt;describeType()</code> -&gt; <code>Block-&gt;describeBlockItemState()</code></li>
+<li><code>Block-&gt;describeState()</code> -&gt; <code>Block-&gt;describeBlockOnlyState()</code></li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Block-&gt;getRequiredTypeDataBits()</code></li>
+<li><code>Block-&gt;getRequiredStateDataBits()</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>public Block-&gt;generateStatePermutations() : \Generator&lt;int, Block, void, void&gt;</code> - yields all possible states this block type can be in (used for <code>RuntimeBlockStateRegistry</code>)</li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>Sapling::__construct()</code> now accepts <code>SaplingType $saplingType</code> instead of <code>TreeType $treeType</code></li>
+<li><code>RuntimeBlockStateRegistry-&gt;register()</code> no longer accepts an <code>$override</code> parameter.</li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>utils\SaplingType</code> - enum of all sapling types</li>
+</ul>
+</li>
+<li><code>utils\TreeType</code> has been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\world\generator\object</code> namespace.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1492"></a>
+&lt;tt&gt;pocketmine\data\bedrock\item\upgrade&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>public ItemIdMetaUpgrader-&gt;getSchemas() : array&lt;int, BlockStateUpgradeSchema&gt;</code> - returns a list of loaded schemas indexed by schema ID</li>
+<li><code>public ItemIdMetaUpgradeSchema-&gt;getRenamedIds() : array&lt;string, string&gt;</code> - returns a map of old ID -&gt; new ID</li>
+<li><code>public ItemIdMetaUpgradeSchema-&gt;getRemappedMetas() : array&lt;string, array&lt;int, string&gt;&gt;</code> - returns a map of old ID -&gt; list of old meta -&gt; new ID</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1493"></a>
+&lt;tt&gt;pocketmine\event\block&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>public BlockGrowEvent-&gt;getPlayer() : ?Player</code> - returns the player that triggered the block growth, or <code>null</code> if it was not triggered by a player</li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>BlockGrowEvent::__construct()</code> now accepts an optional <code>?Player $player</code> parameter.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1494"></a>
+&lt;tt&gt;pocketmine\event\world&lt;/tt&gt;</h3>
+<ul>
+<li>The following classes have been added:<ul>
+<li><code>WorldDisplayNameChangeEvent</code> - called when a world's display name is changed</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1495"></a>
+&lt;tt&gt;pocketmine\item&lt;/tt&gt;</h3>
+<ul>
+<li><code>Boat</code> now uses a new <code>BoatType</code> enum instead of <code>TreeType</code>. This is because not all tree types have an associated boat type, and some boat types are not made from tree materials (e.g. bamboo raft).<ul>
+<li>The following API methods have been removed:<ul>
+<li><code>Boat-&gt;getWoodType()</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>public Boat-&gt;getType() : BoatType</code></li>
+<li><code>public Item-&gt;getStateId() : int</code> - returns an encoded ID containing the item type ID and encoded item state</li>
+</ul>
+</li>
+<li>The following API methods have been renamed:<ul>
+<li><code>Item-&gt;describeType()</code> -&gt; <code>Item-&gt;describeState()</code></li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>BoatType</code> - enum of all boat types</li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>BoatType::__construct()</code> now accepts <code>BoatType $boatType</code> instead of <code>TreeType $woodType</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1496"></a>
+&lt;tt&gt;pocketmine\world&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>public World-&gt;setDisplayName(string $name) : void</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1497"></a>
+&lt;tt&gt;pocketmine\world\format&lt;/tt&gt;</h3>
+<ul>
+<li>Fixed outdated documentation for various methods of <code>Chunk</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1498"></a>
+&lt;tt&gt;pocketmine\world\format\io\data&lt;/tt&gt;</h3>
+<ul>
+<li>The following API interface requirements have been added:<ul>
+<li><code>public WorldData-&gt;setDisplayName(string $value) : void</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1499"></a>
+Internals</h2>
+<ul>
+<li>Reduced global usage in world providers. In the future, we want <a class="el" href="protocolto-p.html">to</a> have blockstate deserializers etc. injected rather than being global singletons.</li>
+<li><code>BlockStateUpgrader</code> now always updates the blockstate version, even if no changes were made. PM itself doesn't require this, but it's useful for tools <a class="el" href="protocolto-p.html">to</a> know whether <a class="el" href="protocolto-p.html">to</a> upgrade the data again (e.g. in testing scenarios).</li>
+<li><code>BlockStateDictionary</code> memory usage is now reduced from 9 MB <a class="el" href="protocolto-p.html">to</a> 3.5 MB using various techniques, including string reuse and binary-encoded states.</li>
+<li><code>RuntimeBlockMapping</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>BlockTranslator</code>.</li>
+<li>Singletons in the <code>pocketmine\network\mcpe\convert</code> package have been centralized under <code>TypeConverter</code>. In the future, this will be injected where needed, allowing different converters <a class="el" href="protocolto-p.html">to</a> be used for different sessions (useful for multiversion).</li>
+<li>Overriding of serializers and deserializers of items and blocks is now consistently disallowed. Due <a class="el" href="protocolto-p.html">to</a> the lack of a good reason <a class="el" href="protocolto-p.html">to</a> allow overriding built-in blocks and items, this is no longer allowed.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1500"></a>
+5.0.0-BETA4</h1>
+<p>Released 23rd May 2023.</p>
+<h2><a class="anchor" id="autotoc_md1501"></a>
+General</h2>
+<ul>
+<li><a href="https://github.com/pmmp/ext-pmmpthread/releases/6.0.0"><code>ext-pmmpthread</code> version 6.0.0</a> (renamed from <code>ext-pthreads</code>) is now required. This version has API changes compared <a class="el" href="protocolto-p.html">to</a> pthreads v5. Please read the linked changelog for details.</li>
+<li><a href="https://github.com/pmmp/Snooze/releases/0.5.0"><code>pocketmine/snooze</code> version 0.5.0</a> is now required.</li>
+<li><code>pocketmine/classloader</code> and <code>pocketmine/log-pthreads</code> packages have been removed. The relevant classes from these packages are now included in-house in the <code>pocketmine/thread</code> namespace.<ul>
+<li><code>BaseClassLoader</code> is replaced with <code>pocketmine\thread\ThreadSafeClassLoader</code></li>
+<li><code>ThreadedLogger</code> is replaced by <code>pocketmine\thread\ThreadSafeLogger</code></li>
+<li><code>AttachableThreadedLogger</code> is replaced by <code>pocketmine\thread\AttachableThreadSafeLogger</code></li>
+<li><code>ThreadedLoggerAttachment</code> is replaced by <code>pocketmine\thread\ThreadSafeLoggerAttachment</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1502"></a>
+Fixes</h2>
+<ul>
+<li>Fixed crash on unknown blocks due <a class="el" href="protocolto-p.html">to</a> late initialization of properties in <code>UnknownBlock</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1503"></a>
+API changes</h2>
+<h3><a class="anchor" id="autotoc_md1504"></a>
+&lt;tt&gt;pocketmine\scheduler&lt;/tt&gt;</h3>
+<ul>
+<li><code>AsyncTask-&gt;setResult()</code> now works with thread-safe objects. This was previously not possible due <a class="el" href="protocolto-p.html">to</a> limitations in the <code>pthreads</code> extension. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

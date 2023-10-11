@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.2</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.2</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.6.0</b></p>
+<p>This is a minor feature release, including support for Minecraft Bedrock 1.6.0, some new minor gameplay features and some API deprecations and additions.</p>
+<h3><a class="anchor" id="autotoc_md520"></a>
+Note</h3>
+<p>Plugins compatible with any previous 3.x.y version will also run on this build and do not need API bumps.</p>
+<p>However, some API features have been deprecated in this version. Plugin developers do not need <a class="el" href="protocolto-p.html">to</a> do anything about these deprecations immediately, however they may raise harmless warnings if used.</p>
+<p>Features marked **<code>@deprecated</code>** are <b>recommended</b> not <a class="el" href="protocolto-p.html">to</a> be used, but will continue <a class="el" href="protocolto-p.html">to</a> work for any future 3.x.y versions. They will be removed in the next major release (4.0).</p>
+<h1><a class="anchor" id="autotoc_md521"></a>
+3.2.0</h1>
+<h3><a class="anchor" id="autotoc_md522"></a>
+Core</h3>
+<ul>
+<li><code>Level</code> generators are now registered only when needed instead of as soon as a worker starts. This drastically reduces memory consumption on servers with lots of workers.</li>
+<li>Async workers are now garbage-collected along with everything else on the default schedule. Idle workers with 0 queued tasks will be shutdown and removed from the pool <a class="el" href="protocolto-p.html">to</a> reduce memory usage.</li>
+<li>UPnP error messages are now more informative of troubleshooting steps.</li>
+<li>Errors are no longer caught in cases where they are unrecoverable.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md523"></a>
+API</h3>
+<h4><a class="anchor" id="autotoc_md524"></a>
+Entity</h4>
+<ul>
+<li>Arrow pickup mode can now be controlled via <code>Arrow-&gt;setPickupMode()</code>. This accepts one of three <code>Arrow</code> constants: <code>PICKUP_NONE</code>, <code>PICKUP_ANY</code>, <code>PICKUP_CREATIVE</code>.</li>
+<li>Added new API methods <code>Projectile-&gt;getBaseDamage()</code> and <code>Projectile-&gt;setBaseDamage()</code>.</li>
+<li>Added new API methods <code>Entity-&gt;getScoreTag()</code> and <code>Entity-&gt;setScoreTag()</code>.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md525"></a>
+Events</h4>
+<ul>
+<li>The <code>Listener</code> interface has now received in-depth documentation about its behaviour and uses. See the top of the <code>Listener</code> class <a class="el" href="protocolto-p.html">to</a> read it.</li>
+<li>It is now possible <a class="el" href="protocolto-p.html">to</a> declare <code>@ignoreCancelled</code> on an event handler without specifying <code>true</code> or <code>false</code>. If no value is found, <code>true</code> will be assumed.</li>
+<li><code>ServerCommandEvent</code> and <code>RemoteServerCommandEvent</code> are now **<code>@deprecated</code>** and their usage discouraged. A new generic <code>CommandEvent</code> has been introduced in its place, which allows capturing commands from any type of command sender. This was done in response <a class="el" href="protocolto-p.html">to</a> difficulties of code duplication when wanting <a class="el" href="protocolto-p.html">to</a> intercept commands from both console and players.</li>
+<li><code>EntityDamageEvent</code><ul>
+<li>Added <code>MODIFIER_WEAPON_ENCHANTMENTS</code> constant for attack damage bonuses due <a class="el" href="protocolto-p.html">to</a> enchantments like Sharpness.</li>
+<li>Added new API methods <code>getAttackCooldown()</code> and <code>setAttackCooldown()</code> <a class="el" href="protocolto-p.html">to</a> allow controlling Living entities attack cooldown times (default 10 ticks).</li>
+</ul>
+</li>
+<li><code>PlayerDeathEvent</code>: Added new static method <code>deriveMessage()</code>.</li>
+<li><code>PlayerKickEvent</code>: Added new method <code>setReason()</code>.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md526"></a>
+Forms</h4>
+<ul>
+<li>Added a new <code>pocketmine\form\Form</code> interface. Implementing this interface permits custom form implementations <a class="el" href="protocolto-p.html">to</a> make use of <code>Player-&gt;sendForm()</code>, eliminating the need <a class="el" href="protocolto-p.html">to</a> handle packets directly and also solving the form ID collision problem.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md527"></a>
+Items</h4>
+<ul>
+<li><code>Item</code> and <code>ItemFactory</code> now support negative item IDs (needed for future extended blocks support).</li>
+<li>Updated <code>ItemIds</code> interface with new constants.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md528"></a>
+Permission</h4>
+<ul>
+<li>Added a new <code>PermissionManager</code> class which encapsulates all of the permission-management functionality originally bloating <code>PluginManager</code>. The API is identical <a class="el" href="protocolto-p.html">to</a> that of <code>PluginManager</code>'s permission API. All methods moved <a class="el" href="protocolto-p.html">to</a> <code>PermissionManager</code> have **<code>@deprecated</code>** redirects remaining behind in <code>PluginManager</code>, which will be removed in the next major release (4.0).</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md529"></a>
+Plugin</h4>
+<ul>
+<li><code>PluginBase-&gt;getConfig()</code> will now automatically save the default config if it does not already exist.</li>
+<li>Plugin data directories will now be automatically created on plugin load, eliminating the need for boilerplate <code>@mkdir($this-&gt;getDataFolder())</code> calls at the top of every plugin.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md530"></a>
+Tile</h4>
+<ul>
+<li><code>Tile::createNBT()</code> will now throw a <code>BadMethodCallException</code> when called directly.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md531"></a>
+Utils</h4>
+<ul>
+<li><code>Utils::getURL()</code>, <code>Utils::postURL()</code>, <code>Utils::simpleCurl()</code> and <code>Utils::getIP()</code> have been moved <a class="el" href="protocolto-p.html">to</a> a new <code>pocketmine\utils\Internet</code> class. The original methods are **<code>@deprecated</code>** and will be removed for the next major version (4.0).</li>
+<li>Removed the ability for <code>Config</code> <a class="el" href="protocolto-p.html">to</a> be asynchronously saved. This was discussed for removal because of various problems that it causes. It was deemed not worth fixing since <code>Config</code> saving should not be significant enough <a class="el" href="protocolto-p.html">to</a> cause problems anyway. See #2298 for details.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md532"></a>
+Server</h4>
+<ul>
+<li>Deprecated <code>level</code> parameter of <code>findEntity()</code>. This parameter was premature optimization. Code using it will continue <a class="el" href="protocolto-p.html">to</a> work as before.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md533"></a>
+Gameplay</h3>
+<h4><a class="anchor" id="autotoc_md534"></a>
+General</h4>
+<ul>
+<li>Air bubbles are now regenerated at the same speed as vanilla UpdateAquatic, instead of instantly when leaving water.</li>
+<li>Implemented Conduit Power effect.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md535"></a>
+Enchantments</h4>
+<ul>
+<li>Implemented the following enchantments: Thorns, Sharpness, Knockback, Fire Aspect, Power, Punch, Flame, Infinity, Mending.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md536"></a>
+Items</h4>
+<ul>
+<li>Added the following new items: <code>Scute</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md537"></a>
+3.2.1</h1>
+<ul>
+<li>Fixed <code>VerifyLoginTask</code> completion bug when players get disconnected prior <a class="el" href="protocolto-p.html">to</a> the task completing.</li>
+<li>Fixed client crash issue due <a class="el" href="protocolto-p.html">to</a> outdated runtime ID mappings.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md538"></a>
+3.2.2</h1>
+<ul>
+<li>Updated NBT dependency <a class="el" href="protocolto-p.html">to</a> 0.2.1 <a class="el" href="protocolto-p.html">to</a> receive bug fixes (see <a href="https://github.com/pmmp/NBT/releases/tag/0.2.1">https://github.com/pmmp/NBT/releases/tag/0.2.1</a>).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md539"></a>
+3.2.3</h1>
+<ul>
+<li>Errors thrown during level tick will now crash the server instead of spamming the console.</li>
+<li>Fixed arrows despawning too soon after hitting the ground.</li>
+<li>Fixed projectiles despawning before colliding if they were airborne for &gt; 60 seconds.</li>
+<li>Fixed crash related <a class="el" href="protocolto-p.html">to</a> Flame enchantment when the player shooting the arrow was on fire.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md540"></a>
+3.2.4</h1>
+<ul>
+<li>Fixed levels unloaded during an earlier level's tick on the same tick causing a crash.</li>
+<li>PermissibleBase-&gt;clearPermissions() now properly unsubscribes from all permissions.</li>
+<li>Fixed incorrect break check for standing torch.</li>
+<li>Fixed drops for brewing stand.</li>
+<li>Fixed block picking brewing stand, bed, double slab, cake, farmland, and mob heads giving the wrong items.</li>
+<li>Fixed blocks not placing correctly when clicking on redstone ore.</li>
+<li>Fixed unknown PC items in tile inventories crashing the server - now they'll be quietly removed instead.</li>
+<li>Fixed server freezing when eating chorus fruit from high altitude.</li>
+<li><code>readline</code> is now disabled by default on Windows and must be explicitly enabled with <code>--enable-readline</code> due <a class="el" href="protocolto-p.html">to</a> thread-safety issues.</li>
+<li>Fixed server crash when trying <a class="el" href="protocolto-p.html">to</a> use non-implemented splash potions.</li>
+<li>Removed incorrect maximum region file size cap which may have caused some worlds <a class="el" href="protocolto-p.html">to</a> be incorrectly detected as corrupted.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md541"></a>
+3.2.5</h1>
+<ul>
+<li><code>Player-&gt;sendForm()</code> now throws a proper exception when failing <a class="el" href="protocolto-p.html">to</a> JSON-encode <code>Form</code> objects given <a class="el" href="protocolto-p.html">to</a> it.</li>
+<li>Fixed crash when handling later packets in a batch when an earlier packet triggered termination of the player's connection.</li>
+<li>Fixed a race condition causing progress updates in <code>AsyncTasks</code> <a class="el" href="protocolto-p.html">to</a> be lost when published near completion.</li>
+<li>Fixed bad decoding for some packets with unsupported structures.</li>
+<li>Crash dumps no longer report 20 empty lines when an error occurs in <code>eval()</code>'d code.</li>
+<li><code>pocketmine/nbt</code> dependency updated <a class="el" href="protocolto-p.html">to</a> <code>0.2.2</code> <a class="el" href="protocolto-p.html">to</a> fix bugs (see NBT repo for changelog).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md542"></a>
+3.2.6</h1>
+<ul>
+<li>Chunk ticking no longer occurs in chunks which have an adjacent unloaded chunks, fixing things like grass ticking triggering unintentional chunk loading.</li>
+<li>Fixed some lighting propagation issues where step count is the same but light level is different.</li>
+<li>Fixed full-chunk light repopulation producing broken lighting when the generator hasn't been registered on a worker.</li>
+<li>Fixed a missing field in <code>MoveEntityDeltaPacket</code>.</li>
+<li>Added client-sided rate limiting for crashdump reporting <a class="el" href="protocolto-p.html">to</a> mitigate involuntary DDoS of the crash archive.</li>
+<li>Fixed a bug in <code>start.cmd</code> where quotes would appear around the "couldn't find installation" message.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md543"></a>
+3.2.7</h1>
+<ul>
+<li>Added a network-layer check for item NBT size <a class="el" href="protocolto-p.html">to</a> avoid unexplained client-sided crashes due <a class="el" href="protocolto-p.html">to</a> length overflow.</li>
+<li>Fixed some desync bugs with double chests when one half of a double chest is unloaded.</li>
+<li>Anonymous class timings will now have a cleaned path for the identifier relative <a class="el" href="protocolto-p.html">to</a> the plugins directory.</li>
+<li>Anonymous class timings now render correctly on timings.pmmp.io.</li>
+<li>Fixed empty garbage subchunks not getting removed from long-life chunks.</li>
+<li><code>start.ps1</code>, <code>start.sh</code> and <code>start.cmd</code> no longer recognize source-code installations. Since source-code installations should only be used by developers who know what they are doing anyway, this was considered unwise <a class="el" href="protocolto-p.html">to</a> keep.</li>
+<li>Fixed a bug/oversight in network chunk preparation that caused chunk prepare <a class="el" href="protocolto-p.html">to</a> be 4x slower than necessary.</li>
+<li><code>Chunk-&gt;fastSerialize()</code> now doesn't serialize useless data (data is omitted based on chunk flags). This significantly reduces the amount of useless data getting copied for generation, population and light calculation.</li>
+<li><code>TaskHandler-&gt;cancel()</code> was incorrectly marked as <code>@internal</code> in 2014. This has been fixed. Plugin developers should in fact prefer <code>TaskHandler-&gt;cancel()</code> since it does not require a task <a class="el" href="protocolto-p.html">to</a> have a circular dependency on its own executor. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

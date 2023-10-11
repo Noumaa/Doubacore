@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 1.6.1dev-87</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">1.6.1dev-87</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md190"></a><b>For Minecraft PE 0.16.0.5 alpha</b></p>
+<p><b>THIS IS A PRE RELEASE. Do not use it in production unless you are sure you know what you are doing.</b></p>
+<p>Only changes since the 1.6dev tag will be documented here. Changes between 1.4.1 and 1.6dev are far too extensive <a class="el" href="protocolto-p.html">to</a> document effectively.</p>
+<h1><a class="anchor" id="autotoc_md191"></a>
+Core</h1>
+<ul>
+<li>New RNG, based on XorShift128 from the php-random library. This fixes issue with repeating terrain on 32-bit systems. <em>Note however that new generation into existing worlds will not be seamless.</em></li>
+<li>Block and Item IDs have been moved <a class="el" href="protocolto-p.html">to</a> interfaces for better consistency</li>
+<li>Better method for synchronisation of client/server time (less packet spam)</li>
+<li>Utils::getRandomBytes() has been deprecated in favour of php7's random_bytes() function.</li>
+<li><code>&lt;player&gt;.dat</code> saving/reading can now be disabled in <code>pocketmine.yml</code> (set <code>player.save-player-data</code> <a class="el" href="protocolto-p.html">to</a> <code>false</code>)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md192"></a>
+Gameplay/game features</h1>
+<ul>
+<li>Added Flower Pots</li>
+<li>Containers can now be opened in creative</li>
+<li>Trapdoors can now be placed without a supporting block</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md193"></a>
+API</h1>
+<p>This release has API changes, bumping the version <a class="el" href="protocolto-p.html">to</a> 2.1.0.</p>
+<h2><a class="anchor" id="autotoc_md194"></a>
+Entity metadata (0.16)</h2>
+<p>Many changes have been made <a class="el" href="protocolto-p.html">to</a> entity metadata. Many true/false data properties are now entity status flags, such as NoAI, NametagVisible and various others. Entity status flags can be set using: <code>$entity-&gt;setDataFlag(Entity::DATA_FLAGS, Entity::INSERT_DATA_FLAG_NAME, true/false);</code></p>
+<p><b>Breaking</b> changes are detailed here. Additions are not documented. <a href="https://gist.github.com/dktapps/76b291b7a861762b54f7a8b834389883">https://gist.github.com/dktapps/76b291b7a861762b54f7a8b834389883</a></p>
+<p><b>NOTE: It's strongly recommended <a class="el" href="protocolto-p.html">to</a> use provided API methods where possible instead of tampering with metadata directly.</b></p>
+<h2><a class="anchor" id="autotoc_md195"></a>
+AsyncTask API additions</h2>
+<ul>
+<li>Main thread local storage: Developers can pass any data including objects <a class="el" href="protocolto-p.html">to</a> the constructor of AsyncTask such that the data can be retrieved after the AsyncTask completes using the new <code>AsyncTask::fetchLocal()</code> method, or use the <code>AsyncTask::peekLocal()</code> method <a class="el" href="protocolto-p.html">to</a> get the data without removing it.</li>
+<li>Progress updates: Developers can use the new <code>AsyncTask::publishProgress() method and override</code>AsyncTask::onProgressUpdated()` <a class="el" href="protocolto-p.html">to</a> handle AsyncTask progress information in the main thread.</li>
+</ul>
+<p>Refer <a class="el" href="protocolto-p.html">to</a> #1 and #100 for details.</p>
+<h2><a class="anchor" id="autotoc_md196"></a>
+WeakPosition</h2>
+<p>WeakPosition was added in 1.6.1 <a class="el" href="protocolto-p.html">to</a> fix bugs with unloading levels which have player spawn points set in them. This type of position holds a level ID instead of a direct reference. Use this when your position may outlive the level it is in.</p>
+<h2><a class="anchor" id="autotoc_md197"></a>
+Removal of Item/NBT circular dependency</h2>
+<p>Refer <a class="el" href="protocolto-p.html">to</a> #121 for details.</p>
+<h2><a class="anchor" id="autotoc_md198"></a>
+Other</h2>
+<ul>
+<li>Added Player-&gt;sendWhisper() (#73).</li>
+<li>Removed LargeExplodeParticle due <a class="el" href="protocolto-p.html">to</a> incorrect name - use HugeExplodeParticle. Added HugeExplodeSeedParticle and BlockForceFieldParticle (7314aaf7f7bdae582f674c085c7ae879985bf847)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md199"></a>
+Fixes</h1>
+<ul>
+<li>Fixed the infamous hotbar spaz bug</li>
+<li>Creative/spectator inventory now sends correctly</li>
+<li>Fixed spectator flight controls</li>
+<li>Fixed issues with items going past the end of the regular inventory</li>
+<li>Fixed furnace client crashes</li>
+<li>Fixed inventory windows for anvils and enchanting tables</li>
+<li>Fixed kicked for walking on lily pads (#blameshoghicp)</li>
+<li>Fixed a nasty entity-related memory leak on chunk unload</li>
+<li>Fixed sleeping players floating above beds and teleportation of sleeping players.</li>
+<li>Fixed a bug in Level::updateAround() where only one block would update</li>
+<li>Fixed some slab placement issues (#31)</li>
+<li>Fixed crash loading 1.11 worlds (#32)</li>
+<li>Fixed broken <code>--disable-readline</code> command-line option (#34)</li>
+<li>Fixed world unload crash when players have spawnpoints set in that world (#24)</li>
+<li>Fixed start.sh detection of system PHP binaries (#66)</li>
+<li>Fixed anvil rotation when placed and variant drops (d696049a0ad5e3b878a8f902e4ef75f19ec8cecc)</li>
+<li>/timings command is now more verbose about paste errors (#95)</li>
+<li>Fixed server crash at shutdown when RCON is enabled (#101)</li>
+<li>Fixed server name is always "Minecraft: PE Server" when running setup wizard (92bd1a755d4b171b687538db83893b9bd9c70420)</li>
+<li>Fixed CraftItemEvent-&gt;getInput() does not return used items (7eb9530346e953d1555623ff871086f85447b6c6)</li>
+<li>Fixed useless ServerKiller (#122) </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

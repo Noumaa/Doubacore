@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: CONTRIBUTING</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">CONTRIBUTING</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><img src="http://cdn.pocketmine.net/img/PocketMine-MP-h.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md1656"></a>
+PocketMine-MP Contribution Guidelines</h1>
+<p>PocketMine-MP is an open source project, and contributions from the community are welcomed, as long as they comply with our quality standards and licensing.</p>
+<p>Code contributions must be submitted using <a href="https://github.com/pmmp/PocketMine-MP/pulls">GitHub Pull Requests</a>, where they will be reviewed by maintainers.</p>
+<p>Small contributions (e.g. minor bug fixes) can be submitted as pull requests directly.</p>
+<p>Larger contributions like feature additions should be preceded by a Change Proposal <a class="el" href="protocolto-p.html">to</a> allow maintainers and other people <a class="el" href="protocolto-p.html">to</a> discuss and decide if it's a good idea or not.</p>
+<h2><a class="anchor" id="autotoc_md1657"></a>
+Useful documentation from github.com</h2>
+<ul>
+<li><a href="https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">About pull requests</a></li>
+<li><a href="https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/about-forks">About forks</a></li>
+<li><a href="https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">Creating a pull request from a fork</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1658"></a>
+Other things you'll need</h2>
+<ul>
+<li><a href="https://git-scm.com/">git</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1659"></a>
+List of &lt;tt&gt;pocketmine&lt;/tt&gt; namespaces which are in other repos</h2>
+<p>PocketMine-MP has several dependencies which are independent from the main server code. Most of them use the <code>pocketmine</code> namespace. Some of these add extra classes <a class="el" href="protocolto-p.html">to</a> packages which already exist in PocketMine-MP.</p>
+<p>Take a look at the table below if you can't find the class or function you're looking for.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Source URL   </th><th class="markdownTableHeadLeft">Namespace, class or function    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/BedrockProtocol">pmmp/BedrockProtocol</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\network\mcpe\protocol</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/BinaryUtils">pmmp/BinaryUtils</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\utils\BinaryDataException</code><code>pocketmine\utils\BinaryStream</code><code>pocketmine\utils\Binary</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/Color">pmmp/Color</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\color</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/ErrorHandler">pmmp/ErrorHandler</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\errorhandler</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/Log">pmmp/Log</a>   </td><td class="markdownTableBodyLeft"><code><a class="el" href="interface_attachable_logger.html">AttachableLogger</a></code><code><a class="el" href="interface_buffered_logger.html">BufferedLogger</a></code><code><a class="el" href="class_global_logger.html">GlobalLogger</a></code><code><a class="el" href="interface_log_level.html">LogLevel</a></code><code><a class="el" href="interface_logger.html">Logger</a></code><code><a class="el" href="class_prefixed_logger.html">PrefixedLogger</a></code><code><a class="el" href="class_simple_logger.html">SimpleLogger</a></code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/Math">pmmp/Math</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\math</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/NBT">pmmp/NBT</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\nbt</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/RakLibIpc">pmmp/RakLibIpc</a>   </td><td class="markdownTableBodyLeft"><code>raklib\server\ipc</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/RakLib">pmmp/RakLib</a>   </td><td class="markdownTableBodyLeft"><code>raklib</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/Snooze">pmmp/Snooze</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\snooze</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/ext-chunkutils2">pmmp/ext-chunkutils2</a>   </td><td class="markdownTableBodyLeft"><code>pocketmine\world\format\LightArray</code><code>pocketmine\world\format\PalettedBlockArray</code><code>pocketmine\world\format\io\SubChunkConverter</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/ext-morton">pmmp/ext-morton</a>   </td><td class="markdownTableBodyLeft"><code>morton2d_decode</code><code>morton2d_encode</code><code>morton3d_decode</code><code>morton3d_encode</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><a href="https://github.com/pmmp/ext-libdeflate">pmmp/ext-libdeflate</a>   </td><td class="markdownTableBodyLeft"><code>libdeflate_deflate_compress</code><code>libdeflate_gzip_compress</code><code>libdeflate_zlib_compress</code>   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md1660"></a>
+Choosing a target branch</h2>
+<p>PocketMine-MP has three primary branches of development.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Type of change   </th><th class="markdownTableHeadCenter"><code>stable</code>   </th><th class="markdownTableHeadCenter"><code>minor-next</code>   </th><th class="markdownTableHeadCenter"><code>major-next</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Bug fixes   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Improvements <a class="el" href="protocolto-p.html">to</a> API docs   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Cleaning up code   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Changing code formatting or style   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Addition of new core features   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">🟡 Only if non-disruptive   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Changing core behaviour (e.g. making something use threads)   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Addition of new configuration options   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">🟡 Only if optional   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Addition of new API classes, methods or constants   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Deprecating API classes, methods or constants   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Adding optional parameters <a class="el" href="protocolto-p.html">to</a> an API method   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Changing API behaviour   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">🟡 Only if backwards-compatible   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Removal of API   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Backwards-incompatible API change (e.g. renaming a method)   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Backwards-incompatible internals change (e.g. changing things in <code>pocketmine\network\mcpe</code>)   </td><td class="markdownTableBodyCenter">❌   </td><td class="markdownTableBodyCenter">✔️   </td><td class="markdownTableBodyCenter">✔️   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md1661"></a>
+Notes</h3>
+<ul>
+<li><b>Non-disruptive</b> means that usage should not be significantly altered by the change.<ul>
+<li>Examples of <b>non-disruptive</b> changes include adding new commands, or gameplay features like blocks and items.</li>
+<li>Examples of <b>disruptive</b> changes include changing the way the server is run, world format changes (since those require downtime for the user <a class="el" href="protocolto-p.html">to</a> convert their world).</li>
+</ul>
+</li>
+<li><b>API</b> includes all public and protected classes, functions and constants (unless marked as <code>@internal</code>).<ul>
+<li>Private members are not part of the API, <b>unless in a trait</b>.</li>
+<li>The <code>pocketmine\network\mcpe</code> package is considered implicitly <code>@internal</code> in its entirety (see its <a class="el" href="md_vendor_2pocketmine_2pocketmine-mp_2src_2network_2mcpe_2_r_e_a_d_m_e.html">README</a> for more details).</li>
+</ul>
+</li>
+<li>Minecraft's protocol changes are considered necessary internal changes, and are <b>not</b> subject <a class="el" href="protocolto-p.html">to</a> the same rules.<ul>
+<li>Protocol changes must always be released in a new minor version, since they disrupt user experience by requiring a client update.</li>
+</ul>
+</li>
+<li>BC-breaking changes <a class="el" href="protocolto-p.html">to</a> the internal network API are allowed, but only in new minor versions. This ensures that plugins which use the internal network API will not break (though they shouldn't use such API anyway).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1662"></a>
+Making a pull request</h2>
+<p>The basic procedure <a class="el" href="protocolto-p.html">to</a> create a pull request is:</p><ol type="1">
+<li><a href="https://github.com/pmmp/PocketMine-MP/fork">Fork the repository on GitHub</a>. This gives you your own copy of the repository <a class="el" href="protocolto-p.html">to</a> make changes <a class="el" href="protocolto-p.html">to</a>.</li>
+<li>Create a branch on your fork for your changes.</li>
+<li>Make the changes you want <a class="el" href="protocolto-p.html">to</a> make on this branch.</li>
+<li>You can then make a <a href="https://github.com/pmmp/PocketMine-MP/pull/new">pull request</a> <a class="el" href="protocolto-p.html">to</a> the project.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md1663"></a>
+Pull request reviews</h2>
+<p>Pull requests will be reviewed by maintainers when they are available. Note that there might be a long wait time before a reviewer looks at your PR.</p>
+<p>Depending on the changes, maintainers might ask you <a class="el" href="protocolto-p.html">to</a> make changes <a class="el" href="protocolto-p.html">to</a> the PR <a class="el" href="protocolto-p.html">to</a> fix problems or <a class="el" href="protocolto-p.html">to</a> improve the code. <b>Do not delete your fork</b> while your pull request remains open, otherwise you won't be able <a class="el" href="protocolto-p.html">to</a> make any requested changes and the PR will end up being declined.</p>
+<h3><a class="anchor" id="autotoc_md1664"></a>
+Requirements</h3>
+<p>The following are required as a minimum for pull requests. PRs that don't meet these requirements will be declined unless updated <a class="el" href="protocolto-p.html">to</a> meet them.</p>
+<h4><a class="anchor" id="autotoc_md1665"></a>
+Licensing</h4>
+<p>PocketMine-MP is licensed under [LGPLv3 license](LICENSE). By proposing a pull request, you agree <a class="el" href="protocolto-p.html">to</a> your code being distributed within PocketMine-MP under the same license. If you take code from other projects, that code MUST be licensed under an LGPL-compatible license.</p>
+<h4><a class="anchor" id="autotoc_md1666"></a>
+PRs should be about exactly ONE thing</h4>
+<p>If you want <a class="el" href="protocolto-p.html">to</a> make multiple changes, those changes should each be contributed as separate pull requests. <b>DO NOT</b> mix unrelated changes.</p>
+<h4><a class="anchor" id="autotoc_md1667"></a>
+PRs must not include unnecessary/unrelated changes</h4>
+<p>Do not include changes which aren't strictly necessary. This makes it harder <a class="el" href="protocolto-p.html">to</a> review a PR, because the code diff becomes larger and harder <a class="el" href="protocolto-p.html">to</a> review. This means:</p><ul>
+<li>don't reformat or rearrange existing code</li>
+<li>don't change things that aren't related <a class="el" href="protocolto-p.html">to</a> the PR's objective</li>
+<li>don't rewrite existing code just <a class="el" href="protocolto-p.html">to</a> make it "look nicer"</li>
+<li>don't change PhpDocs <a class="el" href="protocolto-p.html">to</a> native types in code you didn't write</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md1668"></a>
+Tests must be provided</h4>
+<p>Where possible, PHPUnit tests should be written for new or changed code. If that's not possible (e.g. for in-game functionality), the code must be tested manually and details of the tests done must be provided. <b>Simply saying "Tested" is not acceptable</b> and will lead <a class="el" href="protocolto-p.html">to</a> your PR being declined.</p>
+<h4><a class="anchor" id="autotoc_md1669"></a>
+Comments and documentation must be written in American English</h4>
+<p>English is the shared languages of all current maintainers.</p>
+<h4><a class="anchor" id="autotoc_md1670"></a>
+Code must be in the PocketMine-MP style</h4>
+<p>It's your responsibility <a class="el" href="protocolto-p.html">to</a> ensure your code matches the formatting and styling of the rest of the code. If you use PhpStorm, a <code>Project</code> code style is provided, which you can use <a class="el" href="protocolto-p.html">to</a> automatically format new code. You can also use <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer"><code>php-cs-fixer</code></a> <a class="el" href="protocolto-p.html">to</a> format your code.</p>
+<h3><a class="anchor" id="autotoc_md1671"></a>
+Recommendations</h3>
+<ul>
+<li><b>Do not edit code directly on github.com.</b> We recommend learning how <a class="el" href="protocolto-p.html">to</a> use <a href="https://git-scm.com"><code>git</code></a>. <code>git</code> allows you <a class="el" href="protocolto-p.html">to</a> "clone" a repository onto your computer, so that you can make changes using an IDE.</li>
+<li><b>Use an IDE, not a text editor.</b> We recommend PhpStorm or VSCode.</li>
+<li><b>Create a new branch on your fork for each pull request.</b> This allows you <a class="el" href="protocolto-p.html">to</a> use the same fork <a class="el" href="protocolto-p.html">to</a> make multiple pull requests at the same time.</li>
+<li><b>Use descriptive commit titles.</b> You can see an example <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">here</a>.</li>
+<li><b>Do not include multiple unrelated changes in one commit.</b> An atomic style for commits is preferred - this means that changes included in a commit should be part of a single distinct change set. See <a href="https://www.freshconsulting.com/atomic-commits/">this link</a> for more information on atomic commits. See the <a href="https://git-scm.com/docs/git-add">documentation on <code>git add</code></a> for information on how <a class="el" href="protocolto-p.html">to</a> isolate local changes for committing.</li>
+<li><b>Your pull request will be checked and discussed in due time.</b> Since the team is scattered all around the world, your PR may not receive any attention for some time.</li>
+<li><b>Do not make large pull requests without an RFC.</b> Large changes should be discussed beforehand using the RFC / Change Proposal process. Large changes are much harder <a class="el" href="protocolto-p.html">to</a> review and are more likely <a class="el" href="protocolto-p.html">to</a> be declined if maintainers don't have a good idea what you're trying <a class="el" href="protocolto-p.html">to</a> do in advance.</li>
+<li><b>Do not copy-paste code</b>. There are potential license issues implicit with copy-pasting, and copy-paste usually indicates a lack of understanding of the actual code. Copy-pasted code is obvious a mile off and <b>any PR like this is likely <a class="el" href="protocolto-p.html">to</a> be closed</b>. If you want <a class="el" href="protocolto-p.html">to</a> use somebody else's code from a Git repository, <b>use <a href="https://git-scm.com/docs/git-cherry-pick">GIT's cherry-pick feature</a></b> <a class="el" href="protocolto-p.html">to</a> cherry-pick the commit.</li>
+</ul>
+<p><b>Thanks for contributing <a class="el" href="protocolto-p.html">to</a> PocketMine-MP!</b></p>
+<h2><a class="anchor" id="autotoc_md1672"></a>
+RFCs / Change Proposals</h2>
+<p>Change Proposals are issues or discussions which describe a new feature proposal or behavioural change. They are used <a class="el" href="protocolto-p.html">to</a> get feedback from maintainers and the community about an idea for a change, <a class="el" href="protocolto-p.html">to</a> decide whether or not it's a good idea.</p>
+<h3><a class="anchor" id="autotoc_md1673"></a>
+Submitting an RFC</h3>
+<p>RFCs should be submitted using Issues or Discussions. RFCs <em>can</em> be submitted as pull requests if you've already written the code, but this is not recommended, since it's not guaranteed that an RFC will pass, in which case your effort would be wasted.</p>
+<p>RFCs should include the following:</p><ul>
+<li>A summary of what you want <a class="el" href="protocolto-p.html">to</a> change</li>
+<li>Why you want <a class="el" href="protocolto-p.html">to</a> change it (e.g. what problems it solves)</li>
+<li>Alternative methods you've considered <a class="el" href="protocolto-p.html">to</a> solve the problem. This should include any possible ways that what you want can be done without the change.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1674"></a>
+Voting on RFCs</h3>
+<p>Community members can vote on RFCs. This gives maintainers an idea of how popular the idea is. Votes can be cast using :+1: and :-1: reactions.</p>
+<p><b>Please don't downvote without providing a reason why!</b></p>
+<h3><a class="anchor" id="autotoc_md1675"></a>
+Implementing RFCs</h3>
+<p>Anyone can write the code <a class="el" href="protocolto-p.html">to</a> implement an RFC, and submit a pull request for it. It doesn't have <a class="el" href="protocolto-p.html">to</a> be the RFC author.</p>
+<p>Implementations should be submitted as pull requests. The pull request description must include a link <a class="el" href="protocolto-p.html">to</a> the RFC. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

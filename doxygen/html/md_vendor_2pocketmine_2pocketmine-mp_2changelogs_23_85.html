@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.5</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.5</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.8.0</b></p>
+<h3><a class="anchor" id="autotoc_md604"></a>
+Note</h3>
+<p>Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<h1><a class="anchor" id="autotoc_md605"></a>
+3.5.0</h1>
+<ul>
+<li>Compatibility with Minecraft: Bedrock Edition 1.8.0</li>
+<li>Removed compatibility with 1.7.0</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md606"></a>
+3.5.1</h1>
+<ul>
+<li>Fixed internal server errors when attempting <a class="el" href="protocolto-p.html">to</a> craft.</li>
+<li><code>DataPacket</code> errors when writing <a class="el" href="protocolto-p.html">to</a> undefined fields are now more clear.</li>
+<li>Fixed trees being able <a class="el" href="protocolto-p.html">to</a> overwrite the log parts of other trees.</li>
+<li>Fixed <code>Player-&gt;sendForm()</code> not working during <code>PlayerJoinEvent</code>.</li>
+<li><code>Entity-&gt;setScale()</code> now explicitly requires a scale larger than 0.</li>
+<li>Adding invisible <code>FloatingTextParticle</code> <a class="el" href="protocolto-p.html">to</a> a level no longer causes an error.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md607"></a>
+3.5.2</h1>
+<ul>
+<li>Updated some misc protocol magic numbers.</li>
+<li>Fixed burning TNT setting hurt entities on fire when exploding.</li>
+<li><code>~</code> relative coordinates now work in the <code>/particle</code> command.</li>
+<li>Various boring fixes <a class="el" href="protocolto-p.html">to</a> error stack trace reporting.</li>
+<li><code>Level-&gt;setChunk()</code> no longer deletes tiles and entities when replacing a chunk with itself.</li>
+<li>Fixed a generator race condition causing rare appearances of half-trees on the client in freshly generated terrain.</li>
+<li><code>Attribute-&gt;resetToDefault()</code> now fits the default per the min/max bounds, fixing crashes when the bounds are changed <a class="el" href="protocolto-p.html">to</a> exclude the default.</li>
+<li>Fixed a crash with LevelDB worlds when the <code>TAG_2D_MAPS</code> tag is missing.</li>
+<li>Fixed <code>Utils::getCoreCount()</code> crashing on some Debian variants.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md608"></a>
+3.5.3</h1>
+<ul>
+<li>Rewritten documentation of <code>PlayerPreLoginEvent</code>, <code>PlayerLoginEvent</code> and <code>PlayerJoinEvent</code>. They are now much more detailed and no longer misleading.</li>
+<li>Chest items block-picked from double chests will no longer place chests that crash the server when opened.</li>
+<li>Ender chests now make the correct sounds when opening and closing.</li>
+<li>Fixed Sign errors when a buggy or malicious client sent broken NBT with the wrong tags or wrong number of lines.</li>
+<li>Resource packs with comments in the manifest will now load correctly. (MOJANG!!!)</li>
+<li>Placement of unknown blocks is now disallowed. This solves a range of problems with invalid blocks in the world, such as #2260 .</li>
+<li>Errors thrown during <code>PlayerQuitEvent</code> or other <code>Player-&gt;close()</code> errors will now crash the server instead of causing cryptic bugs later on.</li>
+<li>Fixed large chunks (&gt;= 1044476 bytes) becoming corrupted when saved in Region-based worlds - now an exception is thrown instead.</li>
+<li>Reduced the range of exceptions caught during chunk loading. Now, only chunk corruption errors are caught, and anything else will produce a crash.</li>
+<li>Removed catch-all block on chunk saving. Unexpected errors thrown during chunk save will now create a crash.</li>
+<li>Fixed some asserts in packet decode methods.</li>
+<li><code>Attribute</code> now throws exceptions with more informative messages on errors.</li>
+<li>Properly handled some remaining <code>Uninitialized string offset</code> bugs when decoding packets.</li>
+<li>Fixed chunk updates taking several seconds <a class="el" href="protocolto-p.html">to</a> show up on the client. This bug was most apparent during generation and some world editing tools using asynchronous tasks.</li>
+<li>Fixed CPU waste ordering chunks for non-moving players.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md609"></a>
+3.5.4</h1>
+<h3><a class="anchor" id="autotoc_md610"></a>
+Fixes</h3>
+<ul>
+<li>Fixed server crash when a block update occurs on a torch with corrupted metadata.</li>
+<li>Added a hack <a class="el" href="protocolto-p.html">to</a> mitigate client-side right-click spam bug. This mostly eliminates spam of <code>PlayerInteractEvent</code> on right-click.</li>
+<li>Players will no longer see commands they don't have permission <a class="el" href="protocolto-p.html">to</a> use in client-sided hints when typing a <code>/</code> in the chat window.</li>
+<li><code>Event-&gt;isCancelled()</code> and <code>Event-&gt;setCancelled()</code> now throw more informative errors.</li>
+<li>Errors thrown during a network interface processing will now <em>actually</em> crash the server.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md611"></a>
+API changes</h3>
+<ul>
+<li>Deprecated <code>NetworkInterfaceCrashEvent</code>. Nobody should have been using this anyway.</li>
+<li>Deprecated <code>Network-&gt;processInterface()</code></li>
+<li>Deprecated <code>SourceInterface-&gt;emergencyShutdown()</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md612"></a>
+3.5.5</h1>
+<ul>
+<li>Mobs no longer spawn with their heads facing a different direction <a class="el" href="protocolto-p.html">to</a> their bodies.</li>
+<li>Added a console message when the crash strangler sleeps <a class="el" href="protocolto-p.html">to</a> stop crash spam.</li>
+<li>Fixed crash in <code>/title</code> command <code>times</code> subcommand when not enough arguments were passed.</li>
+<li>AsyncWorkers will now not be shut down on GC unless they have not been used for the last 5 minutes. This reduces lag spikes on garbage collection.</li>
+<li>Fixed some unhandled error cases in <code>AddEntityPacket</code> encoding.</li>
+<li>Fixed <code>LogicException</code> descendents being thrown from some packet decoding methods when encountering bad userdata.</li>
+<li>Player network inventory transaction processing now catches more specific errors.</li>
+<li>Fixed missing decode for <code>TakeItemEntityPacket</code>.</li>
+<li>Fixed <code>/gc</code> and <code>/status</code> truncating memory statistics - now they report <a class="el" href="protocolto-p.html">to</a> 0.01 precision.</li>
+<li>Global functions and constants are now imported <a class="el" href="protocolto-p.html">to</a> improve performance.</li>
+<li>Fixed a typo in <code>pocketmine.command.op.take</code> description.</li>
+<li>Ice no longer creates water when a creative player breaks it.</li>
+<li><code>spawn-mobs</code> and <code>spawn-animals</code> no longer appear in generated <code>server.properties</code> on a newly-installed server.</li>
+<li>Added a hack <a class="el" href="protocolto-p.html">to</a> disable pre-spawn client-sided movement.</li>
+<li>Assertions enabled warning now always shows when <code>zend.assertions</code> is not <code>-1</code>. The config option <a class="el" href="protocolto-p.html">to</a> disable this warning has been removed.</li>
+<li><code>/status</code>,<code>/dumpmemory</code> and <code>/gc</code> are now enabled by default. The <code>debug.commands</code> config option has been removed.</li>
+<li>Crash dumps are now more thorough at catching plugin-related crashes.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md613"></a>
+3.5.6</h1>
+<ul>
+<li>Fixed <code>#</code>-commenting properties in <code>.properties</code> files not working.</li>
+<li><code>pocketmine.yml</code> now permits writing <code>worldname:</code> with no generation settings in the <code>worlds</code> section <a class="el" href="protocolto-p.html">to</a> force a world <a class="el" href="protocolto-p.html">to</a> be loaded.</li>
+<li>Fixed Bow force being too low - now it's consistent with Minecraft Java (but not with Bedrock due <a class="el" href="protocolto-p.html">to</a> a vanilla bug).</li>
+<li>Fixed <code>recursion detected</code> bug when encoding crashdumps in some cases.</li>
+<li>Items with too-large NBT tags on network will now have their tags ignored when sending over network, instead of crashing the server. This is a workaround for a protocol bug which will be addressed in a future Minecraft release.</li>
+<li><code>/enchant</code> no longer crashes the server when out-of-bounds enchantment levels are used.</li>
+<li>Fixed some crashes loading Region-based worlds when encountering unexpected EOF.</li>
+<li><code>Entity-&gt;fireTicks</code> is now protected (but accessible by magic method for BC purposes) and will now throw an exception when written <a class="el" href="protocolto-p.html">to</a> if the value is &gt; 32767 or &lt; 0.</li>
+<li>Fixed Signs asserting on corrupted world data with more than 4 lines of text per sign.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md614"></a>
+3.5.7</h1>
+<ul>
+<li>Fixed several bugs in RCON packet receive that would allow an attacker <a class="el" href="protocolto-p.html">to</a> block or crash the RCON thread, denying service <a class="el" href="protocolto-p.html">to</a> other legitimate RCON clients.</li>
+<li>Fixed RCON connections not working (timing out with no response) on some platforms.</li>
+<li>Logins are now permitted <a class="el" href="protocolto-p.html">to</a> have up <a class="el" href="protocolto-p.html">to</a> 60 seconds clock drift on the <code>nbf</code> and <code>exp</code> timestamps in the login JWT.</li>
+<li>Fixed XP orbs following players who switched <a class="el" href="protocolto-p.html">to</a> a location spatially nearby in a different world.</li>
+<li><code>Player-&gt;removeWindow()</code> now throws <code>InvalidArgumentException</code> instead of <code>BadMethodCallException</code> when trying <a class="el" href="protocolto-p.html">to</a> non-forcefully remove a fixed window ID.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md615"></a>
+3.5.8</h1>
+<ul>
+<li>Fixed player XP not dropping if a player was fast enough <a class="el" href="protocolto-p.html">to</a> respawn.</li>
+<li>Player XP drop amount now matches vanilla (7x level points, incurs some loss of points for higher levels)</li>
+<li>Fixed Doxygen configuration including test sources.</li>
+<li>Improved performance of block-cache accesses.</li>
+<li>Improved performance of random block-ticking.</li>
+<li>Closure tasks will now show the correctly formatted name on timings.</li>
+<li>Fixed a crash when a local update happens next <a class="el" href="protocolto-p.html">to</a> an <code>ItemFrame</code> with invalid metadata.</li>
+<li>Fixed player being subscribed <a class="el" href="protocolto-p.html">to</a> broadcast permissions too early when permissions are modified before spawn.</li>
+<li>Block-picking is now disallowed on unknown blocks.</li>
+<li>Internal IP detection now works correctly on all platforms.</li>
+<li>Fixed UPnP portforwarding not working correctly when multiple network adapters are installed.</li>
+<li>Starting or stopping flight now resets fall distance and in-air ticks.</li>
+<li>Fixed falling causing starvation.</li>
+<li>Fixed crops consuming bone meal when fully grown.</li>
+<li>Users are no longer able <a class="el" href="protocolto-p.html">to</a> avoid agreeing <a class="el" href="protocolto-p.html">to</a> the license by restarting the server.</li>
+<li>Explosions no longer create broken double chests which crash the server. Existing chests affected by this bug will continue <a class="el" href="protocolto-p.html">to</a> crash. This will be addressed in a future release.</li>
+<li>Cactus and sugarcane no longer grow through non-air blocks.</li>
+<li>Fixed a memory leak in <code>setChunk()</code> when the <code>unload</code> parameter is true.</li>
+<li>Generator will now crash if preset is invalid, instead of producing unexpected results.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md616"></a>
+3.5.9</h1>
+<ul>
+<li>Fixed a <code>setChunk()</code> bug introduced by 3.5.8.</li>
+<li>Applied a hack <a class="el" href="protocolto-p.html">to</a> disable client-sided automatic regeneration.</li>
+<li><code>Level-&gt;getChunkPlayers()</code> is now deprecated.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md617"></a>
+3.5.10</h1>
+<ul>
+<li>Some internal <code>Level</code> functions are now correctly marked <code>@internal</code>.</li>
+<li>Fixed splash potion distance being measured from player feet instead of eye height.</li>
+<li>Fixed tall grass being unplaceable on dirt.</li>
+<li>A debug message is now recorded when a chunk is loaded with no associated loaders.</li>
+<li>Composer dependencies have been updated <a class="el" href="protocolto-p.html">to</a> fix bugs in some dependencies.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md618"></a>
+3.5.11</h1>
+<ul>
+<li>Fixed crashing when items with negative IDs are found in the inventory (caused by downgrading from dev builds).</li>
+<li>Updated creative inventory and crafting recipes.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md619"></a>
+3.5.12</h1>
+<ul>
+<li>Fixed crash when too-large values are given <a class="el" href="protocolto-p.html">to</a> <code>/effect</code> for duration.</li>
+<li><code>/op</code> and other commands no longer crash when an invalid player name is given.</li>
+<li>Startup time no longer includes the time spent in the setup wizard.</li>
+<li><code>TextFormat::clean()</code> is now UTF-8 aware, and will scrub any invalid UTF-8 characters from the given string.</li>
+<li>Fixed <code>TextFormat::clean()</code> not fully removing ANSI escape codes in some cases.</li>
+<li>Fixed Korean command arguments failing <a class="el" href="protocolto-p.html">to</a> parse.</li>
+<li><code>Sign-&gt;setText()</code> and <code>Sign-&gt;setLine()</code> now enforce that the given text must be UTF-8 text, or an exception will be thrown.</li>
+<li>Sign text is now processed by <code>mb_scrub()</code> immediately after loading <a class="el" href="protocolto-p.html">to</a> remove invalid UTF-8 characters that could crash the client.</li>
+<li><code>Human-&gt;exhaust()</code> no longer underflows when the hunger attribute has a fractional value.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md620"></a>
+3.5.13</h1>
+<ul>
+<li>Added a hack <a class="el" href="protocolto-p.html">to</a> disable client sided AI for non-moving entities. This fixes items floating in water despite it not being implemented server-side yet.</li>
+<li>Fixed max health not working as expected on respawn if changed by plugins.</li>
+<li>Fixed Item Frame hardness (0.25 instead of 0).</li>
+<li>Fire Aspect tools will now light TNT when right-clicked with.</li>
+<li>Fixed incorrect nullable typehints on <code>TaskScheduler</code> return values. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

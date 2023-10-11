@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.2</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.2</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.18.10</b></p>
+<h3><a class="anchor" id="autotoc_md1153"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md1154"></a>
+4.2.0</h1>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.18.10.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1155"></a>
+4.2.1</h1>
+<p>Released 19th February 2022.</p>
+<h2><a class="anchor" id="autotoc_md1156"></a>
+General</h2>
+<ul>
+<li>Improved performance of <code>Item::nbtSerialize()</code> - this will improve performance during world saves.</li>
+<li>Added more missing changes <a class="el" href="protocolto-p.html">to</a> the 4.0.0 changelog.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1157"></a>
+Fixes</h2>
+<ul>
+<li>Fixed multiple players being able <a class="el" href="protocolto-p.html">to</a> sleep in the same bed.</li>
+<li>Fixed hitbox not resetting properly after swimming or gliding.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1158"></a>
+4.2.2</h1>
+<p>Released 2nd March 2022.</p>
+<h2><a class="anchor" id="autotoc_md1159"></a>
+Fixes</h2>
+<ul>
+<li>Fixed crash in <code>/dumpmemory</code> due <a class="el" href="protocolto-p.html">to</a> usage of non-printable string keys in <code>CraftingManager</code>. Array contents in memory dumps are now rendered as prettified key-value pairs.</li>
+<li>Fixed output directory for <code>/dumpmemory</code>.</li>
+<li><code>PlayerInventory-&gt;isHotbarSlot()</code> now correctly returns <code>false</code> when given <code>9</code>.</li>
+<li>Fixed ghost items left in the inventory when dropping tools while mining.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1160"></a>
+4.2.3</h1>
+<p>Released 9th March 2022.</p>
+<h2><a class="anchor" id="autotoc_md1161"></a>
+Technical</h2>
+<ul>
+<li>Now analysed using PHPStan 1.4.8.</li>
+<li>Now using <code>pocketmine/bedrock-protocol</code> <a href="https://github.com/pmmp/BedrockProtocol/releases/tag/8.0.1%2Bbedrock-1.18.10"><code>8.0.1</code></a>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1162"></a>
+Fixes</h2>
+<h3><a class="anchor" id="autotoc_md1163"></a>
+Core</h3>
+<ul>
+<li>Fixed a memory leak and other bugs related <a class="el" href="protocolto-p.html">to</a> plugins disabling themselves during <code>onEnable()</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1164"></a>
+Gameplay</h3>
+<ul>
+<li>Sweet berry bushes now absorb fall damage.</li>
+<li>Fixed mycelium spreading onto coarse dirt.</li>
+<li>Fixed blocks placed during <code>Block-&gt;onIncinerate()</code> getting overwritten.</li>
+<li>Fixed shulker boxes being unopenable when underwater.</li>
+<li>Fixed invisible fire on top of transparent non-flammable blocks.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1165"></a>
+API</h3>
+<ul>
+<li>Various APIs accepting <code>Vector3</code>, <code>Position</code> or <code>Location</code> no longer accept objects containing <code>INF</code> or <code>NaN</code> in any component. Previously, this was allowed, but would cause lots of obscure crashes later on.</li>
+<li><code>Entity-&gt;setRotation()</code> no longer accepts <code>INF</code> or <code>NaN</code>.</li>
+<li>Fixed missing bounds check for <code>ItemFrame-&gt;setItemDropChance()</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1166"></a>
+4.2.4</h1>
+<p>Released 18th March 2022.</p>
+<h2><a class="anchor" id="autotoc_md1167"></a>
+Fixes</h2>
+<ul>
+<li>Fixed a crash when handling out-of-bounds meta values on the network.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1168"></a>
+4.2.5</h1>
+<p>Released 28th March 2022.</p>
+<h2><a class="anchor" id="autotoc_md1169"></a>
+General</h2>
+<ul>
+<li>The layout of the human-readable part of crashdumps has been changed in an effort <a class="el" href="protocolto-p.html">to</a> improve the useful information density. It is hoped that this change will cause more useful information <a class="el" href="protocolto-p.html">to</a> be provided when people paste crash traces on Discord, since all the most important information is now at the top of the file.<ul>
+<li>Version, git hash, PHP version and OS have been moved <a class="el" href="protocolto-p.html">to</a> the top of the crashdump.</li>
+<li>Backtrace has been moved above code sample.</li>
+</ul>
+</li>
+<li>Docker images are now built by GitHub Actions (first live test).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1170"></a>
+Technical</h2>
+<ul>
+<li>The methods of <code>Inventory</code> and <code>BaseInventory</code> have been rearranged <a class="el" href="protocolto-p.html">to</a> improve coherency.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1171"></a>
+Fixes</h2>
+<h3><a class="anchor" id="autotoc_md1172"></a>
+API</h3>
+<ul>
+<li>Enum members of enums created using <code>EnumTrait</code> are now able <a class="el" href="protocolto-p.html">to</a> have single-character names.</li>
+<li>Registry members of registries created using <code>RegistryTrait</code> or <code>CloningRegistryTrait</code> now have their names checked for invalid characters.</li>
+<li><code>Entity::__construct()</code> now uses a guard variable <a class="el" href="protocolto-p.html">to</a> prevent it from being called multiple times unintentionally. This is necessary because <code>Entity::__construct()</code> has side effects.</li>
+<li>Fixed <code>PlayerItemHeldEvent</code> not being called when the content of the held slot was changed (e.g. replacing the held item via inventory menu).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1173"></a>
+Gameplay</h3>
+<ul>
+<li>Reduced the appearance of ghost items in unsupported gameplay scenarios using client prediction information. This fixes, for example, the appearance of ghost items when right-clicking on a filled flower pot.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1174"></a>
+4.2.6</h1>
+<p>Released 1st April 2022.</p>
+<h2><a class="anchor" id="autotoc_md1175"></a>
+Fixes</h2>
+<ul>
+<li>Fixed buffer length underflow crash in <code>LoginPacket</code> handling.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1176"></a>
+4.2.7</h1>
+<p>Released 15th April 2022.</p>
+<h2><a class="anchor" id="autotoc_md1177"></a>
+General</h2>
+<ul>
+<li>Added lots more documentation (in comments) about the <code>aliases</code> section in <code>pocketmine.yml</code>. You can read about this feature in the <code>aliases</code> section of the <a href="/resources/pocketmine.yml">updated <code>pocketmine.yml</code> template</a>.</li>
+<li>Improved wording of documentation of <code>PlayerPreLoginEvent</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1178"></a>
+Fixes</h2>
+<ul>
+<li>Fixed core server crash when a plugin causes another plugin <a class="el" href="protocolto-p.html">to</a> be disabled during a scheduled task.</li>
+<li>Fixed core server crash when loading a plugin with an abstract main class.</li>
+<li>Fixed ghost items in many interaction situations (most notably, using projectiles while looking at an entity or block).</li>
+<li>Implemented a workaround for a client teleport bug which led <a class="el" href="protocolto-p.html">to</a> player positions not updating properly when using ender pearls.</li>
+<li>Fixed buggy movement when teleporting the player during <code>PlayerToggleSneakEvent</code>, <code>PlayerToggleSprintEvent</code>, <code>PlayerToggleSwimEvent</code> and <code>PlayerToggleGlideEvent</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1179"></a>
+4.2.8</h1>
+<p>Released 17th April 2022.</p>
+<h2><a class="anchor" id="autotoc_md1180"></a>
+Fixes</h2>
+<ul>
+<li>Fixed a memory leak in RakLib which could result in a server crash when players stay online for a long time.</li>
+<li>Fixed server crash when attempting <a class="el" href="protocolto-p.html">to</a> load a corrupted empty resource pack.</li>
+<li>Fixed users with the same name with differerently cased letters being able <a class="el" href="protocolto-p.html">to</a> duplicate items (userdata is matched by case-insensitive name).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1181"></a>
+4.2.9</h1>
+<p>Released 19th April 2022.</p>
+<h2><a class="anchor" id="autotoc_md1182"></a>
+Fixes</h2>
+<ul>
+<li>Fixed several potential crashes when deserializing item NBT (due <a class="el" href="protocolto-p.html">to</a> insufficient validation of input data).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1183"></a>
+4.2.10</h1>
+<p>Released 20th April 2022.</p>
+<h2><a class="anchor" id="autotoc_md1184"></a>
+Fixes</h2>
+<ul>
+<li>Fixed performance issue when chat messages received from the client contain many newlines. This security vulnerability was disclosed publicly necessitating a priority fix. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

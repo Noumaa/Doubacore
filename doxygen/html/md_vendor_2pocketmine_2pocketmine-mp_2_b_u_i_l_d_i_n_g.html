@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: Building</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Building</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md149"></a></p>
+<h1><a class="anchor" id="autotoc_md150"></a>
+Pre-requisites</h1>
+<ul>
+<li>A bash shell (git bash is sufficient for Windows)</li>
+<li><a href="https://git-scm.com"><code>git</code></a> available in your shell</li>
+<li>PHP 8.1 or newer available in your shell</li>
+<li><a href="https://getcomposer.org"><code>composer</code></a> available in your shell</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md151"></a>
+Custom PHP binaries</h1>
+<p>Because PocketMine-MP requires several non-standard PHP extensions and configuration, PMMP provides scripts <a class="el" href="protocolto-p.html">to</a> build custom binaries for running PocketMine-MP, as well as prebuilt binaries.</p>
+<ul>
+<li><a href="https://github.com/pmmp/PHP-Binaries/releases">Prebuilt binaries</a></li>
+<li><a href="https://github.com/pmmp/php-build-scripts">Compile scripts</a> are provided as a submodule in the path <code>build/php</code></li>
+</ul>
+<p>If you use a custom binary, you'll need <a class="el" href="protocolto-p.html">to</a> replace <code>composer</code> usages in this guide with <code>path/to/your/php path/to/your/composer.phar</code>.</p>
+<h1><a class="anchor" id="autotoc_md152"></a>
+Setting up environment</h1>
+<ol type="1">
+<li><code>git clone <a href="https://github.com/pmmp/PocketMine-MP.git">https://github.com/pmmp/PocketMine-MP.git</a></code></li>
+<li><code>composer install</code></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md153"></a>
+Checking out a different branch to build</h1>
+<ol type="1">
+<li><code>git checkout &lt;branch <a class="el" href="protocolto-p.html">to</a> checkout&gt;</code></li>
+<li>Re-run <code>composer install</code> <a class="el" href="protocolto-p.html">to</a> synchronize dependencies.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md154"></a>
+Optimizing for release builds</h1>
+<ol type="1">
+<li>Add the flags <code>--no-dev --classmap-authoritative</code> <a class="el" href="protocolto-p.html">to</a> your <code>composer install</code> command. This will reduce build size and improve autoloading speed.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md155"></a>
+Building &lt;tt&gt;PocketMine-MP.phar&lt;/tt&gt;</h1>
+<p>Run <code>composer make-server</code> using your preferred PHP binary. It'll drop a <code>PocketMine-MP.phar</code> into the current working directory.</p>
+<p>You can also use the <code>--out</code> option <a class="el" href="protocolto-p.html">to</a> change the output filename.</p>
+<h1><a class="anchor" id="autotoc_md156"></a>
+Running PocketMine-MP from source code</h1>
+<p>Run <code>src/PocketMine.php</code> using your preferred PHP binary. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

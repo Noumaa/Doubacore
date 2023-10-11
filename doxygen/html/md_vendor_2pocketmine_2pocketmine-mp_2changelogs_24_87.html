@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.7</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.7</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.20</b></p>
+<h3><a class="anchor" id="autotoc_md1315"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md1316"></a>
+4.7.0</h1>
+<p>Released 9th August 2022.</p>
+<h2><a class="anchor" id="autotoc_md1317"></a>
+General</h2>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.19.20.</li>
+<li>Removed support for older versions.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1318"></a>
+4.7.1</h1>
+<p>Released 14th August 2022.</p>
+<h2><a class="anchor" id="autotoc_md1319"></a>
+Fixes</h2>
+<ul>
+<li>Fixed server crash when loading items from disk which have negative meta values.</li>
+<li>Fixed Turtle Master potions not giving any effects.</li>
+<li>Unimplemented items are no longer craftable.</li>
+<li>Fixed incorrect items appearing in item frames (due <a class="el" href="protocolto-p.html">to</a> an obsolete workaround for 1.19.10).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1320"></a>
+4.7.2</h1>
+<p>Released 16th August 2022.</p>
+<h2><a class="anchor" id="autotoc_md1321"></a>
+Fixes</h2>
+<ul>
+<li>Fixed crash when processing player skins with invalid geometry data.</li>
+<li>Fixed spectator players being able <a class="el" href="protocolto-p.html">to</a> pick blocks using mousewheel click.</li>
+<li>Improved supporting requirements for sugarcane.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1322"></a>
+4.7.3</h1>
+<p>Released 22nd August 2022.</p>
+<h2><a class="anchor" id="autotoc_md1323"></a>
+General</h2>
+<ul>
+<li>Added complete translations for Spanish and Vietnamese.</li>
+<li>All continuous integration (static analysis, unit tests, integration tests) are now performed on PHP 8.1 as well as 8.0.</li>
+<li>InventoryTransaction now verifies that stack sizes of items after the transaction don't exceed the maximum stack size of the item type or the containing inventory.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1324"></a>
+Fixes</h2>
+<ul>
+<li>Fixed Normal generator crash on PHP 8.1.</li>
+<li>Fixed a race condition during async worker shutdown that could lead <a class="el" href="protocolto-p.html">to</a> tasks executing in the wrong order. This (very rarely) led <a class="el" href="protocolto-p.html">to</a> a crash in <code>PopulationTask</code> due <a class="el" href="protocolto-p.html">to</a> its preceding <code>GeneratorRegisterTask</code> not being executed.</li>
+<li>Fixed <code>/give</code> accepting negative amounts or amounts larger than 32767 (vanilla max).</li>
+<li>Fixed placement conditions for vines (no longer able <a class="el" href="protocolto-p.html">to</a> be placed on the side of cacti).</li>
+<li>Fixed incorrect documentation of <code>SignText::__construct()</code>. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

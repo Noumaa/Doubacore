@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.0</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.4.0</b></p>
+<p>Plugin scheduler rewrite, RCON rewrite, performance improvements, improved idle memory usage</p>
+<p><b>While this release is nominally not an alpha, it is still not feature complete and does not include all gameplay features. Please do not create issues for missing gameplay features.</b></p>
+<p>This build has breaking API changes. This release is the first <a class="el" href="protocolto-p.html">to</a> use the new merged versioning system. The PocketMine-MP version and the API version are now one and the same.</p>
+<p>Please use our issue tracker <a class="el" href="protocolto-p.html">to</a> report bugs.</p>
+<h1><a class="anchor" id="autotoc_md391"></a>
+3.0.0</h1>
+<h2><a class="anchor" id="autotoc_md392"></a>
+Core</h2>
+<h3><a class="anchor" id="autotoc_md393"></a>
+General</h3>
+<ul>
+<li>This release introduces a new dependency library called <code>Snooze</code>, which PocketMine-MP utilizes for managing notifications between threads. This library is currently utilized by command reading, RCON and RakLib, allowing faster response times <a class="el" href="protocolto-p.html">to</a> commands, reduced network latency, and better performance due <a class="el" href="protocolto-p.html">to</a> lack of need for polling.</li>
+<li>Fixed race condition causing <code>ServerKiller</code> <a class="el" href="protocolto-p.html">to</a> sometimes kill the server for no reason on shutdown.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md394"></a>
+Dependency libraries</h3>
+<p>Requires the following libraries:</p><ul>
+<li><a href="https://github.com/pmmp/RakLib/releases/0.12.0"><code>pocketmine/raklib</code> <code>^0.12.0</code></a></li>
+<li><a href="https://github.com/pmmp/SPL/releases/0.3.0"><code>pocketmine/spl</code> <code>^0.3.0</code></a></li>
+<li><a href="https://github.com/pmmp/BinaryUtils/releases/0.1.0"><code>pocketmine/binaryutils</code> <code>^0.1.0</code></a></li>
+<li><a href="https://github.com/pmmp/NBT/releases/0.2.0"><code>pocketmine/nbt</code> <code>^0.2.0</code></a></li>
+<li><a href="https://github.com/pmmp/Math/releases/0.2.0"><code>pocketmine/math</code> <code>^0.2.0</code></a></li>
+<li><a href="https://github.com/pmmp/Snooze/releases/0.1.0"><code>pocketmine/snooze</code> <code>^0.1.0</code></a></li>
+</ul>
+<p>These libraries may individually have changes which are not recorded here. See their independent repository releases for their changelogs.</p>
+<h3><a class="anchor" id="autotoc_md395"></a>
+Async pooling</h3>
+<ul>
+<li>Async workers are now started dynamically when they are needed only, instead of being started immediately on startup. This allows reducing idle memory usage.</li>
+<li>AsyncPool now appropriately shuts down the workers when instructed <a class="el" href="protocolto-p.html">to</a>, instead of leaving it up <a class="el" href="protocolto-p.html">to</a> the ThreadManager <a class="el" href="protocolto-p.html">to</a> clean it up. This eliminates debug messages of shutting down async workers on server shutdown.</li>
+<li>Default maximum async worker memory limit has been lowered from 1024MB <a class="el" href="protocolto-p.html">to</a> 256MB.</li>
+<li>Async workers are now started using the options <code>PTHREADS_INHERIT_CONSTANTS | PTHREADS_INHERIT_INI</code>, which reduces idle memory wastage and works around some bugs in pthreads.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md396"></a>
+Entities</h3>
+<ul>
+<li>Fixed entities not being despawned when flagged, if they weren't scheduled for an update.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md397"></a>
+Levels</h3>
+<ul>
+<li>Seed handling is now always consistent between <code>pocketmine.yml</code> and <code>server.properties</code>.</li>
+<li>Fixed generation bugs in imported LevelDB worlds where the classpath was saved into level.dat.</li>
+<li>Generators for levels are no longer created on the main thread, reducing memory usage.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md398"></a>
+Plugins</h3>
+<ul>
+<li>Plugin data is now stored under <code>&lt;data dir&gt;/plugin_data</code> by default on new installations, instead of in <code>&lt;plugins dir&gt;</code>. This behaviour does not affect existing installations by default - if you want <a class="el" href="protocolto-p.html">to</a> enable it, set <code>plugins.legacy-data-dir</code> <a class="el" href="protocolto-p.html">to</a> <code>false</code> in <code>pocketmine.yml</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md399"></a>
+RCON</h3>
+<p>RCON has been almost completely rewritten in this release.</p><ul>
+<li>Now event-driven (using Snooze) instead of poll-based, improving performance.</li>
+<li>Fixed segmentation fault when stopping the server with RCON enabled.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md400"></a>
+API</h2>
+<p><b>WARNING: Dependency library API changes are not listed here. See their individual release notes for changes (linked above in the Core section).</b></p>
+<h3><a class="anchor" id="autotoc_md401"></a>
+API versioning changes for plugins</h3>
+<p>The way that the API versioning is done has changed. Now the API version is synonymous with the PocketMine-MP version. Plugin compatibility is determined by the following:</p><ul>
+<li>Take the base version, and strip any metadata (everything after the <code>+</code> sign, for example <code>3.0.0+dev.1191</code> becomes <code>3.0.0</code>).</li>
+<li>Assert that:<ul>
+<li>The major versions is the same</li>
+<li>The server's minor version is greater than or equal <a class="el" href="protocolto-p.html">to</a> the plugin's</li>
+<li>The server's patch version is greater than or equal <a class="el" href="protocolto-p.html">to</a> the plugin's</li>
+</ul>
+</li>
+</ul>
+<p>Currently there is no support for locking version by metadata, although this could be implemented if it is a wanted feature.</p>
+<h3><a class="anchor" id="autotoc_md402"></a>
+General</h3>
+<ul>
+<li><code>Server-&gt;getCodename()</code> and <code>\pocketmine\CODENAME</code> have been removed.</li>
+<li>Added API method <code>Server-&gt;getTickSleeper()</code>, which returns a <code>\pocketmine\snooze\SleeperHandler</code> instance.</li>
+<li><code>Server-&gt;getIp()</code> now returns <code>0.0.0.0</code> if not set.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md403"></a>
+Block</h3>
+<ul>
+<li>Added <code>Block-&gt;getXpDropForTool()</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md404"></a>
+Entity</h3>
+<ul>
+<li>Calling <code>scheduleUpdate()</code> on an <code>Entity</code> after it has been <code>close()</code>d will now cause an exception <a class="el" href="protocolto-p.html">to</a> be thrown.</li>
+<li><code>Entity-&gt;motionX</code>, <code>Entity-&gt;motionY</code> <code>Entity-&gt;motionZ</code> have been removed in favour of an <code>Entity-&gt;motion</code> <code>Vector3</code> field. This also applies for the <code>lastMotion</code> fields.</li>
+<li><code>Entity-&gt;isInsideOfWater()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>isUnderwater()</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md405"></a>
+Events</h3>
+<ul>
+<li>Added support for <code>@softDepend</code> annotation on event handlers, which allows the event handler <a class="el" href="protocolto-p.html">to</a> not be registered if the dependency plugin is not loaded.</li>
+<li>Added support for <code>@notHandler</code> annotation for <code>Listener</code> methods <a class="el" href="protocolto-p.html">to</a> indicate that such methods are not event handlers.</li>
+<li>Typehints have been applied <a class="el" href="protocolto-p.html">to</a> the events API <a class="el" href="protocolto-p.html">to</a> PHP 7.2 standards.</li>
+<li>Fixed preventing effect expiry using <code>EntityEffectRemoveEvent</code> not being reflected on the client.</li>
+<li><code>EntityDamageEvent</code> API has significant changes. The general purpose of this is <a class="el" href="protocolto-p.html">to</a> split up base damage from modifiers.<ul>
+<li>Added methods <code>getBaseDamage()</code>, <code>setBaseDamage()</code>, <code>getOriginalBaseDamage()</code>, <code>getModifiers()</code>, <code>getOriginalModifiers()</code></li>
+<li><code>setDamage()</code> renamed <a class="el" href="protocolto-p.html">to</a> <code>setModifier()</code>, and type parameter is now mandatory</li>
+<li><code>getDamage()</code> renamed <a class="el" href="protocolto-p.html">to</a> <code>getModifier()</code>, and type parameter is now mandatory</li>
+<li><code>getOriginalDamage()</code> renamed <a class="el" href="protocolto-p.html">to</a> <code>getOriginalModifier()</code>, and type parameter is now mandatory</li>
+<li>Removed <code>MODIFIER_BASE</code> constant</li>
+<li>Constructors now accept: <code>float baseDamage</code>, <code>float[] modifiers</code> instead of just <code>float[] modifiers</code></li>
+</ul>
+</li>
+<li>Added <code>BlockBreakEvent-&gt;getXpDropAmount()</code> and <code>BlockBreakEvent-&gt;setXpDropAmount()</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md406"></a>
+Inventory</h3>
+<ul>
+<li><code>InventoryTransaction-&gt;getCreationTime()</code> has been removed.</li>
+<li><code>EntityInventoryChangeEvent</code> and <code>EntityArmorChangeEvent</code> are no longer fired during entity inventory intialization.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md407"></a>
+Item</h3>
+<ul>
+<li>Methods <code>isPickaxe()</code>, <code>isAxe()</code>, <code>isSword()</code>, <code>isShovel()</code>, <code>isHoe()</code>, <code>isShears()</code> have been removed. These should be replaced with <code>instanceof</code> checks for the relevant classes.</li>
+<li>Removed <code>Item-&gt;useOn()</code>. This has been superseded by new methods used for handling durability changes.</li>
+<li>Added hooks <code>Item-&gt;onDestroyBlock()</code> and <code>Item-&gt;onAttackEntity()</code>. These are called when a player uses the item <a class="el" href="protocolto-p.html">to</a> destroy a block or attack an entity respectively. This is used in the core code for updating durability.</li>
+<li><code>Item-&gt;pop()</code> now accepts an optional count parameter.</li>
+<li><code>Enchantment</code> now has separated primary items (which can be enchanted directly) and secondary items (which can be enchanted on an anvil). The constructor of <code>Enchantment</code> has been updated <a class="el" href="protocolto-p.html">to</a> reflect this.<ul>
+<li>Removed <code>Enchantment-&gt;getSlot()</code> and <code>Enchantment-&gt;hasSlot()</code>.</li>
+<li>Added <code>Enchantment-&gt;getPrimaryItemFlags()</code>, <code>Enchantment-&gt;hasPrimaryItemFlag()</code>, <code>Enchantment-&gt;getSecondaryItemFlags()</code> and <code>Enchantment-&gt;hasSecondaryItemFlag()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md408"></a>
+Level</h3>
+<ul>
+<li><code>Biome</code> classes have been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\level\biome</code> namespace. This is in preparation for future work on Levels which requires biome information (such as weather conditions).</li>
+<li><code>WeakPosition</code> has been removed.</li>
+<li>Added <code>Level-&gt;getBiome()</code>.</li>
+<li><code>Level-&gt;getSafeSpawn()</code> now always returns a <code>Position</code> instance.</li>
+<li><code>Level-&gt;getBlockExtraData()</code> and <code>Level-&gt;setBlockExtraData()</code> have been removed (as well as their associated <code>Chunk</code> methods).</li>
+<li><code>ChunkManager-&gt;isInWorld()</code> now accepts integers instead of floats.</li>
+<li>Added <code>SubChunkIteratorManager-&gt;invalidate()</code>.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md409"></a>
+Generator</h4>
+<ul>
+<li><code>BiomeSelector</code> has been refactored <a class="el" href="protocolto-p.html">to</a> make it simpler and more robust.</li>
+<li>Generator-management methods <code>registerDefaultGenerators()</code>, <code>addGenerator()</code>, <code>getGeneratorList()</code>, <code>getGenerator()</code>, and <code>getGeneratorName()</code> have been moved from <code>Generator</code> <a class="el" href="protocolto-p.html">to</a> a new <code>GeneratorManager</code> class.</li>
+<li>Static noise functions in the <code>Generator</code> base class have been moved <a class="el" href="protocolto-p.html">to</a> <code>Noise</code> instance methods.</li>
+<li>Added static method <code>Generator::convertSeed()</code>, which converts an int or string into a numeric seed for generation.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md410"></a>
+Network</h3>
+<ul>
+<li><code>SourceInterface-&gt;process()</code> no longer returns a value.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md411"></a>
+Plugin</h3>
+<ul>
+<li><code>PluginBase-&gt;getResources()</code> now returns an associative array where the index is the path <a class="el" href="protocolto-p.html">to</a> the resource relative <a class="el" href="protocolto-p.html">to</a> the plugin's <code>resources</code> directory.</li>
+<li><code>PluginLoader</code>s have been almost completely rewritten <a class="el" href="protocolto-p.html">to</a> make them simpler and more robust.<ul>
+<li><code>PluginManager-&gt;registerInterface()</code> does not return anything, and now accepts a <code>PluginLoader</code> instance instead of a <code>string</code>.</li>
+<li><code>PluginLoader</code>:<ul>
+<li><code>getPluginFilters()</code>, <code>enablePlugin()</code> and <code>disablePlugin()</code> are removed.</li>
+<li><code>loadPlugin()</code> responsibilities are now solely confined <a class="el" href="protocolto-p.html">to</a> doing whatever is necessary <a class="el" href="protocolto-p.html">to</a> make the plugin's classes visible by the server, and does not emit log messages or check for data directories.</li>
+<li>Added method <code>getAccessProtocol()</code> which determines what prefix <a class="el" href="protocolto-p.html">to</a> apply <a class="el" href="protocolto-p.html">to</a> the plugin path <a class="el" href="protocolto-p.html">to</a> access the files inside it (for example <code>phar://</code>).</li>
+</ul>
+</li>
+<li><code>PluginBase-&gt;init()</code> and <code>PluginBase-&gt;isInitialized()</code> have been removed.</li>
+<li><code>Plugin</code> interface now declares a signature for the constructor which implementations must comply with.</li>
+<li><code>Plugin</code> interface now declares <code>setEnabled()</code>.</li>
+</ul>
+</li>
+<li>It is now possible <a class="el" href="protocolto-p.html">to</a> create a custom <code>Plugin</code> implementation without requiring a custom <code>PluginLoader</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md412"></a>
+Scheduler</h3>
+<p>This release features major changes <a class="el" href="protocolto-p.html">to</a> how plugin task scheduling works.</p><ul>
+<li>Removed <code>Server-&gt;getScheduler()</code>. All plugins now have their own scheduler which is accessible using <code>Plugin-&gt;getScheduler()</code>. Aside from being syntactically more concise and pleasant, this also allows much more effective management of tasks when plugins are disabled.</li>
+<li>Removed <code>PluginTask</code> class, because it's now unnecessary. Previously it was required <a class="el" href="protocolto-p.html">to</a> allow the server <a class="el" href="protocolto-p.html">to</a> delete tasks associated with a plugin when the plugin was disabled. With plugin-owned schedulers, this is no longer a requirement. Plugins may now utilize the <code>Task</code> class as a base if they like.</li>
+<li>Added <code>Server-&gt;getAsyncPool()</code>. Since the global scheduler does not exist any more, it does not manage the server's <code>AsyncPool</code> any more. Additionally, <code>ServerScheduler</code> was previously bloated by a lot of <code>AsyncTask</code> related methods, which are now not necessary because direct access <a class="el" href="protocolto-p.html">to</a> <code>AsyncPool</code> is granted instead.</li>
+<li><code>ServerScheduler</code>:<ul>
+<li><code>ServerScheduler</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>TaskScheduler</code> since it is now a general-purpose task scheduler which is non-dependent on the user. This allows much greater flexibility and also makes it possible <a class="el" href="protocolto-p.html">to</a> unit-test.</li>
+<li>All <code>AsyncTask</code>/<code>AsyncPool</code> related methods have been removed - the task scheduler does not manage the async pool anymore.<ul>
+<li>Calls <a class="el" href="protocolto-p.html">to</a> <code>Server-&gt;getScheduler()-&gt;scheduleAsyncTask()</code> should be replaced with <code>Server-&gt;getAsyncPool()-&gt;submitTask()</code>.</li>
+<li>Calls <a class="el" href="protocolto-p.html">to</a> <code>Server-&gt;getScheduler()-&gt;scheduleAsyncTaskToWorker()</code> should be replaced with and <code>Server-&gt;getAsyncPool()-&gt;submitTaskToWorker()</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md413"></a>
+Tile</h3>
+<ul>
+<li>Calling <code>scheduleUpdate()</code> on a <code>Tile</code> after it has been <code>close()</code>d will now cause an exception <a class="el" href="protocolto-p.html">to</a> be thrown.</li>
+<li>Tile NBT is now ephemeral and is not retained after creating the tile.<ul>
+<li><code>Tile-&gt;namedtag</code> has been removed.</li>
+<li><code>Tile-&gt;saveNBT()</code> now returns a new <code>CompoundTag</code> containing saved data.</li>
+<li>Added new protected methods <code>Tile-&gt;readSaveData()</code> and <code>Tile-&gt;writeSaveData()</code>. These should be overridden <a class="el" href="protocolto-p.html">to</a> add or read tile-specific data, instead of overriding <code>saveNBT()</code> and <code>__construct()</code>.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md414"></a>
+Utils</h3>
+<ul>
+<li>Added <code>MainLogger-&gt;getFormat()</code> and <code>MainLogger-&gt;setFormat()</code> <a class="el" href="protocolto-p.html">to</a> allow manipulating console output format.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md415"></a>
+Gameplay</h2>
+<h3><a class="anchor" id="autotoc_md416"></a>
+General</h3>
+<ul>
+<li>Fixed a range of block collision issues stemming from off-by-one errors when fetching areas.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md417"></a>
+Blocks</h3>
+<ul>
+<li>Fixed a crash which occurred when leaving a bed which was broken and replaced during sleep.</li>
+<li>Fixed dark oak and acacia saplings growing into oak trees - now they will not grow at all (they need <a class="el" href="protocolto-p.html">to</a> be implemented).</li>
+<li>Saplings now take light level into account when trying <a class="el" href="protocolto-p.html">to</a> grow.</li>
+<li>Ores and other blocks now drop experience when broken with an appropriate tool.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md418"></a>
+Entities</h3>
+<ul>
+<li>Fixed dropped items not being correctly destroyed by fire, cacti and other damage sources.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md419"></a>
+Generation</h3>
+<ul>
+<li>Grass no longer generates as the top layer of ground cover in river biomes.</li>
+<li>Ocean biomes now use gravel instead of grass+dirt for ground cover.</li>
+<li>Reduced maximum elevation of plains biomes <a class="el" href="protocolto-p.html">to</a> make them less bumpy.</li>
+<li>Snow layers and other can-be-flowed-into blocks no longer generate underwater.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md420"></a>
+Items</h3>
+<ul>
+<li>Buckets are no longer able <a class="el" href="protocolto-p.html">to</a> delete any block by replacing it with water.</li>
+<li>Dried Kelp, Bleach, Nautilus Shell and Heart of the Sea items are registered (although crafting recipes for these are not yet available).</li>
+<li>Implemented <code>Vanishing</code> enchantment.</li>
+<li>Implemented Totems.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md421"></a>
+World</h3>
+<ul>
+<li>Fixed explosions sometimes leaving behind air blocks with non-zero damage values.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md422"></a>
+3.0.1</h1>
+<ul>
+<li>Fixed error when players move things around in the crafting grid after plugins cancel <code>PlayerInteractEvent</code> on crafting tables.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md423"></a>
+3.0.2</h1>
+<ul>
+<li>Fixed memory dumps not showing private properties of parent classes.</li>
+<li>Fixed a memory leak when cancelling all tasks in the <code>TaskScheduler</code>.</li>
+<li>Fixed scheduled task timings showing <code>Unknown</code> as the plugin name.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md424"></a>
+3.0.3</h1>
+<ul>
+<li>Fixed possible crash in Sign when placed by a plugin.</li>
+<li>Fixed slightly-damaged and very-damaged anvils dropping incorrect items.</li>
+<li><code>Living-&gt;applyPostDamageEffects()</code> is no longer called if the mob died from an attack.</li>
+<li>Cooldown for mob attack is now reset prior <a class="el" href="protocolto-p.html">to</a> applying post-damage effects.</li>
+<li>Added constant <code>ItemIds::MUTTON</code> <a class="el" href="protocolto-p.html">to</a> resolve crashes using PC worlds.</li>
+<li>Fixed emerald ore not dropping XP when broken with a valid tool.</li>
+<li>Fixed mobs getting crazy vertical knockback if attacked while airborne.</li>
+<li>Fixed XP orbs continuing <a class="el" href="protocolto-p.html">to</a> follow dead players.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md425"></a>
+3.0.4</h1>
+<ul>
+<li>Fixed RCON spamming the console when a client does not disconnect correctly.</li>
+<li>Fixed dropping chunk cache unnecessarily when no blocks need <a class="el" href="protocolto-p.html">to</a> be updated on a chunk.</li>
+<li>Fixed outdated block updates getting sent on chunks replaced using <code>setBlock()</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md426"></a>
+3.0.5</h1>
+<ul>
+<li>Fixed not being able <a class="el" href="protocolto-p.html">to</a> place blocks where a player died and has not yet respawned (#2265).</li>
+<li>Fixed mob death animation not being played when <code>Entity-&gt;kill()</code> is called directly or <code>/kill</code> is used.</li>
+<li>Fixed viewers of different halves of double chests not seeing changes made by viewers who opened the other half (#2261).</li>
+<li>Fixed bugs setting items into wrong indexes when double chest halves have differently sized inventories.</li>
+<li>Fixed <code>getConfig()</code> crashing when called when the plugin's data directory doesn't exist.</li>
+<li>Fixed a possible exploit with keychain signing for XBL login.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md427"></a>
+3.0.6</h1>
+<ul>
+<li>Fixed invalid keys in <code>.properties</code> config files being considered as invalid strings.</li>
+<li>Fixed whitespace between key and value <code>key = value</code> being invalid in <code>.properties</code> config files.</li>
+<li>Fixed a bug in exception message when an invalid permission type is written for a command in plugin.yml.</li>
+<li>Properly fixed newline issues when parsing event handler annotations - <code>@notHandler</code> will now work as expected when CRLF line endings are used.</li>
+<li>Fixed <code>PluginManager-&gt;registerEvents()</code> registering functions as event handlers declared by parent classes which are not <code>Listener</code> instances (#2293).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md428"></a>
+3.0.7</h1>
+<ul>
+<li>Fixed setting spawn points in un-generated chunks causing the player <a class="el" href="protocolto-p.html">to</a> fall out of the world.</li>
+<li>Fixed spawn protection deactivating when there are no ops set (this was an unwanted/unexpected feature, so it's considered a bug).</li>
+<li>Fixed cursor items not getting dropped when closing the inventory or dying.</li>
+<li>Fixed more issues with blocks with invalid metadata appearing as update! blocks.</li>
+<li><code>Entity-&gt;setNameTagAlwaysVisible()</code> now works (although nametags will still not be shown if the entity is invisible, due <a class="el" href="protocolto-p.html">to</a> a behavioural change in Minecraft PE).</li>
+<li>Fixed errors passing zero motions <a class="el" href="protocolto-p.html">to</a> projectiles in some cases.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md429"></a>
+3.0.8</h1>
+<ul>
+<li>Fixed player on-ground state not updating when moving horizontally. This allowed fly hacks with the built in anti-cheat, and also affected some third party anti-cheat plugins due <a class="el" href="protocolto-p.html">to</a> the effect on <code>inAirTicks</code>.</li>
+<li>Fixed knockback. PC 1.9-style knockback was mistakenly introduced in 3.0.3. This has now been reverted back <a class="el" href="protocolto-p.html">to</a> the old 1.8-style behaviour.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md430"></a>
+3.0.9</h1>
+<ul>
+<li>Cleaned up odd behaviour of <code>/kill</code> due <a class="el" href="protocolto-p.html">to</a> old broken code.</li>
+<li>Fixed patch level check for plugin APIs not allowing lesser patch versions on greater minor versions.</li>
+<li>Fixed <code>/timings paste</code>. This now reports directly <a class="el" href="protocolto-p.html">to</a> the timings host instead of using Ubuntu Pastebin.</li>
+<li>Minor code cleanups in various places.</li>
+<li>Zip resource packs will now give slightly less useless errors - errors for broken manifest have been separated from those with fields missing, and now reports why decoding failed if it failed.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md431"></a>
+3.0.10</h1>
+<ul>
+<li>Syntax error crashdumps will no longer be reported <a class="el" href="protocolto-p.html">to</a> the crash archive.</li>
+<li>Chunk sending is now fault-tolerant. Before this release, any error on a worker during async chunk sending (such as memory errors caused by pthreads) would cause that chunk <a class="el" href="protocolto-p.html">to</a> never get sent, resulting in invisible and missing chunks. Levels will now attempt <a class="el" href="protocolto-p.html">to</a> retry chunk prepare when a task crashes, which should fix most invisible chunk bugs.</li>
+<li><code>MainLogger</code> now logs exception stack traces in a synchronized block <a class="el" href="protocolto-p.html">to</a> ensure that they are coherent when log messages are emitted from multiple threads at once.</li>
+<li><code>AsyncTask-&gt;isCrashed()</code> now returns <code>true</code> if a fatal error occurred during the task execution.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md432"></a>
+3.0.11</h1>
+<ul>
+<li><code>DropItemAction</code> will now consider itself invalid if attempting <a class="el" href="protocolto-p.html">to</a> drop a null item.</li>
+<li>Fixed leaking globally broadcasted Level packets when no players are on the server.</li>
+<li>Fixed title bar not being cleared on server stop on some terminals.</li>
+<li>Fixed <code>FallingBlock</code> saving corrupted data.</li>
+<li>Fixed the structure of <code>GuiDataPickItemPacket</code>.</li>
+<li>Cleaned up some code in <code>OfflinePlayer</code>.</li>
+<li>Splash potions no longer apply effects <a class="el" href="protocolto-p.html">to</a> dead (but not yet respawned) players.</li>
+<li>Coal ore no longer drops XP when mined with a silk touch tool.</li>
+<li>Item entities now cannot be picked up when a negative pickup delay is used.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md433"></a>
+3.0.12</h1>
+<ul>
+<li><code>Config</code> keys which are considered bools by YAML 1.1 will no longer be transformed into 1 or 0.</li>
+<li>Fixed painting motives not getting saved.</li>
+<li>Fixed cacti spewing items when placed in some invalid locations.</li>
+<li>Fixed entity fire damage not applying in the void.</li>
+<li>Fixed entities not getting updated appropriately in some conditions. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

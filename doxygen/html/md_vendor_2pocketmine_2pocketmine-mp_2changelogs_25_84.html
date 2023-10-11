@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 5.4.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">5.4.0</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md1587"></a>Released 1st August 2023.</p>
+<p><b>For Minecraft: Bedrock Edition 1.20.10</b></p>
+<p>This is a minor feature update, including a handful of new gameplay features, new plugin APIs and improvements <a class="el" href="protocolto-p.html">to</a> error reporting.</p>
+<p><b>Plugin compatibility:</b> Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the <code>pocketmine\network\mcpe</code> or <code>pocketmine\data</code> namespace. Do not update plugin minimum API versions unless you need new features added in this release.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h1><a class="anchor" id="autotoc_md1588"></a>
+General</h1>
+<ul>
+<li>Improved error reporting for async task and thread crashes.</li>
+<li>Players may now have different creative inventories.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1589"></a>
+Gameplay</h1>
+<h2><a class="anchor" id="autotoc_md1590"></a>
+General</h2>
+<ul>
+<li>Added support for 1.5-block height sneaking.</li>
+<li>Fixed missing player arm swing and sounds when punching the air.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1591"></a>
+Blocks</h2>
+<ul>
+<li>Implemented the following new blocks:<ul>
+<li>Big Dripleaf Head</li>
+<li>Big Dripleaf Stem</li>
+<li>Small Dripleaf</li>
+</ul>
+</li>
+<li>Acacia saplings now grow into acacia trees.</li>
+<li>Fixed melon and pumpkin stems not attaching <a class="el" href="protocolto-p.html">to</a> the correct block when growing.</li>
+<li>Various blocks now drop more items when mined with a compatible tool enchanted with Fortune.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1592"></a>
+Items</h2>
+<ul>
+<li>Implemented Strong Slowness potion.</li>
+<li>Implemented Fortune enchantment.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1593"></a>
+API</h1>
+<h2><a class="anchor" id="autotoc_md1594"></a>
+&lt;tt&gt;pocketmine\block&lt;/tt&gt;</h2>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>utils\FortuneDropHelper</code> - utility methods for calculating the drop counts for Fortune-affected blocks</li>
+</ul>
+</li>
+<li>The following new API methods have been added:<ul>
+<li><code>protected Block-&gt;getAdjacentSupportType(int $facing) : utils\SupportType</code> - returns the type of support provided by the block in the given direction on the adjacent face</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1595"></a>
+&lt;tt&gt;pocketmine\entity&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API constants have been added:<ul>
+<li><code>Living::DEFAULT_KNOCKBACK_FORCE</code></li>
+<li><code>Living::DEFAULT_KNOCKBACK_VERTICAL_LIMIT</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1596"></a>
+&lt;tt&gt;pocketmine\entity\animation&lt;/tt&gt;</h2>
+<ul>
+<li><code>ConsumingItemAnimation</code> now accepts <code>Living</code> instances instead of just <code>Human</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1597"></a>
+&lt;tt&gt;pocketmine\event&lt;/tt&gt;</h2>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>PlayerMissSwingEvent</code> - called when the player attempts the attack action (left click on desktop) without any target<ul>
+<li>This is possible thanks <a class="el" href="protocolto-p.html">to</a> the introduction of new flags in <code>PlayerAuthInputPacket</code> in Bedrock 1.20.10</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The following new API methods have been added:<ul>
+<li><code>public EntityDamageByEntityEvent-&gt;getVerticalKnockBackLimit() : float</code></li>
+<li><code>public EntityDamageByEntityEvent-&gt;setVerticalKnockBackLimit(float $verticalKnockBackLimit) : void</code> - sets the max vertical velocity that can result from the victim being knocked back</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1598"></a>
+&lt;tt&gt;pocketmine\player&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Player-&gt;getCreativeInventory() : pocketmine\inventory\CreativeInventory</code></li>
+<li><code>public Player-&gt;setCreativeInventory(pocketmine\inventory\CreativeInventory $inventory) : void</code></li>
+<li><code>public Player-&gt;missSwing() : void</code> - performs actions associated with the attack action when there is no target (see <code>PlayerMissSwingEvent</code>)</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1599"></a>
+&lt;tt&gt;pocketmine\scheduler&lt;/tt&gt;</h2>
+<ul>
+<li>Cancellation functionality has been removed from <code>AsyncTask</code>, as it didn't make any sense and wasn't used by anything for what it was intended for.<ul>
+<li>It broke sequential task execution - later tasks might depend on state from earlier tasks</li>
+<li>It didn't actually cancel the task anyway - at best, it prevented it from running, but couldn't interrupt it (though interrupting a task does not make sense either)</li>
+</ul>
+</li>
+<li>The following API methods have been deprecated, and their functionality has been removed:<ul>
+<li><code>AsyncTask-&gt;hasCancelledRun()</code></li>
+<li><code>AsyncTask-&gt;cancelRun()</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1600"></a>
+Internals</h1>
+<ul>
+<li>Uncaught exceptions and fatal errors in <code>AsyncTask</code>, threads extending <code>pocketmine\thread\Thread</code>, and <code>pocketmine\thread\Worker</code> are now recorded in crashdumps, making it significantly easier <a class="el" href="protocolto-p.html">to</a> debug errors in these areas.</li>
+<li>JWT signature DER &lt;-&gt; raw conversions are now handled in-house using code in <code>JwtUtils</code><ul>
+<li>Due <a class="el" href="protocolto-p.html">to</a> the simplicity of the conversion and only requiring a tiny subset of the ASN.1 spec, it didn't make much sense <a class="el" href="protocolto-p.html">to</a> introduce another dependency.</li>
+<li><code>fgrosse/phpasn1</code> is no longer required. This package was abandoned by its author and only used by PocketMine-MP for this one purpose.</li>
+</ul>
+</li>
+<li>Various usages of <code>Closure::fromCallable()</code> have been replaced by PHP 8.1 first-class callable syntax.</li>
+<li>Blocks requiring support shifted <a class="el" href="protocolto-p.html">to</a> a "can be supported at" model, rather than "can be supported by".<ul>
+<li>This model reduces repeated logic when placing and performing nearby block updates (no need <a class="el" href="protocolto-p.html">to</a> hardcode facing everywhere).</li>
+<li>In addition, this change facilitates the use of the newly introduced <code>Block-&gt;getAdjacentSupportType()</code> API method, reducing boilerplate support-type checking code.</li>
+</ul>
+</li>
+<li>Bell block code has been simplified and cleaned up.</li>
+<li><code>TallGrass</code> and <code>DoubleTallGrass</code> now use a shared <code>TallGrassTrait</code> <a class="el" href="protocolto-p.html">to</a> reduce code duplication.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1601"></a>
+5.4.1</h1>
+<p>Released 8th August 2023.</p>
+<h2><a class="anchor" id="autotoc_md1602"></a>
+General</h2>
+<ul>
+<li>Updated translation data <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/pmmp/Language/releases/tag/2.19.6">pmmp/Language 2.19.6</a>.</li>
+<li><a href="https://github.com/pmmp/ext-pmmpthread/releases/tag/6.0.7"><code>ext-pmmpthread</code> 6.0.7</a> is now required (needed for bug fixes).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1603"></a>
+Fixes</h2>
+<ul>
+<li>Fixed Podzol not dropping itself when mined with Silk Touch.</li>
+<li>Fixed <code>World-&gt;getSafeSpawn()</code> not accepting positions below <code>y=0</code> (world height limit change).</li>
+<li>Fixed <code>pocketmine\thread\Thread</code> and <code>pocketmine\thread\Worker</code> instances not logging any information when they crash.</li>
+<li>Fixed <code>CraftItemEvent</code> not cloning returned items.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1604"></a>
+Internals</h2>
+<ul>
+<li>Foreach by-reference is now disallowed via a custom PHPStan rule.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1605"></a>
+5.4.2</h1>
+<p>Released 9th August 2023.</p>
+<h2><a class="anchor" id="autotoc_md1606"></a>
+Included releases</h2>
+<ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.23.5/changelogs/4.23.md#4235">4.23.5</a> - Minor bug fixes</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1607"></a>
+Fixes</h2>
+<ul>
+<li>Fixed cake accepting candle placement when slices have already been eaten.</li>
+<li>Fixed fire charges not lighting candles.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1608"></a>
+5.4.3</h1>
+<p>Released 21st August 2023.</p>
+<h2><a class="anchor" id="autotoc_md1609"></a>
+Included releases</h2>
+<ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.23.6/changelogs/4.23.md#4236">4.23.6</a> - Armor inventory client bug workaround</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1610"></a>
+Fixes</h2>
+<ul>
+<li>Fixed crashdumps not generating correctly on fatal errors.</li>
+<li>Fixed <code>PotionCauldron::setPotionItem()</code> not validating the item type.</li>
+<li>Fixed chorus fruit not considering teleport destinations below y=0.</li>
+<li>Fixed cake dropping itself when mined.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1611"></a>
+5.4.4</h1>
+<p>Released 6th September 2023.</p>
+<h2><a class="anchor" id="autotoc_md1612"></a>
+General</h2>
+<ul>
+<li>Crashdumps caused by non-phar plugins are now submitted <a class="el" href="protocolto-p.html">to</a> the Crash Archive, the same as other plugins. Previously, non-phar plugin crashes would not be submitted, causing maintainers <a class="el" href="protocolto-p.html">to</a> potentially miss important issues.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1613"></a>
+Fixes</h2>
+<ul>
+<li>Fixed player Y coordinates sometimes being slightly below the top of the block they were standing on (floating point error due <a class="el" href="protocolto-p.html">to</a> subtracting eye height).</li>
+<li>Fixed template slot of smithing tables not accepting any items.</li>
+<li><code>tools/generate-bedrock-data-from-packets.php</code> is now significantly less spammy when warning about duplicated recipes.</li>
+<li>Fixed empty stack traces in <code>lastError</code> data of crashdumps. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

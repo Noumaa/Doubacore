@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: Migration for versions 1.x.x -&gt; 2.x.x</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Migration for versions 1.x.x -&gt; 2.x.x</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md2"></a> As the implementation of the <code>PluginIdentifiableCommand</code> is now being enforced by Poggit-CI, we needed to comply and include it with the virion itself (being a base framework, to reduce boilerplate code)</p>
+<p>To migrate your plugins, if you have overridden the constructor (<code>__construct()</code>) of any class that's extending <code>BaseCommand</code>, you will need to update the function's signature as it now includes the <code>Plugin</code> context before anything else.</p>
+<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">function</span> __construct(</div>
+<div class="line">    Plugin $plugin,</div>
+<div class="line">    <span class="keywordtype">string</span> $name,</div>
+<div class="line">    <span class="keywordtype">string</span> $description = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line">    array $aliases = []</div>
+<div class="line">)</div>
+</div><!-- fragment --><p>You will need to change the parent call (<code>parent::__construct($name, $description, $aliases)</code>) to include the plugin instance: </p><div class="fragment"><div class="line">parent::__construct($plugin, $name, $description, <span class="keyword">null</span>, $aliases);</div>
+</div><!-- fragment --><p>Along with these changes, you will need to include the <code>Plugin</code> context with your class' constructor.</p>
+<p>Because of those signature differences, you will need to update the part where your plugin registers a command that uses Commando. As an example: </p><div class="fragment"><div class="line"><span class="comment">// Example code from 1.x.x README.md</span></div>
+<div class="line">$this-&gt;getServer()-&gt;getCommandMap()-&gt;register(<span class="stringliteral">&quot;myplugin&quot;</span>, <span class="keyword">new</span> MyCommand(<span class="stringliteral">&quot;greet&quot;</span>, <span class="stringliteral">&quot;Make the server greet you!&quot;</span>));</div>
+<div class="line"><span class="comment">// Will have to be migrated to:</span></div>
+<div class="line">$this-&gt;getServer()-&gt;getCommandMap()-&gt;register(<span class="stringliteral">&quot;myplugin&quot;</span>, <span class="keyword">new</span> MyCommand($this, <span class="stringliteral">&quot;greet&quot;</span>, <span class="stringliteral">&quot;Make the server greet you!&quot;</span>));</div>
+</div><!-- fragment --><p>Assuming you're calling <code>CommandMap-&gt;register()</code> directly from the plugin itself. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

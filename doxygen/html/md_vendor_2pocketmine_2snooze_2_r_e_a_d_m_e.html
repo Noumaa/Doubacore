@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: Snooze</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Snooze</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md1696"></a>Event-driven thread notification management library for code using the pthreads extension</p>
+<h1><a class="anchor" id="autotoc_md1697"></a>
+Use cases</h1>
+<p>ext-pthreads currently doesn't make it conveniently possible <a class="el" href="protocolto-p.html">to</a> <code>wait()</code> for notifications from multiple threads simultaneously. This library allows you <a class="el" href="protocolto-p.html">to</a> do that using a <code>SleeperHandler</code>.</p>
+<p>Every thread must receive its own <code>SleeperNotifier</code> (since they are thread-safe, you can share notifiers between threads, but it's recommended not <a class="el" href="protocolto-p.html">to</a>). The thread should call <code>wakeupSleeper()</code> on its <code>SleeperNotifier</code>, which will cause the thread waiting on <code>SleeperHandler</code> <a class="el" href="protocolto-p.html">to</a> wake up and process whatever notification was delivered.</p>
+<p>It's similar <a class="el" href="protocolto-p.html">to</a> using the <code>select()</code> system call on an array of sockets or file descriptors, but with threads instead.</p>
+<h1><a class="anchor" id="autotoc_md1698"></a>
+Example</h1>
+<div class="fragment"><div class="line"><span class="keyword">class </span>NotifyingThread <span class="keyword">extends</span> \pmmp\thread\Thread{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">function</span> __construct(</div>
+<div class="line">        <span class="keyword">private</span> \<a class="code hl_namespace" href="namespacepocketmine.html">pocketmine</a>\snooze\SleeperHandlerEntry $sleeperEntry,</div>
+<div class="line">        <span class="keyword">private</span> \pmmp\thread\ThreadSafeArray $buffer</div>
+<div class="line">    ){}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">function</span> run() : void{</div>
+<div class="line">        $stdin = fopen(<span class="stringliteral">&#39;php://stdin&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>);</div>
+<div class="line">        $notifer = $this-&gt;sleeperEntry-&gt;createNotifier();</div>
+<div class="line">        <span class="keywordflow">while</span>(<span class="keyword">true</span>){</div>
+<div class="line">            echo <span class="stringliteral">&quot;Type something and press ENTER:\n&quot;</span>;</div>
+<div class="line">            <span class="comment">//do whatever you&#39;re doing</span></div>
+<div class="line">            $line = fgets($stdin); <span class="comment">//blocks until the user enters something</span></div>
+<div class="line"> </div>
+<div class="line">            <span class="comment">//add the line to the buffer</span></div>
+<div class="line">            $this-&gt;buffer[] = $line;</div>
+<div class="line"> </div>
+<div class="line">            <span class="comment">//send a notification to the main thread to tell it that we read a line</span></div>
+<div class="line">            <span class="comment">//the parent thread doesn&#39;t have to be sleeping to receive this, it&#39;ll process it next time it tries to go</span></div>
+<div class="line">            <span class="comment">//back to sleep</span></div>
+<div class="line">            <span class="comment">//if the parent thread is sleeping, it&#39;ll be woken up to process notifications immediately.</span></div>
+<div class="line">            $notifer-&gt;wakeupSleeper();</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">$sleeper = new \pocketmine\snooze\SleeperHandler();</div>
+<div class="line"> </div>
+<div class="line">$buffer = new \pmmp\thread\ThreadSafeArray();</div>
+<div class="line">$sleeperEntry = $sleeper-&gt;addNotifier(<span class="keyword">function</span>() use($buffer) : void{</div>
+<div class="line">    <span class="comment">//do some things when this notifier sends a notification</span></div>
+<div class="line">    echo <span class="stringliteral">&quot;Main thread got line: &quot;</span> . $buffer-&gt;shift();</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line">$thread = <span class="keyword">new</span> NotifyingThread($sleeperEntry, $buffer);</div>
+<div class="line">$thread-&gt;start();</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">while</span>(<span class="keyword">true</span>){</div>
+<div class="line">    $start = microtime(<span class="keyword">true</span>);</div>
+<div class="line">    <span class="comment">//do some work that you do every tick</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//process any pending notifications, then try to sleep 50ms until the next tick</span></div>
+<div class="line">    <span class="comment">//this may wakeup at any time to process received notifications</span></div>
+<div class="line">    <span class="comment">//if it wakes up and there is still time left to sleep before the specified time, it will go back to sleep again</span></div>
+<div class="line">    <span class="comment">//until that time, guaranteeing a delay of at least this amount</span></div>
+<div class="line">    <span class="comment">//if there are notifications waiting when this is called, they&#39;ll be processed before going to sleep</span></div>
+<div class="line">    $sleeper-&gt;sleepUntil($start + 0.05);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">while</span>(<span class="keyword">true</span>){</div>
+<div class="line">    <span class="comment">//alternatively, if you want to only wait for notifications and not tick:</span></div>
+<div class="line">    <span class="comment">//but from the pthreads rulebook, only ever wait FOR something!</span></div>
+<div class="line">    <span class="comment">//this will wait indefinitely until something wakes it up, and then return immediately</span></div>
+<div class="line">    $sleeper-&gt;sleepUntilNotification();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">$thread-&gt;join();</div>
+<div class="line"><span class="comment">//Unregister the notifier when you&#39;re done with it</span></div>
+<div class="line">$sleeper-&gt;removeNotifier($sleeperEntry-&gt;getNotifierId());</div>
+<div class="ttc" id="anamespacepocketmine_html"><div class="ttname"><a href="namespacepocketmine.html">pocketmine</a></div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

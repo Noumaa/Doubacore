@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.17</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.17</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.16.200</b></p>
+<h3><a class="anchor" id="autotoc_md499"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md500"></a>
+3.17.0</h1>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.16.200.</li>
+<li>Removed compatibility with earlier versions.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md501"></a>
+Known issues (please don't open issues for these)</h2>
+<ul>
+<li>Walls don't connect <a class="el" href="protocolto-p.html">to</a> each other</li>
+<li>Pumpkin and melon stems may not connect <a class="el" href="protocolto-p.html">to</a> their corresponding pumpkin/melon</li>
+<li>New blocks, items &amp; mobs aren't implemented</li>
+<li>Nether doesn't exist</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md502"></a>
+3.17.1</h1>
+<ul>
+<li>Fixed some instances of plugin-caused crashes not being detected (eval()'d code, custom plugin paths).</li>
+<li>Server uptime is now included in crash reports.</li>
+<li>Hoes now take damage when used <a class="el" href="protocolto-p.html">to</a> break sponges.</li>
+<li>Using lava as fuel in a furnace now leaves behind an empty bucket.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md503"></a>
+3.17.2</h1>
+<ul>
+<li>Fixed region header corruption when chunks with larger-than-expected lengths are found. These chunks are now treated as corrupted, instead of automatically attempting <a class="el" href="protocolto-p.html">to</a> salvage them (which usually fails anyway).</li>
+<li><code>RegionLoader-&gt;removeChunk()</code> now allows the space used by the removed chunk <a class="el" href="protocolto-p.html">to</a> be reused by future region saves.</li>
+<li>Extracted <code>Living-&gt;applyConsumptionResults()</code> from <code>Living-&gt;consumeObject()</code> (preparation for a future bug fix).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md504"></a>
+3.17.3</h1>
+<ul>
+<li>Improved performance of chunk loading in Region-based worlds.</li>
+<li>Improved performance of region header validation in Region-based worlds (indirect improvement <a class="el" href="protocolto-p.html">to</a> chunk loading performance).</li>
+<li>Fixed some PHP 8.0 language-level compatibility issues.</li>
+<li>Source installations will now exit with an error when Composer dependencies are not in sync with the current Git revision. Now, it's required <a class="el" href="protocolto-p.html">to</a> run <code>composer install</code> after every git pull <a class="el" href="protocolto-p.html">to</a> make sure the correct dependency versions are installed.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md505"></a>
+3.17.4</h1>
+<ul>
+<li>Removed <code>readline</code> support. This hasn't been maintained for many years, never worked correctly, and isn't thread-safe in any case.</li>
+<li>Fixed false-positives of region corruption in Region-based worlds (outdated file stat cache).</li>
+<li>Fixed more deprecation warnings on PHP 8.0 (optional parameter before required).</li>
+<li><code>CraftItemEvent-&gt;getInputs()</code> now returns a list starting at offset 0, instead of random offsets. (Note that the contents still won't be ordered.)</li>
+<li><code>CraftItemEvent-&gt;getOutputs()</code> now returns a list starting at offset 0, instead of random offsets. (Note that the contents still won't be ordered.)</li>
+<li>Fixed a bug that broke synchronized building, bridging, towering and more.</li>
+<li>Objects in memory dumps no longer show inherited properties multiple times.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md506"></a>
+3.17.5</h1>
+<ul>
+<li>Reduced CPU wastage by the logger thread.</li>
+<li>Fixed LevelDB deprecation errors on PHP 8.0.</li>
+<li>Added some protocol changes for 1.16.200 which were previously overlooked.</li>
+<li>Player XUIDs are now tracked. If a player's XUID does not match the previously recorded XUID when they next join the server, they will be kicked. This can be disabled by the <code>player.verify-xuid</code> setting in <code>pocketmine.yml</code>.</li>
+<li><code>BUILDING.md</code> now has a note about <code>build/server-phar.php</code>'s compression bug (a bug in PHP).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md507"></a>
+3.17.6</h1>
+<ul>
+<li>Fixed core race conditions that could have led <a class="el" href="protocolto-p.html">to</a> server freezes (race conditions in pmmp/Snooze).</li>
+<li>The log message about Xbox Live authentication being enabled has been reduced <a class="el" href="protocolto-p.html">to</a> INFO, and the tip on how <a class="el" href="protocolto-p.html">to</a> turn it off removed (disabling it should usually only be done by power users anyway).</li>
+<li>Fixed <code>PlayerMoveEvent-&gt;getFrom()</code> returning incorrect results for players who experienced movement reversions.</li>
+<li>Fixed a bug in <code>ResourcePackClientResponsePacket</code> decoding that caused unexpected results when decoding the packet twice.</li>
+<li>XUID verification now compares XUIDs against players who are already on the server <a class="el" href="protocolto-p.html">to</a> detect mismatches <a class="el" href="protocolto-p.html">to</a> avoid unnecessary loading of playerdata.</li>
+<li>Fixed an inventory duplication bug which could occur when the same player joined with two devices at the same time.</li>
+<li>Fixed cursor item not being synced on inventory transaction rollbacks.</li>
+<li>Fixed items with TAG_Float in their NBT not being able <a class="el" href="protocolto-p.html">to</a> be moved around in the inventory.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md508"></a>
+3.17.7</h1>
+<ul>
+<li>Fixed crash caused by preprocessor in 3.17.6. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

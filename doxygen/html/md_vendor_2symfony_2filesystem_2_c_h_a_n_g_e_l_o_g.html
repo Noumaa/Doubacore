@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: CHANGELOG</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">CHANGELOG</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="autotoc_md1720"></a>
+5.4</h1>
+<ul>
+<li>Add <code>Path</code> class</li>
+<li>Add <code>$lock</code> argument <a class="el" href="protocolto-p.html">to</a> <code>Filesystem::appendToFile()</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1721"></a>
+5.0.0</h1>
+<ul>
+<li><code>Filesystem::dumpFile()</code> and <code>appendToFile()</code> don't accept arrays anymore</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1722"></a>
+4.4.0</h1>
+<ul>
+<li>support for passing a <code>null</code> value <a class="el" href="protocolto-p.html">to</a> <code>Filesystem::isAbsolutePath()</code> is deprecated and will be removed in 5.0</li>
+<li><code>tempnam()</code> now accepts a third argument <code>$suffix</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1723"></a>
+4.3.0</h1>
+<ul>
+<li>support for passing arrays <a class="el" href="protocolto-p.html">to</a> <code>Filesystem::dumpFile()</code> is deprecated and will be removed in 5.0</li>
+<li>support for passing arrays <a class="el" href="protocolto-p.html">to</a> <code>Filesystem::appendToFile()</code> is deprecated and will be removed in 5.0</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1724"></a>
+4.0.0</h1>
+<ul>
+<li>removed <code>LockHandler</code></li>
+<li>Support for passing relative paths <a class="el" href="protocolto-p.html">to</a> <code>Filesystem::makePathRelative()</code> has been removed.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1725"></a>
+3.4.0</h1>
+<ul>
+<li>support for passing relative paths <a class="el" href="protocolto-p.html">to</a> <code>Filesystem::makePathRelative()</code> is deprecated and will be removed in 4.0</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1726"></a>
+3.3.0</h1>
+<ul>
+<li>added <code>appendToFile()</code> <a class="el" href="protocolto-p.html">to</a> append contents <a class="el" href="protocolto-p.html">to</a> existing files</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1727"></a>
+3.2.0</h1>
+<ul>
+<li>added <code>readlink()</code> as a platform independent method <a class="el" href="protocolto-p.html">to</a> read links</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1728"></a>
+3.0.0</h1>
+<ul>
+<li>removed <code>$mode</code> argument from <code>Filesystem::dumpFile()</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1729"></a>
+2.8.0</h1>
+<ul>
+<li>added tempnam() a stream aware version of PHP's native tempnam()</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1730"></a>
+2.6.0</h1>
+<ul>
+<li>added LockHandler</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1731"></a>
+2.3.12</h1>
+<ul>
+<li>deprecated dumpFile() file mode argument.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1732"></a>
+2.3.0</h1>
+<ul>
+<li>added the dumpFile() method <a class="el" href="protocolto-p.html">to</a> atomically write files</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1733"></a>
+2.2.0</h1>
+<ul>
+<li>added a delete option for the mirror() method</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1734"></a>
+2.1.0</h1>
+<ul>
+<li>24eb396 : BC Break : mkdir() function now throws exception in case of failure instead of returning Boolean value</li>
+<li>created the component </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

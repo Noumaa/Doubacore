@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.11</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.11</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.40</b></p>
+<p>This is a minor feature release for PocketMine-MP, introducing some new features and improvements.</p>
+<h3><a class="anchor" id="autotoc_md969"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md970"></a>
+4.11.0</h1>
+<p>Released 25th November 2022.</p>
+<h2><a class="anchor" id="autotoc_md971"></a>
+General</h2>
+<ul>
+<li>Packet receive timings have now been split into two subcategories - Decode and Handle.</li>
+<li>Console command entry can now be disabled via the <code>console.enable-input</code> setting in <code>pocketmine.yml</code>.<ul>
+<li>Best suited for headless servers (e.g. in a Docker container) where the console will never be used anyway.</li>
+<li>Disabling the console reader slightly reduces memory usage, because console reading currently requires an additional subprocess.</li>
+</ul>
+</li>
+<li>Console command output now appears on the terminal only, and is not written <a class="el" href="protocolto-p.html">to</a> the log file.</li>
+<li>The output from console commands now appears with a <code>Command output |</code> prefix, instead of as a log message.</li>
+<li>User-defined <code>pocketmine.yml</code> custom commands now use a generic description which makes clear the command is config-defined.</li>
+<li>Introduced validation for the <code>--data</code> and <code>--plugins</code> command line options.</li>
+<li>Encrypted resource packs are now supported, by means of adding a <code>.key</code> file alongside the pack in the <code>resource_packs</code> folder.<ul>
+<li>e.g. <code>MyEncryptedPack.zip</code> -&gt; <code>MyEncryptedPack.zip.key</code></li>
+<li>The file must contain the raw key bytes, and must not end with a newline.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md972"></a>
+Configuration</h2>
+<ul>
+<li>The <code>chunk-ticking.per-tick</code> setting is now deprecated, and will be removed in a future release.<ul>
+<li>The functionality of this setting has been removed, since it caused more problems than it solved.</li>
+<li>Setting it <a class="el" href="protocolto-p.html">to</a> zero will still disable chunk ticking (for now), but this should now be done by setting <code>chunk-ticking.tick-radius</code> <a class="el" href="protocolto-p.html">to</a> <code>0</code> instead.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md973"></a>
+Gameplay</h2>
+<ul>
+<li>Fixed supporting blocks of dead bush <a class="el" href="protocolto-p.html">to</a> be in line with vanilla.</li>
+<li>Sugarcane can now be grown using bonemeal on any part of the sugarcane. Previously, it only worked when used on the bottom block.</li>
+<li>Fixed missing sounds when adding, rotating, or removing items in item frames.</li>
+<li>Fixed modifier values for Instant Damage and Regeneration effects.</li>
+<li>Implemented Darkness effect.</li>
+<li>Improved chunk random ticking:<ul>
+<li>Removed the limit on chunks ticked per tick, and its associated config option is no longer respected.<ul>
+<li>This change significantly improves crop and plant growth with large numbers of players.</li>
+<li>This limit was causing a linear decrease in chunk ticking speed with larger numbers of players, leading <a class="el" href="protocolto-p.html">to</a> worsened gameplay experience.</li>
+<li><b>Warning: This change will result in increased CPU usage if players are spread over a very large area.</b></li>
+</ul>
+</li>
+<li>Every chunk within the configured tick radius of a player will be ticked. Previously, chunks were randomly selected from the radius.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md974"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md975"></a>
+General</h3>
+<ul>
+<li>Plugins are now always disabled before their dependencies, <a class="el" href="protocolto-p.html">to</a> ensure that they are able <a class="el" href="protocolto-p.html">to</a> shutdown properly (e.g. a core plugin depending on a database plugin may want <a class="el" href="protocolto-p.html">to</a> save data <a class="el" href="protocolto-p.html">to</a> a DB during <code>onDisable()</code>).</li>
+<li><a href="https://packagist.org/packages/webmozart/path-util"><code>webmozart/path-util</code></a> has been deprecated, and will be dropped in favour of <a href="https://packagist.org/packages/symfony/filesystem"><code>symfony/filesystem</code></a> in PM5.<ul>
+<li>To prepare for this change, simply replace any usage of <code>Webmozart\PathUtil\Path</code> with <code>Symfony\Component\Filesystem\Path</code>, which is available as a dependency in this release.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md976"></a>
+&lt;tt&gt;pocketmine&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods are now deprecated:<ul>
+<li><code>Server-&gt;getPlayerByPrefix()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md977"></a>
+&lt;tt&gt;pocketmine\entity&lt;/tt&gt;</h3>
+<ul>
+<li><code>EntitySpawnEvent</code> and <code>ItemSpawnEvent</code> are now fired on the first tick after the entity is added <a class="el" href="protocolto-p.html">to</a> the world. Previously, these events were called directly from the entity constructor, making it impossible <a class="el" href="protocolto-p.html">to</a> get properties like velocity which are often set after the entity is created.</li>
+<li>The following API methods are now deprecated:<ul>
+<li><code>Living-&gt;hasLineOfSight()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md978"></a>
+&lt;tt&gt;pocketmine\event\block&lt;/tt&gt;</h3>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>BlockDeathEvent</code> - event called when coral or coral blocks die due <a class="el" href="protocolto-p.html">to</a> lack of water</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md979"></a>
+&lt;tt&gt;pocketmine\item&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Armor-&gt;clearCustomColor() : $this</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md980"></a>
+&lt;tt&gt;pocketmine\inventory\transaction&lt;/tt&gt;</h3>
+<ul>
+<li>Introduced a <code>TransactionBuilder</code> class. This makes it less of a hassle <a class="el" href="protocolto-p.html">to</a> build an <code>InventoryTransaction</code> server-side, since the regular <code>Inventory</code> API methods can be used, rather than having <a class="el" href="protocolto-p.html">to</a> manually create <code>SlotChangeAction</code>s.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md981"></a>
+&lt;tt&gt;pocketmine\lang&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Language-&gt;getAll() : array&lt;string, string&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md982"></a>
+&lt;tt&gt;pocketmine\player&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Player-&gt;sendToastNotification(string $title, string $body) : void</code> - makes a grey box appear at the top of the player's screen containing the specified message</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md983"></a>
+&lt;tt&gt;pocketmine\utils&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public static TextFormat::addBase(string $baseFormat, string $string) : string</code> - used for coloured log messages, changes the base formatting of a string by inserting the given formatting codes after every RESET code</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md984"></a>
+&lt;tt&gt;pocketmine\world&lt;/tt&gt;</h3>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public World-&gt;getChunkTickRadius() : int</code> - returns the world's simulation radius</li>
+<li><code>public World-&gt;setChunkTickRadius(int $radius) : void</code> - sets the world's simulation radius</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md985"></a>
+&lt;tt&gt;pocketmine\world\sound&lt;/tt&gt;</h3>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>ItemFrameAddItemSound</code></li>
+<li><code>ItemFrameRemoveItemSound</code></li>
+<li><code>ItemFrameRotateItemSound</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md986"></a>
+Internals</h2>
+<ul>
+<li>Improved performance of <code>ContainerTrait</code> dropping items on block destroy. (<a href="https://github.com/pmmp/PocketMine-MP/commits/24e72ec109c1442b09558df89b6833cf2f2e0ec7">link</a>)</li>
+<li>Avoid repeated calls <a class="el" href="protocolto-p.html">to</a> <code>Position-&gt;getWorld()</code> (use local variables). (<a href="https://github.com/pmmp/PocketMine-MP/commit/2940547026db40ce76deb46e992870de3ead79ad">link</a>)</li>
+<li>Revamped the way <code>InventoryManager</code> handles fake inventory slot mappings for stuff like crafting tables. (<a href="https://github.com/pmmp/PocketMine-MP/commit/e90abecf38d9c57635fa0497514bba7e546a2469">link</a>)<ul>
+<li>Inventories are now mapped on a per-slot basis. This means that more than one inventory can be mapped <a class="el" href="protocolto-p.html">to</a> the same window ID, which is necessary for correctly handling "UI" inventories like crafting tables.</li>
+<li><code>InventoryManager-&gt;getWindow(int $windowId) : ?Inventory</code> is replaced by <code>locateWindowAndSlot</code> (see below).</li>
+<li>Added <code>InventoryManager-&gt;locateWindowAndSlot(int $windowId, int $netSlotId) : array{Inventory, int}</code> - accepts a window ID and absolute slot ID, and returns the associated inventory and the slot relative <a class="el" href="protocolto-p.html">to</a> the inventory's own start (for use with <code>getItem()</code> etc.).</li>
+<li>Slot offset mapping for "UI" inventories is now handled in <code>InventoryManager-&gt;createComplexSlotMapping()</code> instead of in <code>TypeConverter</code>.</li>
+</ul>
+</li>
+<li>Console polling is now done on the main thread (no longer a performance concern). (<a href="https://github.com/pmmp/PocketMine-MP/commit/b3f03d7ae645de67a54b7300c09b94eeca16298e">link</a>)</li>
+<li>Console reader subprocess should now automatically die if the server main process is killed, instead of persisting as a zombie. (<a href="https://github.com/pmmp/PocketMine-MP/commit/2585160ca2c4df5758b8b980331307402ff9f0fb">link</a>)</li>
+<li><code>ConsoleCommandSender</code> is no longer responsible for relaying broadcast messages <a class="el" href="protocolto-p.html">to</a> <code>MainLogger</code>. A new <code>BroadcastLoggerForwarder</code> has been added, which is subscribed <a class="el" href="protocolto-p.html">to</a> the appropriate server broadcast channels in order <a class="el" href="protocolto-p.html">to</a> relay messages. This ensures that chat messages and command audit messages are logged. (<a href="https://github.com/pmmp/PocketMine-MP/commit/83e5b0adb6fa0dddec377182bb1c7945ac8f7820">link</a>)</li>
+<li><code>DelegateInventory</code> now uses <code>WeakReference</code> <a class="el" href="protocolto-p.html">to</a> track its inventory listener. This allows the delegate <a class="el" href="protocolto-p.html">to</a> be reused. (<a href="https://github.com/pmmp/PocketMine-MP/commit/3feaa18f6c10c3a99c0deca75f57ec2d74b92ab4">link</a>)</li>
+<li>Non-arrow projectile damage is now unscaled. Scaling according <a class="el" href="protocolto-p.html">to</a> velocity is only applied <a class="el" href="protocolto-p.html">to</a> arrows. This currently doesn't cause any observable change in behaviour, but is required for future additions. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

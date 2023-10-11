@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.6</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.6</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.9.0</b></p>
+<h3><a class="anchor" id="autotoc_md621"></a>
+Note</h3>
+<p>Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p>This changelog <b>does not account for protocol changes</b>. If your plugin uses the protocol, you're not shielded by API change constraints.</p>
+<h1><a class="anchor" id="autotoc_md622"></a>
+3.6.0</h1>
+<ul>
+<li>Compatibility with Minecraft: Bedrock Edition 1.9.0</li>
+<li>Removed compatibility with 1.8.0</li>
+<li><code>Item-&gt;getCompoundTag()</code> is now <code>@deprecated</code>.</li>
+<li><code>Item-&gt;setCompoundTag()</code> now accepts NULL as a possible value.</li>
+<li><code>ItemFactory::fromString()</code> now accepts NULL for the <code>tags</code> parameter.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md623"></a>
+3.6.1</h1>
+<ul>
+<li>Fixed crashing when items with negative IDs are found in the inventory (caused by downgrading from dev builds).</li>
+<li>Updated creative inventory and crafting recipes.</li>
+<li>Fixed handling for some new blocks which magically appeared without appropriate implementations (extra meta values).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md624"></a>
+3.6.2</h1>
+<ul>
+<li>Fixed client-sided crash when upper-case letters appear in command names.</li>
+<li>Fixed crash when too-large values are given <a class="el" href="protocolto-p.html">to</a> <code>/effect</code> for duration.</li>
+<li><code>/op</code> and other commands no longer crash when an invalid player name is given.</li>
+<li>Startup time no longer includes the time spent in the setup wizard.</li>
+<li><code>TextFormat::clean()</code> is now UTF-8 aware, and will scrub any invalid UTF-8 characters from the given string.</li>
+<li>Fixed <code>TextFormat::clean()</code> not fully removing ANSI escape codes in some cases.</li>
+<li>Fixed Korean command arguments failing <a class="el" href="protocolto-p.html">to</a> parse.</li>
+<li><code>Sign-&gt;setText()</code> and <code>Sign-&gt;setLine()</code> now enforce that the given text must be UTF-8 text, or an exception will be thrown.</li>
+<li>Sign text is now processed by <code>mb_scrub()</code> immediately after loading <a class="el" href="protocolto-p.html">to</a> remove invalid UTF-8 characters that could crash the client.</li>
+<li><code>Human-&gt;exhaust()</code> no longer underflows when the hunger attribute has a fractional value.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md625"></a>
+3.6.3</h1>
+<ul>
+<li>Added a hack <a class="el" href="protocolto-p.html">to</a> disable client sided AI for non-moving entities. This fixes items floating in water despite it not being implemented server-side yet.</li>
+<li>Fixed max health not working as expected on respawn if changed by plugins.</li>
+<li>Fixed Item Frame hardness (0.25 instead of 0).</li>
+<li>Fire Aspect tools will now light TNT when right-clicked with.</li>
+<li>Fixed incorrect nullable typehints on <code>TaskScheduler</code> return values.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md626"></a>
+3.6.4</h1>
+<ul>
+<li><code>NetworkStackLatencyPacket</code> unhandled debug has been silenced.</li>
+<li>Fixed <code>Player-&gt;removeWindow()</code> removing GUI or crashing clients when removing a window which was not added.</li>
+<li>Fixed packed ice dropping itself when mined without a silk touch pickaxe.</li>
+<li>Fixed players not taking fall damage when falling off the side of a ladder when their AABB was intersecting with the ladder's full block area.</li>
+<li>Fixed arrows reloaded from disk never despawning.</li>
+<li>Fixed player XP not dropping on death.</li>
+<li>Fixed player's held slot being out of sync when respawning.</li>
+<li>Fixed items with different NBT being considered stackable in some cases by <code>BaseInventory-&gt;canAddItem()</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md627"></a>
+3.6.5</h1>
+<ul>
+<li>Fixed stdout silence on crash if a crash occurs when PHP output buffering is enabled.</li>
+<li>Fixed <code>RegionLoader</code> considering a range of invalid chunk coordinates as valid.</li>
+<li>Fixed <code>RegionLoader</code> causing region header corruption when an oversized chunk was discovered. This was causing entire regions <a class="el" href="protocolto-p.html">to</a> be discarded next time they were freshly loaded.</li>
+<li>Fixed performance issue loading old LevelDB worlds (from before MCPE 1.0) due <a class="el" href="protocolto-p.html">to</a> unmodified chunks being converted every time they were loaded.</li>
+<li>Added new debug messages when a world takes too long (longer than 50ms) <a class="el" href="protocolto-p.html">to</a> complete a tick.</li>
+<li>Debug messages are now logged when autosave kicks in (with time measurements), which helps debugging unexplained lag spikes.</li>
+<li>Level "auto tick rate" anti-feature and its associated <code>pocketmine.yml</code> settings have been removed (see #2665). The settings will persist in old configurations, but will be ignored by this version and future versions.</li>
+<li>The <code>/save-all</code> command now outputs custom (non-vanilla) messages informing the user how long it took <a class="el" href="protocolto-p.html">to</a> complete autosaving.</li>
+<li>The word <code>level</code> has been replaced with <code>world</code> (where appropriate) throughout language strings and general user interface messages.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md628"></a>
+3.6.6</h1>
+<ul>
+<li>Fixed protocol argument types for commands.</li>
+<li>Autosave debug message will now report in milliseconds when the time taken is less than 1 second.</li>
+<li>Flatworld presets now allow <code>*</code> as a multiplier symbol (fixes PC compatibility).</li>
+<li>Network runtimeIDs for blocks are now randomized <a class="el" href="protocolto-p.html">to</a> prevent things (like plugins) relying on them.</li>
+<li>Updated NBT dependency <a class="el" href="protocolto-p.html">to</a> 0.2.7 for some bug fixes. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.8</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.8</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.11.0</b></p>
+<h3><a class="anchor" id="autotoc_md634"></a>
+Note</h3>
+<p>Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p>This changelog <b>does not account for protocol changes</b>. If your plugin uses the protocol, you're not shielded by API change constraints.</p>
+<h1><a class="anchor" id="autotoc_md635"></a>
+3.8.0</h1>
+<ul>
+<li>Compatibility with Minecraft: Bedrock Edition 1.11.0</li>
+<li>Removed compatibility with 1.10.0</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md636"></a>
+3.8.1</h1>
+<ul>
+<li>Fixed furnace smelting recipes not working.</li>
+<li>Reduced legacy hacks dealing with <code>BatchPacket</code> <a class="el" href="protocolto-p.html">to</a> fix possible ID collisions.</li>
+<li>Reduced release phar size by minifying JSON data blobs.</li>
+<li>Moved some MCPE-specific JSON blobs <a class="el" href="protocolto-p.html">to</a> submodule.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md637"></a>
+3.8.2</h1>
+<ul>
+<li>Fixed &ndash;enable-ansi and &ndash;disable-ansi not being respected on threads.</li>
+<li>Fixed a crash that could occur when decoding <code>AvailableCommandsPacket</code>.</li>
+<li>Fixed a crash when loading worlds with entities with missing <code>Motion</code> NBT tag.</li>
+<li>Fixed a crash when world time overflows signed int64 max.</li>
+<li>Fixed world generators and providers being registered too late (this was causing plugin issues).</li>
+<li>Updated RakLib version <a class="el" href="protocolto-p.html">to</a> get a security fix.</li>
+<li>Fixed errors when custom clients fill the wrong information in <code>ResourcePackClientResponsePacket</code>.</li>
+<li>Fixed <code>setImmobile()</code> getting overridden directly after <code>PlayerJoinEvent</code>.</li>
+<li>Fixed air being breakable by creative players.</li>
+<li>Fixed performance loss caused by bugs in the preprocessor.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md638"></a>
+3.8.3</h1>
+<ul>
+<li>Fixed infinite recursion when using <code>Entity-&gt;close()</code> during <code>EntityDespawnEvent</code>.</li>
+<li>Fixed crash reports caused by folder plugins being reported <a class="el" href="protocolto-p.html">to</a> the crash archive.</li>
+<li>Fixed spawning entities on unloaded chunks during spawn sequence (possible client crash cause).</li>
+<li>Fixed <code>/time query</code> output message.</li>
+<li>Fixed <code>Server-&gt;hasOfflinePlayerData()</code> being case-sensitive.</li>
+<li>Improved error messages for skin validation in some places.</li>
+<li>Fixed classic stonecutter hardness.</li>
+<li>Fixed iron trapdoors being considered a valid furnace fuel.</li>
+<li>Fixed apple dropping from leaves happening less frequently than intended.</li>
+<li>Fixed tall plants like sunflower being replaceable by the top half.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md639"></a>
+3.8.4</h1>
+<ul>
+<li>Plugin load order is now randomised <a class="el" href="protocolto-p.html">to</a> remove the ability <a class="el" href="protocolto-p.html">to</a> implicitly depend on filesystem-specific ordering.</li>
+<li>Packet logging in debug messages now uses base64 instead of hex (uses less space).</li>
+<li>Array and string size are now shown in error stack trace logs.</li>
+<li>Stack traces now render a maximum of 80 characters when making string parameters printable.</li>
+<li>Improved documentation for some transaction classes.</li>
+<li>Action order in inventory transactions is now randomised <a class="el" href="protocolto-p.html">to</a> prevent dependencies on any accidental or client-dependent ordering. Since the transaction system is specifically designed <a class="el" href="protocolto-p.html">to</a> avoid depending on order, this does not affect any core functionality.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md640"></a>
+3.8.5</h1>
+<ul>
+<li>Moved preprocessor <a class="el" href="protocolto-p.html">to</a> build/ directory.</li>
+<li>Added documentation for <code>Server-&gt;getPlayer()</code>, <code>Server-&gt;getPlayerExact()</code> and <code>Server-&gt;matchPlayer()</code>.</li>
+<li><code>server.lock</code> now contains the PID of the currently-running server.</li>
+<li>PID of server is now reported in the error message when attempting <a class="el" href="protocolto-p.html">to</a> run two servers from the same data directory at once.</li>
+<li>Fixed sluggish playercount updating on MOTD.</li>
+<li>Added new MultiRecipe UUIDs.</li>
+<li>Added an extra field <a class="el" href="protocolto-p.html">to</a> <code>StartGamePacket</code> <a class="el" href="protocolto-p.html">to</a> resolve minor incompatibility issues on different 1.11.x patch versions.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md641"></a>
+3.8.6</h1>
+<ul>
+<li>Fixed <code>Entity-&gt;isNameTagAlwaysVisible()</code> not working.</li>
+<li>Log messages are now cleaned of invalid UTF-8 sequences before emitting them.</li>
+<li>Fixed negative integers being considered as strings for world seeds.</li>
+<li>Fixed out-of-bounds access on invalid inventory data in player data saves.</li>
+<li>Fixed crash when custom liquids have flow decays which aren't factors of 4.</li>
+<li>Fixed <code>Entity-&gt;noDamageTicks</code> not working when the entity had no previous damage cause.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md642"></a>
+3.8.7</h1>
+<ul>
+<li>Improved documentation of <code>Player-&gt;getDisplayName()</code> and <code>Player::isValidUserName()</code>.</li>
+<li>Fixed a bug in <code>SetScorePacket</code> decoding causing the entry list <a class="el" href="protocolto-p.html">to</a> always be empty. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

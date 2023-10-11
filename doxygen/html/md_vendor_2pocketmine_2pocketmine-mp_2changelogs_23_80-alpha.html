@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.0.0-ALPHA1</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.0.0-ALPHA1</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md200"></a><b>For Minecraft PE 1.0.0.16</b> Initial snapshot of MCPE 1.0 changes.</p>
+<p><b>DISCLAIMER: THIS IS AN <em>ALPHA</em> SNAPSHOT. THIS BUILD IS NOT FEATURE-COMPLETE AND IS LIKELY TO BE HIGHLY UNSTABLE. WE ARE NOT RESPONSIBLE FOR NUCLEAR WAR, EXPLOSIONS OR CORRUPTION OF DATA RESULTING FROM USE OF THIS BUILD.</b></p>
+<p>This build has breaking API changes, so the API has been bumped <a class="el" href="protocolto-p.html">to</a> 3.0.0-ALPHA1. These changes are NOT yet complete.</p>
+<h1><a class="anchor" id="autotoc_md201"></a>
+Core</h1>
+<ul>
+<li>New generic in-memory chunk format for universal chunk handling and future conversion implementation.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md202"></a>
+Gameplay</h1>
+<ul>
+<li>Supported 256-height worlds</li>
+<li>Standard chunk interface changed from FullChunk <a class="el" href="protocolto-p.html">to</a> Chunk (see above)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md203"></a>
+API</h1>
+<ul>
+<li>Removed biome color support and all related biome color API methods (no longer supported by MCPE client)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md204"></a>
+Fixes</h1>
+<ul>
+<li>Fixed Win10 throws away their held item when the inventory is closed (<a href="https://github.com/pmmp/PocketMine-MP/commit/3b3abab3ad51dcc9b25e89612773ba4da172c7d4">https://github.com/pmmp/PocketMine-MP/commit/3b3abab3ad51dcc9b25e89612773ba4da172c7d4</a>)</li>
+<li>Fixed MobHead bounding box and properties (<a href="https://github.com/pmmp/PocketMine-MP/commit/c79077cbed2e47653f11306e4dfba66cac9da010">https://github.com/pmmp/PocketMine-MP/commit/c79077cbed2e47653f11306e4dfba66cac9da010</a>)</li>
+<li>Fixed server ignoring head rotation (<a href="https://github.com/pmmp/PocketMine-MP/commit/fa5624f87e937a518edd5790583ab4631f2100e6">https://github.com/pmmp/PocketMine-MP/commit/fa5624f87e937a518edd5790583ab4631f2100e6</a>)</li>
+<li>Fixed gamemode switching <a class="el" href="protocolto-p.html">to</a> adventure/spectator for op players (<a href="https://github.com/pmmp/PocketMine-MP/commit/43a36dba40abdc8969a404665de8df4d619fed4c">https://github.com/pmmp/PocketMine-MP/commit/43a36dba40abdc8969a404665de8df4d619fed4c</a>)</li>
+<li>Fixed clicking on fire <a class="el" href="protocolto-p.html">to</a> extinguish it (#132)</li>
+<li>Fixed players always respawning at the server spawn when the folder name is different <a class="el" href="protocolto-p.html">to</a> the world name (#150)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md205"></a>
+3.0.0-ALPHA2</h1>
+<p><b>For Minecraft PE 1.0.0.16</b> Less surface changes, better performance, large changes <a class="el" href="protocolto-p.html">to</a> Level IO</p>
+<p><b>DISCLAIMER: THIS IS AN <em>ALPHA</em> SNAPSHOT. THIS BUILD IS NOT FEATURE-COMPLETE AND IS LIKELY TO BE HIGHLY UNSTABLE. WE ARE NOT RESPONSIBLE FOR NUCLEAR WAR, EXPLOSIONS OR CORRUPTION OF DATA RESULTING FROM USE OF THIS BUILD.</b></p>
+<p>This build has breaking API changes, so the API has been bumped <a class="el" href="protocolto-p.html">to</a> 3.0.0-ALPHA2. These changes are NOT yet complete.</p>
+<h2><a class="anchor" id="autotoc_md206"></a>
+Core</h2>
+<ul>
+<li>Re-added support for async network chunk serialization</li>
+<li>Refactored level\format namespace (see files for changes)</li>
+<li>Added new world format PMAnvil (based on Anvil with some alterations)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md207"></a>
+Gameplay</h2>
+<ul>
+<li>Added Item Frames</li>
+<li>Added some 0.16 blocks and items.</li>
+<li>Updated creative inventory and crafting recipes for 1.0.0.16</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md208"></a>
+API</h2>
+<ul>
+<li>Refactored Server::broadcastPacket() <a class="el" href="protocolto-p.html">to</a> be non-static, use available server references.</li>
+<li>Type declarations and strict types for most things in the level\format namespace.</li>
+<li>Refactor Level::chunkBlockHash() -&gt; Chunk::chunkBlockHash()</li>
+<li>GenericChunk::fastSerialize() is no longer static.</li>
+<li>Refactored format\generic\GenericChunk -&gt; format\Chunk. You should already have been using the format\Chunk interface, if not you may need <a class="el" href="protocolto-p.html">to</a> make alterations.</li>
+<li>Removed unused Entity stub classes in preparation for Entity API rewrite.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md209"></a>
+Fixes</h2>
+<ul>
+<li>Fixed unable <a class="el" href="protocolto-p.html">to</a> teleport over Y = 128</li>
+<li>Fix some mob head rotation bugs</li>
+<li>Fixed some issues with Flower Pot items vanishing and not saving correctly</li>
+<li>Fixed Win10 Edition default hotbar mapping</li>
+<li>Fixed issues crafting with items with NBT (5443b10, 77b3cd7)</li>
+<li>Fixed a crash in Item-&gt;deepEquals() where only one item had a tag</li>
+<li>Fixed issues with the title bar and /status reporting incorrect CPU and tick usage statistics (8bdfe0d)</li>
+<li>Fixed an age-old corruption bug due <a class="el" href="protocolto-p.html">to</a> use of IntTag for Time in PC worlds (3dcfa7b)</li>
+<li>Fixed negative effect amplifier crash (#191)</li>
+<li>Fixed some bugs with some blocks having <a class="el" href="protocolto-p.html">to</a> be broken twice (obsidian, netherrack) (wrong hardness values)</li>
+<li>Fixed Head drops</li>
+<li>Fixed dropped items disappearing after a server restart</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md210"></a>
+3.0.0-ALPHA3</h1>
+<p><b>For Minecraft PE 1.0.0.16</b> API changes relating <a class="el" href="protocolto-p.html">to</a> closing Levels and anti-cheat, along with many bug fixes.</p>
+<p><b>DISCLAIMER: THIS IS AN <em>ALPHA</em> SNAPSHOT. THIS BUILD IS NOT FEATURE-COMPLETE AND IS LIKELY TO BE HIGHLY UNSTABLE. WE ARE NOT RESPONSIBLE FOR NUCLEAR WAR, EXPLOSIONS OR CORRUPTION OF DATA RESULTING FROM USE OF THIS BUILD.</b></p>
+<p>This build has breaking API changes, so the API has been bumped <a class="el" href="protocolto-p.html">to</a> 3.0.0-ALPHA3. These changes are NOT yet complete.</p>
+<h2><a class="anchor" id="autotoc_md211"></a>
+Core</h2>
+<ul>
+<li>Added a hack <a class="el" href="protocolto-p.html">to</a> workaround client-side text duplication (TODO REVERT 52748fc)</li>
+<li>Crashdumps are now created in the <code>crashdumps</code> folder instead of being dumped into your server root directory.</li>
+<li>Some tweaks for Anvil I/O for more performance in some circumstances (won't make much difference in heavily-built up worlds)</li>
+<li>Movement-checks and instabreak anti-cheats can now be disabled in pocketmine.yml (#287)</li>
+<li><b>EXPERIMENTAL</b> LevelDB support is back, with support for MCPE 1.0 worlds. NOTE that LevelDB can be HIGHLY UNSTABLE and will segfault a lot. See #254 for progress.</li>
+<li>Added crafting data cache <a class="el" href="protocolto-p.html">to</a> reduce on-join lag spikes. (9c36e0c)</li>
+<li>Assertion behaviour is now configurable: the server will by default warn on startup if assertions are enabled, and assertion exception throws are now disabled by default. This can be configured under the <code>debug</code> section in pocketmine.yml.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md212"></a>
+API</h2>
+<ul>
+<li>API version suffix for plugins is now non-case-sensitive.</li>
+<li>Type-hints have been added <a class="el" href="protocolto-p.html">to</a> Item::get() and some Item API methods. This is in an effort <a class="el" href="protocolto-p.html">to</a> combat some peculiar issues which arose from using null or wrong types.</li>
+<li>Added API <a class="el" href="protocolto-p.html">to</a> allow customising randomly-ticked blocks in Level.</li>
+<li>Added method <code>Level-&gt;isClosed()</code> <a class="el" href="protocolto-p.html">to</a> allow checking if a Level is still usable before trying <a class="el" href="protocolto-p.html">to</a> do stuff with it.</li>
+<li><code>Position-&gt;getLevel()</code> will now verify that the Level is usable before returning it, and if it is not will destroy the reference and return null. This is <a class="el" href="protocolto-p.html">to</a> help identify leaks with unloaded Levels.</li>
+<li>Added API methods <a class="el" href="protocolto-p.html">to</a> allow controlling anti-cheat configuration per-player (#287) and added PlayerIllegalMoveEvent <a class="el" href="protocolto-p.html">to</a> allow plugins <a class="el" href="protocolto-p.html">to</a> cancel movement anti-cheat positives.</li>
+<li>Removed deprecated <code>Utils::getRandomBytes()</code> (use php7 random_bytes() instead) (085d1a1)</li>
+<li>Moved LevelException, PluginException and ChunkException into more relevant namespaces (946d301)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md213"></a>
+Fixes</h2>
+<ul>
+<li>Fixed CommandReader hanging on shutdown on Windows (#171)</li>
+<li>Fixed vanilla McRegion worlds getting corrupted (8902992)</li>
+<li>Fixed total server freeze when teleporting long distances</li>
+<li>Fixed anti-cheat false-positives when climbing ladders and a wide variety of other movement issues (8ea0352)</li>
+<li>Fixed shutdown memory leaks related <a class="el" href="protocolto-p.html">to</a> double chests (e4aa3d7)</li>
+<li>Fixed eating golden apples with full hunger</li>
+<li>Fixed long-string NBT encoding (longer than 127 bytes, length is a uvarint not a byte), fixed corrupted sign issues, fixed issues with unicode sign text</li>
+<li>Fixed players appearing under the world when sleeping.</li>
+<li>Fixed players continuing <a class="el" href="protocolto-p.html">to</a> burn in creative mode.</li>
+<li>Fixed players sometimes not dying properly after taking lethal damage due <a class="el" href="protocolto-p.html">to</a> food regeneration (441961b)</li>
+<li>Fixed a logic error in the basic generator preventing swamp biomes from generating (b566c4e)</li>
+<li>Fixed setting item custom name doesn't update player (0584681)</li>
+<li>Fixed bad lighting issues when importing a PocketMine-MP world back <a class="el" href="protocolto-p.html">to</a> vanilla Minecraft (946d301)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md214"></a>
+3.0.0-ALPHA4</h1>
+<p><b>For Minecraft PE 1.0.3.0</b> Many bug fixes, changes <a class="el" href="protocolto-p.html">to</a> Chunk, Tile and Entity API, improved language system</p>
+<p><b>DISCLAIMER: THIS IS AN <em>ALPHA</em> SNAPSHOT. THIS BUILD IS NOT FEATURE-COMPLETE AND IS LIKELY TO BE HIGHLY UNSTABLE. WE ARE NOT RESPONSIBLE FOR NUCLEAR WAR, EXPLOSIONS OR CORRUPTION OF DATA RESULTING FROM USE OF THIS BUILD.</b></p>
+<p>This build has breaking API changes, so the API has been bumped <a class="el" href="protocolto-p.html">to</a> 3.0.0-ALPHA4. These changes are NOT yet complete.</p>
+<h2><a class="anchor" id="autotoc_md215"></a>
+Core</h2>
+<ul>
+<li>Removed SQLite3 hard dependency as it is no longer used by the core code.</li>
+<li>Translation system has been reworked for better synchronization and consistency. Please head over <a class="el" href="protocolto-p.html">to</a> <a href="http://translate.pocketmine.net">http://translate.pocketmine.net</a> if you would like <a class="el" href="protocolto-p.html">to</a> help.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md216"></a>
+Gameplay</h2>
+<ul>
+<li>Enchanted Golden Apples now give the eater Absorption 4</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md217"></a>
+API</h2>
+<ul>
+<li>Removed chunk/provider/level/tile/entity entanglement. This is a very breaking change, see c21197ef176166b1c2c19b091cf84664aa878c00 for details.</li>
+<li>Removed some sound classes</li>
+<li>Removed deprecated version constants from PocketMine.php</li>
+<li>Added UnknownBlock class</li>
+<li>Added some API methods for changing entity scale (6dc6e3265666eb700305bdf4f484ce3f17c01650)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md218"></a>
+Fixes</h2>
+<ul>
+<li>Fixed a CPU leak that occurred when movement checks were disabled (this was the same underlying issue causing <code>player moved too fast, reverting movement</code>) (ccef045)</li>
+<li>Fixed a CrashDump bug causing all crashdumps <a class="el" href="protocolto-p.html">to</a> report an issue creating the crashdump directory (09a6776)</li>
+<li>Fixed incorrect git commit hash parsing when running a server from source code (#299)</li>
+<li>Fixed some issues with command sending</li>
+<li>Fixed Sea Lantern lighting issues</li>
+<li>Fixed half-trees in freshly-generated worlds</li>
+<li>Fixed DestroyBlockParticle</li>
+<li>Fixed some issues with removing items from item frames</li>
+<li>Fixed movement-checking bugs due <a class="el" href="protocolto-p.html">to</a> bad anti-spam check in MovePlayerPacket handler</li>
+<li>Fixed lots of improperly-implemented blocks causing suffocation</li>
+<li>Fixed issues breaking some improperly-implemented blocks</li>
+<li>Fixed heightmap-related crashes in McRegion worlds</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md219"></a>
+3.0.0-ALPHA5</h1>
+<p><b>For Minecraft PE 1.0.7.0</b> Many bug fixes, changes <a class="el" href="protocolto-p.html">to</a> network API (work still in progress!), improved chunk sending, added resource packs support</p>
+<p><b>DISCLAIMER: THIS IS AN ALPHA SNAPSHOT. THIS BUILD IS NOT FEATURE-COMPLETE AND IS LIKELY TO BE HIGHLY UNSTABLE. WE ARE NOT RESPONSIBLE FOR NUCLEAR WAR, EXPLOSIONS OR CORRUPTION OF DATA RESULTING FROM USE OF THIS BUILD.</b></p>
+<p>This build has breaking API changes, so the API has been bumped <a class="el" href="protocolto-p.html">to</a> 3.0.0-ALPHA5. These changes are NOT yet complete.</p>
+<h2><a class="anchor" id="autotoc_md220"></a>
+Core</h2>
+<ul>
+<li>World format implementations using Regions will now be more thoroughly checked for validity before the core attempts <a class="el" href="protocolto-p.html">to</a> use them. (#393)</li>
+<li>Fixed a crash that would prevent a world from being at all usable if a Human was created with an invalid skin.</li>
+<li>Fixed chunk object memory leak when chunks are replaced by the generator.</li>
+<li>Tile and Entity NBT trees are now destroyed when their close() methods are called <a class="el" href="protocolto-p.html">to</a> combat memory leaks.</li>
+<li>Fixed tile and entity object memory leaks and crashes when replacing chunks</li>
+<li>Chunk-&gt;addTile(Tile) and Chunk-&gt;addEntity(Entity) will now throw exceptions if something attempts <a class="el" href="protocolto-p.html">to</a> add a closed tile or entity <a class="el" href="protocolto-p.html">to</a> them.</li>
+<li>Fixed squid health attribute errors</li>
+<li>Fixed server crash when taking damage after dying when the Health Boost effect was applied before death.</li>
+<li>Fixed crashes when using xdebug and breaking very tall cacti or sugarcane (recursive block updates)</li>
+<li>Fixed some packets being sent with reliability level 0, may improve connections randomly being dropped</li>
+<li>Fixed memory leak related <a class="el" href="protocolto-p.html">to</a> persistent entities when lots of players join and quit a server in the same area</li>
+<li>Fixed possible item NBT duplication where items were holding references <a class="el" href="protocolto-p.html">to</a> the same NBT trees when cloned.</li>
+<li>Fixed usage always being reported even when disabled in pocketmine.yml</li>
+<li>Fixed stack traces in the logger sometimes missing the top stack frame.</li>
+<li>Fixed Entity object memory leak in EntityDamageByEntityEvent</li>
+<li>Fixed Player object memory leak when players subscribed <a class="el" href="protocolto-p.html">to</a> the administrative broadcast permission quit the server</li>
+<li>Non-generated chunks will no longer be saved <a class="el" href="protocolto-p.html">to</a> disk, fixes big dirty holes in some maps due <a class="el" href="protocolto-p.html">to</a> chunks being saved before being generated</li>
+<li>Rewritten the chunk sending algorithm, much better chunk sending (will now actually reach the horizon)</li>
+<li>Fixed a major memory leak when a W10 player set a very high render distance due <a class="el" href="protocolto-p.html">to</a> the server not enforcing radius limits. This has been corrected,. A player's render distance will now be set <a class="el" href="protocolto-p.html">to</a> the minimum of the spawn radius, the player's radius, or the server default render distance.</li>
+<li>The settings <code>chunk-sending.max-chunks</code> has been removed from pocketmine.yml in favour of a more vanilla <code>view-distance</code> setting in server.properties (values match MCPE render distance settings) and <code>chunk-sending.spawn-threshold</code> has been replaced with <code>chunk-sending.spawn-radius</code> (again, same values as MCPE).</li>
+<li>Fixed CPU waste of batched packets sometimes being encoded twice.</li>
+<li>Auto-updater checks are now done with an AsyncTask <a class="el" href="protocolto-p.html">to</a> prevent slowdown on server start.</li>
+<li>Added debug output for lots of network- and protocol-related things.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md221"></a>
+API</h2>
+<ul>
+<li>Massive refactor of the network namespace. All packets have moved from network </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

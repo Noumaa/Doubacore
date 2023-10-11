@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: BedrockItemUpgradeSchema</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">BedrockItemUpgradeSchema</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md119"></a> JSON schemas for upgrading items found in older Minecraft: Bedrock world saves</p>
+<h1><a class="anchor" id="autotoc_md120"></a>
+Background</h1>
+<p>As with blocks, Bedrock doesn't auto upgrade items (e.g. in inventories, item frames, dropped items, etc) unless the chunk they were in has been loaded and saved.</p>
+<p>This means that any program that wants <a class="el" href="protocolto-p.html">to</a> support all Minecraft: Bedrock worlds needs <a class="el" href="protocolto-p.html">to</a> know how <a class="el" href="protocolto-p.html">to</a> upgrade this old data.</p>
+<h1><a class="anchor" id="autotoc_md121"></a>
+Repository contents</h1>
+<ul>
+<li><code>id_meta_upgrade_schema</code> subdirectory contains a list of JSON schemas for upgrading from version <a class="el" href="protocolto-p.html">to</a> version incrementally.</li>
+<li><code>item_legacy_id_map.json</code> contains a mapping of legacy numeric IDs <a class="el" href="protocolto-p.html">to</a> their string ID counterparts (up <a class="el" href="protocolto-p.html">to</a> 1.16, although numeric IDs haven't been used in vanilla world saves since 1.5)</li>
+<li><code>1.12.0_item_id_to_block_id_map.json</code> contains a mapping of item IDs <a class="el" href="protocolto-p.html">to</a> corresponding block IDs for all blockitems.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md122"></a>
+Recommended methods for deserializing old data</h1>
+<p>Items are rather more of a pain <a class="el" href="protocolto-p.html">to</a> handle than blocks due <a class="el" href="protocolto-p.html">to</a> the lack of any versioning. This means we can only guess at the actual version and/or apply all upgraders all the time.</p>
+<h2><a class="anchor" id="autotoc_md123"></a>
+Classic items (MCPE &lt;= 1.5, PM &lt;= 1.12)</h2>
+<ol type="1">
+<li>start with int ID + meta</li>
+<li>1.16 string ID via <code>item_id_map.json</code> -&gt; string ID + meta</li>
+<li>deserialize as medieval item</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md124"></a>
+Medieval items (MCPE 1.6 - 1.8)</h2>
+<ol type="1">
+<li>start with string ID + meta</li>
+<li>if ID found in <code>1.12.0_item_id_to_block_id_map.json</code>, deserialize as blockitem; otherwise as normal item</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md125"></a>
+Non-blockitems</h3>
+<ol type="1">
+<li>deserialize as modern item</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md126"></a>
+Blockitems</h3>
+<ol type="1">
+<li>string block ID via <code>1.12.0_item_id_to_block_id_map.json</code> -&gt; string block ID + meta</li>
+<li>convert <a class="el" href="protocolto-p.html">to</a> blockstate using <a href="https://github.com/pmmp/BedrockBlockUpgradeSchema">BedrockBlockUpgradeSchema</a> data -&gt; blockstate NBT</li>
+<li>deserialize blockstate NBT as block</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md127"></a>
+Modern items (MCPE 1.9 - present)</h2>
+<ol type="1">
+<li>start with string ID + meta / blockstate NBT</li>
+<li>if blockstate NBT found, deserialize as blockitem; otherwise as normal item</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md128"></a>
+Non-blockitems</h3>
+<ol type="1">
+<li>current string ID via schemas provided in <code>id_meta_upgrade_schema/</code> subdirectory -&gt; current string ID + meta</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md129"></a>
+Blockitems</h3>
+<ol type="1">
+<li>deserialize blockstate NBT as block (may require <a href="https://github.com/pmmp/BedrockBlockUpgradeSchema">BedrockBlockUpgradeSchema</a> for upgrading) </li>
+</ol>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.23.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.23.0</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md1234"></a>Released 12th July 2023.</p>
+<p><b>For Minecraft: Bedrock Edition 1.20.10</b></p>
+<p>This is a support release for Minecraft: Bedrock Edition 1.20.10.</p>
+<p><b>Plugin compatibility:</b> Plugins for previous 4.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the <code>pocketmine\network\mcpe</code> namespace. Do not update plugin minimum API versions unless you need new features added in this release.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h1><a class="anchor" id="autotoc_md1235"></a>
+General</h1>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.20.10.</li>
+<li>Removed support for older versions.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1236"></a>
+Fixes</h1>
+<ul>
+<li>Fixed Docker image build failure due <a class="el" href="protocolto-p.html">to</a> outdated <code>build/php</code> submodule.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1237"></a>
+4.23.1</h1>
+<p>Released 14th July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1238"></a>
+Fixes</h2>
+<ul>
+<li>Hardened validation of JWT signing keys in <code>LoginPacket</code>.</li>
+<li>Fixed server crash due <a class="el" href="protocolto-p.html">to</a> a bug in upstream dependency <a href="https://github.com/cweiske/JsonMapper"><code>netresearch/jsonmapper</code></a>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1239"></a>
+4.23.2</h1>
+<p>Released 18th July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1240"></a>
+Fixes</h2>
+<ul>
+<li>Fixed login errors due <a class="el" href="protocolto-p.html">to</a> a new <code>sandboxId</code> field appearing in the Xbox Live authentication data in <code>LoginPacket</code>. All clients, regardless of version, are affected by this change.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1241"></a>
+4.23.3</h1>
+<p>Released 24th July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1242"></a>
+Documentation</h2>
+<ul>
+<li>Fixed typo in <code>ChunkSelector::selectChunks()</code> documentation.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1243"></a>
+Fixes</h2>
+<ul>
+<li>Fixed the server not stopping properly during crash conditions on *nix platforms.</li>
+<li>Fixed <code>HORSE_EQUIP</code> and <code>SMITHING_TABLE_TEMPLATE</code> container UI types not being handled by <code>ItemStackContainerIdTranslator</code>. This bug prevented plugins from implementing missing inventory types.</li>
+<li>Player emotes no longer broadcast messages <a class="el" href="protocolto-p.html">to</a> other players. This was unintended behaviour caused by a client-side behavioural change.</li>
+<li>Shulker boxes no longer support the placement of torches or other similar blocks.</li>
+<li>Fire can now be placed on upper slabs and the top of upside-down stairs.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1244"></a>
+4.23.4</h1>
+<p>Released 1st August 2023.</p>
+<h2><a class="anchor" id="autotoc_md1245"></a>
+Fixes</h2>
+<ul>
+<li>Fixed exponentially increasing lag when many hundreds of non-mergeable dropped items occupied the same space. This disproportionately affected SkyBlock servers due <a class="el" href="protocolto-p.html">to</a> large cactus farms using water <a class="el" href="protocolto-p.html">to</a> collect items together.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1246"></a>
+4.23.5</h1>
+<p>Released 9th August 2023.</p>
+<h2><a class="anchor" id="autotoc_md1247"></a>
+General</h2>
+<ul>
+<li>Updated translation data <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/pmmp/Language/releases/tag/2.19.6">pmmp/Language 2.19.6</a>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1248"></a>
+Fixes</h2>
+<ul>
+<li>Fixed <code>PluginBase-&gt;saveResource()</code> leaking file resources when the data file already exists in the plugin's data folder. This bug existed since 2014 and was only discovered recently.</li>
+<li>Fixed coral blocks becoming dead after calling <code>getDropsForCompatibleTool()</code> on them.</li>
+<li>Fixed <code>BlockDeathEvent-&gt;getOldState()</code> returning a block which is already dead.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1249"></a>
+4.23.6</h1>
+<p>Released 21st August 2023.</p>
+<h2><a class="anchor" id="autotoc_md1250"></a>
+Fixes</h2>
+<ul>
+<li>Added a workaround for armor and other inventories not working correctly after inventory sync. This is caused by a client bug. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

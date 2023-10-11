@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.19</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.19</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.70</b></p>
+<h3><a class="anchor" id="autotoc_md1133"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the <code>pocketmine\network\mcpe</code> namespace are compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h3><a class="anchor" id="autotoc_md1134"></a>
+Highlights</h3>
+<p>This version introduces support for a new, more advanced version of Timings. This improved system provides more detail than the old system, and supports being displayed in a tree view, making it much easier <a class="el" href="protocolto-p.html">to</a> see which timers contribute <a class="el" href="protocolto-p.html">to</a> which other timers.</p>
+<p>In addition, some minor performance improvements have been made, along with a couple of minor API additions.</p>
+<h1><a class="anchor" id="autotoc_md1135"></a>
+4.19.0</h1>
+<p>Released 11th April 2023.</p>
+<h2><a class="anchor" id="autotoc_md1136"></a>
+General</h2>
+<ul>
+<li>Updated the Timings system.<ul>
+<li>Timings records now include parent information, allowing them <a class="el" href="protocolto-p.html">to</a> be displayed in a tree view (e.g. <a href="https://timings.pmmp.io/?id=303556">https://timings.pmmp.io/?id=303556</a>).</li>
+<li>Timings records now include additional information, such as Peak (max time spent on any single tick), and Ticks (number of ticks the timer was active on).</li>
+<li>New timings have been added for every event.</li>
+<li>A new timer <code>Player Network Send - Pre-Spawn Game Data</code> has been added, and covers most of the time spent handling <code>ResourcePackClientResponsePacket</code>, giving a clearer picture of what's happening.</li>
+</ul>
+</li>
+<li>Improved performance of the plugin event system.<ul>
+<li>By introducing some caching, the event system now has 90% less overhead than in previous versions.</li>
+</ul>
+</li>
+<li>Improved performance of the random chunk ticking system.<ul>
+<li>The selection of ticked random chunks, and their validation for ticking, is now cached. This significantly reduces the overhead of chunk selection.</li>
+<li>Factions servers and other game modes with big maps and sparsely populated areas will see the most benefit from this change.</li>
+<li>Real-world performance benefit of this change is anywhere from 0-20%, depending on server type and configuration.</li>
+</ul>
+</li>
+<li>The <code>timings paste</code> command now logs a debug message with the server response on failure <a class="el" href="protocolto-p.html">to</a> paste a timings report.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1137"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1138"></a>
+&lt;tt&gt;pocketmine\entity\object&lt;/tt&gt;</h3>
+<ul>
+<li>The following API constants have been added:<ul>
+<li><code>ExperienceOrb::DEFAULT_DESPAWN_DELAY</code> - the default delay in ticks before an experience orb despawns</li>
+<li><code>ExperienceOrb::NEVER_DESPAWN</code> - magic value for <code>setDespawnDelay()</code> <a class="el" href="protocolto-p.html">to</a> make an experience orb never despawn</li>
+<li><code>ExperienceOrb::MAX_DESPAWN_DELAY</code> - the maximum delay in ticks before an experience orb despawns</li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>public ExperienceOrb-&gt;getDespawnDelay() : int</code> - returns the delay in ticks before this experience orb despawns</li>
+<li><code>public ExperienceOrb-&gt;setDespawnDelay(int $despawnDelay) : void</code> - sets the delay in ticks before this experience orb despawns</li>
+</ul>
+</li>
+<li>The following properties have been deprecated<ul>
+<li><code>ExperienceOrb-&gt;age</code> - superseded by despawn delay methods</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1139"></a>
+&lt;tt&gt;pocketmine\event&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>public HandlerList-&gt;getListenerList() : list&lt;RegisteredListener&gt;</code> - returns an ordered list of handlers <a class="el" href="protocolto-p.html">to</a> be called for the event</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1140"></a>
+&lt;tt&gt;pocketmine\player&lt;/tt&gt;</h3>
+<ul>
+<li>The following API methods have behavioural changes:<ul>
+<li><code>ChunkSelector-&gt;selectChunks()</code> now yields the distance in chunks from the center as the key, instead of an incrementing integer.</li>
+</ul>
+</li>
+<li>The following classes have been deprecated:<ul>
+<li><code>PlayerChunkLoader</code> (this was technically internal, but never marked as such)</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1141"></a>
+&lt;tt&gt;pocketmine\timings&lt;/tt&gt;</h3>
+<ul>
+<li>The following API constants have been deprecated:<ul>
+<li><code>Timings::INCLUDED_BY_OTHER_TIMINGS_PREFIX</code> - this is superseded by timings group support (see <code>Timings::GROUP_BREAKDOWN</code>)</li>
+</ul>
+</li>
+<li>The following API constants have been added:<ul>
+<li><code>Timings::GROUP_BREAKDOWN</code> - this group makes a timer appear in the <code>Minecraft - Breakdown</code> section of a timings report</li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>public TimingsHandler-&gt;getGroup() : string</code> - returns the name of the table in which this timer will appear in a timings report</li>
+</ul>
+</li>
+<li>The following API methods have changed signatures:<ul>
+<li><code>TimingsHandler-&gt;__construct()</code> now accepts an additional, optional <code>string $group</code> parameter, which defaults <a class="el" href="protocolto-p.html">to</a> <code>Minecraft</code>.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1142"></a>
+&lt;tt&gt;pocketmine\world&lt;/tt&gt;</h3>
+<h4><a class="anchor" id="autotoc_md1143"></a>
+Highlights</h4>
+<p>Ticking chunks is now done using the <code>ChunkTicker</code> system, which has a much more fine-grained API than the old <code>TickingChunkLoader</code> system, as well as better performance. It works similarly <a class="el" href="protocolto-p.html">to</a> the <code>ChunkLoader</code> system, in that chunks will be ticked as long as at least one <code>ChunkTicker</code> is registered for them.</p>
+<h4><a class="anchor" id="autotoc_md1144"></a>
+API changes</h4>
+<ul>
+<li>The following classes have been deprecated:<ul>
+<li><code>TickingChunkLoader</code> - this has been superseded by the more powerful and performant <code>ChunkTicker</code> APIs</li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>ChunkTicker</code> - an opaque object used for <code>registerTickingChunk()</code> <a class="el" href="protocolto-p.html">to</a> instruct the <code>World</code> that we want a chunk <a class="el" href="protocolto-p.html">to</a> be ticked</li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>public World-&gt;registerTickingChunk(ChunkTicker $ticker, int $chunkX, int $chunkZ) : void</code> - registers a chunk <a class="el" href="protocolto-p.html">to</a> be ticked by the given <code>ChunkTicker</code></li>
+<li><code>public World-&gt;unregisterTickingChunk(ChunkTicker $ticker, int $chunkX, int $chunkZ) : void</code> - unregisters a chunk from being ticked by the given <code>ChunkTicker</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1145"></a>
+4.19.1</h1>
+<p>Released 14th April 2023.</p>
+<h2><a class="anchor" id="autotoc_md1146"></a>
+Fixes</h2>
+<ul>
+<li>Fixed inventory rollbacks when spreading items in ender chests.</li>
+<li>Fixed inventory rollbacks when shift-clicking <a class="el" href="protocolto-p.html">to</a> craft and the outputs would have been split across multiple inventory slots.</li>
+<li>Fixed incorrect spawn terrain generation for newly created worlds.</li>
+<li>Fixed <code>chunk-ticking.tick-radius</code> not disabling chunk ticking when set <a class="el" href="protocolto-p.html">to</a> <code>0</code>.</li>
+<li>Fixed chunks not being ticked if they previously left a player's simulation distance without leaving their view distance.</li>
+<li>Fixed height of collision boxes for Grass Path and Farmland blocks.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1147"></a>
+4.19.2</h1>
+<p>Released 14th April 2023.</p>
+<h2><a class="anchor" id="autotoc_md1148"></a>
+Fixes</h2>
+<ul>
+<li>Fixed player timings duplication leading <a class="el" href="protocolto-p.html">to</a> extremely large timings reports when timings runs for a long time with many players.</li>
+<li>Packet timings are now indexed by class FQN instead of packet ID. This prevents erroneous timer reuse on packet ID reuse (e.g. multi version servers).</li>
+<li>Fixed entity timings being shared by different classes with the same short name. This led <a class="el" href="protocolto-p.html">to</a> incorrect timings being reported for some entities when custom entities were used.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1149"></a>
+4.19.3</h1>
+<p>Released 21st April 2023.</p>
+<h2><a class="anchor" id="autotoc_md1150"></a>
+General</h2>
+<ul>
+<li>Error IDs for <code>Packet processing error</code> disconnects are now split into 4-character chunks <a class="el" href="protocolto-p.html">to</a> make them easier <a class="el" href="protocolto-p.html">to</a> type (since they can't be copied from the disconnection screen of a client).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1151"></a>
+Fixes</h2>
+<ul>
+<li>Fixed entity-block intersections being checked twice per tick. Besides wasting CPU time, this may have caused unexpected behaviour during entity-block interactions with blocks like water or cacti.</li>
+<li>Fixed performance issue in network inventory synchronization due item NBT being prepared twice.</li>
+<li>Fixed <code>tools/simulate-chunk-selector.php</code> argument parsing being completely broken (weird behaviour of PHP <code>getopt()</code>).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1152"></a>
+Internals</h2>
+<ul>
+<li><code>TimingsHandler-&gt;stopTiming()</code> now logs an error message if a subtimer wasn't stopped, rather than throwing an exception.<ul>
+<li>Due <a class="el" href="protocolto-p.html">to</a> interactions between <code>try...finally</code> and unexpected errors, throwing exceptions made it difficult for plugin developers <a class="el" href="protocolto-p.html">to</a> debug errors in their plugins, since it obscured the original error. </li>
+</ul>
+</li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

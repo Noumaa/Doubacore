@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: SECURITY</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">SECURITY</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="autotoc_md1706"></a>
+Vulnerability Disclosure Policy (VDP)</h1>
+<h2><a class="anchor" id="autotoc_md1707"></a>
+Brand Promise</h2>
+<p>Keeping user information safe and secure is a top priority, and we welcome the contribution of external security researchers.</p>
+<h2><a class="anchor" id="autotoc_md1708"></a>
+Scope</h2>
+<p>If you believe you've found a security issue in software that is maintained in this repository, we encourage you <a class="el" href="protocolto-p.html">to</a> notify us.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Version   </th><th class="markdownTableHeadCenter">In scope   </th><th class="markdownTableHeadNone">Source code    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">latest   </td><td class="markdownTableBodyCenter">✅   </td><td class="markdownTableBodyNone"><a href="https://github.com/ramsey/collection">https://github.com/ramsey/collection</a>   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md1709"></a>
+How to Submit a Report</h2>
+<p>To submit a vulnerability report, please contact us at <a href="#" onclick="location.href='mai'+'lto:'+'sec'+'ur'+'ity'+'@r'+'ams'+'ey'+'.de'+'v'; return false;">secur<span class="obfuscator">.nosp@m.</span>ity@<span class="obfuscator">.nosp@m.</span>ramse<span class="obfuscator">.nosp@m.</span>y.de<span class="obfuscator">.nosp@m.</span>v</a>. Your submission will be reviewed and validated by a member of our team.</p>
+<h2><a class="anchor" id="autotoc_md1710"></a>
+Safe Harbor</h2>
+<p>We support safe harbor for security researchers who:</p>
+<ul>
+<li>Make a good faith effort <a class="el" href="protocolto-p.html">to</a> avoid privacy violations, destruction of data, and interruption or degradation of our services.</li>
+<li>Only interact with accounts you own or with explicit permission of the account holder. If you do encounter Personally Identifiable Information (PII) contact us immediately, do not proceed with access, and immediately purge any local information.</li>
+<li>Provide us with a reasonable amount of time <a class="el" href="protocolto-p.html">to</a> resolve vulnerabilities prior <a class="el" href="protocolto-p.html">to</a> any disclosure <a class="el" href="protocolto-p.html">to</a> the public or a third party.</li>
+</ul>
+<p>We will consider activities conducted consistent with this policy <a class="el" href="protocolto-p.html">to</a> constitute "authorized" conduct and will not pursue civil action or initiate a complaint <a class="el" href="protocolto-p.html">to</a> law enforcement. We will help <a class="el" href="protocolto-p.html">to</a> the extent we can if legal action is initiated by a third party against you.</p>
+<p>Please submit a report <a class="el" href="protocolto-p.html">to</a> us before engaging in conduct that may be inconsistent with or unaddressed by this policy.</p>
+<h2><a class="anchor" id="autotoc_md1711"></a>
+Preferences</h2>
+<ul>
+<li>Please provide detailed reports with reproducible steps and a clearly defined impact.</li>
+<li>Include the version number of the vulnerable package in your report</li>
+<li>Social engineering (e.g. phishing, vishing, smishing) is prohibited.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1712"></a>
+Encryption Key for security@ramsey.dev</h2>
+<p>For increased privacy when reporting sensitive issues, you may encrypt your message using the following public key:</p>
+<div class="fragment"><div class="line">-----BEGIN PGP PUBLIC KEY BLOCK-----</div>
+<div class="line"> </div>
+<div class="line">mQINBF+Z9gEBEACbT/pIx8RR0K18t8Z2rDnmEV44YdT7HNsMdq+D6SAlx8UUb6AU</div>
+<div class="line">jGIbV9dgBgGNtOLU1pxloaJwL9bWIRbj+X/Qb2WNIP//Vz1Y40ox1dSpfCUrizXx</div>
+<div class="line">kb4p58Xml0PsB8dg3b4RDUgKwGC37ne5xmDnigyJPbiB2XJ6Xc46oPCjh86XROTK</div>
+<div class="line">wEBB2lY67ClBlSlvC2V9KmbTboRQkLdQDhOaUosMb99zRb0EWqDLaFkZVjY5HI7i</div>
+<div class="line">0pTveE6dI12NfHhTwKjZ5pUiAZQGlKA6J1dMjY2unxHZkQj5MlMfrLSyJHZxccdJ</div>
+<div class="line">xD94T6OTcTHt/XmMpI2AObpewZDdChDQmcYDZXGfAhFoJmbvXsmLMGXKgzKoZ/ls</div>
+<div class="line">RmLsQhh7+/r8E+Pn5r+A6Hh4uAc14ApyEP0ckKeIXw1C6pepHM4E8TEXVr/IA6K/</div>
+<div class="line">z6jlHORixIFX7iNOnfHh+qwOgZw40D6JnBfEzjFi+T2Cy+JzN2uy7I8UnecTMGo3</div>
+<div class="line">5t6astPy6xcH6kZYzFTV7XERR6LIIVyLAiMFd8kF5MbJ8N5ElRFsFHPW+82N2HDX</div>
+<div class="line">c60iSaTB85k6R6xd8JIKDiaKE4sSuw2wHFCKq33d/GamYezp1wO+bVUQg88efljC</div>
+<div class="line">2JNFyD+vl30josqhw1HcmbE1TP3DlYeIL5jQOlxCMsgai6JtTfHFM/5MYwARAQAB</div>
+<div class="line">tBNzZWN1cml0eUByYW1zZXkuZGV2iQJUBBMBCAA+FiEE4drPD+/ofZ570fAYq0bv</div>
+<div class="line">vXQCywIFAl+Z9gECGwMFCQeGH4AFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQ</div>
+<div class="line">q0bvvXQCywIkEA//Qcwv8MtTCy01LHZd9c7VslwhNdXQDYymcTyjcYw8x7O22m4B</div>
+<div class="line">3hXE6vqAplFhVxxkqXB2ef0tQuzxhPHNJgkCE4Wq4i+V6qGpaSVHQT2W6DN/NIhL</div>
+<div class="line">vS8OdScc6zddmIbIkSrzVVAtjwehFNEIrX3DnbbbK+Iku7vsKT5EclOluIsjlYoX</div>
+<div class="line">goW8IeReyDBqOe2H3hoCGw6EA0D/NYV2bJnfy53rXVIyarsXXeOLp7eNEH6Td7aW</div>
+<div class="line">PVSrMZJe1t+knrEGnEdrXWzlg4lCJJCtemGv+pKBUomnyISXSdqyoRCCzvQjqyig</div>
+<div class="line">2kRebUX8BXPW33p4OXPj9sIboUOjZwormWwqqbFMO+J4TiVCUoEoheI7emPFRcNN</div>
+<div class="line">QtPJrjbY1++OznBc0GRpfeUkGoU1cbRl1bnepnFIZMTDLkrVW6I1Y4q8ZVwX3BkE</div>
+<div class="line">N81ctFrRpHBlU36EdHvjPQmGtuiL77Qq3fWmMv7yTvK1wHJAXfEb0ZJWHZCbck3w</div>
+<div class="line">l0CVq0Z+UUAOM8Rp1N0N8m92xtapav0qCFU9qzf2J5qX6GRmWv+d29wPgFHzDWBm</div>
+<div class="line">nnrYYIA4wJLx00U6SMcVBSnNe91B+RfGY5XQhbWPjQQecOGCSDsxaFAq2MeOVJyZ</div>
+<div class="line">bIjLYfG9GxoLKr5R7oLRJvZI4nKKBc1Kci/crZbdiSdQhSQGlDz88F1OHeCIdQQQ</div>
+<div class="line">EQgAHRYhBOhdAxHd+lus86YQ57Atl5icjAcbBQJfmfdIAAoJELAtl5icjAcbFVcA</div>
+<div class="line">/1LqB3ZjsnXDAvvAXZVjSPqofSlpMLeRQP6IM/A9Odq0AQCZrtZc1knOMGEcjppK</div>
+<div class="line">Rk+sy/R0Mshy8TDuaZIRgh2Ux7kCDQRfmfYBARAAmchKzzVz7IaEq7PnZDb3szQs</div>
+<div class="line">T/+E9F3m39yOpV4fEB1YzObonFakXNT7Gw2tZEx0eitUMqQ/13jjfu3UdzlKl2bR</div>
+<div class="line">qA8LrSQRhB+PTC9A1XvwxCUYhhjGiLzJ9CZL6hBQB43qHOmE9XJPme90geLsF+gK</div>
+<div class="line">u39Waj1SNWzwGg+Gy1Gl5f2AJoDTxznreCuFGj+Vfaczt/hlfgqpOdb9jsmdoE7t</div>
+<div class="line">3DSWppA9dRHWwQSgE6J28rR4QySBcqyXS6IMykqaJn7Z26yNIaITLnHCZOSY8zhP</div>
+<div class="line">ha7GFsN549EOCgECbrnPt9dmI2+hQE0RO0e7SOBNsIf5sz/i7urhwuj0CbOqhjc2</div>
+<div class="line">X1AEVNFCVcb6HPi/AWefdFCRu0gaWQxn5g+9nkq5slEgvzCCiKYzaBIcr8qR6Hb4</div>
+<div class="line">FaOPVPxO8vndRouq57Ws8XpAwbPttioFuCqF4u9K+tK/8e2/R8QgRYJsE3Cz/Fu8</div>
+<div class="line">+pZFpMnqbDEbK3DL3ss+1ed1sky+mDV8qXXeI33XW5hMFnk1JWshUjHNlQmE6ftC</div>
+<div class="line">U0xSTMVUtwJhzH2zDp8lEdu7qi3EsNULOl68ozDr6soWAvCbHPeTdTOnFySGCleG</div>
+<div class="line">/3TonsoZJs/sSPPJnxFQ1DtgQL6EbhIwa0ZwU4eKYVHZ9tjxuMX3teFzRvOrJjgs</div>
+<div class="line">+ywGlsIURtEckT5Y6nMAEQEAAYkCPAQYAQgAJhYhBOHazw/v6H2ee9HwGKtG7710</div>
+<div class="line">AssCBQJfmfYBAhsMBQkHhh+AAAoJEKtG7710AssC8NcP/iDAcy1aZFvkA0EbZ85p</div>
+<div class="line">i7/+ywtE/1wF4U4/9OuLcoskqGGnl1pJNPooMOSBCfreoTB8HimT0Fln0CoaOm4Q</div>
+<div class="line">pScNq39JXmf4VxauqUJVARByP6zUfgYarqoaZNeuFF0S4AZJ2HhGzaQPjDz1uKVM</div>
+<div class="line">PE6tQSgQkFzdZ9AtRA4vElTH6yRAgmepUsOihk0b0gUtVnwtRYZ8e0Qt3ie97a73</div>
+<div class="line">DxLgAgedFRUbLRYiT0vNaYbainBsLWKpN/T8odwIg/smP0Khjp/ckV60cZTdBiPR</div>
+<div class="line">szBTPJESMUTu0VPntc4gWwGsmhZJg/Tt/qP08XYo3VxNYBegyuWwNR66zDWvwvGH</div>
+<div class="line">muMv5UchuDxp6Rt3JkIO4voMT1JSjWy9p8krkPEE4V6PxAagLjdZSkt92wVLiK5x</div>
+<div class="line">y5gNrtPhU45YdRAKHr36OvJBJQ42CDaZ6nzrzghcIp9CZ7ANHrI+QLRM/csz+AGA</div>
+<div class="line">szSp6S4mc1lnxxfbOhPPpebZPn0nIAXoZnnoVKdrxBVedPQHT59ZFvKTQ9Fs7gd3</div>
+<div class="line">sYNuc7tJGFGC2CxBH4ANDpOQkc5q9JJ1HSGrXU3juxIiRgfA26Q22S9c71dXjElw</div>
+<div class="line">Ri584QH+bL6kkYmm8xpKF6TVwhwu5xx/jBPrbWqFrtbvLNrnfPoapTihBfdIhkT6</div>
+<div class="line">nmgawbBHA02D5xEqB5SU3WJu</div>
+<div class="line">=eJNx</div>
+<div class="line">-----END PGP PUBLIC KEY BLOCK-----</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

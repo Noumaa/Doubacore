@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.4</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.4</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.18.30</b></p>
+<h3><a class="anchor" id="autotoc_md1280"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md1281"></a>
+4.4.0</h1>
+<p>Released 1st June 2022.</p>
+<h2><a class="anchor" id="autotoc_md1282"></a>
+General</h2>
+<ul>
+<li>The server will now shut itself down if any of the following errors occur during startup:<ul>
+<li>Any plugin fails <a class="el" href="protocolto-p.html">to</a> load or enable (plugins loaded by other plugins post-startup are <b>not</b> affected by this change) (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4951">#4951</a></b>)<ul>
+<li>The motivation for this change is <a class="el" href="protocolto-p.html">to</a> prevent situations where plugins failing <a class="el" href="protocolto-p.html">to</a> load could result in adverse outcomes, such as a world protection plugin leaving a lobby unprotected from griefing.</li>
+<li>If you encounter this problem, remove the offending plugin(s) or prevent it from loading using <code>plugin_list.yml</code>.</li>
+<li>See <b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4951">#4951</a></b> for more detail on this change.</li>
+</ul>
+</li>
+<li>Any world mentioned in <code>server.properties</code> or <code>pocketmine.yml</code> fails <a class="el" href="protocolto-p.html">to</a> load (worlds loaded by plugins are <b>not</b> affected by this change)</li>
+<li>Any world mentioned in <code>server.properties</code> or <code>pocketmine.yml</code> fails <a class="el" href="protocolto-p.html">to</a> generate (e.g. due <a class="el" href="protocolto-p.html">to</a> invalid generator settings)</li>
+</ul>
+</li>
+<li>Enabling the server whitelist while the server is running (e.g. using <code>/whitelist on</code>) will now kick any non-whitelisted players currently on the server (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4774">#4774</a></b>).</li>
+<li>Help for commands (<code>/help &lt;name of command&gt;</code>) now displays a list of aliases of that command.</li>
+<li>A CRITICAL log message is now generated if a plugin disables itself when enabling, in case the plugin doesn't emit any error of its own.</li>
+<li>The <code>/give</code> command now shows the alias used <a class="el" href="protocolto-p.html">to</a> find the given item in the success message, instead of the item ID/meta.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1283"></a>
+Fixes</h2>
+<ul>
+<li>Block placement has been fixed in many places where it previously didn't work correctly (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4886">#4886</a></b>):<ul>
+<li>torches on top of slabs, upside-down stairs</li>
+<li>torches on the back face of stairs</li>
+<li>flower pots on top of fences</li>
+<li>the list goes on and on ...</li>
+</ul>
+</li>
+<li>Fixed backslash escapes not getting properly removed from commands in some cases.</li>
+<li>Fixed aliases defined in the <code>aliases</code> section of <code>pocketmine.yml</code> not being treated as quote-aware.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1284"></a>
+Gameplay</h2>
+<ul>
+<li>Plants in flower pots can now be removed by right-clicking on the flower pot.</li>
+<li>Leaves now have a 2% chance of dropping sticks when destroyed by hand (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/5019">#5019</a></b>).</li>
+<li>Food exhaustion now matches Bedrock 1.18.30 (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/5034">#5034</a></b>).</li>
+<li>Implemented Stonecutter block (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4732">#4732</a></b>).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1285"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md1286"></a>
+Block</h3>
+<ul>
+<li>Added <code>Block-&gt;getSupportType(Facing) : SupportType</code> (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4886">#4886</a></b>).<ul>
+<li>This is used <a class="el" href="protocolto-p.html">to</a> determine the kind of support a block face can provide <a class="el" href="protocolto-p.html">to</a> a block (e.g. a torch) placed on it.</li>
+</ul>
+</li>
+<li>Added <code>utils\SupportType</code> enum (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4886">#4886</a></b>).</li>
+<li><code>tile\Spawnable-&gt;isDirty()</code> and <code>tile\Spawnable-&gt;setDirty()</code> are now <code>@deprecated</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1287"></a>
+Command</h3>
+<ul>
+<li>Added <code>CommandStringHelper::parseQuoteAware()</code>. This static method contains the code used by <code>SimpleCommandMap</code> used <a class="el" href="protocolto-p.html">to</a> parse quoted command arguments.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1288"></a>
+Entity</h3>
+<ul>
+<li>Added <code>Human::emote()</code> (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4610">#4610</a></b>)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1289"></a>
+Event</h3>
+<ul>
+<li><code>PlayerCommandPreprocessEvent</code> is now <code>@deprecated</code>, since its functionality is entirely replaced by other, general-purpose events.<ul>
+<li>Use <code>CommandEvent</code> <a class="el" href="protocolto-p.html">to</a> intercept commands.</li>
+<li>Use <code>PlayerChatEvent</code> <a class="el" href="protocolto-p.html">to</a> intercept chat messages.</li>
+<li>To convert a chat message into a command, pass it directly <a class="el" href="protocolto-p.html">to</a> <code>Server-&gt;dispatchCommand()</code> with the player as sender.</li>
+</ul>
+</li>
+<li>Added <code>PlayerPostChunkSendEvent</code> (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4937">#4937</a></b>).</li>
+<li>Added <code>PlayerDeathEvent-&gt;setKeepXp()</code> (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4015">#4015</a></b>).</li>
+<li><code>InventoryCloseEvent</code> is now called <b>after</b> the target window has been removed. This fixes various feedback loops caused by trying <a class="el" href="protocolto-p.html">to</a> open new windows <a class="el" href="protocolto-p.html">to</a> a player while there was one still active.<ul>
+<li>As a side effect, this now means that <code>Player-&gt;getCurrentWindow()</code> will return <code>null</code> during <code>InventoryCloseEvent</code>. Use <code>InventoryCloseEvent-&gt;getInventory()</code> instead.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1290"></a>
+Item</h3>
+<ul>
+<li><code>StringToItemParser</code> now recognizes <code>cod</code>, <code>raw_cod</code> and <code>cooked_cod</code> aliases.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md1291"></a>
+Plugin</h3>
+<ul>
+<li><code>DisablePluginException</code> may now be thrown from <code>Plugin::onEnable()</code> <a class="el" href="protocolto-p.html">to</a> make the server gracefully disable the plugin (without crashing) (<b>PR <a href="https://github.com/pmmp/PocketMine-MP/pull/4780">#4780</a></b>).</li>
+<li><code>PluginManager-&gt;registerEvent()</code> now returns the <code>RegisteredListener</code> created for the handler, <a class="el" href="protocolto-p.html">to</a> permit unregistering it later.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1292"></a>
+Internals</h2>
+<ul>
+<li>Private property declarations now use typed properties (PHP 7.4) and promoted constructor properties (PHP 8.0) wherever possible.<ul>
+<li>Protected and public properties remain unchanged, since they can't be changed without breaking subclasses.</li>
+</ul>
+</li>
+<li>Promoted constructor properties are only used when it's consistently possible <a class="el" href="protocolto-p.html">to</a> promote most or all properties in a class.</li>
+<li>Simplified and improved legibility of <code>FormattedCommandAlias</code>.</li>
+<li>Added unit tests for the quote-aware command parser used by <code>SimpleCommandMap</code>.</li>
+<li>Various hardcoded values in <code>block</code> package classes have been moved <a class="el" href="protocolto-p.html">to</a> private constants <a class="el" href="protocolto-p.html">to</a> improve readability.</li>
+<li>Added various constants used in the <code>LevelDB</code> world provider.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1293"></a>
+4.4.1</h1>
+<p>Released 5th June 2022.</p>
+<h2><a class="anchor" id="autotoc_md1294"></a>
+General</h2>
+<ul>
+<li>The server process will now exit with an error code if plugins, worlds or network interfaces failed <a class="el" href="protocolto-p.html">to</a> start.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1295"></a>
+Fixes</h2>
+<ul>
+<li>Fixed graylisted plugins preventing the server from starting.</li>
+<li>Fixed <code>composer make-devtools</code> command.</li>
+<li>Fixed the <code>Maximum memory (manager)</code> units being incorrectly displayed in <code>/status</code>.</li>
+<li>Fixed <code>Player-&gt;removeCurrentWindow()</code> breaking inventory windows.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1296"></a>
+4.4.2</h1>
+<p>Released 7th June 2022.</p>
+<h2><a class="anchor" id="autotoc_md1297"></a>
+Fixes</h2>
+<ul>
+<li>Fixed a crash when arbitrary item IDs appeared in network items in some cases.</li>
+<li>Fixed saved paintings being deleted when loaded from disk (regression from 4.3.4).</li>
+<li>Fixed max stack size of fishing rods. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

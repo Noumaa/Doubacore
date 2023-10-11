@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.12</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.12</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.50</b></p>
+<h3><a class="anchor" id="autotoc_md987"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md988"></a>
+4.12.0</h1>
+<p>Released 30th November 2022.</p>
+<h2><a class="anchor" id="autotoc_md989"></a>
+General</h2>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.19.50.</li>
+<li>Removed support for older versions.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md990"></a>
+4.12.1</h1>
+<p>Released 4th December 2022.</p>
+<h2><a class="anchor" id="autotoc_md991"></a>
+Fixes</h2>
+<ul>
+<li>Fixed items glitching when dragging a stack of items across the crafting grid (desync issues).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md992"></a>
+4.12.2</h1>
+<p>Released 15th December 2022.</p>
+<h2><a class="anchor" id="autotoc_md993"></a>
+Fixes</h2>
+<ul>
+<li>Folder used for plugins (optionally specified by <code>--plugins</code>) is no longer required <a class="el" href="protocolto-p.html">to</a> be writable.</li>
+<li>Fixed broken writable check for server data folder (<code>is_writable()</code> broken on NFS and similar filesystems).</li>
+<li><code>Filesystem::createLockFile()</code> exceptions now include more information about why the lock file could not be created.</li>
+<li>Fixed client-side item predictions not being rolled back when cancelling events such as <code>PlayerItemUseEvent</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md994"></a>
+Dependencies</h2>
+<ul>
+<li>Updated BedrockProtocol <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/pmmp/BedrockProtocol/releases/tag/17.1.0+bedrock-1.19.50">17.1.0</a>. This adds some missing <code>LevelSoundEvent</code> constants and fixes the values for <code>ContainerUIIds</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md995"></a>
+4.12.3</h1>
+<p>Released 28th December 2022.</p>
+<h2><a class="anchor" id="autotoc_md996"></a>
+Fixes</h2>
+<ul>
+<li>Fixed unauthenticated connections taking up player count slots, preventing players from joining.</li>
+<li>Fixed a possible crash in <code>World-&gt;tickChunk()</code> when plugins unload chunks during some events.</li>
+<li><code>/gamemode</code> will now report a failure <a class="el" href="protocolto-p.html">to</a> change game mode if the player is already in the requested game mode.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md997"></a>
+4.12.4</h1>
+<p>Released 3rd January 2023.</p>
+<h2><a class="anchor" id="autotoc_md998"></a>
+Fixes</h2>
+<ul>
+<li>Added workarounds for an active exploit being used <a class="el" href="protocolto-p.html">to</a> deny service <a class="el" href="protocolto-p.html">to</a> servers.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md999"></a>
+4.12.5</h1>
+<p>Released 6th January 2023.</p>
+<h2><a class="anchor" id="autotoc_md1000"></a>
+Fixes</h2>
+<ul>
+<li>Removed a workaround for an old client bug in custom form responses. The code contained a denial-of-service vulnerability.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1001"></a>
+4.12.6</h1>
+<p>Released 7th January 2023.</p>
+<h2><a class="anchor" id="autotoc_md1002"></a>
+Changes</h2>
+<ul>
+<li>Added a new security measure <a class="el" href="protocolto-p.html">to</a> <code>NetworkSession</code> <a class="el" href="protocolto-p.html">to</a> detect and ban players who flood the server with packets.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1003"></a>
+4.12.7</h1>
+<p>Released 8th January 2023.</p>
+<h2><a class="anchor" id="autotoc_md1004"></a>
+Fixes</h2>
+<ul>
+<li>Fixed players getting kicked when the server lags for too long.</li>
+<li>Fixed players getting kicked when a debugging session is active and a breakpoint is hit.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1005"></a>
+4.12.8</h1>
+<p>Released 9th January 2023.</p>
+<h2><a class="anchor" id="autotoc_md1006"></a>
+Fixes</h2>
+<ul>
+<li>Fixed players getting kicked during PvP.</li>
+<li>Fixed players randomly getting kicked on Windows (improper rate limit handling wrt. 15ms timer resolution).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1007"></a>
+4.12.9</h1>
+<p>Released 16th January 2023.</p>
+<h2><a class="anchor" id="autotoc_md1008"></a>
+Improvements</h2>
+<h3><a class="anchor" id="autotoc_md1009"></a>
+Timings</h3>
+<ul>
+<li>Added new timers:<ul>
+<li><code>Server Mid-Tick Processing</code> - time spent processing Snooze interrupts between ticks (e.g. incoming network packets)</li>
+<li><code>Server Tick Update Cycle</code> - time spent processing regular per-tick updates (e.g. entity movement, world updates, etc.) (<code>Server-&gt;tick()</code>)</li>
+</ul>
+</li>
+<li><code>Full Server Tick</code> timer now counts the total of <code>Server Mid-Tick Processing</code> and <code>Server Tick Update Cycle</code>, which generates more accurate performance metrics.<ul>
+<li>Previously, this timer only counted the time spent during regular per-tick updates, and the time recorded by <code>Server Mid-Tick Processing</code> was not included in the report at all.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1010"></a>
+Fixes</h2>
+<ul>
+<li>Fixed blocks such as pressure plates being able <a class="el" href="protocolto-p.html">to</a> be placed without the correct supporting blocks if the clicked block was solid.</li>
+<li>Pressure plates now self-destruct when the block below them is removed.</li>
+<li>Fixed being unable <a class="el" href="protocolto-p.html">to</a> place blocks by clicking on the side of a bell (when the click doesn't result in ringing the bell).</li>
+<li>Fixed various rotation-aware blocks (e.g. stairs) behaving incorrectly when placed by clicking on the side of a replaceable block (e.g. tall grass).</li>
+<li>Fixed banners being able <a class="el" href="protocolto-p.html">to</a> be placed on top of blocks such as skulls.</li>
+<li>Fixed server-side collision boxes of walls and glass (which should connect, but didn't). Note that wall connections still don't show client side - this just fixes the collision boxes.</li>
+<li>Fixed <code>PlayerInteractEvent</code> with <code>LEFT_CLICK</code> sometimes firing before <code>BlockBreakEvent</code> when breaking blocks.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1011"></a>
+Other changes</h2>
+<ul>
+<li>Increased packet batch budget for player sessions.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1012"></a>
+4.12.10</h1>
+<p>Released 18th January 2023.</p>
+<h2><a class="anchor" id="autotoc_md1013"></a>
+Fixes</h2>
+<ul>
+<li>Fixed reported server load not including the time spent processing Snooze interrupts between ticks (e.g. incoming network packets).</li>
+<li>Fixed <code>Connection Handler</code> entry in timings report not including time spent receiving packets.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1014"></a>
+Note about server load &amp; performance</h2>
+<p>This version will report higher apparent server load than previous versions. The actual performance of the server is unchanged; the previous reported load was inaccurate. These bugs have been present for nearly 5 years (ever since the first introduction of Snooze in 3.0.0).</p>
+<h1><a class="anchor" id="autotoc_md1015"></a>
+4.12.11</h1>
+<p>Released 22nd January 2023.</p>
+<h2><a class="anchor" id="autotoc_md1016"></a>
+General</h2>
+<ul>
+<li>Code is now tested and analysed using PHP 8.2 in addition <a class="el" href="protocolto-p.html">to</a> 8.1 and 8.0.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1017"></a>
+Fixes</h2>
+<ul>
+<li>Fixed pthreads 5.0.0 incorrectly being treated as compatible.</li>
+<li>Fixed deprecation errors on PHP 8.2.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1018"></a>
+Documentation</h2>
+<ul>
+<li>Updated documentation in <code>PlayerPreLoginEvent</code>. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

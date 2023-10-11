@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: Changelog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Changelog</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md38"></a> All notable changes <a class="el" href="protocolto-p.html">to</a> this project will be documented in this file.</p>
+<h1><a class="anchor" id="autotoc_md39"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.11.0" &gt;0.11.0&lt;/a&gt; - 2023-01-16</h1>
+<p>💥 <b>Breaking changes</b></p>
+<ul>
+<li>Minimum PHP version is now 8.0</li>
+<li>Methods accepting a union of types are now strongly typed<sup>*</sup></li>
+<li><code>MathException</code> now extends <code>Exception</code> instead of <code>RuntimeException</code></li>
+</ul>
+<p><sup>* You may now run into type errors if you were passing <code>Stringable</code> objects <a class="el" href="protocolto-p.html">to</a> <code>of()</code> or any of the methods internally calling <code>of()</code>, with <code>strict_types</code> enabled. You can fix this by casting <code>Stringable</code> objects <a class="el" href="protocolto-p.html">to</a> <code>string</code> first.</sup></p>
+<h1><a class="anchor" id="autotoc_md40"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.10.2" &gt;0.10.2&lt;/a&gt; - 2022-08-11</h1>
+<p>👌 <b>Improvements</b></p>
+<ul>
+<li><code>BigRational::toFloat()</code> now simplifies the fraction before performing division (#73) thanks <a class="el" href="protocolto-p.html">to</a> @olsavmic</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md41"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.10.1" &gt;0.10.1&lt;/a&gt; - 2022-08-02</h1>
+<p>✨ <b>New features</b></p>
+<ul>
+<li><code>BigInteger::gcdMultiple()</code> returns the GCD of multiple <code>BigInteger</code> numbers</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md42"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.10.0" &gt;0.10.0&lt;/a&gt; - 2022-06-18</h1>
+<p>💥 <b>Breaking changes</b></p>
+<ul>
+<li>Minimum PHP version is now 7.4</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md43"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.9.3" &gt;0.9.3&lt;/a&gt; - 2021-08-15</h1>
+<p>🚀 <b>Compatibility with PHP 8.1</b></p>
+<ul>
+<li>Support for custom object serialization; this removes a warning on PHP 8.1 due <a class="el" href="protocolto-p.html">to</a> the <code>Serializable</code> interface being deprecated (#60) thanks @TRowbotham</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md44"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.9.2" &gt;0.9.2&lt;/a&gt; - 2021-01-20</h1>
+<p>🐛 <b>Bug fix</b></p>
+<ul>
+<li>Incorrect results could be returned when using the BCMath calculator, with a default scale set with <code>bcscale()</code>, on PHP &gt;= 7.2 (#55).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md45"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.9.1" &gt;0.9.1&lt;/a&gt; - 2020-08-19</h1>
+<p>✨ <b>New features</b></p>
+<ul>
+<li><code>BigInteger::not()</code> returns the bitwise <code>NOT</code> value</li>
+</ul>
+<p>🐛 <b>Bug fixes</b></p>
+<ul>
+<li><code>BigInteger::toBytes()</code> could return an incorrect binary representation for some numbers</li>
+<li>The bitwise operations <code>and()</code>, <code>or()</code>, <code>xor()</code> on <code>BigInteger</code> could return an incorrect result when the GMP extension is not available</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md46"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.9.0" &gt;0.9.0&lt;/a&gt; - 2020-08-18</h1>
+<p>👌 <b>Improvements</b></p>
+<ul>
+<li><code>BigNumber::of()</code> now accepts <code>.123</code> and <code>123.</code> formats, both of which return a <code>BigDecimal</code></li>
+</ul>
+<p>💥 <b>Breaking changes</b></p>
+<ul>
+<li>Deprecated method <code>BigInteger::powerMod()</code> has been removed - use <code>modPow()</code> instead</li>
+<li>Deprecated method <code>BigInteger::parse()</code> has been removed - use <code>fromBase()</code> instead</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md47"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.17" &gt;0.8.17&lt;/a&gt; - 2020-08-19</h1>
+<p>🐛 <b>Bug fix</b></p>
+<ul>
+<li><code>BigInteger::toBytes()</code> could return an incorrect binary representation for some numbers</li>
+<li>The bitwise operations <code>and()</code>, <code>or()</code>, <code>xor()</code> on <code>BigInteger</code> could return an incorrect result when the GMP extension is not available</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md48"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.16" &gt;0.8.16&lt;/a&gt; - 2020-08-18</h1>
+<p>🚑 <b>Critical fix</b></p>
+<ul>
+<li>This version reintroduces the deprecated <code>BigInteger::parse()</code> method, that has been removed by mistake in version <code>0.8.9</code> and should have lasted for the whole <code>0.8</code> release cycle.</li>
+</ul>
+<p>✨ <b>New features</b></p>
+<ul>
+<li><code>BigInteger::modInverse()</code> calculates a modular multiplicative inverse</li>
+<li><code>BigInteger::fromBytes()</code> creates a <code>BigInteger</code> from a byte string</li>
+<li><code>BigInteger::toBytes()</code> converts a <code>BigInteger</code> <a class="el" href="protocolto-p.html">to</a> a byte string</li>
+<li><code>BigInteger::randomBits()</code> creates a pseudo-random <code>BigInteger</code> of a given bit length</li>
+<li><code>BigInteger::randomRange()</code> creates a pseudo-random <code>BigInteger</code> between two bounds</li>
+</ul>
+<p>💩 <b>Deprecations</b></p>
+<ul>
+<li><code>BigInteger::powerMod()</code> is now deprecated in favour of <code>modPow()</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md49"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.15" &gt;0.8.15&lt;/a&gt; - 2020-04-15</h1>
+<p>🐛 <b>Fixes</b></p>
+<ul>
+<li>added missing <code>ext-json</code> requirement, due <a class="el" href="protocolto-p.html">to</a> <code>BigNumber</code> implementing <code>JsonSerializable</code></li>
+</ul>
+<p>⚡️ <b>Optimizations</b></p>
+<ul>
+<li>additional optimization in <code>BigInteger::remainder()</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md50"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.14" &gt;0.8.14&lt;/a&gt; - 2020-02-18</h1>
+<p>✨ <b>New features</b></p>
+<ul>
+<li><code>BigInteger::getLowestSetBit()</code> returns the index of the rightmost one bit</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md51"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.13" &gt;0.8.13&lt;/a&gt; - 2020-02-16</h1>
+<p>✨ <b>New features</b></p>
+<ul>
+<li><code>BigInteger::isEven()</code> tests whether the number is even</li>
+<li><code>BigInteger::isOdd()</code> tests whether the number is odd</li>
+<li><code>BigInteger::testBit()</code> tests if a bit is set</li>
+<li><code>BigInteger::getBitLength()</code> returns the number of bits in the minimal representation of the number</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md52"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.12" &gt;0.8.12&lt;/a&gt; - 2020-02-03</h1>
+<p>🛠️ <b>Maintenance release</b></p>
+<p>Classes are now annotated for better static analysis with <a href="https://psalm.dev/">psalm</a>.</p>
+<p>This is a maintenance release: no bug fixes, no new features, no breaking changes.</p>
+<h1><a class="anchor" id="autotoc_md53"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.11" &gt;0.8.11&lt;/a&gt; - 2020-01-23</h1>
+<p>✨ <b>New feature</b></p>
+<p><code>BigInteger::powerMod()</code> performs a power-with-modulo operation. Useful for crypto.</p>
+<h1><a class="anchor" id="autotoc_md54"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.10" &gt;0.8.10&lt;/a&gt; - 2020-01-21</h1>
+<p>✨ <b>New feature</b></p>
+<p><code>BigInteger::mod()</code> returns the <b>modulo</b> of two numbers. The <em>modulo</em> differs from the <em>remainder</em> when the signs of the operands are different.</p>
+<h1><a class="anchor" id="autotoc_md55"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.9" &gt;0.8.9&lt;/a&gt; - 2020-01-08</h1>
+<p>⚡️ <b>Performance improvements</b></p>
+<p>A few additional optimizations in <code>BigInteger</code> and <code>BigDecimal</code> when one of the operands can be returned as is. Thanks <a class="el" href="protocolto-p.html">to</a> @tomtomsen in #24.</p>
+<h1><a class="anchor" id="autotoc_md56"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.8" &gt;0.8.8&lt;/a&gt; - 2019-04-25</h1>
+<p>🐛 <b>Bug fixes</b></p>
+<ul>
+<li><code>BigInteger::toBase()</code> could return an empty string for zero values (BCMath &amp; Native calculators only, GMP calculator unaffected)</li>
+</ul>
+<p>✨ <b>New features</b></p>
+<ul>
+<li><code>BigInteger::toArbitraryBase()</code> converts a number <a class="el" href="protocolto-p.html">to</a> an arbitrary base, using a custom alphabet</li>
+<li><code>BigInteger::fromArbitraryBase()</code> converts a string in an arbitrary base, using a custom alphabet, back <a class="el" href="protocolto-p.html">to</a> a number</li>
+</ul>
+<p>These methods can be used as the foundation <a class="el" href="protocolto-p.html">to</a> convert strings between different bases/alphabets, using BigInteger as an intermediate representation.</p>
+<p>💩 <b>Deprecations</b></p>
+<ul>
+<li><code>BigInteger::parse()</code> is now deprecated in favour of <code>fromBase()</code></li>
+</ul>
+<p><code>BigInteger::fromBase()</code> works the same way as <code>parse()</code>, with 2 minor differences:</p>
+<ul>
+<li>the <code>$base</code> parameter is required, it does not default <a class="el" href="protocolto-p.html">to</a> <code>10</code></li>
+<li>it throws a <code>NumberFormatException</code> instead of an <code>InvalidArgumentException</code> when the number is malformed</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md57"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.7" &gt;0.8.7&lt;/a&gt; - 2019-04-20</h1>
+<p><b>Improvements</b></p>
+<ul>
+<li>Safer conversion from <code>float</code> when using custom locales</li>
+<li><b>Much faster</b> <code>NativeCalculator</code> implementation 🚀</li>
+</ul>
+<p>You can expect <b>at least a 3x performance improvement</b> for common arithmetic operations when using the library on systems without GMP or BCMath; it gets exponentially faster on multiplications with a high number of digits. This is due <a class="el" href="protocolto-p.html">to</a> calculations now being performed on whole blocks of digits (the block size depending on the platform, 32-bit or 64-bit) instead of digit-by-digit as before.</p>
+<h1><a class="anchor" id="autotoc_md58"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.6" &gt;0.8.6&lt;/a&gt; - 2019-04-11</h1>
+<p><b>New method</b></p>
+<p><code>BigNumber::sum()</code> returns the sum of one or more numbers.</p>
+<h1><a class="anchor" id="autotoc_md59"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.5" &gt;0.8.5&lt;/a&gt; - 2019-02-12</h1>
+<p><b>Bug fix</b>: <code>of()</code> factory methods could fail when passing a <code>float</code> in environments using a <code>LC_NUMERIC</code> locale with a decimal separator other than &lsquo;&rsquo;.'` (#20).</p>
+<p>Thanks @manowark 👍</p>
+<h1><a class="anchor" id="autotoc_md60"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.4" &gt;0.8.4&lt;/a&gt; - 2018-12-07</h1>
+<p><b>New method</b></p>
+<p><code>BigDecimal::sqrt()</code> calculates the square root of a decimal number, <a class="el" href="protocolto-p.html">to</a> a given scale.</p>
+<h1><a class="anchor" id="autotoc_md61"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.3" &gt;0.8.3&lt;/a&gt; - 2018-12-06</h1>
+<p><b>New method</b></p>
+<p><code>BigInteger::sqrt()</code> calculates the square root of a number (thanks @peter279k).</p>
+<p><b>New exception</b></p>
+<p><code>NegativeNumberException</code> is thrown when calling <code>sqrt()</code> on a negative number.</p>
+<h1><a class="anchor" id="autotoc_md62"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.2" &gt;0.8.2&lt;/a&gt; - 2018-11-08</h1>
+<p><b>Performance update</b></p>
+<ul>
+<li>Further improvement of <code>toInt()</code> performance</li>
+<li><code>NativeCalculator</code> can now perform some multiplications more efficiently</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md63"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.1" &gt;0.8.1&lt;/a&gt; - 2018-11-07</h1>
+<p>Performance optimization of <code>toInt()</code> methods.</p>
+<h1><a class="anchor" id="autotoc_md64"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.8.0" &gt;0.8.0&lt;/a&gt; - 2018-10-13</h1>
+<p><b>Breaking changes</b></p>
+<p>The following deprecated methods have been removed. Use the new method name instead:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Method removed   </th><th class="markdownTableHeadNone">Replacement method    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>BigDecimal::getIntegral()</code>   </td><td class="markdownTableBodyNone"><code>BigDecimal::getIntegralPart()</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>BigDecimal::getFraction()</code>   </td><td class="markdownTableBodyNone"><code>BigDecimal::getFractionalPart()</code>   </td></tr>
+</table>
+<hr  />
+<p><b>New features</b></p>
+<p><code>BigInteger</code> has been augmented with 5 new methods for bitwise operations:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">New method   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>and()</code>   </td><td class="markdownTableBodyNone">performs a bitwise <code>AND</code> operation on two numbers    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>or()</code>   </td><td class="markdownTableBodyNone">performs a bitwise <code>OR</code> operation on two numbers    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>xor()</code>   </td><td class="markdownTableBodyNone">performs a bitwise <code>XOR</code> operation on two numbers    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>shiftedLeft()</code>   </td><td class="markdownTableBodyNone">returns the number shifted left by a number of bits    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>shiftedRight()</code>   </td><td class="markdownTableBodyNone">returns the number shifted right by a number of bits   </td></tr>
+</table>
+<p>Thanks <a class="el" href="protocolto-p.html">to</a> @DASPRiD 👍</p>
+<h1><a class="anchor" id="autotoc_md66"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.7.3" &gt;0.7.3&lt;/a&gt; - 2018-08-20</h1>
+<p><b>New method:</b> <code>BigDecimal::hasNonZeroFractionalPart()</code></p>
+<p><b>Renamed/deprecated methods:</b></p>
+<ul>
+<li><code>BigDecimal::getIntegral()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getIntegralPart()</code> and is now deprecated</li>
+<li><code>BigDecimal::getFraction()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getFractionalPart()</code> and is now deprecated</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md67"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.7.2" &gt;0.7.2&lt;/a&gt; - 2018-07-21</h1>
+<p><b>Performance update</b></p>
+<p><code>BigInteger::parse()</code> and <code>toBase()</code> now use GMP's built-in base conversion features when available.</p>
+<h1><a class="anchor" id="autotoc_md68"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.7.1" &gt;0.7.1&lt;/a&gt; - 2018-03-01</h1>
+<p>This is a maintenance release, no code has been changed.</p>
+<ul>
+<li>When installed with <code>--no-dev</code>, the autoloader does not autoload tests anymore</li>
+<li>Tests and other files unnecessary for production are excluded from the dist package</li>
+</ul>
+<p>This will help make installations more compact.</p>
+<h1><a class="anchor" id="autotoc_md69"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.7.0" &gt;0.7.0&lt;/a&gt; - 2017-10-02</h1>
+<p>Methods renamed:</p>
+<ul>
+<li><code>BigNumber:sign()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getSign()</code></li>
+<li><code>BigDecimal::unscaledValue()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getUnscaledValue()</code></li>
+<li><code>BigDecimal::scale()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getScale()</code></li>
+<li><code>BigDecimal::integral()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getIntegral()</code></li>
+<li><code>BigDecimal::fraction()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getFraction()</code></li>
+<li><code>BigRational::numerator()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getNumerator()</code></li>
+<li><code>BigRational::denominator()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>getDenominator()</code></li>
+</ul>
+<p>Classes renamed:</p>
+<ul>
+<li><code>ArithmeticException</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>MathException</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md70"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.6.2" &gt;0.6.2&lt;/a&gt; - 2017-10-02</h1>
+<p>The base class for all exceptions is now <code>MathException</code>. <code>ArithmeticException</code> has been deprecated, and will be removed in 0.7.0.</p>
+<h1><a class="anchor" id="autotoc_md71"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.6.1" &gt;0.6.1&lt;/a&gt; - 2017-10-02</h1>
+<p>A number of methods have been renamed:</p>
+<ul>
+<li><code>BigNumber:sign()</code> is deprecated; use <code>getSign()</code> instead</li>
+<li><code>BigDecimal::unscaledValue()</code> is deprecated; use <code>getUnscaledValue()</code> instead</li>
+<li><code>BigDecimal::scale()</code> is deprecated; use <code>getScale()</code> instead</li>
+<li><code>BigDecimal::integral()</code> is deprecated; use <code>getIntegral()</code> instead</li>
+<li><code>BigDecimal::fraction()</code> is deprecated; use <code>getFraction()</code> instead</li>
+<li><code>BigRational::numerator()</code> is deprecated; use <code>getNumerator()</code> instead</li>
+<li><code>BigRational::denominator()</code> is deprecated; use <code>getDenominator()</code> instead</li>
+</ul>
+<p>The old methods will be removed in version 0.7.0.</p>
+<h1><a class="anchor" id="autotoc_md72"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.6.0" &gt;0.6.0&lt;/a&gt; - 2017-08-25</h1>
+<ul>
+<li>Minimum PHP version is now <a href="https://gophp71.org/">7.1</a>; for PHP 5.6 and PHP 7.0 support, use version <code>0.5</code></li>
+<li>Deprecated method <code>BigDecimal::withScale()</code> has been removed; use <code>toScale()</code> instead</li>
+<li>Method <code>BigNumber::toInteger()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>toInt()</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md73"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.5.4" &gt;0.5.4&lt;/a&gt; - 2016-10-17</h1>
+<p><code>BigNumber</code> classes now implement <a href="http://php.net/manual/en/class.jsonserializable.php">JsonSerializable</a>. The JSON output is always a string.</p>
+<h1><a class="anchor" id="autotoc_md74"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.5.3" &gt;0.5.3&lt;/a&gt; - 2016-03-31</h1>
+<p>This is a bugfix release. Dividing by a negative power of 1 with the same scale as the dividend could trigger an incorrect optimization which resulted in a wrong result. See #6.</p>
+<h1><a class="anchor" id="autotoc_md75"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.5.2" &gt;0.5.2&lt;/a&gt; - 2015-08-06</h1>
+<p>The <code>$scale</code> parameter of <code>BigDecimal::dividedBy()</code> is now optional again.</p>
+<h1><a class="anchor" id="autotoc_md76"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.5.1" &gt;0.5.1&lt;/a&gt; - 2015-07-05</h1>
+<p><b>New method: <code>BigNumber::toScale()</code></b></p>
+<p>This allows <a class="el" href="protocolto-p.html">to</a> convert any <code>BigNumber</code> <a class="el" href="protocolto-p.html">to</a> a <code>BigDecimal</code> with a given scale, using rounding if necessary.</p>
+<h1><a class="anchor" id="autotoc_md77"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.5.0" &gt;0.5.0&lt;/a&gt; - 2015-07-04</h1>
+<p><b>New features</b></p><ul>
+<li>Common <code>BigNumber</code> interface for all classes, with the following methods:<ul>
+<li><code>sign()</code> and derived methods (<code>isZero()</code>, <code>isPositive()</code>, ...)</li>
+<li><code>compareTo()</code> and derived methods (<code>isEqualTo()</code>, <code>isGreaterThan()</code>, ...) that work across different <code>BigNumber</code> types</li>
+<li><code>toBigInteger()</code>, <code>toBigDecimal()</code>, <code>toBigRational</code>() conversion methods</li>
+<li><code>toInteger()</code> and <code>toFloat()</code> conversion methods <a class="el" href="protocolto-p.html">to</a> native types</li>
+</ul>
+</li>
+<li>Unified <code>of()</code> behaviour: every class now accepts any type of number, provided that it can be safely converted <a class="el" href="protocolto-p.html">to</a> the current type</li>
+<li>New method: <code>BigDecimal::exactlyDividedBy()</code>; this method automatically computes the scale of the result, provided that the division yields a finite number of digits</li>
+<li>New methods: <code>BigRational::quotient()</code> and <code>remainder()</code></li>
+<li>Fine-grained exceptions: <code>DivisionByZeroException</code>, <code>RoundingNecessaryException</code>, <code>NumberFormatException</code></li>
+<li>Factory methods <code>zero()</code>, <code>one()</code> and <code>ten()</code> available in all classes</li>
+<li>Rounding mode reintroduced in <code>BigInteger::dividedBy()</code></li>
+</ul>
+<p>This release also comes with many performance improvements.</p>
+<hr  />
+<p><b>Breaking changes</b></p><ul>
+<li><code>BigInteger</code>:<ul>
+<li><code>getSign()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>sign()</code></li>
+<li><code>toString()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>toBase()</code></li>
+<li><code>BigInteger::dividedBy()</code> now throws an exception by default if the remainder is not zero; use <code>quotient()</code> <a class="el" href="protocolto-p.html">to</a> get the previous behaviour</li>
+</ul>
+</li>
+<li><code>BigDecimal</code>:<ul>
+<li><code>getSign()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>sign()</code></li>
+<li><code>getUnscaledValue()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>unscaledValue()</code></li>
+<li><code>getScale()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>scale()</code></li>
+<li><code>getIntegral()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>integral()</code></li>
+<li><code>getFraction()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>fraction()</code></li>
+<li><code>divideAndRemainder()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>quotientAndRemainder()</code></li>
+<li><code>dividedBy()</code> now takes a <b>mandatory</b> <code>$scale</code> parameter <b>before</b> the rounding mode</li>
+<li><code>toBigInteger()</code> does not accept a <code>$roundingMode</code> parameter anymore</li>
+<li><code>toBigRational()</code> does not simplify the fraction anymore; explicitly add <code>-&gt;simplified()</code> <a class="el" href="protocolto-p.html">to</a> get the previous behaviour</li>
+</ul>
+</li>
+<li><code>BigRational</code>:<ul>
+<li><code>getSign()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>sign()</code></li>
+<li><code>getNumerator()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>numerator()</code></li>
+<li><code>getDenominator()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>denominator()</code></li>
+<li><code>of()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>nd()</code>, while <code>parse()</code> is renamed <a class="el" href="protocolto-p.html">to</a> <code>of()</code></li>
+</ul>
+</li>
+<li>Miscellaneous:<ul>
+<li><code>ArithmeticException</code> is moved <a class="el" href="protocolto-p.html">to</a> an <code>Exception\</code> sub-namespace</li>
+<li><code>of()</code> factory methods now throw <code>NumberFormatException</code> instead of <code>InvalidArgumentException</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md79"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.4.3" &gt;0.4.3&lt;/a&gt; - 2016-03-31</h1>
+<p>Backport of two bug fixes from the 0.5 branch:</p><ul>
+<li><code>BigInteger::parse()</code> did not always throw <code>InvalidArgumentException</code> as expected</li>
+<li>Dividing by a negative power of 1 with the same scale as the dividend could trigger an incorrect optimization which resulted in a wrong result. See #6.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md80"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.4.2" &gt;0.4.2&lt;/a&gt; - 2015-06-16</h1>
+<p>New method: <code>BigDecimal::stripTrailingZeros()</code></p>
+<h1><a class="anchor" id="autotoc_md81"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.4.1" &gt;0.4.1&lt;/a&gt; - 2015-06-12</h1>
+<p>Introducing a <code>BigRational</code> class, <a class="el" href="protocolto-p.html">to</a> perform calculations on fractions of any size.</p>
+<h1><a class="anchor" id="autotoc_md82"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.4.0" &gt;0.4.0&lt;/a&gt; - 2015-06-12</h1>
+<p>Rounding modes have been removed from <code>BigInteger</code>, and are now a concept specific <a class="el" href="protocolto-p.html">to</a> <code>BigDecimal</code>.</p>
+<p><code>BigInteger::dividedBy()</code> now always returns the quotient of the division.</p>
+<h1><a class="anchor" id="autotoc_md83"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.3.5" &gt;0.3.5&lt;/a&gt; - 2016-03-31</h1>
+<p>Backport of two bug fixes from the 0.5 branch:</p>
+<ul>
+<li><code>BigInteger::parse()</code> did not always throw <code>InvalidArgumentException</code> as expected</li>
+<li>Dividing by a negative power of 1 with the same scale as the dividend could trigger an incorrect optimization which resulted in a wrong result. See #6.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md84"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.3.4" &gt;0.3.4&lt;/a&gt; - 2015-06-11</h1>
+<p>New methods:</p><ul>
+<li><code>BigInteger::remainder()</code> returns the remainder of a division only</li>
+<li><code>BigInteger::gcd()</code> returns the greatest common divisor of two numbers</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md85"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.3.3" &gt;0.3.3&lt;/a&gt; - 2015-06-07</h1>
+<p>Fix <code>toString()</code> not handling negative numbers.</p>
+<h1><a class="anchor" id="autotoc_md86"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.3.2" &gt;0.3.2&lt;/a&gt; - 2015-06-07</h1>
+<p><code>BigInteger</code> and <code>BigDecimal</code> now have a <code>getSign()</code> method that returns:</p><ul>
+<li><code>-1</code> if the number is negative</li>
+<li><code>0</code> if the number is zero</li>
+<li><code>1</code> if the number is positive</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md87"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.3.1" &gt;0.3.1&lt;/a&gt; - 2015-06-05</h1>
+<p>Minor performance improvements</p>
+<h1><a class="anchor" id="autotoc_md88"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.3.0" &gt;0.3.0&lt;/a&gt; - 2015-06-04</h1>
+<p>The <code>$roundingMode</code> and <code>$scale</code> parameters have been swapped in <code>BigDecimal::dividedBy()</code>.</p>
+<h1><a class="anchor" id="autotoc_md89"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.2.2" &gt;0.2.2&lt;/a&gt; - 2015-06-04</h1>
+<p>Stronger immutability guarantee for <code>BigInteger</code> and <code>BigDecimal</code>.</p>
+<p>So far, it would have been possible <a class="el" href="protocolto-p.html">to</a> break immutability of these classes by calling the <code>unserialize()</code> internal function. This release fixes that.</p>
+<h1><a class="anchor" id="autotoc_md90"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.2.1" &gt;0.2.1&lt;/a&gt; - 2015-06-02</h1>
+<p>Added <code>BigDecimal::divideAndRemainder()</code></p>
+<h1><a class="anchor" id="autotoc_md91"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.2.0" &gt;0.2.0&lt;/a&gt; - 2015-05-22</h1>
+<ul>
+<li><code>min()</code> and <code>max()</code> do not accept an <code>array</code> anymore, but a variable number of parameters</li>
+<li><b>minimum PHP version is now 5.6</b></li>
+<li>continuous integration with PHP 7</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md92"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.1.1" &gt;0.1.1&lt;/a&gt; - 2014-09-01</h1>
+<ul>
+<li>Added <code>BigInteger::power()</code></li>
+<li>Added HHVM support</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md93"></a>
+&lt;a href="https://github.com/brick/math/releases/tag/0.1.0" &gt;0.1.0&lt;/a&gt; - 2014-08-31</h1>
+<p>First beta release. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

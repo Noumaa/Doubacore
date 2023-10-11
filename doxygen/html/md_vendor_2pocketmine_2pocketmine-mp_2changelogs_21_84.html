@@ -1,0 +1,1310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 1.4dev-228</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">1.4dev-228</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md169"></a><b>For Minecraft: PE v0.9.0 alpha</b></p>
+<p>Since the latest release, 786 commits have been done, 942 files have been changed (almost every file), and ~200.000 lines have been modified during the last 6 months.</p>
+<p>This is the first beta in the 1.4 series. This is a complete rewrite of PocketMine-MP, so only plugins developed for this new API will work.</p>
+<p><b>Main features:</b></p><ul>
+<li>Physics!</li>
+<li>New plugin API!</li>
+<li>Infinite worlds</li>
+<li>Multithreading!</li>
+<li>New efficient threaded networking library, <a href="https://github.com/PocketMine/RakLib">RakLib</a></li>
+<li>Supports Minecraft: PE 0.9.0!</li>
+</ul>
+<p><b>Other features:</b></p><ul>
+<li>Permission system</li>
+<li>New event system</li>
+<li>Separation of network code and server logic, allows custom interfaces _(RakLib, BigBrother, RubberBand)_</li>
+<li>Advanced settings on pocketmine.yml file!</li>
+<li>Auto updater notifications</li>
+<li>Support for Anvil worlds (import your PC worlds)</li>
+</ul>
+<p><b>Not implemented:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>No entities except dropped items (and no spawning)</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md170"></a>
+1.4dev-277</h1>
+<p><b>For Minecraft: PE v0.9.1 alpha</b></p>
+<p>This is the second beta for 1.4, and includes lots of fixes and a few new features since the beta1.</p>
+<p>This beta changes the API version <a class="el" href="protocolto-p.html">to</a> 1.1.0 (backwards-compatible) due <a class="el" href="protocolto-p.html">to</a> fixes and the new timings feature being added. All plugins that use API 1.0.0 are compatible and do not need changes. If your plugin works on API 1.0.0, please do not set the API version <a class="el" href="protocolto-p.html">to</a> 1.1.0, that will only refuse <a class="el" href="protocolto-p.html">to</a> load where it can work.</p>
+<p><b>Main features:</b></p><ul>
+<li>Updated RakLib <a class="el" href="protocolto-p.html">to</a> 0.2.0<ul>
+<li>Fixes high CPU load issues</li>
+<li>Fixes players not quitting on timeout</li>
+<li>Fixes abusive bandwidth usage when a player timeouts</li>
+</ul>
+</li>
+<li>Fixed abusive CPU and memory usage on normal operation</li>
+<li>Added Timings (read more on #1634)</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Updated lava and fire causes #1581</li>
+<li>Fixed #1570 Plugins can't be loaded on folders with periods</li>
+<li>Fixed #1583 Scheduled Tasks getting repeated</li>
+<li>Entity health is now saved and restored</li>
+<li>Fixed #1584 duplicated death messages</li>
+<li>RakLib is now blocking, less CPU usage</li>
+<li>Updated plugin enable/disable event type #1585</li>
+<li>Fixed #1578 Memory leak on chunk garbage collection</li>
+<li>Fixed #1591 Players die when they leave the game</li>
+<li>Fixed /kick player name</li>
+<li>Fixed #1595 Undefined variable on QueryHandler</li>
+<li>Improved entity attack push</li>
+<li>Added more damage sources</li>
+<li>Fixed #1598 spawning on index-corrupted chunks</li>
+<li>Added settings.query-plugins <a class="el" href="protocolto-p.html">to</a> pocketmine.yml</li>
+<li>Added deprecation warning on plugin events</li>
+<li>Fixed /list now showing the correct player count</li>
+<li>Fixed #1609</li>
+<li>Fixed #1604 Items fly upwards</li>
+<li>Added upload/download speed on title bar</li>
+<li>Fixed unsigned fields read as signed, fixes not being able <a class="el" href="protocolto-p.html">to</a> use ports bigger than 2^15</li>
+<li>Fixed #1622 /kick crashes the server on offline players</li>
+<li>Fixed #1616 Players now use the world spawn by default</li>
+<li>Fixed #1615 Players on creative mode can die of falling</li>
+<li>Added core timings, plugin timings, and /timings command</li>
+<li>New API version 1.1.0 (backwards-compatible)</li>
+<li>Fixed #1642 Server crashing on invalid entities</li>
+<li>Fixed #1641 Players not having a proper timeout</li>
+<li>Added proper comments <a class="el" href="protocolto-p.html">to</a> Vector3::add() and Vector3::substract() #1649</li>
+<li>Workaround for clients teleporting randomly</li>
+<li>Workaround for clients crashing in the server</li>
+<li>Workaround for certain AsyncTask not getting collected by the pthreads Pool</li>
+<li>Fixed memory leak in AsyncTask collection</li>
+<li>Improved random block ticking</li>
+<li>Fixed #1640</li>
+<li>Fixed #1636</li>
+<li>Fixed #1590</li>
+<li>Fixed #1573</li>
+</ul>
+<p><b>Not implemented and known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>CPU usage is high during player join (Anvil -&gt; MCPE network chunk conversion)</li>
+<li>Chunks can be generated empty sometimes, even on spawn chunks</li>
+<li>No entities except dropped items (and no spawning)</li>
+<li>Entity AI</li>
+<li>RCON</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md171"></a>
+1.4dev-413</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This is the third beta for 1.4, with a lot of changes since the last beta.</p>
+<p>This beta changes the API version <a class="el" href="protocolto-p.html">to</a> 1.2.0 (backwards-compatible) due <a class="el" href="protocolto-p.html">to</a> changes in how level formats are handled, Thread management. All plugins that use API 1.0.0 or 1.1.0 are compatible and do not need changes. If your plugin works on API 1.0.0 or 1.1.0, please do not set the API version <a class="el" href="protocolto-p.html">to</a> 1.2.0, that will only refuse <a class="el" href="protocolto-p.html">to</a> load where it can work.</p>
+<p><b>Main features:</b></p><ul>
+<li>Crash reports and automatic reporting</li>
+<li>Added multiple Level format support</li>
+<li>Use McRegion format <a class="el" href="protocolto-p.html">to</a> improve chunk sending CPU usage</li>
+<li>Loaded chunks use 50% less memory than before</li>
+<li>Void chunks have been fixed</li>
+<li>RCON is now working</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Added far-generated chunk garbage collection</li>
+<li>Fixed #1628 #1671 invalid sender x,y,z on /spawnpoint</li>
+<li>Use Player::getDisplayName() on more commands</li>
+<li>Fixed crash on /stop</li>
+<li>Fixed being killed on teleport</li>
+<li>Fixed inventory being sent before spawning</li>
+<li>Fixed #1614 #1678 #1711 Some blocks cannot be placed, stone has incorrect ID</li>
+<li>Fixed #1668 Only allow one thread per property</li>
+<li>Implemented new crash dumps</li>
+<li>Added count(Enum), for NBT</li>
+<li>Fixed Level::useBreakOn() when Item was null</li>
+<li>Fixed an error related <a class="el" href="protocolto-p.html">to</a> AIR constant</li>
+<li>Updated Stick crafting recipe <a class="el" href="protocolto-p.html">to</a> give x4</li>
+<li>Fix for thrown EmptyChunkSection modification exception</li>
+<li>Fixed player creative inventory</li>
+<li>Fixed crash when placing water or lava</li>
+<li>Fixed crash when cactus was updated</li>
+<li>Fixed crash when using Level scheduled block update ReversePriorityQueue</li>
+<li>Added new exception when a plugin creates an orphaned PluginTask</li>
+<li>Throw exception when an invalid chunk is set as the parent of a Tile/Entity</li>
+<li>Added McRegion detection <a class="el" href="protocolto-p.html">to</a> Anvil</li>
+<li>Added multiple format support</li>
+<li>Added McRegion level format</li>
+<li>API version bumped <a class="el" href="protocolto-p.html">to</a> 1.2.0</li>
+<li>Added block order detection, added support for non-sectioned level formats</li>
+<li>Fixed #1659 PvP settings not working</li>
+<li>Fixed loading invalid plugins crashing the server</li>
+<li>Removed SimpleChunk from generator, core, use binary representation of chunks</li>
+<li>Fixed #1807 #1794 #1740 #1741 #1685 Tuned generator <a class="el" href="protocolto-p.html">to</a> use a better way <a class="el" href="protocolto-p.html">to</a> process chunks</li>
+<li>Fixed crash on chunks that are used by an entity after generation</li>
+<li>Improved memory usage when chunks are saved/generated</li>
+<li>Added worlds directive <a class="el" href="protocolto-p.html">to</a> pocketmine.yml <a class="el" href="protocolto-p.html">to</a> load extra worlds or use a plugin-provided generator</li>
+<li>Disabled chunk ticking while it is being worked on</li>
+<li>Added getExecutor() and setExecutor() method <a class="el" href="protocolto-p.html">to</a> PluginCommand</li>
+<li>Updated Installer wizard language</li>
+<li>Added proper Entity-&gt;__toString()</li>
+<li>Added ChunkLoadEvent, ChunkUnloadEvent, ChunkPopulateEvent</li>
+<li>Fixed /tell command not having spaces</li>
+<li>Added Position::fromObject() strong reference parameter</li>
+<li>Modified how chunks handle level providers</li>
+<li>Added a Thread manager</li>
+<li>Fixed #1842 Players are now moved using the head</li>
+<li>Fixed source servers getting invalid AutoUpdater notifications</li>
+<li>Made AsyncTask::onCompletion() implementation optional</li>
+<li>Fixed RCON usage</li>
+</ul>
+<p><b>Not implemented and known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>World generation is slower than in older builds</li>
+<li>No entities except dropped items (and no spawning)</li>
+<li>Entity AI</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md172"></a>
+1.4dev-449</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This is the fourth beta for 1.4. From now on, beta builds will be released faster with less changes between them, So we'll focus on adding new features on each build. New features will be buggy, but we hope <a class="el" href="protocolto-p.html">to</a> receive feedback <a class="el" href="protocolto-p.html">to</a> fix them soon. Old features will be more stable on each build.</p>
+<p>This beta changes the API version <a class="el" href="protocolto-p.html">to</a> 1.3.0 (backwards-compatible), improving level chunk sending and adding new plugin events for developers. All plugins that target older APIs are compatible and do not need changes. If your plugin works on older API versions, please do not set the API version <a class="el" href="protocolto-p.html">to</a> 1.2.0, that will only refuse <a class="el" href="protocolto-p.html">to</a> load where it can work.</p>
+<p><b>Main features:</b></p><ul>
+<li>Improved player movement</li>
+<li>Fixed player actions lagging behind the server</li>
+<li>Implemented circular chunk sending / view distance</li>
+<li>Generation works correctly with multiple worlds</li>
+<li>Creative and survival hotbar works better</li>
+<li>Better wooden tool crafting</li>
+<li>Players will drop their inventory on death</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Level formats can send chunks <a class="el" href="protocolto-p.html">to</a> players directly without implementing an AsyncTask</li>
+<li>Implemented circular chunk sending / view distance, as Johan commented on the IRC</li>
+<li>Fixed AddMobPacket (x,y,z from float <a class="el" href="protocolto-p.html">to</a> int)</li>
+<li>Generated levels create chunks starting from the spawn, instead of the corner</li>
+<li>Added exception handling <a class="el" href="protocolto-p.html">to</a> level loading</li>
+<li>Player movement is sent as direct packets, decreases lag</li>
+<li>Fixed #1883 Release strong weak references on close</li>
+<li>Throw exception when null chunk is passed <a class="el" href="protocolto-p.html">to</a> a Tile/Entity instead of crashing</li>
+<li>Fixed crash caused by a race condition on Query</li>
+<li>Throw invalid event exception when a plugin tries <a class="el" href="protocolto-p.html">to</a> declare an abstract event</li>
+<li>Stop submission of plugin syntax error crashes</li>
+<li>Fixed crash on tile unloading</li>
+<li>Load later plugins with custom loader, fixes API</li>
+<li>Fixed #1882 Race-condition on multiple world generation, causing lock up</li>
+<li>Alternate chunk generation between multiple levels</li>
+<li>Fixed #1901, EmptyChunkSection gets replaced by invalid Section</li>
+<li>Added SignChangeEvent</li>
+<li>Added RemoteServerCommandEvent</li>
+<li>Bump API version <a class="el" href="protocolto-p.html">to</a> 1.3.0</li>
+<li>Removed PHP_VERSION constant on pocketmine namespace</li>
+<li>Added Chiseled stone brick, red sand</li>
+<li>Added item activation</li>
+<li>Added Zombie spawn egg</li>
+<li>Added Villager spawn egg</li>
+<li>Fixed AddEntityPacket (type byte -&gt; int)</li>
+<li>Added base Arrow</li>
+<li>Check if player is online before showing it <a class="el" href="protocolto-p.html">to</a> other players</li>
+<li>Creative and survival hotbar works better</li>
+<li>Workaround crash when placing paintings</li>
+<li>Fixed crashes when default level is not loaded</li>
+<li>Modified chunk generation garbage collector</li>
+<li>Fixed #1674 Wooden tools only craft with Oak wood</li>
+<li>Fixed #1889 Players drop their inventory when they die</li>
+<li>Fixed #1703 In-game action lag</li>
+<li>Fixed level data not being saved</li>
+<li>Improved server shutdown</li>
+<li>Improved player spawning, closes #1890</li>
+<li>Added End Stone, End Portal, Mycelium, Monster Spawner and Podzol blocks.</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>World generation is slower than in older builds</li>
+<li>Server can use more memory than specified</li>
+<li>Chunks are not freed correctly from the generation thread</li>
+<li>Spawning lots of entities causes massive lag</li>
+<li>Entities / Entity AI</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md173"></a>
+1.4dev-478</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This is the fifth beta for 1.4, and we have focused on improving the overall performance of the server.</p>
+<p>This beta changes the API version <a class="el" href="protocolto-p.html">to</a> 1.3.1 (only fixes), so there are no notable changes for plugins.</p>
+<p><b>Main features:</b></p><ul>
+<li>Fixed player movement glitch</li>
+<li>Overall performance improvements</li>
+<li>Server requires PHP 5.5 or greater (drops Windows XP support)</li>
+<li>Reactivated chunk ticking _(can be disabled via pocketmine.yml)_</li>
+<li>Beds! Furnaces!</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Fixed potential Mycelium crash. PR #1944</li>
+<li>Fixed #1948 /whitelist list not working</li>
+<li>Deprecated Server::loadPlugin(Plugin) in favor of Server::enablePlugin(Plugin)</li>
+<li>Removed hardcoded Server name from source</li>
+<li>Added &ndash;enable-profiler parameter <a class="el" href="protocolto-p.html">to</a> use with @krakjoe profiler</li>
+<li>Require PHP &gt;= 5.5</li>
+<li>Performance improvements in NBT reading/writing</li>
+<li>Performance improvements in blocks and Entities</li>
+<li>Improved Level::getBlock()</li>
+<li>Improved Air block collision check</li>
+<li>Updated blocks bounding boxes</li>
+<li>Added RakLib port checking option</li>
+<li>Implemented correct time offsets and speed</li>
+<li>Implemented beds</li>
+<li>Fixed #1967 Glowstone dust -&gt; Glowstone recipe</li>
+<li>Added teleport flag <a class="el" href="protocolto-p.html">to</a> MovePlayerPacket, improves player movement</li>
+<li>Removed unloaded chunk check</li>
+<li>Improved player onGround collision check</li>
+<li>Improved NBT IntArray read/write</li>
+<li>Improved Block selection and construction performance</li>
+<li>Fixed #1970 Breaking blocks does not remove tile entities</li>
+<li>Fixed Chests/Furnaces not dropping contents when broken</li>
+<li>Workaround BaseChunk::setBlock() recursion issues</li>
+<li>Moved spl <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/PocketMine/PocketMine-MP">PocketMine-SPL</a></li>
+<li>Ctrl+C handling and kill signals are working again</li>
+<li>Fixed #1953 Increased item PickupDelay <a class="el" href="protocolto-p.html">to</a> 2.5 seconds</li>
+<li>Fixed #1879 Tile entities were not saved on chunk unload</li>
+<li>Fixed #1911 Implemented FurnaceInventory callback</li>
+<li>Added Furnace progress fire</li>
+<li>Fixed undefined index on furnace recipes</li>
+<li>Fixed furnace achievement check</li>
+<li>Improved chunk sending</li>
+<li>Improved chunk ticking, enabled again. <em>Disable it setting chunk-ticking.per-tick <a class="el" href="protocolto-p.html">to</a> 0</em></li>
+<li>Dropped items and arrows get deleted on Y &lt; 0</li>
+<li>Fixed #1926 Teleport <a class="el" href="protocolto-p.html">to</a> non-generated chunks</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Server can use more memory than specified</li>
+<li>Idle servers will increase its CPU usage as time goes on</li>
+<li>Chunks are not freed correctly from the generation thread</li>
+<li>Spawning lots of entities causes unexpected lag</li>
+<li>Entities / Entity AI</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md174"></a>
+1.4dev-491</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This is the sixth beta for 1.4, upgrading <a class="el" href="protocolto-p.html">to</a> PHP 5.6 features and fixing entity physics!</p>
+<p>There are no API changes</p>
+<p><b>Main features:</b></p><ul>
+<li>Server requires PHP 5.6, improves performace</li>
+<li>Fixed fatal error on startup</li>
+<li>Fixed entity physics, fixed cause of lag</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Fixed #1983 Check player online status</li>
+<li>Fixed #1980 Fatal error on server load</li>
+<li>Initial PHP 5.6 features support</li>
+<li>Improved safe_var_dump(), Inventory::addItem() Inventory::removeItem() using argument unpacking</li>
+<li>Improved performance of Item::get()</li>
+<li>Removed cli_set_process_title() check</li>
+<li>Added entity id names</li>
+<li>Fixed Item after-clone behavior</li>
+<li>Fixed possible Level::getBlock() crash</li>
+<li>Improved unloaded tile entity handling</li>
+<li>Fixed #1966 Face Lit Pumkins correctly</li>
+<li>Fixed entity physics and AxisAlignedBB</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Server can use more memory than specified</li>
+<li>Chunks are not freed correctly from the generation thread</li>
+<li>Entities / Entity AI</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md175"></a>
+1.4dev-576</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This is the seventh beta for 1.4, getting near the stable release.</p>
+<p>The API version has been bumped <a class="el" href="protocolto-p.html">to</a> 1.4.0 (backwards-compatible) due <a class="el" href="protocolto-p.html">to</a> new features being added and bugs in the API being patched.</p>
+<p><b>Main features:</b></p><ul>
+<li>New pthreads version required, thanks <a class="el" href="protocolto-p.html">to</a> @krakjoe for fixing lots of bugs!</li>
+<li>Performance improvements in RakLib &amp; thread communication</li>
+<li>Better physics &amp; bounding boxes</li>
+<li>Added working bow &amp; arrows</li>
+<li>Better timings reports</li>
+<li>Improved server ticks per second</li>
+<li>Improved world and block saving</li>
+<li>Added more damage sources</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>Implemented NBT::getArray() and NBT::setArray()</li>
+<li>Made EntityDamageByEntityEvent call EntityDamageEvent handlers</li>
+<li>Added EntityShootBowEvent</li>
+<li>Added extra documentation <a class="el" href="protocolto-p.html">to</a> Level::setBlock()</li>
+<li>Added Server::getTickUsage()</li>
+<li>Fixed PermissionAttachment not recalculating its Permissible permissions</li>
+<li>Fixed EntityMoveEvent not being cancelled correctly on players</li>
+<li>Fixed Permissible::setPermission() not using the correct order on replacement</li>
+<li>Added PermissionAttachment::setPermissions()</li>
+<li>Added PermissionAttachment::unsetPermissions(), PermissionAttachment::clearPermissions()</li>
+<li>Custom threading is less buggy now due <a class="el" href="protocolto-p.html">to</a> pthreads fixes</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Renamed Item\Block <a class="el" href="protocolto-p.html">to</a> Item\ItemBlock, fixes several crashes</li>
+<li>Fixed physics sneak flag</li>
+<li>Use Entity::move() as player movement, protect against noclip cheat</li>
+<li>Fixed double physics calculation</li>
+<li>Fixed armor crafting recipes</li>
+<li>Added Bed bounding box</li>
+<li>Added Chest bounding box</li>
+<li>Added Carpet bounding box</li>
+<li>Added Slab bounding box</li>
+<li>Added Wooden Slab bounding box</li>
+<li>Fixed entity partial block moving</li>
+<li>Disable RakLib port checking by default</li>
+<li>Added survival check <a class="el" href="protocolto-p.html">to</a> movements</li>
+<li>Added check for invalid entity attack</li>
+<li>Added arrow and suicide death messages</li>
+<li>Added stairs bounding box</li>
+<li>Added cactus bounding box</li>
+<li>Added End Portal frame bounding box</li>
+<li>Added Farmland bounding box</li>
+<li>Added Fence bounding box</li>
+<li>Added Fence Gate bounding box</li>
+<li>Added Glass Pane bounding box</li>
+<li>Added Iron bars bounding box</li>
+<li>Added Doors bounding boxes</li>
+<li>Added Cake bounding box</li>
+<li>Added Ladder bounding box</li>
+<li>Added Soul Sand bounding box</li>
+<li>Added Cobble Wall bounding box</li>
+<li>Added Trapdoor bounding box</li>
+<li>Fixed infinite Entity recursion on chunk load</li>
+<li>Fixed creative players dropping their inventory</li>
+<li>Player creative check refactor</li>
+<li>Fixed timings name</li>
+<li>Fixed timings ticks getting reset</li>
+<li>Tick entities on Level, show correct timing reports</li>
+<li>Fixed crash when chests are closed with viewers</li>
+<li>Fixed #2032 Do not set Level <a class="el" href="protocolto-p.html">to</a> null</li>
+<li>Improved CallbackTask timings data</li>
+<li>Added __debugInfo() <a class="el" href="protocolto-p.html">to</a> Server and Level</li>
+<li>Fixed dropped items going too fast</li>
+<li>Do not report E_PARSE or E_COMPILE_ERROR crashes</li>
+<li>Improved server ticking.</li>
+<li>Fixed Server::getTicksPerSecond()</li>
+<li>Possible fix for level save issues, related <a class="el" href="protocolto-p.html">to</a> #1985 #1982 #1758</li>
+<li>Implemented Falling Sand</li>
+<li>Fixed possible Player crash on save</li>
+<li>Fixed Level::setBlock() old calls</li>
+<li>Added cactus neighbour block check</li>
+<li>Implemented attack cooldown</li>
+<li>Fixed HeldItem were swapped in mining</li>
+<li>Fixed Player's slot[0] disappears on logging in</li>
+<li>Added &ndash;disable-readline CLI argument</li>
+<li>Fixed Item drop delay</li>
+<li>Updated RakLib path</li>
+<li>TPS measurement improvement, moved interface handling <a class="el" href="protocolto-p.html">to</a> tick</li>
+<li>Possible fix for #2061</li>
+<li>Added binary reading optimizations, faster 64-bit reading</li>
+<li>Normalized Player pitch/yaw</li>
+<li>Added Pumpkin &amp; Lit Pumpkin rotation</li>
+<li>Removed pthreads workarounds</li>
+<li>Fixed #2077 Block changes not being saved</li>
+<li>Fixed #2075 Door bounding boxes</li>
+<li>Added forced position strong check for Player</li>
+<li>Fixed #2035 Invalid Fence Gate bounding box</li>
+<li>Added Player-&gt;forceMovement check on teleport</li>
+<li>Enabled default PHP GC on generator thread</li>
+<li>Optimized server sleep times</li>
+<li>Added Permission/Permissible calculation timings</li>
+<li>Level generators can be set in server.properties</li>
+<li>Improved Player last damage check</li>
+<li>Added Fire, Lava damage</li>
+<li>Show fire <a class="el" href="protocolto-p.html">to</a> other clients</li>
+<li>Cobweb, Ladders and Water won't cause fall damage</li>
+<li>Added suffocation, drowning damage. Closes #1908</li>
+<li>Added more death messages</li>
+<li>Added Cactus damage</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Server can use more memory than specified</li>
+<li>Chunks are not freed correctly from the generation thread</li>
+<li>Entities / Entity AI</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md176"></a>
+1.4dev-599</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This is the eighth beta for 1.4!</p>
+<p>There are no important API changes in this build.</p>
+<p><b>Main features:</b></p><ul>
+<li>Faster RakLib processing</li>
+<li>Server won't hang up when stopping</li>
+<li>Fixed usage sending issues</li>
+<li>Decreased memory issues on Generation Thread</li>
+<li>Fixed entity issues on negative coordinates</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>Improved event checking on PlayerInteractEvent</li>
+<li>Throw exception when Server::dispatchCommand() is called with an invalid CommandSender</li>
+<li>Documented tool usage in Level::useBreakOn()</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>RakLib patches</li>
+<li>Handle force parameter properly on Level::unload()</li>
+<li>Remove level locks</li>
+<li>Removed embedded class names</li>
+<li>Fixed #2046</li>
+<li>Fixed date_default_timezone_set E_NOTICE</li>
+<li>Send build number on usage</li>
+<li>Send project name on usage</li>
+<li>Block more player actions when dead, fixes #2102</li>
+<li>Fixed #2104 Can't place blocks where non-solid entities exist</li>
+<li>Fixed Utils::getUniqueID() on Linux due <a class="el" href="protocolto-p.html">to</a> /proc/cpuinfo</li>
+<li>Protect against \0 attacks on name checking</li>
+<li>Added TPS load <a class="el" href="protocolto-p.html">to</a> /status</li>
+<li>Possible fix for #1920</li>
+<li>Fixed #2114 Removed Player collisions with other entities</li>
+<li>Fixed Entity/Block issues on negative coordinates, fixes #2100</li>
+<li>Fixed #1750 cannot place slabs against blocks</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Server can use more memory than specified</li>
+<li>Entities / Entity AI</li>
+<li>No liquid flow</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md177"></a>
+1.4dev-659</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This is the 9th beta for 1.4!</p>
+<p>There are no important API changes in this build, just behavior fixes so the API version has been bumped <a class="el" href="protocolto-p.html">to</a> 1.4.1</p>
+<p><b>Main features:</b></p><ul>
+<li>Added non-threaded chunk generation, toggleable on pocketmine.yml</li>
+<li>Added Liquid flow</li>
+<li>Fixed Double Chests</li>
+<li>Auto-save property is now working</li>
+<li>Implemented Arrow pick up</li>
+<li>Implement Armor changes as Transactions</li>
+<li>Compatibility with pthreads &gt; 2.0.8</li>
+<li>Entities / Tile Entities are handled more reliable on worlds</li>
+<li>Implemented flying protection</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>Deprecated Level-&gt;getChunkAt() in favor of Level-&gt;getChunk()</li>
+<li>Allow setting the player spawnpoint via events before PlayerJoinEvent</li>
+<li>Fixed PlayerChatEvent::setRecipients() being useless</li>
+<li>Fixed #2153 Cancelling an EntityDamageEvent has no effect for lava damage</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Add valid position difference back <a class="el" href="protocolto-p.html">to</a> Player entities</li>
+<li>Torches can now be crafted using charcoal</li>
+<li>Fixed players getting Suffocation damage inside transparent blocks</li>
+<li>Send player metadata on respawn</li>
+<li>Improved Level::getSafeSpawn()</li>
+<li>Improved knockback motion</li>
+<li>Improved player movement, check once per tick</li>
+<li>Improved chunk unload queue</li>
+<li>Added non-threaded chunk generation, toggleable on pocketmine.yml</li>
+<li>Fixed #2121 Players' heads flip upside down and back around after going past pitch = 0</li>
+<li>Fixed Level-&gt;scheduleUpdate() tick calculation</li>
+<li>Improved Level block update scheduling for repeated updates</li>
+<li>Added torch drop</li>
+<li>Basic entity motion on water</li>
+<li>Improved Player generation queue</li>
+<li>Fixed #2126 Items drop twice from tile entities</li>
+<li>Fixed Double Chests</li>
+<li>Fixed server crash when Tile Entities / Entities were loaded and requested the same chunk</li>
+<li>Fixed auto-save configuration, made it global</li>
+<li>RakLib update</li>
+<li>Fixed #2055 Extra packet data sent on armor change</li>
+<li>Improved single-threaded chunk generation efficiency</li>
+<li>Improved entity base ticks</li>
+<li>Improved entity movement updates</li>
+<li>Implemented Arrow pick up</li>
+<li>Fixed Anvil levels duplicating saved entities</li>
+<li>Improved Chunk entity loading</li>
+<li>Improved exponentiation</li>
+<li>Added armor change $source parameter</li>
+<li>Improved PlayerInventory-&gt;setItemInHand() $source call, fixed Tool durability</li>
+<li>Implement Armor changes as Transactions</li>
+<li>Fixed entities getting OnGround default <a class="el" href="protocolto-p.html">to</a> true</li>
+<li>Added individual object timings <a class="el" href="protocolto-p.html">to</a> Entities / Tile Entities</li>
+<li>Compatibility with pthreads &gt; 2.0.8</li>
+<li>Reliable timezone detection</li>
+<li>Fixed Server-&gt;unloadLevel() not removing objects from memory</li>
+<li>Moved connected flag up in the Player disconnect process</li>
+<li>Improved initial chunk loading, do not skip near chunks, fixes world loading getting stuck</li>
+<li>Changed base block classes <a class="el" href="protocolto-p.html">to</a> abstract, closes #2159</li>
+<li>Implement crop growth levels properly, fixes #2002, closes #2160</li>
+<li>Implemented flying protection</li>
+<li>Fixed Player movement collision checks</li>
+<li>Removed parse errors from AutoReporting</li>
+<li>Improved entity ticking</li>
+<li>Fixed Level-&gt;getCollidingEntities() when called with a null Entity</li>
+<li>Removed selectors on Player-&gt;sendMessage()</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md178"></a>
+1.4dev-665</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>There are new additions <a class="el" href="protocolto-p.html">to</a> the API (backwards-compatible), and the API version has been bumped <a class="el" href="protocolto-p.html">to</a> 1.5.0</p>
+<p><b>Main features:</b></p><ul>
+<li>Fixed issues with latest beta</li>
+<li>Explosions!</li>
+<li>Added Vines</li>
+<li>Plugins can now change Query data</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>Added new Tool type selection constants</li>
+<li>Implemented QueryRegenerateEvent</li>
+<li>API 1.5.0</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Do not spawn dead entities <a class="el" href="protocolto-p.html">to</a> players, fixes #2157, possible fix for #2139</li>
+<li>Unload entities from chunks, possible fix for #2157, fixes #2165</li>
+<li>Added Vine blocks, closes #2162</li>
+<li>Spawnable-&gt;spawnToAll() now uses the actual chunk instead of the entire level <a class="el" href="protocolto-p.html">to</a> spawn</li>
+<li>Implemented Explosion and PrimedTNT, closes #2139</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md179"></a>
+1.4dev-707</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This release includes lots of backwards-compatible API changes, so the API version has been bumped <a class="el" href="protocolto-p.html">to</a> 1.6.0</p>
+<p><b>Main features:</b></p><ul>
+<li>Overall performance improvement</li>
+<li>Lots of new events for the plugin API</li>
+<li>Level Block caching, improves performance</li>
+<li>Removed dead code and ported old functionality on item drops</li>
+<li>Implemented scheduled and partial entity updates, improves performance</li>
+<li>Only modified chunks are saved</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.6.0</li>
+<li>New PlayerMoveEvent, improved player movement event firing</li>
+<li><b>Deprecated EntityMoveEvent</b></li>
+<li>Fixed arrow damage not getting overridden by the event result</li>
+<li>Added EntityCombustEvent and children</li>
+<li>Added EntityDamageByBlockEvent (child of EntityDamageEvent)</li>
+<li>Improved EntityRegainHealthEvent</li>
+<li>Improved EntityShootBowEvent</li>
+<li>Added ExplosionPrimeEvent</li>
+<li>Added ItemDespawnEvent</li>
+<li>Added ItemSpawnEvent</li>
+<li>Added ProjectileLaunchEvent</li>
+<li>Added ProjectileHitEvent</li>
+<li>Added PlayerBedEnterEvent and PlayerBedLeaveEvent</li>
+<li>Added PlayerDeathEvent methods for inventory keeping</li>
+<li>Added Tile-&gt;getBlock() method</li>
+<li>Added FurnaceBurnEvent</li>
+<li>Added FurnaceSmeltEvent</li>
+<li>Added Living-&gt;getTargetBlock(), Living-&gt;getLineOfSight(), Vector3 side constants, Vector3::getOppositeSide()</li>
+<li>Deprecated Level-&gt;getSpawn() in favor of Level-&gt;getSpawnLocation()</li>
+<li>Added LeavesDecayEvent</li>
+<li>Added BlockSpreadEvent</li>
+<li>Added BlockGrowEvent</li>
+<li>Added EntityBlockChangeEvent</li>
+<li>Added PlayerBucketEvent and children, improved Bucket usage and Liquid placing</li>
+<li>Removed Generic block class</li>
+<li>Updated PluginManager event deprecation message</li>
+<li>Added BlockUpdateEvent</li>
+<li>Throw CRITICAL error message on unhandled Exception on plugin events instead of crashing</li>
+<li>Throw CRITICAL error message on unhandled Exception on commands instead of crashing</li>
+<li>Fixed Inventory-&gt;removeItem()</li>
+<li>Fixed AxisAlignedBB-&gt;setBB()</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Updated RakLib, better player join</li>
+<li>Fixed issues with Entity::heal() method</li>
+<li>Removed unused imports</li>
+<li>Updated fuel duration <a class="el" href="protocolto-p.html">to</a> ticks</li>
+<li>Improved liquid performance</li>
+<li>Removed old OS detection code</li>
+<li>Added TextWrapper</li>
+<li>Increased Player-&gt;stepHeight <a class="el" href="protocolto-p.html">to</a> 0.6, closes #2156</li>
+<li>Removed workaround on flying check due <a class="el" href="protocolto-p.html">to</a> physics calculation fix, closes #2169</li>
+<li>Workaround for entities glitching through the floor on the client-side</li>
+<li>Improved Living entity ticking</li>
+<li>Removed unused code, fixed undefined variables</li>
+<li>Added global block cache</li>
+<li>Made Wheat crops extend Crop class</li>
+<li>Removed old Player-&gt;timeout property</li>
+<li>Fixed Level-&gt;getCollidingEntities()</li>
+<li>Save block bounding boxes, improves block cache</li>
+<li>Removed a bunch of TODO and fixed item drops on block update</li>
+<li>Improved item drop spawning</li>
+<li>Improved Entity extinguish operations and packet spam</li>
+<li>Increased Player-&gt;forceMovement check radius</li>
+<li>Improved player movement event firing &amp; corrections</li>
+<li>Fixed Level-&gt;getNearbyEntities(), fixes item drops not being picked up</li>
+<li>RakLib update, PING/PONG handling</li>
+<li>Implemented scheduled and partial entity updates</li>
+<li>Micro-optimizations</li>
+<li>Fixed player using an invalid spawn chunk</li>
+<li>Implemented saving modified chunks</li>
+<li>Fixes entities not being saved and tile entities having an incorrect field, closes #1661</li>
+<li>Match Player pickup area with Minecraft</li>
+<li>Fixed RegionLoader not creating default index on first load</li>
+<li>Do not block when killing workers</li>
+<li>Fixed error_handler trace generation on higher debug levels</li>
+<li>Do not wrap text if unknown characters are found.</li>
+<li>Fixed Tasks deleting their Timings reports</li>
+<li>Added extra Entity metadata</li>
+<li>Optimized Player-&gt;orderChunks() and chunk sending ordering algorithm</li>
+<li>Improved chunk loading and order refresh times</li>
+<li>Fixed #2183</li>
+<li>Improved broadcast packet encoding</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md180"></a>
+1.4dev-822</h1>
+<p><b>For Minecraft: PE v0.9.5 alpha</b></p>
+<p>This should be the last beta version for Minecraft: PE v0.9.5, the next release will be for Minecraft: PE 0.10. It is already ready, so we aim <a class="el" href="protocolto-p.html">to</a> release it on the same day as it is released for iOS and Android. This release includes lots of backwards-compatible API changes, so the API version has been bumped <a class="el" href="protocolto-p.html">to</a> 1.7.0</p>
+<p><b>Main features:</b></p><ul>
+<li>Overall performance improvements</li>
+<li>Fixes lots of problems related <a class="el" href="protocolto-p.html">to</a> inventory</li>
+<li>Snowballs!</li>
+<li>Added Error -&gt; Exception handling</li>
+<li>Fixed lots of crafting recipes</li>
+<li>Builds are now optimized on creation time</li>
+<li>Added /time start and /time stop</li>
+<li>Improved networking code and binary I/O methods</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.7.0</li>
+<li>Fixed Level-&gt;getMetadata() and similar, removed extra references</li>
+<li>Fixes get and set armor</li>
+<li>Fixed Inventory-&gt;removeItem()</li>
+<li>New way <a class="el" href="protocolto-p.html">to</a> spawn entities/tiles using a global register table, allow overriding default entity/tile classes via classes</li>
+<li>Added Error -&gt; Exception handling</li>
+<li>Added extra Exceptions</li>
+<li>Fixed InventoryPickupItemEvent</li>
+<li>EntityDamageEvent and children now only fire if the attack is possible, moved event trigger <a class="el" href="protocolto-p.html">to</a> Entity-&gt;attack()</li>
+<li>Added InventoryPickupArrowEvent</li>
+<li>Fixed Event name being null</li>
+<li>Fixed some inventory events not firing on players</li>
+<li>Fire PlayerInteractEvent on 0xff face</li>
+<li>Added EntityDamageByChildEntityEvent</li>
+<li>Allow passing a Player source as last parameter on Inventory-&gt;addItem() and Inventory-&gt;removeItem()</li>
+<li>Return proper BlockIterator index, throw more exceptions, improved blockQueue performance</li>
+<li>Use proper indexes on Living-&gt;getLineOfSight() when a max length is set</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Fixed inventory changes getting the wrong window, closes #2187</li>
+<li>Improved Level object deallocation</li>
+<li>Improved inventory and window allocation, fixes #2200</li>
+<li>Fixed entities not being pushed out of blocks</li>
+<li>Improved Player-&gt;onGround checking</li>
+<li>Improved Explosion item drop position</li>
+<li>Added explosion death message</li>
+<li>Fixed crash when doing var_dump() of anything that contains the Server object</li>
+<li>Removed extra ; from if, fixes #2205</li>
+<li>Possible fix for entities not closing correctly</li>
+<li>Fixed #2207 Server crashing if players are closed before logging in</li>
+<li>Fixed red sand not falling correctly</li>
+<li>Drop invalid entities / tile entities on chunk loading</li>
+<li>Fixed entities not getting ticks on movement</li>
+<li>Fixed /setworldspawn changing sender data</li>
+<li>Mark chunk <a class="el" href="protocolto-p.html">to</a> be saved when removing invalid entities/tiles</li>
+<li>Updated RakLib</li>
+<li>Improved network packets allocation</li>
+<li>Improve #2238, do not crash when an invalid/corrupt RCON stop event happens</li>
+<li>Disallow further modification of Signs by its creator after load/unload</li>
+<li>Added Snowballs</li>
+<li>Fixed UseItemPacket being able <a class="el" href="protocolto-p.html">to</a> be sent before spawning</li>
+<li>Fixed plugins crashing the server when teleporting players on an invalid event</li>
+<li>Use Player-&gt;forceMovement on MovePlayerPacket non-tick revert</li>
+<li>Added Entity-&gt;onGround setting when entities keep moving without checks</li>
+<li>Remove chunks from advanced cache after setting</li>
+<li>Fixed Trapdoor recipe</li>
+<li>Fixed Bowl recipe</li>
+<li>Fixed Stonecutter recipe</li>
+<li>Fixed Double Chest behavior</li>
+<li>Fixed Chest-&gt;unpair()</li>
+<li>Blocks now save their bounding box, fixed entity block collision check</li>
+<li>Added extra chunk sending timings</li>
+<li>Added preprocessor optimizations</li>
+<li>Fixed players not loading chunks when stuck on a unloaded chunk</li>
+<li>Optimized networking code &amp; AxisAlignedBB</li>
+<li>Improved freeing chunks</li>
+<li>Fixed #2204</li>
+<li>Added packet exception handling</li>
+<li>Fixed crashing server not stopping</li>
+<li>Fixed Entity being set position after being closed</li>
+<li>Fixed Query-related crash</li>
+<li>Despawn entities correctly from clients as they move</li>
+<li>Improved level switching for players</li>
+<li>Added /time start and /time stop</li>
+<li>Fixed server not using the correct provided path if it did not exist</li>
+<li>Fixed random block updates not firing</li>
+<li>Updated timings command, give direct link <a class="el" href="protocolto-p.html">to</a> results</li>
+<li>Use SplFixedArray for improved performance</li>
+<li>Fixed player viewer list including themselves</li>
+<li>Improved inventory sending, send single slots instead of full inventory as much as possible</li>
+<li>Fixed unloading chunks</li>
+<li>Automatically set Entity / Tile entity save identifiers</li>
+<li>Added vertical and horizontal collision detection <a class="el" href="protocolto-p.html">to</a> Entities</li>
+<li>Fixed bonemeal recipe, closes #2260</li>
+<li>Fixed Snow block recipe</li>
+<li>Fixed String -&gt; Wool recipe</li>
+<li>Fixed ladder recipe</li>
+<li>Fixed red sand smelting recipe</li>
+<li>Improved Level-&gt;getTile() <a class="el" href="protocolto-p.html">to</a> a direct lookup instead of linear search</li>
+<li>Reenabled collision against entities on move</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md181"></a>
+1.4dev-834</h1>
+<p><b>For Minecraft: PE v0.10.0 alpha</b></p>
+<p><b>Main features:</b></p><ul>
+<li>Minecraft: PE v0.10 support!</li>
+<li>Fixed some crafting recipes</li>
+<li>Fixed some memory leaks</li>
+<li>Fixed issues with tile entities</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.7.1</li>
+<li>Fixed PlayerInventory-&gt;setItem() with null items</li>
+<li>Fixed Level-&gt;getTile()</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Bumped protocol version <a class="el" href="protocolto-p.html">to</a> 20</li>
+<li>Added different Fences, new Fence crafting recipes</li>
+<li>Added different Fence Gates, new Fence Gate crafting recipes</li>
+<li>Added new fences and fence gates <a class="el" href="protocolto-p.html">to</a> fuel types</li>
+<li>Updated UseItemPacket</li>
+<li>Updated time steps from x2.5 <a class="el" href="protocolto-p.html">to</a> x1.25</li>
+<li>Fixed Chunk tile indexes</li>
+<li>Get timezone directly. Fixes #2287.</li>
+<li>Bumped weakref version, fixes travis builds</li>
+<li>Fixed Acacia / Dark Oak logs crafting recipes</li>
+<li>Fixed version message color</li>
+<li>Fixed tile entities not being placed in the correct array</li>
+<li>Fixed permission-related memory leak</li>
+<li>Improved and fixed command exception message, closes #2301</li>
+<li>Fixed #1969</li>
+<li>Possible fix for #2297</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md182"></a>
+1.4dev-842</h1>
+<p><b>For Minecraft: PE v0.10.4 alpha</b></p>
+<p><b>Main features:</b></p><ul>
+<li>Improved chunk loading</li>
+<li>Catch more exceptions and give extra debug messages</li>
+<li>Recreates / fixes corrupt chunks with a huge amount of tile entities</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>Improved exception handling and debugging</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Improved chunk loading/unloading</li>
+<li>Protect permission removal against bad plugins</li>
+<li>Remove duplicated tiles from chunk table automatically</li>
+<li>Regenerate corrupt player data if invalid data is found</li>
+<li>Catch corrupted chunk data errors</li>
+<li>Increased Fence, Fence Gate and Stone Wall Y bounding box</li>
+<li>Bumped Minecraft: PE version string</li>
+<li>Removed old trigger_error() calls, closes #2335</li>
+<li>Properly close inventory windows from Players</li>
+<li>Catch exceptions when chunks are unloaded</li>
+<li>Possible fix for #2267, #2314</li>
+<li>Improved player spawn item in hand sending</li>
+<li>Improved global entity motion encoding using per-player queues</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Issues with spawnpoint</li>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md183"></a>
+1.4dev-847</h1>
+<p><b>For Minecraft: PE v0.10.4 alpha</b></p>
+<p><b>Main features:</b></p><ul>
+<li>Fixed a crash introduced on the last beta</li>
+<li>Improved inventory handling</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>Fixed Inventory-&gt;addItem()</li>
+<li>Removed unused Block-&gt;isLiquid property</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Fixed #2340</li>
+<li>Improved Inventory-&gt;addItem(), fixed breaking containers duplicating the last slot, removed not necessary slot changes</li>
+<li>Fixed ladder crafting recipe</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md184"></a>
+1.4dev-855</h1>
+<p><b>For Minecraft: PE v0.10.4 alpha</b></p>
+<p>This version has API changes, some additions and fixes, bumping the version <a class="el" href="protocolto-p.html">to</a> 1.8.0. These changes are detailed below.</p>
+<p><b>Main features:</b></p><ul>
+<li>Fixed some duplication issues</li>
+<li>Added light spreading</li>
+<li>Less glitched PlayerMoveEvent handling by plugins</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.8.0</li>
+<li>Added Level-&gt;getFullLight()</li>
+<li>Updated player movement processing and event handling</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Fixed armor dropping twice</li>
+<li>Fixed invalid worlds property being set by users</li>
+<li>Removed temporal pthreads workaround</li>
+<li>Implemented light population</li>
+<li>Removed old revert flag from Player-&gt;processMovement()</li>
+<li>Enabled batch block sending again</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No support for LevelDB worlds (0.9.0 format)</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md185"></a>
+1.4dev-900</h1>
+<p><b>For Minecraft: PE v0.10.4 alpha</b></p>
+<p>This version has API changes, some additions and fixes, bumping the version <a class="el" href="protocolto-p.html">to</a> 1.9.0. These changes are detailed below.</p>
+<p><b>Main features:</b></p><ul>
+<li>Global optimizations</li>
+<li>New block/item creation and handling system</li>
+<li>Multiple non-ordered hotbar slots</li>
+<li>Added death animations</li>
+<li>Updated RakLib: proper recovery queues and packet reordering</li>
+<li>Experimental LevelDB worlds support</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.9.0</li>
+<li>Added internal use warning for TaskHandler::cancel()</li>
+<li>Implemented no damage ticks</li>
+<li>Added Config-&gt;getNested(key) and Config-&gt;setNested(key, value)</li>
+<li>Added HeightMap get/set methods on chunks, Level</li>
+<li>Do not quiet error messages when parsing config files</li>
+<li>Added Level-&gt;getFullBlock()</li>
+<li>Added FullChunk-&gt;getFullBlock()</li>
+<li>Added Chunk-&gt;getFullBlock()</li>
+<li>Added ChunkSection-&gt;getFullBlock()</li>
+<li>Deprecated FullChunk-&gt;getBlock()</li>
+<li>Deprecated Chunk-&gt;getBlock()</li>
+<li>Deprecated ChunkSection-&gt;getBlock()</li>
+<li>Added trait autoloading</li>
+<li>Fixed #2392</li>
+<li>Fixed #2394</li>
+<li>Allow $base in knockback() <a class="el" href="protocolto-p.html">to</a> be dynamic and getters/setters in EntityDamageByEntityEvent</li>
+<li>Update documentation of PluginBase::getCommand() for IDEs' auto completion</li>
+<li>Added default parameter <a class="el" href="protocolto-p.html">to</a> Config getters, implements #2398</li>
+<li>Added optional parameter for multiple NBT read</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Change last X/Y/Z/Yaw/Pitch on teleport</li>
+<li>Added armor items and max stack size for them.</li>
+<li>Force player setting their new position</li>
+<li>Block creating and property handling rewrite</li>
+<li>Fix CPU issue when starting without STDIN</li>
+<li>Use squared distance on movement handling</li>
+<li>Renamed old getID() calls <a class="el" href="protocolto-p.html">to</a> getId()</li>
+<li>Improved Item property handling</li>
+<li>Handle a hotbar queue <a class="el" href="protocolto-p.html">to</a> allow using more than the first slot (won't save order due <a class="el" href="protocolto-p.html">to</a> the protocol)</li>
+<li>Collect unallocated chunks from the Level provider</li>
+<li>Faster Level provider chunk unloading</li>
+<li>Improved block reading</li>
+<li>Created global block states array</li>
+<li>Improved Level-&gt;getBlock() using block states</li>
+<li>Improved Level-&gt;getBlock() for 64-bit systems</li>
+<li>Better block creation on Level</li>
+<li>Added Player death animations, improved spawning behavior <a class="el" href="protocolto-p.html">to</a> correct invisible players, fixed players getting stuck when dead, closes #2304</li>
+<li>Replaced some instanceof <a class="el" href="protocolto-p.html">to</a> null checks</li>
+<li>Fixed players not getting sound when they are harmed</li>
+<li>Level optimization, added new chunk/block hashes</li>
+<li>Optimized Liquid spreading, optimized light updates, improved side block get/update, fixed raw set not cleaning Block cache (TNT explosions)</li>
+<li>Updated RakLib: Implemented packet reordering, fixed packet recovery in both sides, errors are now debug level, workarounds possible CPU-hog DoS attack over ACK/NACK packets</li>
+<li>Changed some Entity move AABB calls</li>
+<li>Snow layer recipe added: Fix for #2400</li>
+<li>Added World Generation timings</li>
+<li>Added experimental LevelDB support, fixed a few issues with NBT, spawning and Binary R/W</li>
+<li>Fixed #2423</li>
+<li>Added Double Plant block, fixes damage walking inside it.</li>
+<li>Added Chest recreation on imported levels</li>
+<li>Fixed possible memory leak when hiding players from each other</li>
+<li>Fixed server.log created in two different places on path changed</li>
+<li>Increased transaction timeout, not needed anymore due <a class="el" href="protocolto-p.html">to</a> packet ordering</li>
+<li>Improved block breaking time and event handling</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md186"></a>
+1.4dev-916</h1>
+<p><b>For Minecraft: PE v0.10.4 alpha</b></p>
+<p>This version has API changes, bumping the version <a class="el" href="protocolto-p.html">to</a> 1.10.0. These changes are detailed below.</p>
+<p><b>Main features:</b></p><ul>
+<li>New version format (drops the stage part)</li>
+<li>Added automatic/manual IP blocking</li>
+<li>Increased chunk defaults</li>
+<li>Improved speed of several generation steps</li>
+<li>Fixed some memory leaks on 32-bit hosts</li>
+<li>Improved exception handling and trace creation</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.10.0</li>
+<li>Changed RakLib network interface implementation</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Bitmask block state</li>
+<li>New version format</li>
+<li>Possible workaround for some PHP bug related <a class="el" href="protocolto-p.html">to</a> resources and threads</li>
+<li>Players won't take damage 60 ticks after spawning / respawning.</li>
+<li>Fixed #2446</li>
+<li>Added automatic/manual RakLib IP address, block addresses when exceptions are thrown</li>
+<li>Move Query exceptions <a class="el" href="protocolto-p.html">to</a> debug level &gt; 1</li>
+<li>Block IP addresses on ban-ip</li>
+<li>Added typehints <a class="el" href="protocolto-p.html">to</a> HelpCommand</li>
+<li>Corrected fence crafting recipes, closes #2457</li>
+<li>Improved Normal generator speed</li>
+<li>Fixed memory leak issues on chunk generation under 32-bit hosts. Closes #2419, fixes #2308</li>
+<li>Fixed issue with generated chunks not having a provider. Closes #2421</li>
+<li>Higher chunk defaults</li>
+<li>Improved Simplex 2D noise</li>
+<li>Added chunk check on Level</li>
+<li>Detect really big corrupted chunks, closes #2471</li>
+<li>Improved exception handling and trace creation</li>
+<li>Fixed players not calculating onGround correctly</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md187"></a>
+1.4.0</h1>
+<p><b>For Minecraft: PE v0.10.4 alpha</b></p>
+<p>This is the first stable build of PocketMine-MP 1.4. Lots of changes have happened since 1.3.12, and they won't be detailed here. You can find them on the release list here on GitHub.</p>
+<p>Old worlds won't be converted automatically, and you can find it lacking some features. These will be implemented in a future update, as the release was pushed ahead due <a class="el" href="protocolto-p.html">to</a> the old "stable" release being completely outdated and no features being offered by it.</p>
+<p>This version has API changes, bumping the version <a class="el" href="protocolto-p.html">to</a> 1.10.0. These changes are detailed below.</p>
+<p><b>Main features:</b></p><ul>
+<li>New version format (drops the stage part)</li>
+<li>Added automatic/manual IP blocking</li>
+<li>Increased chunk defaults</li>
+<li>Improved speed of several generation steps</li>
+<li>Fixed some memory leaks on 32-bit hosts</li>
+<li>Improved exception handling and trace creation</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.10.0</li>
+<li>Changed RakLib network interface implementation</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Bitmask block state</li>
+<li>New version format</li>
+<li>Possible workaround for some PHP bug related <a class="el" href="protocolto-p.html">to</a> resources and threads</li>
+<li>Players won't take damage 60 ticks after spawning / respawning.</li>
+<li>Fixed #2446</li>
+<li>Added automatic/manual RakLib IP address, block addresses when exceptions are thrown</li>
+<li>Move Query exceptions <a class="el" href="protocolto-p.html">to</a> debug level &gt; 1</li>
+<li>Block IP addresses on ban-ip</li>
+<li>Added typehints <a class="el" href="protocolto-p.html">to</a> HelpCommand</li>
+<li>Corrected fence crafting recipes, closes #2457</li>
+<li>Improved Normal generator speed</li>
+<li>Fixed memory leak issues on chunk generation under 32-bit hosts. Closes #2419, fixes #2308</li>
+<li>Fixed issue with generated chunks not having a provider. Closes #2421</li>
+<li>Higher chunk defaults</li>
+<li>Improved Simplex 2D noise</li>
+<li>Added chunk check on Level</li>
+<li>Detect really big corrupted chunks, closes #2471</li>
+<li>Improved exception handling and trace creation</li>
+<li>Fixed players not calculating onGround correctly</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md188"></a>
+1.4.1dev-936</h1>
+<p><b>For Minecraft: PE v0.10.4 alpha</b></p>
+<p>This version has API changes, bumping the version <a class="el" href="protocolto-p.html">to</a> 1.11.0, and it won't be bumped again until a stable build is released. These changes are detailed below.</p>
+<p><b>Main features:</b></p><ul>
+<li>Improved chunk saving and reduced world corruption</li>
+<li>Fixed some strange crashes on broken systems</li>
+<li>Improved movement and block placing</li>
+<li>Automatic resource freeing on Region-based worlds</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.11.0</li>
+<li>Added PlayerCreationEvent</li>
+<li>Added Level-&gt;getChunks(), fixed some Doc Comments</li>
+<li>Added Async Task crash warning</li>
+<li>Fixed issue where plugins schedule a Player update before log in</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Improved threading and resource usage, new defaults</li>
+<li>Removed all @mkdir() calls</li>
+<li>Catch exceptions on level generation</li>
+<li>Fixed some crashes related <a class="el" href="protocolto-p.html">to</a> crashing</li>
+<li>Fixed messages and default settings</li>
+<li>Fixed #2488 Player suffocates when putting blocks <a class="el" href="protocolto-p.html">to</a> climb higher</li>
+<li>Fixed #2489 Falling Sand drops as an item when not expected</li>
+<li>Cleaned up BanEntry creation</li>
+<li>Fixed phar check</li>
+<li>Fixed visual typo in /ban-ip, closes #2503</li>
+<li>Improved chunk saving times by not marking it as changed when Players are added/removed</li>
+<li>Fixed #2511</li>
+<li>Catch more corruption issues in Region-based worlds, fixed first chunk being generated on an invalid sector</li>
+<li>Fixed Entities being placed in recreated chunks</li>
+<li>Fixed Flat generator on existing chunks, region issues</li>
+<li>Unload unused regions after 5 minutes</li>
+<li>Improved file resource usage</li>
+<li>Added GarbageCollectionTask, workaround for weird PHP behaviour when using &ndash;disable-ansi</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md189"></a>
+1.4.1</h1>
+<p><b>For Minecraft: PE v0.10.5 alpha</b></p>
+<p>This version has API changes, bumping the version <a class="el" href="protocolto-p.html">to</a> 1.11.0, and it won't be bumped again until a stable build is released. These changes are detailed below.</p>
+<p><b>Main features:</b></p><ul>
+<li>Improved chunk saving and reduced world corruption</li>
+<li>Fixed some strange crashes on broken systems</li>
+<li>Improved movement and block placing</li>
+<li>Automatic resource freeing on Region-based worlds</li>
+<li>Ignore spawn protection when no ops are set</li>
+<li>Improved flight cheat protection</li>
+<li>Fixed chunk corruptions</li>
+</ul>
+<p><b>API changes</b></p><ul>
+<li>API 1.11.0</li>
+<li>Added PlayerCreationEvent</li>
+<li>Added Level-&gt;getChunks(), fixed some Doc Comments</li>
+<li>Added Async Task crash warning</li>
+<li>Fixed issue where plugins schedule a Player update before log in</li>
+<li>Added new predictive flight protection</li>
+<li>Added Location::__toString()</li>
+<li>Added Entity-&gt;resetFallDistance()</li>
+<li>Fixed #2619 BlockMetadataStore</li>
+<li>Added Entity-&gt;fastMove() for players and direct-controlled entities</li>
+<li>Implemented Threaded ClassLoader, improves class loading while on different threads (no need <a class="el" href="protocolto-p.html">to</a> synchronize states)</li>
+<li>Allow plugins <a class="el" href="protocolto-p.html">to</a> cancel some kicks better, closes #2743</li>
+</ul>
+<p><b>Fixes and additions:</b></p><ul>
+<li>Improved threading and resource usage, new defaults</li>
+<li>Removed all @mkdir() calls</li>
+<li>Implemented proportional armor modifier, applied armor in other damage types and consume armor when player is damaged</li>
+<li>Implemented hardcore banning, closes #2574</li>
+<li>Implemented double chest fix, closes #2744, fixes #2493</li>
+<li>Catch exceptions on level generation</li>
+<li>Changed generator choosing logic, add proper preset if needed, fixes #2751</li>
+<li>Fixed some crashes related <a class="el" href="protocolto-p.html">to</a> crashing</li>
+<li>Fixed messages and default settings</li>
+<li>Fixed #2488 Player suffocates when putting blocks <a class="el" href="protocolto-p.html">to</a> climb higher</li>
+<li>Fixed #2489 Falling Sand drops as an item when not expected</li>
+<li>Cleaned up BanEntry creation</li>
+<li>Fixed phar check</li>
+<li>Fixed visual typo in /ban-ip, closes #2503</li>
+<li>Improved chunk saving times by not marking it as changed when Players are added/removed</li>
+<li>Fixed #2511</li>
+<li>Catch more corruption issues in Region-based worlds, fixed first chunk being generated on an invalid sector</li>
+<li>Fixed Entities being placed in recreated chunks</li>
+<li>Fixed Flat generator on existing chunks, region issues</li>
+<li>Unload unused regions after 5 minutes</li>
+<li>Improved file resource usage</li>
+<li>Added GarbageCollectionTask, workaround for weird PHP behaviour when using &ndash;disable-ansi</li>
+<li>Fixed /timings off</li>
+<li>Fixed fences not showing up</li>
+<li>Improved chunk ticking</li>
+<li>Block saving chunks too big</li>
+<li>Changed max speed per tick from 100 <a class="el" href="protocolto-p.html">to</a> 10 blocks</li>
+<li>Added outdated event static properties</li>
+<li>Allow placing Snow Layers on top of solid transparent blocks</li>
+<li>Fixed PHPRC env. variable being set</li>
+<li>Throw exception when RakLib crashes</li>
+<li>Added rotation transformations <a class="el" href="protocolto-p.html">to</a> remaining packet</li>
+<li>Fixed #2557</li>
+<li>Fixed #2541 server not saving chunks on chunk unloading</li>
+<li>Return on Level-&gt;getSafeSpawn() in case of invalid position</li>
+<li>Fixed #2565</li>
+<li>Falling sand will become block when in contact with a Liquid</li>
+<li>Fixed Iron bar, Stonecutter drops</li>
+<li>TallGrass blocks should be only placed on grass blocks</li>
+<li>Fixed #2615</li>
+<li>Fixed players getting kicked for flying when going through special blocks</li>
+<li>Future workaround for #2626</li>
+<li>Catch file saving exceptions</li>
+<li>Added basic speed protection</li>
+<li>Fixed Dark Oak Fence's name</li>
+<li>Fixed #2762</li>
+<li>Fixed Anvil lighting issues</li>
+<li>Fix some Chunk corruption due <a class="el" href="protocolto-p.html">to</a> Chunk overlap</li>
+<li>Fixed constructors, default memory <a class="el" href="protocolto-p.html">to</a> -1, default async generator</li>
+<li>Fixed NBT IntArray off-by-one reading</li>
+<li>Fixed falling sand breaking on full BB partial blocks, closes #2770</li>
+</ul>
+<p><b>Not implemented or known issues:</b> Please do not report lacking features <a class="el" href="protocolto-p.html">to</a> the bug tracker, only report bugs on implemented features.</p><ul>
+<li>Entities / Entity AI</li>
+<li>No conversion for old levels (will be added later)</li>
+<li>No Minecarts</li>
+<li>Not all items are implemented</li>
+<li>Generated worlds use a basic generator </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

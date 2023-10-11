@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.10</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.10</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.19.40</b></p>
+<h3><a class="anchor" id="autotoc_md938"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md939"></a>
+4.10.0</h1>
+<p>Released 26th October 2022.</p>
+<h2><a class="anchor" id="autotoc_md940"></a>
+General</h2>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.19.40.</li>
+<li>Removed support for older versions.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md941"></a>
+Fixes</h2>
+<ul>
+<li>Fixed incorrect command descriptions showing in <code>/help</code> when multiple commands use the same name. Previously, the most recently registered command would show, even though it wouldn't actually be invoked.</li>
+<li>Fixed splash potions affecting players in spectator mode.</li>
+<li>Fixed <code>World-&gt;addParticle()</code> sending particles <a class="el" href="protocolto-p.html">to</a> players who couldn't possibly see them when a list of targets was used.</li>
+<li>Fixed <code>World-&gt;addSound()</code> sending sounds <a class="el" href="protocolto-p.html">to</a> players who couldn't possibly hear them when a list of targets was used.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md942"></a>
+Documentation</h2>
+<ul>
+<li>Improved type information available for various API methods in <code>World</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md943"></a>
+4.10.1</h1>
+<p>Released 7th November 2022.</p>
+<h2><a class="anchor" id="autotoc_md944"></a>
+Fixes</h2>
+<ul>
+<li>Fixed spawning in the void if spawn terrain in a world is solid at the default spawn position.</li>
+<li>Fixed totems of undying activating when the player has 1 HP remaining.</li>
+<li>Fixed durable items such as tools becoming unbreakable when in stacks larger than 1. Now, the durability correctly resets when the tool breaks.</li>
+<li>TPS below 12 now correctly shows as red in <code>/status</code>. Previously, it showed as orange due <a class="el" href="protocolto-p.html">to</a> a condition ordering bug.</li>
+<li>Improved handling of missing arguments in user-defined <code>pocketmine.yml</code> command aliases. Previously, missing arguments would be filled with an empty string, which caused a variety of unexpected behaviour.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md945"></a>
+Internals</h2>
+<ul>
+<li>Added validation for the array given <a class="el" href="protocolto-p.html">to</a> <code>BaseInventory-&gt;setContents()</code> <a class="el" href="protocolto-p.html">to</a> ensure that it contains only <code>Item</code> instances.</li>
+<li>Silenced <code>PlayerAuthInputPacket</code> spam when the session is in the "spawn response" state.</li>
+<li>Updated <a class="el" href="protocolto-p.html">to</a> PHPStan 1.9.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md946"></a>
+4.10.2</h1>
+<p>Released 25th November 2022.</p>
+<h2><a class="anchor" id="autotoc_md947"></a>
+Fixes</h2>
+<ul>
+<li>Fixed crashes on macOS and Linux when using console colours without the <code>TERM</code> environment variable set.</li>
+<li>Fixed crashdumps not being generated when error messages contained invalid UTF-8 characters.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md948"></a>
+Documentation</h2>
+<ul>
+<li>Clarified documentation of caching behaviour for <code>Internet::getIP()</code>.</li>
+<li>Added and improved documentation for many <code>Inventory</code> methods.</li>
+<li>Rewritten documentation for <code>PlayerCreationEvent</code> with warnings and more detail.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md949"></a>
+Internals</h2>
+<ul>
+<li>Non-arrow projectile damage is now unscaled. Scaling according <a class="el" href="protocolto-p.html">to</a> velocity is only applied <a class="el" href="protocolto-p.html">to</a> arrows. This currently doesn't cause any observable change in behaviour, but is required for future additions. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

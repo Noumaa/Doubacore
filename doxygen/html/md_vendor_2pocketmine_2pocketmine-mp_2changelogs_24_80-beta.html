@@ -1,0 +1,2445 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.0.0-BETA1</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.0.0-BETA1</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md654"></a>Released 7th September 2021.</p>
+<p>This major version features substantial changes throughout the core, including significant API changes, new world format support, performance improvements and a network revamp.</p>
+<p>Please note that this is a BETA release and is not finalized. While no significant changes are expected between now and release, the API might still be changed.</p>
+<p>Please also note that this changelog is provided on a best-effort basis, and it's possible some changes might not have been mentioned here. If you find any omissions, please submit pull requests <a class="el" href="protocolto-p.html">to</a> add them.</p>
+<h1><a class="anchor" id="autotoc_md655"></a>
+WARNING</h1>
+<p>This is NOT a stable release. PMMP accepts no responsibility or liability for any damages incurred by using this build. It should be used for TESTING purposes only.</p>
+<h1><a class="anchor" id="autotoc_md656"></a>
+Contents</h1>
+<ul>
+<li>Core<ul>
+<li>General</li>
+<li>Configuration</li>
+<li>World handling<ul>
+<li>Interface</li>
+<li>Functional</li>
+<li>Performance</li>
+</ul>
+</li>
+<li>Logger revamp</li>
+<li>Network<ul>
+<li>Minecraft Bedrock packet encryption</li>
+<li>Packet receive error handling has been overhauled</li>
+<li>New packet handler system</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>API<ul>
+<li>General</li>
+<li>Changes to `plugin.yml`<ul>
+<li>Permission nesting</li>
+<li>`src-namespace-prefix`</li>
+</ul>
+</li>
+<li>Block</li>
+<li>Command</li>
+<li>Entity<ul>
+<li>General</li>
+<li>Effect</li>
+<li>Removal of runtime entity NBT</li>
+<li>Entity creation</li>
+<li>WIP removal of entity network metadata</li>
+</ul>
+</li>
+<li>Event<ul>
+<li>Internal event system no longer depends on `Listener`s</li>
+<li>Default cancelled handling behaviour has changed</li>
+<li>`PlayerPreLoginEvent` changes</li>
+<li>Other changes</li>
+</ul>
+</li>
+<li>Inventory</li>
+<li>Item<ul>
+<li>General</li>
+<li>NBT handling</li>
+<li>Enchantment</li>
+</ul>
+</li>
+<li>Lang</li>
+<li>Network</li>
+<li>Permission</li>
+<li>Player</li>
+<li>Plugin</li>
+<li>Scheduler<ul>
+<li>Thread-local storage for AsyncTasks</li>
+<li>Other changes</li>
+</ul>
+</li>
+<li>Server</li>
+<li>Level / World<ul>
+<li>General</li>
+<li>Particles</li>
+<li>Sounds</li>
+</ul>
+</li>
+<li>Utils</li>
+</ul>
+</li>
+<li>Gameplay<ul>
+<li>Blocks</li>
+<li>Items</li>
+</ul>
+</li>
+</ul>
+<p><small><em><a href="http://ecotrust-canada.github.io/markdown-toc/">Table of contents generated with markdown-toc</a></em></small></p>
+<h1><a class="anchor" id="autotoc_md657"></a>
+Core</h1>
+<h2><a class="anchor" id="autotoc_md658"></a>
+General</h2>
+<ul>
+<li>A new "plugin greylist" feature has been introduced, which allows whitelisting or blacklisting plugins from loading.</li>
+<li>Remote console (RCON) has been removed. The <a href="https://github.com/pmmp/RconServer">RconServer</a> plugin is provided as a substitute.</li>
+<li>Spawn protection has been removed. The <a href="https://github.com/pmmp/BasicSpawnProtection">BasicSpawnProtection</a> plugin is provided as a substitute.</li>
+<li>CTRL+C signal handling has been removed. The <a href="https://github.com/pmmp/PcntlSignalHandler">PcntlSignalHandler</a> plugin is provided as a substitute.</li>
+<li>Player movement anti-cheat has been removed.</li>
+<li>GS4 Query no longer breaks when disabling RakLib.</li>
+<li>The <code>pocketmine_chunkutils</code> PHP extension has been dropped.</li>
+<li>New PHP extensions are required by this version:<ul>
+<li><a href="https://github.com/pmmp/ext-chunkutils2">chunkutils2</a></li>
+<li><a href="https://github.com/pmmp/ext-morton">morton</a></li>
+</ul>
+</li>
+<li>Many bugs in player respawning have been fixed, including:<ul>
+<li>Spawning underneath bedrock when spawn position referred <a class="el" href="protocolto-p.html">to</a> ungenerated terrain</li>
+<li>Spawning underneath bedrock on first server join on very slow machines (or when the machine was under very high load)</li>
+<li>Spawning inside blocks (or above the ground) when respawning with a custom spawn position set</li>
+<li>Player spawn positions sticking <a class="el" href="protocolto-p.html">to</a> the old location when world spawn position changed - this was because the world spawn at time of player creation was used as the player's custom spawn, so the bug will persist for older player data, but will work as expected for new players.</li>
+</ul>
+</li>
+<li>PreProcessor is removed from builds due <a class="el" href="protocolto-p.html">to</a> high maintenance cost and low benefit. Its usage is now discouraged.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md659"></a>
+Commands</h2>
+<ul>
+<li>The <code>/reload</code> command has been removed.</li>
+<li>The <code>/effect</code> command no longer supports numeric IDs - it's now required <a class="el" href="protocolto-p.html">to</a> use names.</li>
+<li>The <code>/enchant</code> command no longer supports numeric IDs - it's now required <a class="el" href="protocolto-p.html">to</a> use names.</li>
+<li>Added <code>/clear</code> command with functionality equivalent <a class="el" href="protocolto-p.html">to</a> that of vanilla Minecraft.</li>
+<li>The following commands' outputs are now localized according <a class="el" href="protocolto-p.html">to</a> the chosen language settings:<ul>
+<li><code>/gc</code></li>
+<li><code>/status</code></li>
+<li><code>/op</code></li>
+<li><code>/deop</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md660"></a>
+Configuration</h2>
+<ul>
+<li>World presets can now be provided as a <code>preset</code> key in <code>pocketmine.yml</code>, instead of putting them in the <code>generator</code> key.</li>
+<li>The following new options have been added <a class="el" href="protocolto-p.html">to</a> <code>pocketmine.yml</code>:<ul>
+<li><code>chunk-ticking.blocks-per-subchunk-per-tick</code> (default <code>3</code>): Increasing this value will increase the rate at which random block updates happen (e.g. grass growth).</li>
+<li><code>network.enable-encryption</code> (default <code>true</code>): Controls whether Minecraft network packets are encrypted or not.</li>
+</ul>
+</li>
+<li>The following options have been removed from <code>pocketmine.yml</code>:<ul>
+<li><code>chunk-ticking.light-updates</code>: Since lighting is needed for basic vanilla functionality <a class="el" href="protocolto-p.html">to</a> work, allowing this <a class="el" href="protocolto-p.html">to</a> be disabled without disabling chunk ticking made no sense. If you don't want light calculation <a class="el" href="protocolto-p.html">to</a> occur, you can disable chunk ticking altogether.</li>
+<li><code>player.anti-cheat.allow-movement-cheats</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md661"></a>
+World handling</h2>
+<h3><a class="anchor" id="autotoc_md662"></a>
+Interface</h3>
+<ul>
+<li>Progress of spawn terrain chunk generation is now logged during initial world creation.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md663"></a>
+Functional</h3>
+<ul>
+<li>Minecraft Bedrock worlds up <a class="el" href="protocolto-p.html">to</a> 1.12.x are now supported. (1.13+ are still <b>not supported</b> due <a class="el" href="protocolto-p.html">to</a> yet another format change, which is large and requires a lot of work).</li>
+<li>Automatic conversion of deprecated world formats is now implemented.</li>
+<li>All formats except <code>leveldb</code> have been deprecated. The following world formats will be <b>automatically converted on load <a class="el" href="protocolto-p.html">to</a> a new format</b>:<ul>
+<li><code>mcregion</code></li>
+<li><code>anvil</code></li>
+<li><code>pmanvil</code></li>
+</ul>
+</li>
+<li>256 build-height is now supported in all worlds (facilitated by automatic conversion).</li>
+<li>Extended blocks are now supported (facilitated by automatic conversion).</li>
+<li>Lighting is no longer stored or loaded from disk - instead, it's calculated on the fly as-needed. This fixes many long-standing bugs.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md664"></a>
+Performance</h3>
+<ul>
+<li><code>leveldb</code> is now the primary supported world format. It is inherently faster than region-based formats thanks <a class="el" href="protocolto-p.html">to</a> better design.</li>
+<li>Partial chunk saves (only saving modified subcomponents of chunks) has been implemented. This drastically reduces the amount of data that is usually necessary <a class="el" href="protocolto-p.html">to</a> write on chunk save, which in turn <b>drastically reduces the time <a class="el" href="protocolto-p.html">to</a> complete world saves</b>. This is possible thanks <a class="el" href="protocolto-p.html">to</a> the modular design of the <code>leveldb</code> world format - this enhancement is not possible with region-based formats.</li>
+<li>Lighting is no longer guaranteed <a class="el" href="protocolto-p.html">to</a> be available on every chunk. It's now calculated on the fly as-needed.</li>
+<li><code>/op</code>, <code>/deop</code>, <code>/whitelist add</code> and <code>/whitelist remove</code> no longer cause player data <a class="el" href="protocolto-p.html">to</a> be loaded from disk for no reason.</li>
+<li>Timings now use high-resolution timers provided by <code>hrtime()</code> <a class="el" href="protocolto-p.html">to</a> collect more accurate performance metrics.</li>
+<li>Z-order curves (morton codes) are now used for block and chunk coordinate hashes. This substantially improves performance in many areas by resolving a hashtable key hash collision performance issue. Affected areas include explosions, light calculation, and more.</li>
+<li><a href="https://github.com/ebiggers/libdeflate"><code>libdeflate</code></a> is now (optionally) used for outbound Minecraft packet compression. It's more than twice as fast as zlib in most cases, providing significant performance boosts <a class="el" href="protocolto-p.html">to</a> packet broadcasts and overall network performance.</li>
+<li>Closures are now used for internal event handler calls. This provides a performance improvement of 10-20% over the 3.x system, which had <a class="el" href="protocolto-p.html">to</a> dynamically resolve callables for every event call.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md665"></a>
+Logger revamp</h2>
+<ul>
+<li>Many components now have a dedicated logger which automatically adds [prefixes] <a class="el" href="protocolto-p.html">to</a> their messages.</li>
+<li>Main logger now includes milliseconds in timestamps.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md666"></a>
+Network</h2>
+<p>This version features substantial changes <a class="el" href="protocolto-p.html">to</a> the network system, improving coherency, reliability and modularity.</p>
+<h3><a class="anchor" id="autotoc_md667"></a>
+Minecraft Bedrock packet encryption</h3>
+<ul>
+<li>This fixes replay attacks where hackers steal and replay player logins.</li>
+<li>A new setting has been added <a class="el" href="protocolto-p.html">to</a> <code>pocketmine.yml</code>: <code>network.enable-encryption</code> which is <code>true</code> by default.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md668"></a>
+Packet receive error handling has been overhauled</h3>
+<ul>
+<li>Only <code>BadPacketException</code> is now caught during packet decode and handling. This requires that all decoding MUST perform proper data error checking.<ul>
+<li>Throwing a <code>BadPacketException</code> from decoding will now cause players <a class="el" href="protocolto-p.html">to</a> be kicked with the message <code>Packet processing error</code>.</li>
+<li>The disconnect message includes a random hex ID <a class="el" href="protocolto-p.html">to</a> help server owners identify the problems reported by their players.</li>
+</ul>
+</li>
+<li>Throwing any other exception will now cause a server crash. <code>Internal server error</code> has been removed.</li>
+<li>It is now illegal <a class="el" href="protocolto-p.html">to</a> send a clientbound packet <a class="el" href="protocolto-p.html">to</a> the server. Doing so will result in the client being kicked with the message <code>Unexpected non-serverbound packet</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md669"></a>
+New packet handler system</h3>
+<ul>
+<li>Packet handlers have been separated from NetworkSession into a dedicated packet handler structure.</li>
+<li>A network session may have exactly 1 handler at a time, which is mutable and may be replaced at any time. This allows packet handling logic <a class="el" href="protocolto-p.html">to</a> be broken up into multiple stages:<ul>
+<li>preventing undefined behaviour when sending wrong packets at the wrong time (they'll now be silently dropped)</li>
+<li>allowing the existence of ephemeral state-specific logic (for example stricter resource packs download checks)</li>
+</ul>
+</li>
+<li>Packet handlers are now almost entirely absent from <code>Player</code> and instead appear in their own dedicated units.</li>
+<li>Almost all game logic that was previously locked up inside packet handlers in <code>Player</code> has been extracted into new API methods. See Player API changes for details.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md670"></a>
+API</h1>
+<h2><a class="anchor" id="autotoc_md671"></a>
+General</h2>
+<ul>
+<li>Most places which previously allowed <code>callable</code> now only allow <code>\Closure</code>. This is because closures have more consistent behaviour and are more performant.</li>
+<li><code>void</code> and <code>?nullable</code> parameter and return types have been applied in many places.</li>
+<li>Everything in the <code>pocketmine\metadata</code> namespace and related implementations have been removed.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md672"></a>
+Changes to &lt;tt&gt;plugin.yml&lt;/tt&gt;</h2>
+<h3><a class="anchor" id="autotoc_md673"></a>
+Permission nesting</h3>
+<p>Permission nesting is no longer supported in <code>plugin.yml</code>. Grouping permissions (with defaults) in <code>plugin.yml</code> had very confusing and inconsistent behaviour. Instead of nesting permission declarations, they should each be declared separately.</p>
+<p><em>Before</em>: </p><div class="fragment"><div class="line">permissions:</div>
+<div class="line">   pmmp:</div>
+<div class="line">     default: op</div>
+<div class="line">     children:</div>
+<div class="line">         pmmp.something:</div>
+<div class="line">             default: op</div>
+<div class="line">         pmmp.somethingElse</div>
+<div class="line">             default: op</div>
+</div><!-- fragment --><p><em>After</em>: </p><div class="fragment"><div class="line">permissions:</div>
+<div class="line">    pmmp.something:</div>
+<div class="line">        default: op</div>
+<div class="line">    pmmp.somethingElse</div>
+<div class="line">        default: op</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md674"></a>
+&lt;tt&gt;src-namespace-prefix&lt;/tt&gt;</h3>
+<p>A new directive <code>src-namespace-prefix</code> has been introduced. This allows you <a class="el" href="protocolto-p.html">to</a> get rid of those useless subdirectories in a plugin's structure. For example, a plugin whose main was <code>pmmp\TesterPlugin\Main</code> used <a class="el" href="protocolto-p.html">to</a> have <a class="el" href="protocolto-p.html">to</a> be structured like this: </p><div class="fragment"><div class="line">|-- plugin.yml</div>
+<div class="line">|-- src/</div>
+<div class="line">    |-- pmmp/</div>
+<div class="line">        |-- TesterPlugin/</div>
+<div class="line">            |-- Main.php</div>
+<div class="line">            |-- SomeOtherClass.php</div>
+<div class="line">            |-- SomeNamespace/</div>
+<div class="line">                |-- SomeNamespacedClass.php</div>
+</div><!-- fragment --><p> However, if we add <code>src-namespace-prefix: pmmp\TesterPlugin</code> <a class="el" href="protocolto-p.html">to</a> the <code>plugin.yml</code>, now we can get rid of the useless directories and structure it like this instead: </p><div class="fragment"><div class="line">|-- plugin.yml</div>
+<div class="line">|-- src/</div>
+<div class="line">    |-- Main.php</div>
+<div class="line">    |-- SomeOtherClass.php</div>
+<div class="line">    |-- SomeNamespace/</div>
+<div class="line">        |-- SomeNamespacedClass.php</div>
+</div><!-- fragment --><p><b>Note</b>: The old structure will also still work just fine. This is not a required change.</p>
+<h2><a class="anchor" id="autotoc_md675"></a>
+Block</h2>
+<ul>
+<li>A new <code>VanillaBlocks</code> class has been added, which contains static methods for creating any currently-known block type. This should be preferred instead of use of <code>BlockFactory::get()</code> where constants were used.</li>
+<li>Blocks now contain their positions instead of extending <code>Position</code>. <code>Block-&gt;getPosition()</code> has been added.</li>
+<li>Blocks with IDs &gt;= 256 are now supported.</li>
+<li>Block state and variant metadata have been separated.<ul>
+<li>Variant is considered an extension of ID and is immutable.</li>
+<li><code>Block-&gt;setDamage()</code> has been removed.</li>
+<li>All blocks now have getters and setters for their appropriate block properties, such as facing, lit/unlit, colour (in some cases), and many more. These should be used instead of metadata.</li>
+</ul>
+</li>
+<li>Tile entities are now created and deleted automatically when <code>World-&gt;setBlock()</code> is used with a block that requires a tile entity.</li>
+<li>Some tile entities' API has been exposed on their corresponding <code>Block</code> classes, with the tile entity classes being deprecated.</li>
+<li>The <code>pocketmine\tile</code> namespace has been relocated <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\block\tile</code>.</li>
+<li><code>Block-&gt;recalculateBoundingBox()</code> and <code>Block-&gt;recalculateCollisionBoxes()</code> are now expected <a class="el" href="protocolto-p.html">to</a> return AABBs relative <a class="el" href="protocolto-p.html">to</a> <code>0,0,0</code> instead of their own position.</li>
+<li>Block break-info has been extracted into a new dynamic <code>BlockBreakInfo</code> unit. The following methods have been moved:<ul>
+<li><code>Block-&gt;getBlastResistance()</code> -&gt; <code>BlockBreakInfo-&gt;getBlastResistance()</code></li>
+<li><code>Block-&gt;getBreakTime()</code> -&gt; <code>BlockBreakInfo-&gt;getBreakTime()</code></li>
+<li><code>Block-&gt;getHardness()</code> -&gt; <code>BlockBreakInfo-&gt;getHardness()</code></li>
+<li><code>Block-&gt;getToolHarvestLevel()</code> -&gt; <code>BlockBreakInfo-&gt;getToolHarvestLevel()</code></li>
+<li><code>Block-&gt;getToolType()</code> -&gt; <code>BlockBreakInfo-&gt;getToolType()</code></li>
+<li><code>Block-&gt;isBreakable()</code> -&gt; <code>BlockBreakInfo-&gt;isBreakable()</code></li>
+<li><code>Block-&gt;isCompatibleWithTool()</code> -&gt; <code>BlockBreakInfo-&gt;isToolCompatible()</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Block-&gt;asItem()</code>: returns an itemstack corresponding <a class="el" href="protocolto-p.html">to</a> the block</li>
+<li><code>Block-&gt;isSameState()</code>: returns whether the block is the same as the parameter, including state information</li>
+<li><code>Block-&gt;isSameType()</code>: returns whether the block is the same as the parameter, without state information</li>
+<li><code>Block-&gt;isFullCube()</code></li>
+</ul>
+</li>
+<li>The following hooks have been added:<ul>
+<li><code>Block-&gt;onAttack()</code>: called when a player in survival left-clicks the block <a class="el" href="protocolto-p.html">to</a> try <a class="el" href="protocolto-p.html">to</a> start breaking it</li>
+<li><code>Block-&gt;onEntityLand()</code>: called when an entity lands on this block after falling (from any distance)</li>
+<li><code>Block-&gt;onPostPlace()</code>: called directly after placement in the world, handles things like rail connections and chest pairing</li>
+</ul>
+</li>
+<li>The following API methods have been renamed:<ul>
+<li><code>Block-&gt;getDamage()</code> -&gt; <code>Block-&gt;getMeta()</code></li>
+<li><code>Block-&gt;onActivate()</code> -&gt; <code>Block-&gt;onInteract()</code></li>
+<li><code>Block-&gt;onEntityCollide()</code> -&gt; <code>Block-&gt;onEntityInside()</code></li>
+</ul>
+</li>
+<li>The following API methods have changed signatures:<ul>
+<li><code>Block-&gt;onInteract()</code> now has the signature <code>onInteract(Item $item, int $face, Vector3 $clickVector, ?Player $player = null) : bool</code></li>
+<li><code>Block-&gt;getCollisionBoxes()</code> is now final. Classes should override <code>recalculateCollisionBoxes()</code>.</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Block-&gt;canPassThrough()</code></li>
+<li><code>Block-&gt;setDamage()</code></li>
+<li><code>Block::get()</code>: this was superseded by <code>BlockFactory::get()</code> a long time ago</li>
+<li><code>Block-&gt;getBoundingBox()</code></li>
+</ul>
+</li>
+<li>The following classes have been renamed:<ul>
+<li><code>BlockIds</code> -&gt; <code>BlockLegacyIds</code></li>
+<li><code>CobblestoneWall</code> -&gt; <code>Wall</code></li>
+<li><code>NoteBlock</code> -&gt; <code>Note</code></li>
+<li><code>SignPost</code> -&gt; <code>Sign</code></li>
+<li><code>StandingBanner</code> -&gt; <code>Banner</code></li>
+</ul>
+</li>
+<li>The following classes have been removed:<ul>
+<li><code>Bricks</code></li>
+<li><code>BurningFurnace</code></li>
+<li><code>CobblestoneStairs</code></li>
+<li><code>Dandelion</code></li>
+<li><code>DoubleSlab</code></li>
+<li><code>DoubleStoneSlab</code></li>
+<li><code>EndStone</code></li>
+<li><code>GlowingRedstoneOre</code></li>
+<li><code>GoldOre</code></li>
+<li><code>Gold</code></li>
+<li><code>IronDoor</code></li>
+<li><code>IronOre</code></li>
+<li><code>IronTrapdoor</code></li>
+<li><code>Iron</code></li>
+<li><code>Lapis</code></li>
+<li><code>NetherBrickFence</code></li>
+<li><code>NetherBrickStairs</code></li>
+<li><code>Obsidian</code></li>
+<li><code>PurpurStairs</code></li>
+<li><code>Purpur</code></li>
+<li><code>QuartzStairs</code></li>
+<li><code>Quartz</code></li>
+<li><code>RedSandstoneStairs</code></li>
+<li><code>RedSandstone</code></li>
+<li><code>SandstoneStairs</code></li>
+<li><code>Sandstone</code></li>
+<li><code>StainedClay</code></li>
+<li><code>StainedGlassPane</code></li>
+<li><code>StainedGlass</code></li>
+<li><code>StoneBrickStairs</code></li>
+<li><code>StoneBricks</code></li>
+<li><code>StoneSlab2</code></li>
+<li><code>StoneSlab</code></li>
+<li><code>Stone</code></li>
+<li><code>WallBanner</code></li>
+<li><code>WallSign</code></li>
+<li><code>Wood2</code></li>
+</ul>
+</li>
+<li><code>BlockToolType</code> constants have been renamed <a class="el" href="protocolto-p.html">to</a> remove the <code>TYPE_</code> prefix.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md676"></a>
+Command</h2>
+<ul>
+<li>The following classes have been removed:<ul>
+<li><code>RemoteConsoleCommandSender</code></li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>Command-&gt;setPermission()</code> argument is now mandatory (but still nullable).</li>
+<li><code>CommandSender-&gt;setScreenLineHeight()</code> argument is now mandatory (but still nullable).</li>
+</ul>
+</li>
+<li>Commands with spaces in the name are no longer supported.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md677"></a>
+Entity</h2>
+<h3><a class="anchor" id="autotoc_md678"></a>
+General</h3>
+<ul>
+<li><code>Entity</code> no longer extends from <code>Location</code>. <code>Entity-&gt;getLocation()</code> and <code>Entity-&gt;getPosition()</code> should be used instead.</li>
+<li>Ender inventory has been refactored. It's now split into two parts:<ul>
+<li><code>EnderChestInventory</code> is a temporary gateway "inventory" that acts as a proxy <a class="el" href="protocolto-p.html">to</a> the player's ender inventory. It has a <code>Position</code> for holder. This is discarded when the player closes the inventory window.</li>
+<li><code>PlayerEnderInventory</code> is the storage part. This is stored in <code>Human</code> and does not contain any block info.</li>
+<li>To open the player's ender inventory, use <code>Player-&gt;setCurrentWindow(new EnderChestInventory($blockPos, $player-&gt;getEnderInventory()))</code>.</li>
+</ul>
+</li>
+<li>The following public fields have been removed:<ul>
+<li><code>Entity-&gt;chunk</code>: Entities no longer know which chunk they are in (the <code>World</code> now manages this instead).</li>
+<li><code>Entity-&gt;height</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>EntitySizeInfo</code>; use <code>Entity-&gt;size</code> instead</li>
+<li><code>Entity-&gt;width</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>EntitySizeInfo</code>; use <code>Entity-&gt;size</code> instead</li>
+<li><code>Entity-&gt;eyeHeight</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>EntitySizeInfo</code>; use <code>Entity-&gt;size</code> instead</li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Entity-&gt;getFallDistance()</code></li>
+<li><code>Entity-&gt;setFallDistance()</code></li>
+<li><code>ItemEntity-&gt;getDespawnDelay()</code></li>
+<li><code>ItemEntity-&gt;setDespawnDelay()</code></li>
+<li><code>Living-&gt;calculateFallDamage()</code>: this is <code>protected</code>, and may be overridden by subclasses <a class="el" href="protocolto-p.html">to</a> provide custom damage logic</li>
+<li><code>Human-&gt;getHungerManager()</code></li>
+<li><code>Human-&gt;getXpManager()</code></li>
+</ul>
+</li>
+<li>The following methods have signature changes:<ul>
+<li><code>Entity-&gt;entityBaseTick()</code> is now <code>protected</code>.</li>
+<li><code>Entity-&gt;move()</code> is now <code>protected</code>.</li>
+<li><code>Entity-&gt;setPosition()</code> is now <code>protected</code> (use <code>Entity-&gt;teleport()</code> instead).</li>
+<li><code>Entity-&gt;setPositionAndRotation()</code> is now <code>protected</code> (use <code>Entity-&gt;teleport()</code> instead).</li>
+<li><code>Living-&gt;knockBack()</code> now accepts <code>float, float, float</code> (the first two parameters have been removed).</li>
+<li><code>Living-&gt;getEffects()</code> now returns <code>EffectManager</code> instead of <code>Effect[]</code>.</li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>effect\EffectManager</code>: contains effect-management functionality extracted from <code>Living</code></li>
+<li><code>HungerManager</code>: contains hunger-management functionality extracted from <code>Human</code></li>
+<li><code>ExperienceManager</code>: contains XP-management functionality extracted from <code>Human</code></li>
+</ul>
+</li>
+<li>The following API methods have been moved / renamed:<ul>
+<li><code>Entity-&gt;fall()</code> -&gt; <code>Entity-&gt;onHitGround()</code> (and visibility changed <a class="el" href="protocolto-p.html">to</a> <code>protected</code> from <code>public</code>)</li>
+<li><code>Living-&gt;removeAllEffects()</code> -&gt; <code>EffectManager-&gt;clear()</code></li>
+<li><code>Living-&gt;removeEffect()</code> -&gt; <code>EffectManager-&gt;remove()</code></li>
+<li><code>Living-&gt;addEffect()</code> -&gt; <code>EffectManager-&gt;add()</code></li>
+<li><code>Living-&gt;getEffect()</code> -&gt; <code>EffectManager-&gt;get()</code></li>
+<li><code>Living-&gt;hasEffect()</code> -&gt; <code>EffectManager-&gt;has()</code></li>
+<li><code>Living-&gt;hasEffects()</code> -&gt; <code>EffectManager-&gt;hasEffects()</code></li>
+<li><code>Living-&gt;getEffects()</code> -&gt; <code>EffectManager-&gt;all()</code></li>
+<li><code>Human-&gt;getFood()</code> -&gt; <code>HungerManager-&gt;getFood()</code></li>
+<li><code>Human-&gt;setFood()</code> -&gt; <code>HungerManager-&gt;setFood()</code></li>
+<li><code>Human-&gt;getMaxFood()</code> -&gt; <code>HungerManager-&gt;getMaxFood()</code></li>
+<li><code>Human-&gt;addFood()</code> -&gt; <code>HungerManager-&gt;addFood()</code></li>
+<li><code>Human-&gt;isHungry()</code> -&gt; <code>HungerManager-&gt;isHungry()</code></li>
+<li><code>Human-&gt;getEnderChestInventory()</code> -&gt; <code>Human-&gt;getEnderInventory()</code></li>
+<li><code>Human-&gt;getSaturation()</code> -&gt; <code>HungerManager-&gt;getSaturation()</code></li>
+<li><code>Human-&gt;setSaturation()</code> -&gt; <code>HungerManager-&gt;setSaturation()</code></li>
+<li><code>Human-&gt;addSaturation()</code> -&gt; <code>HungerManager-&gt;addSaturation()</code></li>
+<li><code>Human-&gt;getExhaustion()</code> -&gt; <code>HungerManager-&gt;getExhaustion()</code></li>
+<li><code>Human-&gt;setExhaustion()</code> -&gt; <code>HungerManager-&gt;setExhaustion()</code></li>
+<li><code>Human-&gt;exhaust()</code> -&gt; <code>HungerManager-&gt;exhaust()</code></li>
+<li><code>Human-&gt;getXpLevel()</code> -&gt; <code>ExperienceManager-&gt;getXpLevel()</code></li>
+<li><code>Human-&gt;setXpLevel()</code> -&gt; <code>ExperienceManager-&gt;setXpLevel()</code></li>
+<li><code>Human-&gt;addXpLevels()</code> -&gt; <code>ExperienceManager-&gt;addXpLevels()</code></li>
+<li><code>Human-&gt;subtractXpLevels()</code> -&gt; <code>ExperienceManager-&gt;subtractXpLevels()</code></li>
+<li><code>Human-&gt;getXpProgress()</code> -&gt; <code>ExperienceManager-&gt;getXpProgress()</code></li>
+<li><code>Human-&gt;setXpProgress()</code> -&gt; <code>ExperienceManager-&gt;setXpProgress()</code></li>
+<li><code>Human-&gt;getRemainderXp()</code> -&gt; <code>ExperienceManager-&gt;getRemainderXp()</code></li>
+<li><code>Human-&gt;getCurrentTotalXp()</code> -&gt; <code>ExperienceManager-&gt;getCurrentTotalXp()</code></li>
+<li><code>Human-&gt;setCurrentTotalXp()</code> -&gt; <code>ExperienceManager-&gt;setCurrentTotalXp()</code></li>
+<li><code>Human-&gt;addXp()</code> -&gt; <code>ExperienceManager-&gt;addXp()</code></li>
+<li><code>Human-&gt;subtractXp()</code> -&gt; <code>ExperienceManager-&gt;subtractXp()</code></li>
+<li><code>Human-&gt;getLifetimeTotalXp()</code> -&gt; <code>ExperienceManager-&gt;getLifetimeTotalXp()</code></li>
+<li><code>Human-&gt;setLifetimeTotalXp()</code> -&gt; <code>ExperienceManager-&gt;setLifetimeTotalXp()</code></li>
+<li><code>Human-&gt;canPickupXp()</code> -&gt; <code>ExperienceManager-&gt;canPickupXp()</code></li>
+<li><code>Human-&gt;onPickupXp()</code> -&gt; <code>ExperienceManager-&gt;onPickupXp()</code></li>
+<li><code>Human-&gt;resetXpCooldown()</code> -&gt; <code>ExperienceManager-&gt;resetXpCooldown()</code></li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Human-&gt;getRawUniqueId()</code>: use <code>Human-&gt;getUniqueId()-&gt;toBinary()</code> instead</li>
+</ul>
+</li>
+<li>The following classes have been removed:<ul>
+<li><code>Creature</code></li>
+<li><code>Damageable</code></li>
+<li><code>Monster</code></li>
+<li><code>NPC</code></li>
+<li><code>Rideable</code></li>
+<li><code>Vehicle</code></li>
+</ul>
+</li>
+<li><code>Skin</code> now throws exceptions on creation if given invalid data.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md679"></a>
+Effect</h3>
+<ul>
+<li>All <code>Effect</code> related classes have been moved <a class="el" href="protocolto-p.html">to</a> the <code>pocketmine\entity\effect</code> namespace.</li>
+<li>Effect functionality embedded in the <code>Effect</code> class has been separated out into several classes. The following classes have been added:<ul>
+<li><code>AbsorptionEffect</code></li>
+<li><code>HealthBoostEffect</code></li>
+<li><code>HungerEffect</code></li>
+<li><code>InstantDamageEffect</code></li>
+<li><code>InstantEffect</code></li>
+<li><code>InstantHealthEffect</code></li>
+<li><code>InvisibilityEffect</code></li>
+<li><code>LevitationEffect</code></li>
+<li><code>PoisonEffect</code></li>
+<li><code>RegenerationEffect</code></li>
+<li><code>SaturationEffect</code></li>
+<li><code>SlownessEffect</code></li>
+<li><code>SpeedEffect</code></li>
+<li><code>WitherEffect</code></li>
+</ul>
+</li>
+<li><code>VanillaEffects</code> class has been added. This exposes all vanilla effect types as static methods, replacing the old <code>Effect::getEffect()</code> nastiness.<ul>
+<li>Example: <code>Effect::getEffect(Effect::NIGHT_VISION)</code> can be replaced by <code>VanillaEffects::NIGHT_VISION()</code>.</li>
+</ul>
+</li>
+<li>Negative effect amplifiers are now explicitly disallowed due <a class="el" href="protocolto-p.html">to</a> undefined behaviour they created.</li>
+<li>The boundaries between MCPE effect IDs and PocketMine-MP internals are now more clear.<ul>
+<li>ID handling is moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\data\bedrock\EffectIdMap</code>.</li>
+<li>All effect ID constants have been removed from <code>Effect</code>. <code>pocketmine\data\bedrock\EffectIds</code> if you still need legacy effect IDs for some reason.</li>
+</ul>
+</li>
+<li>The following API methods have been moved:<ul>
+<li><code>Effect-&gt;getId()</code> -&gt; <code>EffectIdMap-&gt;toId()</code></li>
+<li><code>Effect::registerEffect()</code> -&gt; <code>EffectIdMap-&gt;register()</code></li>
+<li><code>Effect::getEffect()</code> -&gt; <code>EffectIdMap-&gt;fromId()</code></li>
+<li><code>Effect::getEffectByName()</code> -&gt; <code>VanillaEffects::fromString()</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Effect-&gt;getRuntimeId()</code>: this is a <b>dynamic ID</b> which can be used for effect type comparisons. <b>This cannot be stored, so don't use it in configs or NBT!</b></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md680"></a>
+Removal of runtime entity NBT</h3>
+<ul>
+<li>Entities no longer keep their NBT alive at runtime.<ul>
+<li><code>Entity-&gt;namedtag</code> has been removed.</li>
+<li><code>Entity-&gt;saveNBT()</code> now returns a newly created <code>CompoundTag</code> instead of modifying the previous one in-place.</li>
+<li><code>Entity-&gt;initEntity()</code> now accepts a <code>CompoundTag</code> parameter.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md681"></a>
+Entity creation</h3>
+<ul>
+<li><code>Entity::createEntity()</code> has been removed. It's no longer needed for creating new entities at runtime - just use <code>new YourEntity</code> instead.</li>
+<li><code>Entity</code> subclass constructors can now have any signature, just like a normal class.</li>
+<li>Loading entities from NBT is now handled by <code>EntityFactory</code>. It works quite a bit differently than <code>Entity::createEntity()</code> did. Instead of registering <code>YourEntity::class</code> <a class="el" href="protocolto-p.html">to</a> a set of Minecraft save IDs, you now need <a class="el" href="protocolto-p.html">to</a> provide a callback which will construct an entity when given some NBT and a <code>World</code>.<ul>
+<li>The creation callback is registered using <code>EntityFactory::register()</code>.</li>
+<li>The creation callback must have the signature <code>function(World, CompoundTag) : Entity</code>.</li>
+<li>This enables <code>Entity</code> subclasses <a class="el" href="protocolto-p.html">to</a> have any constructor parameters they like.</li>
+<li>It also allows requiring that certain data is always provided (for example, it doesn't make much sense <a class="el" href="protocolto-p.html">to</a> create a <code>FallingBlock</code> without specifying what type of block).</li>
+<li>Examples:<ul>
+<li><code>ItemEntity</code> now requires an <code>Item</code> in its constructor, so its creation callback decodes the <code>Item</code> from the NBT <a class="el" href="protocolto-p.html">to</a> be passed <a class="el" href="protocolto-p.html">to</a> the constructor.</li>
+<li><code>Painting</code> now requires a <code>PaintingMotive</code> in its constructor, so its creation callback decides which <code>PaintingMotive</code> <a class="el" href="protocolto-p.html">to</a> provide based on the NBT it receives.</li>
+<li>See <code>EntityFactory</code> for more examples.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>EntityFactory::register()</code> (previously <code>Entity::registerEntity()</code>) will now throw exceptions on error cases instead of returning <code>false</code>.</li>
+<li>The following API methods have been moved:<ul>
+<li><code>Entity::registerEntity()</code> -&gt; <code>EntityFactory::register()</code></li>
+</ul>
+</li>
+<li>The following classes have changed constructors:<ul>
+<li>All projectile subclasses now require a <code>?Entity $thrower</code> parameter.</li>
+<li><code>Arrow-&gt;__construct()</code> now requires a <code>bool $critical</code> parameter (in addition <a class="el" href="protocolto-p.html">to</a> the <code>$thrower</code> parameter).</li>
+<li><code>ExperienceOrb-&gt;__construct()</code> now requires a <code>int $xpValue</code> parameter.</li>
+<li><code>FallingBlock-&gt;__construct()</code> now requires a <code>Block $block</code> parameter.</li>
+<li><code>ItemEntity-&gt;__construct()</code> now requires an <code>Item $item</code> parameter.</li>
+<li><code>Painting-&gt;__construct()</code> now requires a <code>PaintingMotive $motive</code> parameter.</li>
+<li><code>SplashPotion-&gt;__construct()</code> now requires a <code>int $potionId</code> parameter.</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Entity::createBaseNBT()</code>: <code>new YourEntity</code> and appropriate API methods should be used instead</li>
+<li><code>Entity-&gt;getSaveId()</code></li>
+<li><code>Entity::getKnownEntityTypes()</code></li>
+<li><code>Entity::createEntity()</code>: use <code>new YourEntity</code> instead (<a class="el" href="protocolto-p.html">to</a> be reviewed)</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md682"></a>
+WIP removal of entity network metadata</h3>
+<ul>
+<li>All network metadata related constants have been removed from the <code>Entity</code> class and moved <a class="el" href="protocolto-p.html">to</a> the protocol layer. It is intended <a class="el" href="protocolto-p.html">to</a> remove network metadata from the API entirely, but this has not yet been completed.<ul>
+<li><code>Entity::DATA_FLAG_*</code> constants have been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\network\mcpe\protocol\types\entity\EntityMetadataFlags</code>.</li>
+<li><code>Entity::DATA_TYPE_*</code> constants have been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\network\mcpe\protocol\types\entity\EntityMetadataTypes</code>.</li>
+<li><code>Entity::DATA_*</code> constants have been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties</code>.</li>
+</ul>
+</li>
+<li><code>DataPropertyManager</code> has been moved <a class="el" href="protocolto-p.html">to</a> the <code>pocketmine\network\mcpe\protocol\types\entity</code> namespace, and as such isn't considered part of the API anymore.</li>
+<li>Introduced internal <code>Entity</code> hook <code>syncNetworkData()</code>. This function is expected <a class="el" href="protocolto-p.html">to</a> synchronize entity properties with the entity's network data set.</li>
+<li>Internal usage of network metadata sets <a class="el" href="protocolto-p.html">to</a> store internal entity properties has been removed. Entities are now expected <a class="el" href="protocolto-p.html">to</a> use regular class properties and synchronize with the network data set as-asked.</li>
+<li><code>Entity-&gt;propertyManager</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>Entity-&gt;networkProperties</code>.</li>
+<li><code>Entity-&gt;getDataPropertyManager()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>Entity-&gt;getNetworkProperties()</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md683"></a>
+Event</h2>
+<h3><a class="anchor" id="autotoc_md684"></a>
+Internal event system no longer depends on &lt;tt&gt;Listener&lt;/tt&gt;s</h3>
+<ul>
+<li>The internal event processing system no longer depends on <code>Listener</code> objects. Arbitrary closures can now be used, provided that they satisfy the standard requirements <a class="el" href="protocolto-p.html">to</a> be a handler.<ul>
+<li>This change improves performance of event handler calling by approximately 15%. This does not include anything plugins are doing.</li>
+<li>The following classes have been removed:<ul>
+<li><code>pocketmine\plugin\EventExecutor</code></li>
+<li><code>pocketmine\plugin\MethodEventExecutor</code></li>
+</ul>
+</li>
+<li><code>RegisteredListener-&gt;__construct()</code> now requires <code>Closure</code> instead of <code>Listener, EventExecutor</code> as the leading parameters.</li>
+<li><code>RegisteredListener-&gt;getListener()</code> has been removed.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md685"></a>
+Default cancelled handling behaviour has changed</h3>
+<ul>
+<li>Handler functions will now <b>not receive cancelled events by default</b>. This is a <b>silent BC break</b>, i.e. it won't raise errors, but it might cause bugs.</li>
+<li><code>@ignoreCancelled</code> is now no longer respected.</li>
+<li><code>@handleCancelled</code> has been added. This allows opting <em>into</em> receiving cancelled events (it's the opposite of <code>@ignoreCancelled</code>).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md686"></a>
+&lt;tt&gt;PlayerPreLoginEvent&lt;/tt&gt; changes</h3>
+<ul>
+<li>The <code>Player</code> object no longer exists at this phase of the login. Instead, a <code>PlayerInfo</code> object is provided, along with connection information.</li>
+<li>Ban, server-full and whitelist checks are now centralized <a class="el" href="protocolto-p.html">to</a> <code>PlayerPreLoginEvent</code>. It's no longer necessary (or possible) <a class="el" href="protocolto-p.html">to</a> intercept <code>PlayerKickEvent</code> <a class="el" href="protocolto-p.html">to</a> handle these types of disconnects.<ul>
+<li>Multiple kick reasons may be set <a class="el" href="protocolto-p.html">to</a> ensure that the player is still removed if there are other reasons for them <a class="el" href="protocolto-p.html">to</a> be disconnected and one of them is cleared. For example, if a player is banned and the server is full, clearing the ban flag will still cause the player <a class="el" href="protocolto-p.html">to</a> be disconnected because the server is full.</li>
+<li>Plugins may set custom kick reasons. Any custom reason has absolute priority.</li>
+<li>If multiple flags are set, the kick message corresponding <a class="el" href="protocolto-p.html">to</a> the highest priority reason will be shown. The priority (as of this snapshot) is as follows:<ul>
+<li>Custom (highest priority)</li>
+<li>Server full</li>
+<li>Whitelisted</li>
+<li>Banned</li>
+</ul>
+</li>
+<li>The <code>PlayerPreLoginEvent::KICK_REASON_PRIORITY</code> constant contains a list of kick reason priorities, highest first.</li>
+</ul>
+</li>
+<li>The following constants have been added:<ul>
+<li><code>PlayerPreLoginEvent::KICK_REASON_PLUGIN</code></li>
+<li><code>PlayerPreLoginEvent::KICK_REASON_SERVER_FULL</code></li>
+<li><code>PlayerPreLoginEvent::KICK_REASON_SERVER_WHITELISTED</code></li>
+<li><code>PlayerPreLoginEvent::KICK_REASON_BANNED</code></li>
+<li><code>PlayerPreLoginEvent::KICK_REASON_PRIORITY</code>: ordered list of kick reason priorities, highest first</li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>PlayerPreLoginEvent-&gt;clearAllKickReasons()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;clearKickReason()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;getFinalKickMessage()</code>: the message <a class="el" href="protocolto-p.html">to</a> be shown <a class="el" href="protocolto-p.html">to</a> the player with the current reason list in place</li>
+<li><code>PlayerPreLoginEvent-&gt;getIp()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;getKickReasons()</code>: returns an array of flags indicating kick reasons, must be empty <a class="el" href="protocolto-p.html">to</a> allow joining</li>
+<li><code>PlayerPreLoginEvent-&gt;getPlayerInfo()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;getPort()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;isAllowed()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;isAuthRequired()</code>: whether XBL authentication will be enforced</li>
+<li><code>PlayerPreLoginEvent-&gt;isKickReasonSet()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;setAuthRequired()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;setKickReason()</code></li>
+</ul>
+</li>
+<li>The following API methods have been changed:<ul>
+<li><code>PlayerPreLoginEvent-&gt;getKickMessage()</code> now has the signature <code>getKickMessage(int $flag) : ?string</code></li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>PlayerPreLoginEvent-&gt;setKickMessage()</code></li>
+<li><code>PlayerPreLoginEvent-&gt;getPlayer()</code></li>
+</ul>
+</li>
+<li>The following API methods have been moved / renamed:<ul>
+<li><code>InventoryPickupItemEvent-&gt;getItem()</code> -&gt; <code>InventoryPickupItemEvent-&gt;getItemEntity()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md687"></a>
+Other changes</h3>
+<ul>
+<li>Disconnecting players during events no longer crashes the server (although it might cause other side effects).</li>
+<li><code>PlayerKickEvent</code> is no longer fired for disconnects that occur before the player completes the initial login sequence (i.e. completing downloading resource packs).</li>
+<li>Cancellable events must now implement <code>CancellableTrait</code> <a class="el" href="protocolto-p.html">to</a> get the cancellable components needed <a class="el" href="protocolto-p.html">to</a> satisfy interface requirements. <code>Event</code> no longer stubs these methods.</li>
+<li><code>PlayerInteractEvent</code> is no longer fired when a player activates an item. This fixes the age-old complaint of <code>PlayerInteractEvent</code> firing multiple times when interacting once. The following constants have been removed:<ul>
+<li><code>PlayerInteractEvent::LEFT_CLICK_AIR</code></li>
+<li><code>PlayerInteractEvent::RIGHT_CLICK_AIR</code></li>
+<li><code>PlayerInteractEvent::PHYSICAL</code></li>
+</ul>
+</li>
+<li>The following events have been added:<ul>
+<li><code>PlayerEntityInteractEvent</code>: player right-clicking (or long-clicking on mobile) on an entity.</li>
+<li><code>PlayerItemUseEvent</code>: player activating their held item, for example <a class="el" href="protocolto-p.html">to</a> throw it.</li>
+<li><code>BlockTeleportEvent</code>: block teleporting, for example dragon egg when attacked.</li>
+<li><code>PlayerDisplayNameChangeEvent</code></li>
+<li><code>EntityItemPickupEvent</code>: player (or other entity) picks up a dropped item (or arrow). Replaces <code>InventoryPickupItemEvent</code> and <code>InventoryPickupArrowEvent</code>.<ul>
+<li>Unlike its predecessors, this event supports changing the destination inventory.</li>
+<li>If the destination inventory is <code>null</code>, the item will be destroyed. This is usually seen for creative players with full inventories.</li>
+</ul>
+</li>
+<li><code>EntityTrampleFarmlandEvent</code>: mob (or player) jumping on farmland causing it <a class="el" href="protocolto-p.html">to</a> turn <a class="el" href="protocolto-p.html">to</a> dirt</li>
+<li><code>StructureGrowEvent</code>: called when trees or bamboo grow (or any other multi-block plant structure).</li>
+</ul>
+</li>
+<li>The following events have been removed:<ul>
+<li><code>EntityArmorChangeEvent</code></li>
+<li><code>EntityInventoryChangeEvent</code></li>
+<li><code>EntityLevelChangeEvent</code> - <code>EntityTeleportEvent</code> with world checks should be used instead.</li>
+<li><code>InventoryPickupItemEvent</code> - use <code>EntityItemPickupEvent</code> instead</li>
+<li><code>InventoryPickupArrowEvent</code> - use <code>EntityItemPickupEvent</code> instead</li>
+<li><code>NetworkInterfaceCrashEvent</code></li>
+<li><code>PlayerCheatEvent</code></li>
+<li><code>PlayerIllegalMoveEvent</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>EntityDeathEvent-&gt;getXpDropAmount()</code></li>
+<li><code>EntityDeathEvent-&gt;setXpDropAmount()</code></li>
+<li><code>PlayerDeathEvent-&gt;getXpDropAmount()</code></li>
+<li><code>PlayerDeathEvent-&gt;setXpDropAmount()</code></li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>PlayerPreLoginEvent-&gt;getPlayer()</code></li>
+<li><code>Cancellable-&gt;setCancelled()</code>: this allows implementors of <code>Cancellable</code> <a class="el" href="protocolto-p.html">to</a> implement their own cancellation mechanisms, such as the complex one in <code>PlayerPreLoginEvent</code></li>
+</ul>
+</li>
+<li>The following API methods have been moved:<ul>
+<li><code>Event-&gt;isCancelled()</code> -&gt; <code>CancellableTrait-&gt;isCancelled()</code>: this was a stub which threw <code>BadMethodCallException</code> if the class didn't implement <code>Cancellable</code>; now this is simply not available on non-cancellable events</li>
+<li><code>Event-&gt;setCancelled()</code> has been split into <code>cancel()</code> and <code>uncancel()</code>, and moved <a class="el" href="protocolto-p.html">to</a> <code>CancellableTrait</code></li>
+<li><code>HandlerList::unregisterAll()</code> -&gt; <code>HandlerListManager-&gt;unregisterAll()</code></li>
+<li><code>HandlerList::getHandlerListFor()</code> -&gt; <code>HandlerListManager-&gt;getListFor()</code></li>
+<li><code>HandlerList::getHandlerLists()</code> -&gt; <code>HandlerListManager-&gt;getAll()</code></li>
+</ul>
+</li>
+<li>The following classes have been moved:<ul>
+<li><code>pocketmine\plugin\RegisteredListener</code> -&gt; <code>pocketmine\event\RegisteredListener</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md688"></a>
+Inventory</h2>
+<ul>
+<li>All crafting and recipe related classes have been moved <a class="el" href="protocolto-p.html">to</a> the <code>pocketmine\crafting</code> namespace.</li>
+<li>The following classes have been added:<ul>
+<li><code>CallbackInventoryChangeListener</code></li>
+<li><code>CreativeInventory</code>: contains the creative functionality previously embedded in <code>pocketmine\item\Item</code>, see Item changes for details</li>
+<li><code>InventoryChangeListener</code>: allows listening (but not interfering with) events in an inventory.</li>
+<li><code>PlayerEnderInventory</code>: represents the pure storage part of the player's ender inventory, without any block information</li>
+<li><code>transaction\CreateItemAction</code></li>
+<li><code>transaction\DestroyItemAction</code></li>
+</ul>
+</li>
+<li>The following classes have been renamed / moved:<ul>
+<li><code>ContainerInventory</code> -&gt; <code>pocketmine\block\inventory\BlockInventory</code></li>
+</ul>
+</li>
+<li>The following classes have been moved <a class="el" href="protocolto-p.html">to</a> the <code>pocketmine\block\inventory</code> namespace:<ul>
+<li><code>AnvilInventory</code></li>
+<li><code>ChestInventory</code></li>
+<li><code>DoubleChestInventory</code></li>
+<li><code>EnchantInventory</code></li>
+<li><code>EnderChestInventory</code></li>
+<li><code>FurnaceInventory</code></li>
+</ul>
+</li>
+<li>The following classes have been removed:<ul>
+<li><code>CustomInventory</code></li>
+<li><code>InventoryEventProcessor</code></li>
+<li><code>Recipe</code></li>
+<li><code>transaction\CreativeInventoryAction</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Inventory-&gt;addChangeListeners()</code></li>
+<li><code>Inventory-&gt;getChangeListeners()</code></li>
+<li><code>Inventory-&gt;removeChangeListeners()</code></li>
+<li><code>Inventory-&gt;swap()</code>: swaps the contents of two slots</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>BaseInventory-&gt;getDefaultSize()</code></li>
+<li><code>BaseInventory-&gt;setSize()</code></li>
+<li><code>EnderChestInventory-&gt;setHolderPosition()</code></li>
+<li><code>Inventory-&gt;close()</code></li>
+<li><code>Inventory-&gt;dropContents()</code></li>
+<li><code>Inventory-&gt;getName()</code></li>
+<li><code>Inventory-&gt;getTitle()</code></li>
+<li><code>Inventory-&gt;onSlotChange()</code></li>
+<li><code>Inventory-&gt;open()</code></li>
+<li><code>Inventory-&gt;sendContents()</code></li>
+<li><code>Inventory-&gt;sendSlot()</code></li>
+<li><code>InventoryAction-&gt;onExecuteFail()</code></li>
+<li><code>InventoryAction-&gt;onExecuteSuccess()</code></li>
+<li><code>PlayerInventory-&gt;sendCreativeContents()</code></li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>Inventory-&gt;clear()</code> now returns <code>void</code> instead of <code>bool</code>.</li>
+<li><code>Inventory-&gt;setItem()</code> now returns <code>void</code> instead of <code>bool</code>.</li>
+<li><code>InventoryAction-&gt;execute()</code> now returns <code>void</code> instead of <code>bool</code>.</li>
+<li><code>BaseInventory-&gt;construct()</code> no longer accepts a list of items <a class="el" href="protocolto-p.html">to</a> initialize with.</li>
+</ul>
+</li>
+<li><code>PlayerInventory-&gt;setItemInHand()</code> now sends the update <a class="el" href="protocolto-p.html">to</a> viewers of the player.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md689"></a>
+Item</h2>
+<h3><a class="anchor" id="autotoc_md690"></a>
+General</h3>
+<ul>
+<li>A new <code>VanillaItems</code> class has been added, which contains static methods for creating any currently-known item type. This should be preferred instead of use of <code>ItemFactory::get()</code> where constants were used.</li>
+<li><code>StringToItemParser</code> has been added, which allows mapping any string <a class="el" href="protocolto-p.html">to</a> any item, irrespective of IDs. These mappings are used by <code>/give</code> and <code>/clear</code>, and are made with custom plugin aliases in mind.<ul>
+<li>Yes, this means you can finally add your own custom aliases <a class="el" href="protocolto-p.html">to</a> <code>/give</code> without ugly hacks!</li>
+</ul>
+</li>
+<li><code>LegacyStringToItemParser</code> has been added, which is a slightly more dynamic (but still inadvisable) replacement for <code>ItemFactory::fromString()</code>.</li>
+<li><code>Item-&gt;count</code> is no longer public.</li>
+<li>The hierarchy of writable books has been changed: <code>WritableBook</code> and <code>WrittenBook</code> now extend <code>WritableBookBase</code>.</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>WritableBookBase-&gt;setPages()</code> now accepts <code>WritableBookPage[]</code> instead of <code>CompoundTag[]</code>.</li>
+<li><code>ItemFactory::get()</code> no longer accepts <code>string</code> for the <code>tags</code> parameter.</li>
+<li><code>ItemFactory::fromString()</code> no longer accepts a <code>$multiple</code> parameter and now only returns <code>Item</code>, not <code>Item|Item[]</code>.</li>
+</ul>
+</li>
+<li>The following methods are now fluent:<ul>
+<li><code>WritableBookBase-&gt;setPages()</code></li>
+<li><code>Item-&gt;addEnchantment()</code></li>
+<li><code>Item-&gt;removeEnchantment()</code></li>
+<li><code>Item-&gt;removeEnchantments()</code></li>
+<li><code>Armor-&gt;setCustomColor()</code></li>
+<li><code>WrittenBook-&gt;setTitle()</code></li>
+<li><code>WrittenBook-&gt;setAuthor()</code></li>
+<li><code>WrittenBook-&gt;setGeneration()</code></li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Item-&gt;getNamedTagEntry()</code></li>
+<li><code>Item-&gt;removeNamedTagEntry()</code></li>
+<li><code>Item-&gt;setDamage()</code>: "Damage" is now immutable for all items except <code>Durable</code> descendents.</li>
+<li><code>Item-&gt;setNamedTagEntry()</code></li>
+<li><code>Item::get()</code>: this was superseded by <code>ItemFactory::get()</code> a long time ago</li>
+<li><code>Item::fromString()</code>: this was superseded by <code>ItemFactory::fromString()</code> a long time ago</li>
+<li><code>Item-&gt;setCompoundTag()</code></li>
+<li><code>Item-&gt;getCompoundTag()</code></li>
+<li><code>Item-&gt;hasCompoundTag()</code></li>
+<li><code>Potion::getPotionEffectsById()</code></li>
+<li><code>ProjectileItem-&gt;getProjectileEntityType()</code></li>
+</ul>
+</li>
+<li>The following constants have been removed:<ul>
+<li><code>Potion::ALL</code> - use <code>PotionType::getAll()</code> instead</li>
+<li><code>Potion::WATER</code></li>
+<li><code>Potion::MUNDANE</code></li>
+<li><code>Potion::LONG_MUNDANE</code></li>
+<li><code>Potion::THICK</code></li>
+<li><code>Potion::AWKWARD</code></li>
+<li><code>Potion::NIGHT_VISION</code></li>
+<li><code>Potion::LONG_NIGHT_VISION</code></li>
+<li><code>Potion::INVISIBILITY</code></li>
+<li><code>Potion::LONG_INVISIBILITY</code></li>
+<li><code>Potion::LEAPING</code></li>
+<li><code>Potion::LONG_LEAPING</code></li>
+<li><code>Potion::STRONG_LEAPING</code></li>
+<li><code>Potion::FIRE_RESISTANCE</code></li>
+<li><code>Potion::LONG_FIRE_RESISTANCE</code></li>
+<li><code>Potion::SWIFTNESS</code></li>
+<li><code>Potion::LONG_SWIFTNESS</code></li>
+<li><code>Potion::STRONG_SWIFTNESS</code></li>
+<li><code>Potion::SLOWNESS</code></li>
+<li><code>Potion::LONG_SLOWNESS</code></li>
+<li><code>Potion::WATER_BREATHING</code></li>
+<li><code>Potion::LONG_WATER_BREATHING</code></li>
+<li><code>Potion::HEALING</code></li>
+<li><code>Potion::STRONG_HEALING</code></li>
+<li><code>Potion::HARMING</code></li>
+<li><code>Potion::STRONG_HARMING</code></li>
+<li><code>Potion::POISON</code></li>
+<li><code>Potion::LONG_POISON</code></li>
+<li><code>Potion::STRONG_POISON</code></li>
+<li><code>Potion::REGENERATION</code></li>
+<li><code>Potion::LONG_REGENERATION</code></li>
+<li><code>Potion::STRONG_REGENERATION</code></li>
+<li><code>Potion::STRENGTH</code></li>
+<li><code>Potion::LONG_STRENGTH</code></li>
+<li><code>Potion::STRONG_STRENGTH</code></li>
+<li><code>Potion::WEAKNESS</code></li>
+<li><code>Potion::LONG_WEAKNESS</code></li>
+<li><code>Potion::WITHER</code></li>
+</ul>
+</li>
+<li>The following methods have been renamed:<ul>
+<li><code>Item-&gt;getDamage()</code> -&gt; <code>Item-&gt;getMeta()</code></li>
+</ul>
+</li>
+<li>The following methods have been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\inventory\CreativeInventory</code>:<ul>
+<li><code>Item::addCreativeItem()</code> -&gt; <code>CreativeInventory::add()</code></li>
+<li><code>Item::clearCreativeItems()</code> -&gt; <code>CreativeInventory::clear()</code></li>
+<li><code>Item::getCreativeItemIndex()</code> -&gt; <code>CreativeInventory::getItemIndex()</code></li>
+<li><code>Item::getCreativeItems()</code> -&gt; <code>CreativeInventory::getAll()</code></li>
+<li><code>Item::initCreativeItems()</code> -&gt; <code>CreativeInventory::init()</code></li>
+<li><code>Item::isCreativeItem()</code> -&gt; <code>CreativeInventory::contains()</code></li>
+<li><code>Item::removeCreativeItem()</code> -&gt; <code>CreativeInventory::remove()</code></li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>ArmorTypeInfo</code></li>
+<li><code>Fertilizer</code></li>
+<li><code>LiquidBucket</code></li>
+<li><code>MilkBucket</code></li>
+<li><code>PotionType</code>: enum class containing information about vanilla potion types</li>
+<li><code>WritableBookBase</code></li>
+<li><code>WritableBookPage</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Armor-&gt;getArmorSlot()</code></li>
+<li><code>Item-&gt;canStackWith()</code>: returns whether the two items could be contained in the same inventory slot, ignoring count and stack size limits</li>
+<li><code>Potion-&gt;getType()</code>: returns a <code>PotionType</code> enum object containing information such as the applied effects</li>
+<li><code>ProjectileItem-&gt;createEntity()</code>: returns a new instance of the projectile entity that will be thrown</li>
+</ul>
+</li>
+<li>The following classes have been removed:<ul>
+<li><code>ChainBoots</code></li>
+<li><code>ChainChestplate</code></li>
+<li><code>ChainHelmet</code></li>
+<li><code>ChainLeggings</code></li>
+<li><code>DiamondBoots</code></li>
+<li><code>DiamondChestplate</code></li>
+<li><code>DiamondHelmet</code></li>
+<li><code>DiamondLeggings</code></li>
+<li><code>GoldBoots</code></li>
+<li><code>GoldChestplate</code></li>
+<li><code>GoldHelmet</code></li>
+<li><code>GoldLeggings</code></li>
+<li><code>IronBoots</code></li>
+<li><code>IronChesplate</code></li>
+<li><code>IronHelmet</code></li>
+<li><code>IronLeggings</code></li>
+<li><code>LeatherBoots</code></li>
+<li><code>LeatherCap</code></li>
+<li><code>LeatherPants</code></li>
+<li><code>LeatherTunic</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md691"></a>
+NBT handling</h3>
+<ul>
+<li>Serialized NBT byte array caches are no longer stored on itemstacks. These caches were a premature optimization used for network layer serialization and as such were dependent on the network NBT format.</li>
+<li>Internal NBT usage has been marginalized. It's no longer necessary <a class="el" href="protocolto-p.html">to</a> immediately write changes <a class="el" href="protocolto-p.html">to</a> NBT. The following hooks have been added:<ul>
+<li><code>Item-&gt;serializeCompoundTag()</code></li>
+<li><code>Item-&gt;deserializeCompoundTag()</code></li>
+</ul>
+</li>
+<li>It's planned <a class="el" href="protocolto-p.html">to</a> remove runtime NBT from items completely, but this currently presents unresolved backwards-compatibility problems.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md692"></a>
+Enchantment</h3>
+<ul>
+<li><code>VanillaEnchantments</code> class has been added. This exposes all vanilla enchantment types as static methods, replacing the old <code>Enchantment::get()</code> nastiness.<ul>
+<li>Example: <code>Enchantment::get(Enchantment::PROTECTION)</code> is replaced by <code>VanillaEnchantments::PROTECTION()</code></li>
+<li>These methods also provide proper type information <a class="el" href="protocolto-p.html">to</a> static analysers instead of just generic <code>Enchantment</code>, making them easier <a class="el" href="protocolto-p.html">to</a> code with.</li>
+</ul>
+</li>
+<li>The boundaries between MCPE enchantment IDs and PocketMine-MP internals are now more clear.<ul>
+<li>ID handling is moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\data\bedrock\EnchantmentIdMap</code>.</li>
+<li>All enchantment ID constants have been removed from <code>Enchantment</code>. <code>pocketmine\data\bedrock\EnchantmentIds</code> if you still need legacy effect IDs for some reason.</li>
+</ul>
+</li>
+<li><code>Enchantment::RARITY_*</code> constants were moved <a class="el" href="protocolto-p.html">to</a> <code>Rarity</code> class, and the <code>RARITY_</code> prefixes removed.</li>
+<li><code>Enchantment::SLOT_*</code> constants were moved <a class="el" href="protocolto-p.html">to</a> <code>ItemFlags</code> class, and the <code>SLOT_</code> prefixes removed.</li>
+<li>The following API methods have been moved:<ul>
+<li><code>Enchantment::registerEnchantment()</code> -&gt; <code>EnchantmentIdMap-&gt;register()</code></li>
+<li><code>Enchantment::getEnchantment()</code> -&gt; <code>EnchantmentIdMap-&gt;fromId()</code></li>
+<li><code>Enchantment-&gt;getId()</code> -&gt; <code>EnchantmentIdMap-&gt;toId()</code></li>
+<li><code>Enchantment::getEnchantmentByName()</code> -&gt; <code>VanillaEnchantments::fromString()</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Enchantment-&gt;getRuntimeId()</code>: this is a <b>dynamic ID</b> which can be used for enchantment type comparisons. <b>This cannot be stored, so don't use it in configs or NBT!</b></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md693"></a>
+Lang</h2>
+<ul>
+<li>The following classes have been renamed:<ul>
+<li><code>BaseLang</code> -&gt; <code>Language</code></li>
+<li><code>TranslationContainer</code> -&gt; <code>Translatable</code></li>
+</ul>
+</li>
+<li>The following classes have been removed:<ul>
+<li><code>TextContainer</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Translatable-&gt;format()</code>: allows adding formatting (such as color codes) <a class="el" href="protocolto-p.html">to</a> a translation</li>
+<li><code>Translatable-&gt;prefix()</code>: allows prefixing formatting</li>
+<li><code>Translatable-&gt;postfix()</code>: allows postfixing formatting</li>
+</ul>
+</li>
+<li>The following API methods have changed signatures:<ul>
+<li><code>Translatable-&gt;__construct()</code> now accepts <code>array&lt;int|string, Translatable|string&gt;</code> for parameters, instead of just <code>list&lt;string&gt;</code>.</li>
+<li><code>Translatable-&gt;getParameter()</code> now accepts <code>int|string</code> for the index instead of just <code>int</code>.</li>
+<li><code>Translatable-&gt;getParameter()</code> now returns <code>Translatable|string</code> instead of just <code>string</code>.</li>
+<li><code>Translatable-&gt;getParameters()</code> now returns <code>array&lt;int|string, Translatable|string&gt;</code>.</li>
+</ul>
+</li>
+<li><code>LanguageNotFoundException</code> has been added. This is thrown when trying <a class="el" href="protocolto-p.html">to</a> construct a <code>Language</code> which doesn't exist in the server files.</li>
+<li><code>Translatable</code> no longer discards keys for translation parameters. Previously, only the insertion order was considered.</li>
+<li><code>Translatable</code> now supports string keys for translation parameters.</li>
+<li><code>Translatable</code> now supports providing other <code>Translatable</code>s as translation parameters.</li>
+<li><code>Language-&gt;translateString()</code> now supports providing <code>Translatable</code>s as translation parameters.</li>
+<li><code>Language-&gt;translateString()</code> no longer automatically attempts <a class="el" href="protocolto-p.html">to</a> translate string parameters. If you want them <a class="el" href="protocolto-p.html">to</a> be translated, translate them explicitly. This fixes bugs where player chat messages containing translation keys would be unexpectedly translated.</li>
+<li><code>Language-&gt;translate()</code> no longer attempts <a class="el" href="protocolto-p.html">to</a> translate string parameters of <code>Translatable</code> (same rationale as previous point).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md694"></a>
+Network</h2>
+<ul>
+<li>The following fields have been removed:<ul>
+<li><code>Network::$BATCH_THRESHOLD</code></li>
+</ul>
+</li>
+<li>The following classes have been renamed:<ul>
+<li><code>SourceInterface</code> -&gt; <code>NetworkInterface</code></li>
+<li><code>AdvancedSourceInterface</code> -&gt; <code>AdvancedNetworkInterface</code></li>
+</ul>
+</li>
+<li>The following classes have been moved:<ul>
+<li><code>CompressBatchedTask</code> -&gt; <code>mcpe\CompressBatchTask</code></li>
+<li><code>level\format\io\ChunkRequestTask</code> -&gt; <code>mcpe\ChunkRequestTask</code></li>
+<li><code>mcpe\RakLibInterface</code> -&gt; <code>mcpe\raklib\RakLibInterface</code></li>
+</ul>
+</li>
+<li>The following classes have been removed:<ul>
+<li><code>mcpe\PlayerNetworkSessionAdapter</code></li>
+</ul>
+</li>
+<li>The following methods have been renamed:<ul>
+<li><code>UPnP::PortForward()</code> -&gt; <code>UPnP::portForward()</code></li>
+<li><code>UPnP::RemovePortForward()</code> -&gt; <code>UPnP::removePortForward()</code></li>
+</ul>
+</li>
+<li>The following methods have changed signatures:<ul>
+<li><code>UPnP::portForward()</code> now accepts <code>string $serviceURL, string $internalIP, int $internalPort, int $externalPort</code>.</li>
+<li><code>UPnP::removePortForward()</code> now accepts <code>string $serviceURL, int $externalPort</code>.</li>
+</ul>
+</li>
+<li>The following methods have been removed:<ul>
+<li><code>NetworkInterface-&gt;putPacket()</code></li>
+<li><code>NetworkInterface-&gt;close()</code></li>
+<li><code>NetworkInterface-&gt;emergencyShutdown()</code></li>
+</ul>
+</li>
+<li><code>NetworkInterface</code> now represents a more generic interface <a class="el" href="protocolto-p.html">to</a> be implemented by any network component, as opposed <a class="el" href="protocolto-p.html">to</a> specifically a player network interface.</li>
+<li>Everything under the <code>rcon</code> subnamespace has been removed.</li>
+<li><code>upnp\UPnP</code> has significant changes. It's now a network component instead of a pair of static methods.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md695"></a>
+Permission</h2>
+<ul>
+<li>The following new permission nodes have been introduced:<ul>
+<li><code>pocketmine.group.everyone</code>: granted <a class="el" href="protocolto-p.html">to</a> everyone by default</li>
+<li><code>pocketmine.group.operator</code>: granted <a class="el" href="protocolto-p.html">to</a> operator players and the console These permission nodes can be assigned and overridden by permission attachments just like any other, which means it's now possible <a class="el" href="protocolto-p.html">to</a> grant <b>temporary operator</b> status which goes away when the player disconnects (or the attachment is removed).</li>
+</ul>
+</li>
+<li>Permissions are now always false if they haven't been set explictly, or granted implicitly by another permission.</li>
+<li>Undefined permissions are now always <code>false</code> instead of following the value of <code>Permission::$DEFAULT_PERMISSION</code>.</li>
+<li>Permissions internally no longer have default values. Instead, they are now assigned as a child of one of the <code>pocketmine.group</code> permissions:<ul>
+<li><code>true</code>: add as child <a class="el" href="protocolto-p.html">to</a> <code>pocketmine.group.everyone</code> with value <code>true</code></li>
+<li><code>false</code>: do not add <a class="el" href="protocolto-p.html">to</a> any permission</li>
+<li><code>op</code>: add as child <a class="el" href="protocolto-p.html">to</a> <code>pocketmine.group.operator</code> with value <code>true</code></li>
+<li><code>notop</code>: add as child <a class="el" href="protocolto-p.html">to</a> <code>pocketmine.group.everyone</code> with value <code>true</code>, and <a class="el" href="protocolto-p.html">to</a> <code>pocketmine.group.operator</code> with value <code>false</code> However, the <code>default</code> key in <code>plugin.yml</code> permission definitions continues <a class="el" href="protocolto-p.html">to</a> be supported.</li>
+</ul>
+</li>
+<li>Added <code>PermissibleDelegateTrait</code> <a class="el" href="protocolto-p.html">to</a> reduce boilerplate for users of <code>PermissibleBase</code>. This trait is used by <code>ConsoleCommandSender</code> and <code>Player</code>.</li>
+<li>The following API methods have been moved:<ul>
+<li><code>Permission::getByName()</code> -&gt; <code>PermissionParser::defaultFromString()</code></li>
+<li><code>Permission::loadPermissions()</code> -&gt; <code>PermissionParser::loadPermissions()</code></li>
+<li><code>Permission::loadPermission()</code> -&gt; <code>PermissionParser::loadPermission()</code></li>
+</ul>
+</li>
+<li>The following constants have been moved:<ul>
+<li><code>Permission::DEFAULT_FALSE</code> -&gt; <code>PermissionParser::DEFAULT_FALSE</code></li>
+<li><code>Permission::DEFAULT_TRUE</code> -&gt; <code>PermissionParser::DEFAULT_TRUE</code></li>
+<li><code>Permission::DEFAULT_OP</code> -&gt; <code>PermissionParser::DEFAULT_OP</code></li>
+<li><code>Permission::DEFAULT_NOT_OP</code> -&gt; <code>PermissionParser::DEFAULT_NOT_OP</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Permission-&gt;addChild()</code></li>
+<li><code>Permission-&gt;removeChild()</code></li>
+<li><code>Permissible-&gt;getPermissionRecalculationCallbacks()</code> - allows reacting <a class="el" href="protocolto-p.html">to</a> changes of permissions, such as new permissions being granted or denied</li>
+<li><code>Permissible-&gt;setBasePermission()</code> - used for assigning root permissions like <code>pocketmine.group.operator</code>; plugins usually shouldn't use this</li>
+<li><code>Permissible-&gt;unsetBasePermission()</code></li>
+<li><code>PermissionAttachmentInfo-&gt;getGroupPermissionInfo()</code> - returns the <code>PermissionAttachmentInfo</code> of the permission that caused the current permission value <a class="el" href="protocolto-p.html">to</a> be set, or null if the permission is explicit</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Permissible-&gt;isOp()</code>: use <code>Permissible-&gt;hasPermission(DefaultPermissions::ROOT_OPERATOR)</code> instead, <b>but you really shouldn't directly depend on a player's op status, add your own permissions instead!</b></li>
+<li><code>Permissible-&gt;setOp()</code>: use <code>addAttachment($plugin, DefaultPermissions::ROOT_OPERATOR, true)</code> instead <a class="el" href="protocolto-p.html">to</a> add, and <code>removeAttachment()</code> <a class="el" href="protocolto-p.html">to</a> remove it (or addAttachment() with false <a class="el" href="protocolto-p.html">to</a> explicitly deny it, just like any other permission)</li>
+<li><code>Permission-&gt;addParent()</code></li>
+<li><code>Permission-&gt;getDefault()</code></li>
+<li><code>Permission-&gt;setDefault()</code></li>
+<li><code>PermissionManager-&gt;getDefaultPermissions()</code></li>
+<li><code>PermissionManager-&gt;recalculatePermissionDefaults()</code></li>
+<li><code>PermissionManager-&gt;subscribeToDefaultPerms()</code></li>
+<li><code>PermissionManager-&gt;unsubscribeFromDefaultPerms()</code></li>
+<li><code>PermissionManager-&gt;getDefaultPermSubscriptions()</code></li>
+<li><code>PermissionAttachment-&gt;getPermissible()</code></li>
+<li><code>PermissionAttachmentInfo-&gt;getPermissible()</code></li>
+</ul>
+</li>
+<li>The following fields have been removed:<ul>
+<li><code>Permission::$DEFAULT_PERMISSION</code></li>
+</ul>
+</li>
+<li>The following API methods have changes:<ul>
+<li><code>PermissionParser::defaultFromString()</code> now throws <code>InvalidArgumentException</code> on unknown values.</li>
+<li><code>Permission-&gt;__construct()</code> no longer accepts a <code>$defaultValue</code> parameter (see notes above about defaults refactor).you should add your permission as a child of <code>pocketmine.group.everyone</code> or <code>pocketmine.group.operator</code> instead).</li>
+</ul>
+</li>
+<li>The following classes have been removed:<ul>
+<li><code>ServerOperator</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md696"></a>
+Player</h2>
+<ul>
+<li>The following classes have moved <a class="el" href="protocolto-p.html">to</a> the new <code>pocketmine\player</code> namespace:<ul>
+<li><code>Achievement</code></li>
+<li><code>GameMode</code></li>
+<li><code>IPlayer</code></li>
+<li><code>OfflinePlayer</code></li>
+<li><code>PlayerInfo</code></li>
+<li><code>Player</code></li>
+</ul>
+</li>
+<li>The following constants have been removed:<ul>
+<li><code>Player::SURVIVAL</code> - use <code>GameMode::SURVIVAL()</code></li>
+<li><code>Player::CREATIVE</code> - use <code>GameMode::CREATIVE()</code></li>
+<li><code>Player::ADVENTURE</code> - use <code>GameMode::ADVENTURE()</code></li>
+<li><code>Player::SPECTATOR</code> - use <code>GameMode::SPECTATOR()</code></li>
+<li><code>Player::VIEW</code> - use <code>GameMode::SPECTATOR()</code></li>
+</ul>
+</li>
+<li>(almost) all packet handlers have been removed from <code>Player</code>. They are now encapsulated within the network layer.</li>
+<li><code>Player-&gt;getSpawn()</code> no longer returns the world's safe spawn if the player's spawn position isn't set. Returning the safe spawn at the time of call made no sense, because it might not have been safe when actually used. You should pass the result of this function <a class="el" href="protocolto-p.html">to</a> <code>World-&gt;getSafeSpawn()</code> <a class="el" href="protocolto-p.html">to</a> get a safe spawn position instead.</li>
+<li>The following API methods have been added:<ul>
+<li><code>Player-&gt;attackBlock()</code>: attack (left click) the target block, e.g. <a class="el" href="protocolto-p.html">to</a> start destroying it (survival)</li>
+<li><code>Player-&gt;attackEntity()</code>: melee-attack (left click) the target entity (if within range)</li>
+<li><code>Player-&gt;breakBlock()</code>: destroy the target block in the current world (immediately)</li>
+<li><code>Player-&gt;consumeHeldItem()</code>: consume the previously activated item, e.g. eating food</li>
+<li><code>Player-&gt;continueBreakBlock()</code>: punch the target block during destruction in survival, advancing break animation and creating particles</li>
+<li><code>Player-&gt;getItemCooldownExpiry()</code>: returns the tick on which the player's cooldown for a given item expires</li>
+<li><code>Player-&gt;hasFiniteResources()</code></li>
+<li><code>Player-&gt;interactBlock()</code>: interact (right click) the target block in the current world</li>
+<li><code>Player-&gt;interactEntity()</code>: interact (right click) the target entity, e.g. <a class="el" href="protocolto-p.html">to</a> apply a nametag (not implemented yet)</li>
+<li><code>Player-&gt;pickBlock()</code>: picks (mousewheel click) the target block in the current world</li>
+<li><code>Player-&gt;releaseHeldItem()</code>: release the previously activated item, e.g. shooting a bow</li>
+<li><code>Player-&gt;selectHotbarSlot()</code>: select the specified hotbar slot</li>
+<li><code>Player-&gt;stopBreakBlock()</code>: cease attacking a previously attacked block</li>
+<li><code>Player-&gt;toggleFlight()</code>: tries <a class="el" href="protocolto-p.html">to</a> start / stop flying (fires events, may be cancelled)</li>
+<li><code>Player-&gt;updateNextPosition()</code>: sets the player's next attempted move location (fires events, may be cancelled)</li>
+<li><code>Player-&gt;useHeldItem()</code>: activate the held item, e.g. throwing a snowball</li>
+<li><code>Player-&gt;getSaveData()</code>: returns save data generated on the fly</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Player-&gt;addActionBarMessage()</code>: replaced by <code>sendActionBarMessage()</code></li>
+<li><code>Player-&gt;addSubTitle()</code>: replaced by <code>sendSubTitle()</code></li>
+<li><code>Player-&gt;addTitle()</code>: replaced by <code>sendTitle()</code></li>
+<li><code>Player-&gt;getAddress()</code>: replaced by <code>NetworkSession-&gt;getIp()</code></li>
+<li><code>Player-&gt;getPing()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>NetworkSession</code></li>
+<li><code>Player-&gt;getPort()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>NetworkSession</code></li>
+<li><code>Player-&gt;updatePing()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>NetworkSession</code></li>
+<li><code>Player-&gt;dataPacket()</code>: replaced by <code>NetworkSession-&gt;sendDataPacket()</code></li>
+<li><code>Player-&gt;sendDataPacket()</code>: replaced by <code>NetworkSession-&gt;sendDataPacket()</code></li>
+<li><code>Player-&gt;updateNextPosition()</code>: use <code>Player-&gt;handleMovement()</code> instead</li>
+<li><code>IPlayer-&gt;isWhitelisted()</code>: use <code>Server-&gt;isWhitelisted()</code> instead</li>
+<li><code>IPlayer-&gt;setWhitelisted()</code>: use <code>Server-&gt;setWhitelisted()</code> instead</li>
+<li><code>IPlayer-&gt;isBanned()</code>: this was unreliable because it only checked name bans and didn't account for plugin custom ban systems. Use <code>Server-&gt;getNameBans()-&gt;isBanned()</code> and <code>Server-&gt;getIPBans()-&gt;isBanned()</code> instead.</li>
+<li><code>IPlayer-&gt;setBanned()</code>: use <code>Server</code> APIs instead</li>
+<li><code>IPlayer-&gt;isOp()</code>: use <code>Server</code> APIs instead</li>
+<li><code>IPlayer-&gt;setOp()</code>: use <code>Server</code> APIs instead</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md697"></a>
+Plugin</h2>
+<ul>
+<li>API version checks are now more strict. It is no longer legal <a class="el" href="protocolto-p.html">to</a> declare multiple minimum versions on the same major version. Doing so will now cause the plugin <a class="el" href="protocolto-p.html">to</a> fail <a class="el" href="protocolto-p.html">to</a> load with the message <code>Multiple minimum API versions found for some major versions</code>.</li>
+<li><code>plugin.yml</code> YAML commands loading is now internalized inside <code>PluginBase</code>.</li>
+<li><code>PluginManager-&gt;registerEvent()</code> now has a simpler signature: <code>registerEvent(string $event, \Closure $handler, int $priority, Plugin $plugin, bool $handleCancelled = false)</code>. The provided closure must accept the specified event class as its only parameter. See Event API changes for more details.</li>
+<li>The following classes have been removed:<ul>
+<li><code>PluginLogger</code></li>
+</ul>
+</li>
+<li>The following constants have been removed:<ul>
+<li><code>PluginLoadOrder::STARTUP</code> - use <code>PluginEnableOrder::STARTUP()</code></li>
+<li><code>PluginLoadOrder::POSTWORLD</code> - use <code>PluginEnableOrder::POSTWORLD()</code></li>
+</ul>
+</li>
+<li>The following interface requirements have been removed:<ul>
+<li><code>Plugin-&gt;onEnable()</code>: this is now internalized inside <code>PluginBase</code></li>
+<li><code>Plugin-&gt;onDisable()</code>: same as above</li>
+<li><code>Plugin-&gt;onLoad()</code>: same as above</li>
+<li><code>Plugin-&gt;getServer()</code> is no longer required <a class="el" href="protocolto-p.html">to</a> be implemented. It's implemented in <code>PluginBase</code> for convenience.</li>
+<li><code>Plugin-&gt;isDisabled()</code> was removed (use <code>Plugin-&gt;isEnabled()</code> instead).</li>
+<li><code>Plugin</code> no longer extends <code>CommandExecutor</code>. This means that <code>Plugin</code> implementations don't need <a class="el" href="protocolto-p.html">to</a> implement <code>onCommand()</code> anymore.</li>
+</ul>
+</li>
+<li>The following hook methods have changed visibility:<ul>
+<li><code>PluginBase-&gt;onEnable()</code> changed from <code>public</code> <a class="el" href="protocolto-p.html">to</a> <code>protected</code></li>
+<li><code>PluginBase-&gt;onDisable()</code> changed from <code>public</code> <a class="el" href="protocolto-p.html">to</a> <code>protected</code></li>
+<li><code>PluginBase-&gt;onLoad()</code> changed from <code>public</code> <a class="el" href="protocolto-p.html">to</a> <code>protected</code></li>
+</ul>
+</li>
+<li>The following hook methods have been renamed:<ul>
+<li><code>Plugin-&gt;setEnabled()</code> -&gt; <code>Plugin-&gt;onEnableStateChange()</code>. This change was made <a class="el" href="protocolto-p.html">to</a> force plugin developers misusing this hook <a class="el" href="protocolto-p.html">to</a> stop, and <a class="el" href="protocolto-p.html">to</a> give it a name that better describes what it does.</li>
+</ul>
+</li>
+<li>The following (deprecated) API methods have been removed:<ul>
+<li><code>PluginManager-&gt;callEvent()</code>: use <code>Event-&gt;call()</code> instead</li>
+<li><code>PluginManager-&gt;addPermission()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;getDefaultPermSubscriptions()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;getDefaultPermissions()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;getPermission()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;getPermissionSubscriptions()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;getPermissions()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;recalculatePermissionDefaults()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;removePermission()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;subscribeToDefaultPerms()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;subscribeToPermission()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;unsubscribeFromDefaultPerms()</code>: use <code>PermissionManager</code> instead</li>
+<li><code>PluginManager-&gt;unsubscribeFromPermission()</code>: use <code>PermissionManager</code> instead</li>
+</ul>
+</li>
+<li>It is no longer permitted <a class="el" href="protocolto-p.html">to</a> throw exceptions from <code>PluginBase-&gt;onEnable()</code> or <code>PluginBase-&gt;onLoad()</code>. Doing so will now cause the server <a class="el" href="protocolto-p.html">to</a> crash.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md698"></a>
+Scheduler</h2>
+<h3><a class="anchor" id="autotoc_md699"></a>
+Thread-local storage for AsyncTasks</h3>
+<ul>
+<li>TLS has been completely rewritten in this release <a class="el" href="protocolto-p.html">to</a> be self contained, more robust and easier <a class="el" href="protocolto-p.html">to</a> use.</li>
+<li>Now behaves more like simple properties. <code>storeLocal()</code> writes, <code>fetchLocal()</code> reads.</li>
+<li>Self-contained and doesn't depend on the async pool <a class="el" href="protocolto-p.html">to</a> clean up after it.</li>
+<li>Values are automatically removed from storage when the <code>AsyncTask</code> is garbage-collected, just like a regular property.</li>
+<li>Supports storing multiple values, differentiated by string names.</li>
+<li><code>fetchLocal()</code> can now be used multiple times. It no longer deletes the stored value.</li>
+<li>The following classes have been removed:<ul>
+<li><code>FileWriteTask</code></li>
+</ul>
+</li>
+<li>The following methods have been removed:<ul>
+<li><code>AsyncTask-&gt;peekLocal()</code>: use <code>fetchLocal()</code> instead</li>
+</ul>
+</li>
+<li>The following methods have signature changes:<ul>
+<li><code>AsyncTask-&gt;storeLocal()</code> now has the signature <code>storeLocal(string $key, mixed $complexData) : void</code></li>
+<li><code>AsyncTask-&gt;fetchLocal()</code> now has the signature <code>fetchLocal(string $key) : mixed</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md700"></a>
+Other changes</h3>
+<ul>
+<li><code>AsyncPool</code> uses a new, significantly more performant algorithm for task collection.</li>
+<li><code>BulkCurlTask</code> has had the <code>$complexData</code> constructor parameter removed.</li>
+<li><code>BulkCurlTask-&gt;__construct()</code> now accepts <code>BulkCurlTaskOperation[]</code> instead of <code>mixed[]</code>.</li>
+<li>Added <code>CancelTaskException</code>, which can be thrown from <code>Task::onRun()</code> <a class="el" href="protocolto-p.html">to</a> cancel a task (especially useful for <code>ClosureTask</code>).</li>
+<li><code>pocketmine\Collectable</code> has been removed, and is no longer extended by <code>AsyncTask</code>.</li>
+<li>The following hooks have been added:<ul>
+<li><code>AsyncTask-&gt;onError()</code>: called on the main thread when an uncontrolled error was detected in the async task, such as a memory failure</li>
+</ul>
+</li>
+<li>The following hooks have signature changes:<ul>
+<li><code>AsyncTask-&gt;onCompletion()</code> no longer accepts a <code>Server</code> parameter, and has a <code>void</code> return type.</li>
+<li><code>AsyncTask-&gt;onProgressUpdate()</code> no longer accepts a <code>Server</code> parameter, and has a <code>void</code> return type.</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>AsyncTask-&gt;getFromThreadStore()</code>: use <code>AsyncTask-&gt;worker-&gt;getFromThreadStore()</code></li>
+<li><code>AsyncTask-&gt;removeFromThreadStore()</code>: use <code>AsyncTask-&gt;worker-&gt;removeFromThreadStore()</code></li>
+<li><code>AsyncTask-&gt;saveToThreadStore()</code>: use <code>AsyncTask-&gt;worker-&gt;saveToThreadStore()</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md701"></a>
+Server</h2>
+<ul>
+<li>New chat broadcasting APIs have been implemented, which don't depend on the permission system.<ul>
+<li>The following API methods have been added:<ul>
+<li><code>subscribeToBroadcastChannel()</code> - allows subscribing a <code>CommandSender</code> <a class="el" href="protocolto-p.html">to</a> receive chat messages (and other message types) on any channel</li>
+<li><code>unsubscribeFromBroadcastChannel()</code></li>
+<li><code>unsubscribeFromAllBroadcastChannels()</code></li>
+<li><code>getBroadcastChannelSubscribers()</code></li>
+</ul>
+</li>
+<li>Giving <code>Player</code> any <code>pocketmine.broadcast.*</code> permissions will cause them <a class="el" href="protocolto-p.html">to</a> automatically subscribe <a class="el" href="protocolto-p.html">to</a> the corresponding broadcast channel (and removing them will unsubscribe it).</li>
+<li>It's now possible <a class="el" href="protocolto-p.html">to</a> create and subscribe <a class="el" href="protocolto-p.html">to</a> custom broadcast channels without using permissions.</li>
+<li>However, <code>Player</code>s may automatically unsubscribe themselves from the builtin broadcast channels if they don't have the proper permissions.</li>
+<li>Automatic subscribe/unsubscribe from custom broadcast channels can be implemented using the new <code>Permissible</code> permission recalculation callbacks API.</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>reloadWhitelist()</code></li>
+<li><code>getLevelMetadata()</code></li>
+<li><code>getPlayerMetadata()</code></li>
+<li><code>getEntityMetadata()</code></li>
+<li><code>getDefaultGamemode()</code></li>
+<li><code>getLoggedInPlayers()</code></li>
+<li><code>onPlayerLogout()</code></li>
+<li><code>addPlayer()</code></li>
+<li><code>removePlayer()</code></li>
+<li><code>reload()</code></li>
+<li><code>getSpawnRadius()</code></li>
+<li><code>enablePlugin()</code></li>
+<li><code>disablePlugin()</code></li>
+<li><code>getGamemodeString()</code> - replaced by <code>pocketmine\player\GameMode-&gt;getTranslationKey()</code></li>
+<li><code>getGamemodeName()</code> - replaced by <code>pocketmine\player\GameMode-&gt;name()</code></li>
+<li><code>getGamemodeFromString()</code> - replaced by <code>GameMode::fromString()</code></li>
+<li><code>broadcast()</code> - use <code>broadcastMessage()</code> instead</li>
+</ul>
+</li>
+<li>The following API methods have changed:<ul>
+<li><code>getOfflinePlayerData()</code> no longer creates data when it doesn't exist.</li>
+</ul>
+</li>
+<li>The following API methods have been renamed:<ul>
+<li><code>getPlayer()</code> -&gt; <code>getPlayerByPrefix()</code> (consider using <code>getPlayerExact()</code> instead where possible)</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md702"></a>
+Level / World</h2>
+<h3><a class="anchor" id="autotoc_md703"></a>
+General</h3>
+<ul>
+<li>All references <a class="el" href="protocolto-p.html">to</a> <code>Level</code> in the context of "world" have been changed <a class="el" href="protocolto-p.html">to</a> <code>World</code>.<ul>
+<li>The <code>pocketmine\level</code> namespace has been renamed <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\world</code></li>
+<li>All classes containing the world <code>Level</code> in the name in the "world" context have been changed <a class="el" href="protocolto-p.html">to</a> <code>World</code>.</li>
+<li><code>Position-&gt;getLevel()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>Position-&gt;getWorld()</code>, and <code>Position-&gt;level</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>Position-&gt;world</code>.</li>
+</ul>
+</li>
+<li>Extracted a <code>WorldManager</code> unit from <code>Server</code><ul>
+<li><code>Server-&gt;findEntity()</code> -&gt; <code>WorldManager-&gt;findEntity()</code></li>
+<li><code>Server-&gt;generateLevel()</code> -&gt; <code>WorldManager-&gt;generateWorld()</code></li>
+<li><code>Server-&gt;getAutoSave()</code> -&gt; <code>WorldManager-&gt;getAutoSave()</code></li>
+<li><code>Server-&gt;getDefaultLevel()</code> -&gt; <code>WorldManager-&gt;getDefaultWorld()</code></li>
+<li><code>Server-&gt;getLevel()</code> -&gt; <code>WorldManager-&gt;getWorld()</code></li>
+<li><code>Server-&gt;getLevelByName()</code> -&gt; <code>WorldManager-&gt;getWorldByName()</code></li>
+<li><code>Server-&gt;getLevels()</code> -&gt; <code>WorldManager-&gt;getWorlds()</code></li>
+<li><code>Server-&gt;isLevelGenerated()</code> -&gt; <code>WorldManager-&gt;isWorldGenerated()</code></li>
+<li><code>Server-&gt;isLevelLoaded()</code> -&gt; <code>WorldManager-&gt;isWorldLoaded()</code></li>
+<li><code>Server-&gt;loadLevel()</code> -&gt; <code>WorldManager-&gt;loadWorld()</code><ul>
+<li><code>WorldManager-&gt;loadWorld()</code> may convert worlds if requested (the <code>$autoUpgrade</code> parameter must be provided).</li>
+</ul>
+</li>
+<li><code>Server-&gt;setAutoSave()</code> -&gt; <code>WorldManager-&gt;setAutoSave()</code></li>
+<li><code>Server-&gt;setDefaultLevel()</code> -&gt; <code>WorldManager-&gt;setDefaultWorld()</code></li>
+<li><code>Server-&gt;unloadLevel()</code> -&gt; <code>WorldManager-&gt;unloadWorld()</code></li>
+</ul>
+</li>
+<li>Added <code>WorldManager-&gt;getAutoSaveTicks()</code> and <code>WorldManager-&gt;setAutoSaveTicks()</code> <a class="el" href="protocolto-p.html">to</a> allow controlling the autosave interval.</li>
+<li>The following classes have been added:<ul>
+<li><code>BlockTransaction</code>: allows creating batch commits of block changes with validation conditions - if any block can't be applied, the whole transaction fails <a class="el" href="protocolto-p.html">to</a> apply.</li>
+<li><code>ChunkListenerNoOpTrait</code>: contains default no-op stubs for chunk listener implementations</li>
+<li><code>ChunkListener</code>: interface allowing subscribing <a class="el" href="protocolto-p.html">to</a> events happening on a given chunk</li>
+<li><code>TickingChunkLoader</code>: a <code>ChunkLoader</code> specialization that allows ticking chunks</li>
+</ul>
+</li>
+<li><code>ChunkLoader</code> no longer requires implementing <code>getX()</code> and <code>getZ()</code>.</li>
+<li><code>ChunkLoader</code> no longer causes chunks <a class="el" href="protocolto-p.html">to</a> get random updates. If this behaviour is needed, implement <code>TickingChunkLoader</code>.</li>
+<li>The following classes have been renamed:<ul>
+<li><code>pocketmine\world\utils\SubChunkIteratorManager</code> -&gt; <code>pocketmine\world\utils\SubChunkExplorer</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>World-&gt;registerChunkListener()</code></li>
+<li><code>World-&gt;unregisterChunkListener()</code></li>
+<li><code>World-&gt;getBlockAt()</code> (accepts int x/y/z instead of Vector3, faster for some use cases)</li>
+<li><code>World-&gt;setBlockAt()</code> (accepts int x/y/z instead of Vector3, faster for some use cases)</li>
+<li><code>Chunk-&gt;isDirty()</code> (replacement for <code>Chunk-&gt;hasChanged()</code>)</li>
+<li><code>Chunk-&gt;getDirtyFlag()</code> (more granular component-based chunk dirty-flagging, used <a class="el" href="protocolto-p.html">to</a> avoid saving unmodified parts of the chunk)</li>
+<li><code>Chunk-&gt;setDirty()</code></li>
+<li><code>Chunk-&gt;setDirtyFlag()</code></li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>ChunkLoader-&gt;getLoaderId()</code> (now object ID is used)</li>
+<li><code>ChunkLoader-&gt;isLoaderActive()</code></li>
+<li><code>ChunkLoader-&gt;getPosition()</code></li>
+<li><code>ChunkLoader-&gt;getLevel()</code></li>
+<li><code>Chunk-&gt;fastSerialize()</code> (use <code>FastChunkSerializer::serialize()</code> instead)</li>
+<li><code>Chunk-&gt;getBlockData()</code></li>
+<li><code>Chunk-&gt;getBlockDataColumn()</code></li>
+<li><code>Chunk-&gt;getBlockId()</code></li>
+<li><code>Chunk-&gt;getBlockIdColumn()</code></li>
+<li><code>Chunk-&gt;getBlockLight()</code></li>
+<li><code>Chunk-&gt;getBlockLightColumn()</code></li>
+<li><code>Chunk-&gt;getBlockSkyLight()</code></li>
+<li><code>Chunk-&gt;getBlockSkyLightColumn()</code></li>
+<li><code>Chunk-&gt;getMaxY()</code></li>
+<li><code>Chunk-&gt;getSubChunkSendCount()</code> (this was specialized for protocol usage)</li>
+<li><code>Chunk-&gt;getX()</code></li>
+<li><code>Chunk-&gt;getZ()</code></li>
+<li><code>Chunk-&gt;hasChanged()</code> (use <code>Chunk-&gt;isDirty()</code> or <code>Chunk-&gt;getDirtyFlag()</code> instead)</li>
+<li><code>Chunk-&gt;isGenerated()</code></li>
+<li><code>Chunk-&gt;networkSerialize()</code> (see <code>ChunkSerializer</code> in the <code>network\mcpe\serializer</code> package)</li>
+<li><code>Chunk-&gt;populateSkyLight()</code> (use <code>SkyLightUpdate-&gt;recalculateChunk()</code> instead)</li>
+<li><code>Chunk-&gt;recalculateHeightMap()</code> (moved <a class="el" href="protocolto-p.html">to</a> <code>SkyLightUpdate</code>)</li>
+<li><code>Chunk-&gt;recalculateHeightMapColumn()</code> (moved <a class="el" href="protocolto-p.html">to</a> <code>SkyLightUpdate</code>)</li>
+<li><code>Chunk-&gt;setAllBlockLight()</code></li>
+<li><code>Chunk-&gt;setAllBlockSkyLight()</code></li>
+<li><code>Chunk-&gt;setBlock()</code></li>
+<li><code>Chunk-&gt;setBlockData()</code></li>
+<li><code>Chunk-&gt;setBlockId()</code></li>
+<li><code>Chunk-&gt;setBlockLight()</code></li>
+<li><code>Chunk-&gt;setBlockSkyLight()</code></li>
+<li><code>Chunk-&gt;setChanged()</code> (use <code>Chunk-&gt;setDirty()</code> or <code>Chunk-&gt;setDirtyFlag()</code> instead)</li>
+<li><code>Chunk-&gt;setGenerated()</code></li>
+<li><code>Chunk-&gt;setX()</code></li>
+<li><code>Chunk-&gt;setZ()</code></li>
+<li><code>Chunk::fastDeserialize()</code> (use <code>FastChunkSerializer::deserialize()</code> instead)</li>
+<li><code>World-&gt;isFullBlock()</code></li>
+<li><code>World-&gt;getFullBlock()</code></li>
+<li><code>World-&gt;getBlockIdAt()</code></li>
+<li><code>World-&gt;setBlockIdAt()</code></li>
+<li><code>World-&gt;getBlockDataAt()</code></li>
+<li><code>World-&gt;setBlockDataAt()</code></li>
+<li><code>World-&gt;setBlockLightAt()</code></li>
+<li><code>World-&gt;setBlockSkyLightAt()</code></li>
+<li><code>World-&gt;getBlockSkyLightAt()</code> (use <code>World-&gt;getRealBlockSkyLightAt()</code> or <code>World-&gt;getPotentialBlockSkyLightAt()</code>, depending on use-case)</li>
+<li><code>World-&gt;getHeightMap()</code> (misleading name, only actually useful for sky light calculation - you probably want <code>getHighestBlockAt()</code> instead)</li>
+<li><code>World-&gt;setHeightMap()</code> (misleading name, only actually useful for sky light calculation)</li>
+<li><code>World-&gt;getChunkEntities()</code></li>
+<li><code>World-&gt;getChunkTiles()</code></li>
+<li><code>World-&gt;getTileById()</code></li>
+<li><code>World-&gt;checkSpawnProtection()</code></li>
+<li><code>World-&gt;updateBlockLight()</code></li>
+<li><code>World-&gt;updateSkyLight()</code></li>
+<li><code>World-&gt;isFullBlock()</code> (use <code>Block-&gt;isFullCube()</code> instead)</li>
+<li><code>World-&gt;sendBlocks()</code></li>
+<li><code>World-&gt;sendTime()</code></li>
+<li><code>World-&gt;addGlobalPacket()</code></li>
+<li><code>World-&gt;broadcastGlobalPacket()</code></li>
+<li><code>World-&gt;addChunkPacket()</code></li>
+<li><code>World-&gt;broadcastLevelSoundEvent()</code></li>
+<li><code>World-&gt;broadcastLevelEvent()</code></li>
+<li><code>World-&gt;getTickRate()</code></li>
+<li><code>World-&gt;setTickRate()</code></li>
+<li><code>World::generateChunkLoaderId()</code></li>
+</ul>
+</li>
+<li>The following API methods have changed signatures:<ul>
+<li><code>World-&gt;addParticle()</code> now has the signature <code>addParticle(Vector3 $pos, Particle $particle, ?Player[] $players = null) : void</code></li>
+<li><code>World-&gt;addSound()</code> now has the signature <code>addSound(?Vector3 $pos, Sound $sound, ?Player[] $players = null) : void</code></li>
+<li><code>World-&gt;getRandomTickedBlocks()</code> now returns <code>bool[]</code> instead of <code>SplFixedArray</code>.</li>
+<li><code>World-&gt;addRandomTickedBlock()</code> now accepts <code>Block</code> instead of <code>int, int</code>.</li>
+<li><code>World-&gt;removeRandomTickedBlock()</code> now accepts <code>Block</code> instead of <code>int, int</code>.</li>
+<li><code>World-&gt;setBlock()</code> has had the <code>$direct</code> parameter removed.</li>
+<li><code>World-&gt;loadChunk()</code> now returns <code>?Chunk</code>, and the <code>$create</code> parameter has been removed.</li>
+<li><code>World-&gt;getChunk()</code> no longer accepts a <code>$create</code> parameter.</li>
+<li><code>World-&gt;updateAllLight()</code> now accepts <code>int, int, int</code> instead of <code>Vector3</code>.</li>
+<li><code>ChunkManager-&gt;setChunk()</code> (and its notable implementations in <code>World</code> and <code>SimpleChunkManager</code>) no longer accepts NULL for the <code>$chunk</code> parameter.</li>
+<li><code>Chunk-&gt;__construct()</code> now has the signature <code>array&lt;int, SubChunk&gt; $subChunks, ?list&lt;CompoundTag&gt; $entities, ?list&lt;CompoundTag&gt; $tiles, ?BiomeArray $biomeArray, ?HeightArray $heightArray</code>.</li>
+<li><code>Chunk-&gt;getSubChunk()</code> now returns <code>SubChunk</code> instead of <code>SubChunkInterface|null</code> (and throws <code>InvalidArgumentException</code> on out-of-bounds coordinates).</li>
+<li><code>Chunk-&gt;setSubChunk()</code> no longer accepts <code>SubChunkInterface</code>, and the <code>$allowEmpty</code> parameter has been removed.</li>
+<li><code>WorldManager-&gt;generateWorld()</code> (previously <code>Server-&gt;generateWorld()</code>) now accepts <code>WorldCreationOptions</code> instead of <code>int $seed, class-string&lt;Generator&gt; $generator, mixed[] $options</code>.</li>
+</ul>
+</li>
+<li>The following API methods have been renamed / moved:<ul>
+<li><code>Level-&gt;getChunks()</code> -&gt; <code>World-&gt;getLoadedChunks()</code></li>
+<li><code>Level-&gt;getCollisionCubes()</code> -&gt; <code>World-&gt;getCollisionBoxes()</code></li>
+<li><code>World-&gt;getName()</code> -&gt; <code>World-&gt;getDisplayName()</code></li>
+<li><code>World-&gt;populateChunk()</code> has been split into <code>World-&gt;requestChunkPopulation()</code> and <code>World-&gt;orderChunkPopulation()</code>.</li>
+</ul>
+</li>
+<li>The following API methods have changed behaviour:<ul>
+<li><code>World-&gt;getChunk()</code> no longer tries <a class="el" href="protocolto-p.html">to</a> load chunks from disk. If the chunk is not already in memory, null is returned. (This behaviour now properly matches other <code>ChunkManager</code> implementations.)</li>
+<li><code>World-&gt;getHighestBlockAt()</code> now returns <code>null</code> instead of <code>-1</code> if the target X/Z column contains no blocks.</li>
+<li>The following methods now throw <code>WorldException</code> when targeting ungenerated terrain:<ul>
+<li><code>World-&gt;getSafeSpawn()</code> (previously it just silently returned the input position)</li>
+<li><code>World-&gt;getHighestBlockAt()</code> (previously it returned -1)</li>
+</ul>
+</li>
+<li><code>World-&gt;loadChunk()</code> no longer creates an empty chunk when the target chunk doesn't exist on disk.</li>
+<li><code>World-&gt;setChunk()</code> now fires <code>ChunkLoadEvent</code> and <code>ChunkListener-&gt;onChunkLoaded()</code> when replacing a chunk that didn't previously exist.</li>
+<li><code>World-&gt;useBreakOn()</code> now returns <code>false</code> when the target position is in an ungenerated or unloaded chunk (or chunk locked for generation).</li>
+<li><code>World-&gt;useItemOn()</code> now returns <code>false</code> when the target position is in an ungenerated or unloaded chunk (or chunk locked for generation).</li>
+</ul>
+</li>
+<li>A <code>ChunkListener</code> interface has been extracted from <code>ChunkLoader</code>. The following methods have been moved:<ul>
+<li><code>ChunkLoader-&gt;onBlockChanged()</code> -&gt; <code>ChunkListener-&gt;onBlockChanged()</code></li>
+<li><code>ChunkLoader-&gt;onChunkChanged()</code> -&gt; <code>ChunkListener-&gt;onChunkChanged()</code></li>
+<li><code>ChunkLoader-&gt;onChunkLoaded()</code> -&gt; <code>ChunkListener-&gt;onChunkLoaded()</code></li>
+<li><code>ChunkLoader-&gt;onChunkPopulated()</code> -&gt; <code>ChunkListener-&gt;onChunkPopulated()</code></li>
+<li><code>ChunkLoader-&gt;onChunkUnloaded()</code> -&gt; <code>ChunkListener-&gt;onChunkUnloaded()</code></li>
+</ul>
+</li>
+<li><code>Location</code> has been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\entity\Location</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md704"></a>
+Particles</h3>
+<ul>
+<li><code>DestroyBlockParticle</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>BlockBreakParticle</code> for consistency.</li>
+<li><code>DustParticle-&gt;__construct()</code> now accepts a <code>pocketmine\color\Color</code> object instead of <code>r, g, b, a</code>.</li>
+<li><code>pocketmine\world\particle\Particle</code> no longer extends <code>pocketmine\math\Vector3</code>, and has been converted <a class="el" href="protocolto-p.html">to</a> an interface.</li>
+<li>Added the following <code>Particle</code> classes:<ul>
+<li><code>DragonEggTeleportParticle</code></li>
+<li><code>PunchBlockParticle</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md705"></a>
+Sounds</h3>
+<ul>
+<li><code>pocketmine\world\sound\Sound</code> no longer extends <code>pocketmine\math\Vector3</code>, and has been converted <a class="el" href="protocolto-p.html">to</a> an interface.</li>
+<li><code>Sound-&gt;encode()</code> now accepts <code>?\pocketmine\math\Vector3</code>. <code>NULL</code> may be passed for sounds which are global.</li>
+<li>Added the following classes:<ul>
+<li><code>ArrowHitSound</code></li>
+<li><code>BlockBreakSound</code></li>
+<li><code>BlockPlaceSound</code></li>
+<li><code>BowShootSound</code></li>
+<li><code>BucketEmptyLavaSound</code></li>
+<li><code>BucketEmptyWaterSound</code></li>
+<li><code>BucketFillLavaSound</code></li>
+<li><code>BucketFillWaterSound</code></li>
+<li><code>ChestCloseSound</code></li>
+<li><code>ChestOpenSound</code></li>
+<li><code>EnderChestCloseSound</code></li>
+<li><code>EnderChestOpenSound</code></li>
+<li><code>ExplodeSound</code></li>
+<li><code>FlintSteelSound</code></li>
+<li><code>ItemBreakSound</code></li>
+<li><code>NoteInstrument</code></li>
+<li><code>NoteSound</code></li>
+<li><code>PaintingPlaceSound</code></li>
+<li><code>PotionSplashSound</code></li>
+<li><code>RedstonePowerOffSound</code></li>
+<li><code>RedstonePowerOnSound</code></li>
+<li><code>ThrowSound</code></li>
+<li><code>XpCollectSound</code></li>
+<li><code>XpLevelUpSound</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md706"></a>
+Utils</h2>
+<ul>
+<li>The <code>Color</code> class was removed. It's now found as <code>pocketmine\color\Color</code> in the <a href="https://github.com/pmmp/Color"><code>pocketmine/color</code></a> package.</li>
+<li>The <code>UUID</code> class was removed. <a href="https://github.com/ramsey/uuid"><code>ramsey/uuid</code></a> version 4.1 is now used instead.<ul>
+<li><code>UUID::fromData()</code> can be replaced by <code>Ramsey\Uuid\Uuid::uuid3()</code></li>
+<li><code>UUID::fromRandom()</code> can be replaced by <code>Ramsey\Uuid\Uuid::uuid4()</code></li>
+<li><code>UUID::fromBinary()</code> can be replaced by <code>Ramsey\Uuid\Uuid::fromBytes()</code> (use <code>Ramsey\Uuid\Uuid::isValid()</code> <a class="el" href="protocolto-p.html">to</a> check validity)</li>
+<li><code>UUID::toBinary()</code> is replaced by <code>Ramsey\Uuid\UuidInterface::getBytes()</code></li>
+<li>See the documentation at <a href="https://uuid.ramsey.dev/en/latest/introduction.html">https://uuid.ramsey.dev/en/latest/introduction.html</a> for more information.</li>
+</ul>
+</li>
+<li><code>Terminal::hasFormattingCodes()</code> no longer auto-detects the availability of formatting codes. Instead it's necessary <a class="el" href="protocolto-p.html">to</a> use <code>Terminal::init()</code> with no parameters <a class="el" href="protocolto-p.html">to</a> initialize, or <code>true</code> or <code>false</code> <a class="el" href="protocolto-p.html">to</a> override.</li>
+<li><code>Config-&gt;save()</code> no longer catches exceptions thrown during emitting <a class="el" href="protocolto-p.html">to</a> disk.</li>
+<li>The following new classes have been added:<ul>
+<li><code>InternetException</code></li>
+<li><code>Internet</code></li>
+<li><code>Process</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>Config-&gt;getPath()</code>: returns the path <a class="el" href="protocolto-p.html">to</a> the config on disk</li>
+<li><code>Terminal::write()</code>: emits a Minecraft-formatted text line without newline</li>
+<li><code>Terminal::writeLine()</code>: emits a Minecraft-formatted text line with newline</li>
+<li><code>Utils::recursiveUnlink()</code>: recursively deletes a directory and its contents</li>
+</ul>
+</li>
+<li>The following API class constants have been added:<ul>
+<li><code>TextFormat::COLORS</code>: lists all known color codes</li>
+<li><code>TextFormat::FORMATS</code>: lists all known formatting codes (e.g. italic, bold). (<code>RESET</code> is not included because it <em>removes</em> formats, rather than adding them.)</li>
+</ul>
+</li>
+<li>The following deprecated API redirects have been removed:<ul>
+<li><code>Utils::execute()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Process</code></li>
+<li><code>Utils::getIP()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Internet</code></li>
+<li><code>Utils::getMemoryUsage()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Process</code></li>
+<li><code>Utils::getRealMemoryUsage()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Process</code></li>
+<li><code>Utils::getThreadCount()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Process</code></li>
+<li><code>Utils::getURL()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Internet</code></li>
+<li><code>Utils::kill()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Process</code></li>
+<li><code>Utils::postURL()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Internet</code></li>
+<li><code>Utils::simpleCurl()</code>: moved <a class="el" href="protocolto-p.html">to</a> <code>Internet</code></li>
+</ul>
+</li>
+<li>The following API fields have been removed / hidden:<ul>
+<li><code>Utils::$ip</code></li>
+<li><code>Utils::$online</code></li>
+<li><code>Utils::$os</code></li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>Internet::simpleCurl()</code> now requires a <code>Closure</code> for its <code>onSuccess</code> parameter instead of <code>callable</code>.</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>TextFormat::toJSON()</code></li>
+<li><code>Utils::getCallableIdentifier()</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md707"></a>
+Gameplay</h1>
+<h2><a class="anchor" id="autotoc_md708"></a>
+Blocks</h2>
+<ul>
+<li>Implemented the following blocks:<ul>
+<li>bamboo</li>
+<li>bamboo sapling</li>
+<li>barrel</li>
+<li>barrier</li>
+<li>blast furnace</li>
+<li>blue ice</li>
+<li>carved pumpkin</li>
+<li>coral block</li>
+<li>daylight sensor</li>
+<li>dried kelp</li>
+<li>elements (from Minecraft: Education Edition)</li>
+<li>hard (stained and unstained) glass (from Minecraft: Education Edition)</li>
+<li>hard (stained and unstained) glass pane (from Minecraft: Education Edition)</li>
+<li>jukebox</li>
+<li>note block</li>
+<li>red, green, blue and purple torches (from Minecraft: Education Edition)</li>
+<li>sea pickle</li>
+<li>slime</li>
+<li>smoker</li>
+<li>underwater torches (from Minecraft: Education Edition)</li>
+<li>additional wood variants of the following:<ul>
+<li>buttons</li>
+<li>pressure plates</li>
+<li>signs</li>
+<li>trapdoors</li>
+</ul>
+</li>
+<li>stairs of the following materials:<ul>
+<li>andesite (smooth and natural)</li>
+<li>diorite (smooth and natural)</li>
+<li>end stone</li>
+<li>end stone brick</li>
+<li>granite (smooth and natural)</li>
+<li>mossy cobblestone</li>
+<li>prismarine (natural, dark and bricks)</li>
+<li>red nether brick</li>
+<li>red sandstone (and variants)</li>
+</ul>
+</li>
+<li>stone-like slabs of many variants</li>
+</ul>
+</li>
+<li>Non-player entities now bounce when falling on beds.</li>
+<li>Players and mobs now receive reduced fall damage when falling on beds.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md709"></a>
+Items</h2>
+<ul>
+<li>Implemented the following items:<ul>
+<li>records</li>
+<li>compounds (from Minecraft: Education Edition)</li>
+<li>black, brown, blue and white dyes</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md710"></a>
+Inventory</h2>
+<ul>
+<li>Implemented offhand inventory.</li>
+<li>Block-picking is now supported in survival mode.</li>
+<li>Block picking behaviour now matches vanilla (no longer overwrites held item, jumps <a class="el" href="protocolto-p.html">to</a> existing item where possible).</li>
+<li>Armor can now be equipped by right-clicking while holding it.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md711"></a>
+4.0.0-BETA2</h1>
+<p>Released 10th September 2021.</p>
+<h2><a class="anchor" id="autotoc_md712"></a>
+General</h2>
+<ul>
+<li>ext-chunkutils 0.3.x is now required.</li>
+<li>Reduced memory usage of light storage after garbage collection.</li>
+<li>Reduced memory usage of uniform subchunks which only contain 1 type of block.</li>
+<li>The title bar no longer displays heap memory usage numbers (nobody seemed <a class="el" href="protocolto-p.html">to</a> know that was what it was, anyway).</li>
+<li><code>/status</code> no longer displays heap memory usage numbers.</li>
+<li><code>start.sh</code> no longer specifically mentions PHP 7 when erroring because of a missing PHP binary.</li>
+<li>Debug messages are now logged when reach distance checks prevent players from doing something.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md713"></a>
+Fixes</h2>
+<ul>
+<li>Fixed players getting disconnected when using <code>/tp</code> <a class="el" href="protocolto-p.html">to</a> ungenerated chunks (or when teleported by players).</li>
+<li>Fixed a potential memory leak in block updating when chunks are unloaded.</li>
+<li>Fixed <code>Living-&gt;lookAt()</code> not taking eye height into account.</li>
+<li>Fixed grass replacing itself when placing grass (and consuming inventory items).</li>
+<li>Fixed players taking fall damage when falling next <a class="el" href="protocolto-p.html">to</a> a wall.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md714"></a>
+API changes</h2>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>World-&gt;getChunkEntities()</code></li>
+<li><code>World-&gt;notifyNeighbourBlockUpdate()</code></li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>Chunk-&gt;getEntities()</code></li>
+<li><code>Chunk-&gt;getSavableEntities()</code></li>
+<li><code>Chunk-&gt;addEntity()</code></li>
+<li><code>Chunk-&gt;removeEntity()</code></li>
+</ul>
+</li>
+<li>The following classes have been added:<ul>
+<li><code>pocketmine\inventory\transaction\TransactionBuilderInventory</code>: facilitates building <code>InventoryTransaction</code>s using standard <code>Inventory</code> API methods</li>
+</ul>
+</li>
+<li>The following class constants have been added:<ul>
+<li><code>Chunk::EDGE_LENGTH</code></li>
+<li><code>Chunk::COORD_BIT_SIZE</code></li>
+<li><code>Chunk::COORD_MASK</code></li>
+<li><code>SubChunk::EDGE_LENGTH</code></li>
+<li><code>SubChunk::COORD_BIT_SIZE</code></li>
+<li><code>SubChunk::COORD_MASK</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md715"></a>
+4.0.0-BETA3</h1>
+<h2><a class="anchor" id="autotoc_md716"></a>
+General</h2>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.17.30.</li>
+<li>Dropped support for Minecraft: Bedrock Edition 1.17.1x.</li>
+<li><code>tools/convert-world.php</code> now writes errors <a class="el" href="protocolto-p.html">to</a> stderr and sets the proper exit code.</li>
+<li>Explosions now use the standard mechanism for processing block updates. Previously, it used a special mechanism due <a class="el" href="protocolto-p.html">to</a> prohibitively poor efficiency of the standard algorithm. Since these inefficiencies have now been addressed, explosions can now be consistent with everything else, with minimal performance impact.</li>
+<li>Command usage strings are no longer automatically translated (use <code>Translatable</code> instead of bare string keys).</li>
+<li>Command description strings are no longer automatically translated (use <code>Translatable</code> instead of bare string keys).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md717"></a>
+Fixes</h2>
+<ul>
+<li><code>ItemFactory-&gt;isRegistered()</code> no longer crashes when given negative item IDs.</li>
+<li>Furnaces now continue <a class="el" href="protocolto-p.html">to</a> operate after reloading the chunk they were contained in.</li>
+<li>Fixed being unable <a class="el" href="protocolto-p.html">to</a> reconnect for 10 seconds after disconnecting in some cases.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md718"></a>
+API changes</h2>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>Liquid-&gt;getMinAdjacentSourcesToFormSource()</code>: returns how many adjacent source blocks of the same liquid must be present in order for the current block <a class="el" href="protocolto-p.html">to</a> become a source itself</li>
+<li><code>Player-&gt;getPlayerInfo()</code></li>
+</ul>
+</li>
+<li><code>Liquid</code> minimum-cost flow calculation code has been extracted <a class="el" href="protocolto-p.html">to</a> <code>MinimumCostFlowCalculator</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md719"></a>
+4.0.0-BETA4</h1>
+<p>Released 6th October 2021.</p>
+<h2><a class="anchor" id="autotoc_md720"></a>
+General</h2>
+<ul>
+<li>Improved performance of lighting calculation by avoiding copies of useless data from the main thread.</li>
+<li>Resource pack loading now accepts <code>dependencies</code> and <code>capabilities</code> fields in the <code>manifest.json</code> (although it doesn't currently check them).</li>
+<li><code>/help</code> is now localized according <a class="el" href="protocolto-p.html">to</a> language set in <code>server.properties</code>.</li>
+<li>Various messages related <a class="el" href="protocolto-p.html">to</a> world loading, generation and conversion are now localized according <a class="el" href="protocolto-p.html">to</a> the language set in <code>server.properties</code>.</li>
+<li>Compasses now point <a class="el" href="protocolto-p.html">to</a> the correct (current) world's spawn point after teleporting players <a class="el" href="protocolto-p.html">to</a> a different world. Previously, they would continue <a class="el" href="protocolto-p.html">to</a> point <a class="el" href="protocolto-p.html">to</a> the spawn of the world that the player initially spawned in.</li>
+<li>The <code>--bootstrap</code> CLI option has been removed.</li>
+<li>RakLib 0.14.2 is now required. This fixes the following issues:<ul>
+<li>Fixed incorrect handling of sessions on client disconnect (leading <a class="el" href="protocolto-p.html">to</a> timeout debug messages).</li>
+<li>Fixed transferring players often not working correctly.</li>
+<li>Fixed disconnect screens sometimes not displaying.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md721"></a>
+Fixes</h2>
+<ul>
+<li>Fixed server crash when UPnP encounters an error.</li>
+<li>Fixed server crash when clients sent items with bad NBT in inventory transactions.</li>
+<li>Fixed server crash when loading a plugin with legacy nested permission structure (now the plugin will fail <a class="el" href="protocolto-p.html">to</a> load, but the server won't crash).</li>
+<li>Fixed server crash when using <code>/give</code> with bad NBT on any item.</li>
+<li>Fixed server crash when loading a plugin with improperly formatted API version (now the plugin will fail <a class="el" href="protocolto-p.html">to</a> load, but the server won't crash).</li>
+<li>Fixed server crash when changing player gamemode during <code>PlayerLoginEvent</code>.</li>
+<li>Incorrect structure of <code>commands</code> in plugin manifest is now detected earlier and handled more gracefully.</li>
+<li>Fixed console reader subprocess lingering on server crash on Windows and screwing up the terminal.</li>
+<li>Fixed <code>Player</code> object memory leak when kicking players during <code>PlayerLoginEvent</code> (this caused the <code>World</code> <a class="el" href="protocolto-p.html">to</a> report warnings about leaked entities on shutdown).</li>
+<li>Fixed <code>Projectile-&gt;move()</code> ignoring the <code>dx</code>/<code>dy</code>/<code>dz</code> parameters given and using its own <code>motion</code> instead.</li>
+<li>Fixed <code>BlockFactory-&gt;get()</code> erroneously accepting meta values of <code>16</code>.</li>
+<li>Fixed <code>Block-&gt;isSameState()</code> false negatives for some types of slabs.</li>
+<li>Fixed being unable <a class="el" href="protocolto-p.html">to</a> place slabs of the same type on top of each other <a class="el" href="protocolto-p.html">to</a> create double slabs.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md722"></a>
+API changes</h2>
+<ul>
+<li>Plugin commands in <code>plugin.yml</code> must now declare <code>permission</code> for each command. Previously, the <code>permission</code> key was optional, causing anyone <a class="el" href="protocolto-p.html">to</a> be able <a class="el" href="protocolto-p.html">to</a> use the command.<ul>
+<li>This behaviour was removed because of the potential for security issues - a typo in <code>plugin.yml</code> could lead <a class="el" href="protocolto-p.html">to</a> dangerous functionality being exposed <a class="el" href="protocolto-p.html">to</a> everyone.</li>
+<li>If you want <a class="el" href="protocolto-p.html">to</a> make a command that everyone can use, declare a permission with a <code>default</code> of <code>true</code> and assign it <a class="el" href="protocolto-p.html">to</a> the command.</li>
+</ul>
+</li>
+<li>Plugin permissions in <code>plugin.yml</code> must now declare <code>default</code> for each permission. Previously, the <code>default</code> key was optional, causing the permission <a class="el" href="protocolto-p.html">to</a> silently be denied <a class="el" href="protocolto-p.html">to</a> everyone (PM4) or granted <a class="el" href="protocolto-p.html">to</a> ops implicitly (PM3).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md723"></a>
+Block</h3>
+<ul>
+<li>Added the following classes:<ul>
+<li><code>pocketmine\block\utils\LeverFacing</code></li>
+</ul>
+</li>
+<li>Added the following API methods:<ul>
+<li><code>pocketmine\block\Lever-&gt;isActivated()</code></li>
+<li><code>pocketmine\block\Lever-&gt;setActivated()</code></li>
+<li><code>pocketmine\block\Lever-&gt;getFacing()</code></li>
+<li><code>pocketmine\block\Lever-&gt;setFacing()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md724"></a>
+World</h3>
+<ul>
+<li>The following API methods have signature changes:<ul>
+<li><code>Chunk-&gt;getSubChunks()</code> now returns <code>array&lt;int, SubChunk&gt;</code> instead of <code>SplFixedArray&lt;SubChunk&gt;</code>.</li>
+</ul>
+</li>
+<li>The following API methods have been removed:<ul>
+<li><code>FastChunkSerializer::serialize()</code></li>
+<li><code>FastChunkSerializer::deserialize()</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>FastChunkSerializer::serializeTerrain()</code>: serializes blocks and biomes only</li>
+<li><code>FastChunkSerializer::deserializeTerrain()</code>: deserializes the output of <code>serializeTerrain()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md725"></a>
+Utils</h3>
+<ul>
+<li>The following API methods have signature changes:<ul>
+<li><code>Process::kill()</code> now requires an additional <code>bool $subprocesses</code> parameter.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md726"></a>
+4.0.0-BETA5</h1>
+<p>Released 12th October 2021.</p>
+<h2><a class="anchor" id="autotoc_md727"></a>
+General</h2>
+<ul>
+<li>Exception log format has been changed. Now, exception info is logged in one big block message. This saves space on the console and improves readability, as well as reducing the ability for bad <code>ThreadedLoggerAttachment</code>s <a class="el" href="protocolto-p.html">to</a> break exception output.</li>
+<li>Log messages are now pushed <a class="el" href="protocolto-p.html">to</a> <code>server.log</code> before calling logger attachment, instead of after. This fixes messages not being written <a class="el" href="protocolto-p.html">to</a> disk when an error occurs in a logger attachment.</li>
+<li>Improved startup performance when loading many plugins.</li>
+<li>The <code>worlds</code> config in <code>pocketmine.yml</code> no longer supports attaching the generator settings <a class="el" href="protocolto-p.html">to</a> the <code>generator</code> key (use the <code>preset</code> key instead).</li>
+<li>Using an unknown generator in <code>server.properties</code> or <code>pocketmine.yml</code> will now cause a failure <a class="el" href="protocolto-p.html">to</a> generate the world.</li>
+<li>Using invalid/incorrect world generator options (presets) in <code>server.properties</code> or <code>pocketmine.yml</code> will now cause a failure <a class="el" href="protocolto-p.html">to</a> generate the world.</li>
+<li>Generator options of existing worlds are now validated before loading them. If they are invalid, the server will fail <a class="el" href="protocolto-p.html">to</a> load them.</li>
+<li>Several more log messages have been localized, including plugin loading errors.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md728"></a>
+Fixes</h2>
+<ul>
+<li>Fixed server crash when using <code>/give</code> <a class="el" href="protocolto-p.html">to</a> give an item by ID which doesn't exist in Minecraft.</li>
+<li>Fixed server crash when boolean <code>server.properties</code> options were given an integer value (e.g. <code>0</code> or <code>1</code> instead of <code>false</code> or <code>true</code>).</li>
+<li>Fixed stats reporting checking for a nonexistent <code>pocketmine.yml</code> setting.</li>
+<li>Fixed use of commands without the proper permission sending a message <code>commands.generic.permission</code> instead of the proper message.</li>
+<li>Fixed entities set on fire appearing <a class="el" href="protocolto-p.html">to</a> stay on fire, although not taking any damage.</li>
+<li>Fixed a duplicate <code>MB</code> suffix on the <code>Memory freed</code> output of <code>/gc</code>.</li>
+<li>Fixed the server attempting <a class="el" href="protocolto-p.html">to</a> generate a world if it failed <a class="el" href="protocolto-p.html">to</a> load.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md729"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md730"></a>
+Block</h3>
+<ul>
+<li>The following API methods have been renamed:<ul>
+<li><code>Block-&gt;getPositionOffset()</code> -&gt; <code>Block-&gt;getModelPositionOffset()</code>.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md731"></a>
+Event</h3>
+<ul>
+<li><code>@handleCancelled</code> PhpDoc annotation can no longer be used on event handlers for non-cancellable events.</li>
+<li>The following API methods have been added:<ul>
+<li><code>StructureGrowEvent-&gt;getPlayer()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md732"></a>
+Inventory</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>Inventory-&gt;getAddableItemQuantity()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md733"></a>
+Scheduler</h3>
+<ul>
+<li><code>ClosureTask</code> now permits closures without an explicit return type (useful for arrow functions).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md734"></a>
+Utils</h3>
+<ul>
+<li>The following API methods have been added:<ul>
+<li><code>Config::parseProperties()</code></li>
+<li><code>Config::writeProperties()</code></li>
+<li><code>Config::parseList()</code></li>
+<li><code>Config::writeList()</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md735"></a>
+World</h3>
+<ul>
+<li>The following API methods have signature changes:<ul>
+<li><code>GeneratorManager-&gt;registerGenerator()</code> now requires a <code>\Closure $presetValidator</code> parameter. This is used <a class="el" href="protocolto-p.html">to</a> check generator options of worlds and configs before attempting <a class="el" href="protocolto-p.html">to</a> use them.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md736"></a>
+4.0.0-BETA6</h1>
+<p>Released 19th October 2021.</p>
+<h2><a class="anchor" id="autotoc_md737"></a>
+General</h2>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.17.40.</li>
+<li>Removed support for earlier versions.</li>
+<li>CTRL+C signal handling has been restored, and is now supported on Windows. Pressing CTRL+C while the server is running will behave as if the <code>/stop</code> command was invoked.</li>
+<li>Added a script <code>tools/generate-permission-doc.php</code> <a class="el" href="protocolto-p.html">to</a> generate a Markdown file with a list of all permissions and their relationships. In the future, this will be used <a class="el" href="protocolto-p.html">to</a> maintain the official documentation, but plugin developers might find it useful for their own purposes too.</li>
+<li><a href="https://packagist.org/packages/respect/validation"><code>respect/validation</code></a> is no longer a core dependency.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md738"></a>
+Fixes</h2>
+<ul>
+<li>Fixed server crash when using <code>/give</code> <a class="el" href="protocolto-p.html">to</a> give an item with a too-large item ID, or <code>/clear</code> <a class="el" href="protocolto-p.html">to</a> clear an item that does not exist.<ul>
+<li>Now, <code>LegacyStringToItemParser</code> is used exclusively, and numeric IDs are no longer parsed.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md739"></a>
+Gameplay</h2>
+<ul>
+<li>Picking up some items from a dropped stack of items is now supported. This fixes various bugs with being unable <a class="el" href="protocolto-p.html">to</a> pick up items with an almost-full inventory.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md740"></a>
+4.0.0-BETA7</h1>
+<p>Released 28th October 2021.</p>
+<h2><a class="anchor" id="autotoc_md741"></a>
+General</h2>
+<ul>
+<li>Phar plugins are now able <a class="el" href="protocolto-p.html">to</a> depend on folder plugins loaded by DevTools.</li>
+<li>Now uses <a href="https://github.com/pmmp/BedrockProtocol/tree/58c53a259e819a076bf8fe875d2a012da7d19d65"><code>pocketmine/bedrock-protocol@58c53a259e819a076bf8fe875d2a012da7d19d65</code></a>. This version features significant changes, including:<ul>
+<li>Standardisation of various field names (e.g. <code>eid</code> -&gt; <code>actorRuntimeId</code>, <code>evid</code> -&gt; <code>eventId</code>)</li>
+<li>Rename of <code>entity</code> related fields <a class="el" href="protocolto-p.html">to</a> <code>actor</code> where appropriate (e.g. <code>entityRuntimeId</code> -&gt; <code>actorRuntimeId</code>)</li>
+<li>Block position <code>x</code>/<code>y</code>/<code>z</code> fields replaced by <code>BlockPosition</code></li>
+<li>Static <code>::create()</code> functions for all packets, which ensure that fields can't be forgotten</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md742"></a>
+Fixes</h2>
+<ul>
+<li>Fixed server crash when clients send itemstacks with unmappable dynamic item IDs.</li>
+<li>Fixed server crash on invalid ItemStackRequest action types.</li>
+<li>Fixed autosave bug that caused unmodified chunks <a class="el" href="protocolto-p.html">to</a> be saved at least once (during the first autosave after they were loaded).</li>
+<li>Fixed <code>ConsoleReaderThread</code> returning strings with newlines still on the end.</li>
+<li>Fixed changes made <a class="el" href="protocolto-p.html">to</a> adjacent chunks in <code>ChunkPopulateEvent</code> (e.g. setting blocks) sometimes getting overwritten.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md743"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md744"></a>
+Event</h3>
+<ul>
+<li><code>PlayerCreationEvent</code> now verifies that the player class set is instantiable - this ensures that plugins get properly blamed for breaking things.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md745"></a>
+World</h3>
+<ul>
+<li><code>World-&gt;generateChunkCallback()</code> has been specialized for use by <code>PopulationTask</code>. This allows fixing various inconsistencies involving <code>ChunkPopulateEvent</code> (e.g. modifications <a class="el" href="protocolto-p.html">to</a> adjacent chunks in <code>ChunkPopulationEvent</code> might be wiped out, if the population of the target chunk modified the adjacent chunk).<ul>
+<li>It now accepts <code>Chunk $centerChunk, array&lt;int, Chunk&gt; $adjacentChunks</code> (instead of <code>?Chunk $chunk</code>).</li>
+<li>It's no longer expected <a class="el" href="protocolto-p.html">to</a> be used by plugins - plugins should be using <code>World-&gt;setChunk()</code> anyway.</li>
+</ul>
+</li>
+<li><code>Chunk-&gt;getModificationCounter()</code> has been added. This is a number starting from <code>0</code> when the <code>Chunk</code> object is first created (unless overridden by the constructor). It's incremented every time blocks or biomes are changed in the chunk. It resets after the chunk is unloaded and reloaded.</li>
+<li>The following API methods have changed signatures:<ul>
+<li><code>Sound-&gt;encode()</code> no longer accepts <code>null</code> for the position.</li>
+<li><code>Chunk-&gt;__construct()</code>: removed <code>HeightArray $heightMap</code> parameter, added <code>bool $terrainPopulated</code> and <code>int $modificationCounter</code> parameters.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md746"></a>
+Plugin</h3>
+<ul>
+<li><code>PluginManager-&gt;loadPlugins()</code> now accepts paths <a class="el" href="protocolto-p.html">to</a> files as well as directories, in which case it will load only the plugin found in the target file.</li>
+<li>The following API methods have been removed:<ul>
+<li><code>PluginManager-&gt;loadPlugin()</code>: use <code>PluginManager-&gt;loadPlugins()</code> instead</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md747"></a>
+4.0.0-BETA8</h1>
+<p>Released 29th October 2021.</p>
+<h2><a class="anchor" id="autotoc_md748"></a>
+General</h2>
+<ul>
+<li>Chunk packet caches are now cleared by the memory manager on low memory.</li>
+<li><code>Entity-&gt;spawnTo()</code> now has an additional sanity check for matching worlds (might expose a few new errors in plugins).</li>
+<li><a href="https://github.com/pmmp/Math/releases/tag/0.4.0"><code>pocketmine/math</code> 0.4.0</a> is now used. Please see its release notes for changes.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md749"></a>
+Fixes</h2>
+<ul>
+<li>Zlib raw check for LevelDB is now done directly on startup, avoiding crashes when later trying <a class="el" href="protocolto-p.html">to</a> load worlds.</li>
+<li>Fixed tiles and entities getting deleted from adjacent chunks during chunk population.</li>
+<li>Fixed players being unable <a class="el" href="protocolto-p.html">to</a> open their inventories more than once.</li>
+<li>Fixed entities not getting updated when a nearby chunk is replaced (e.g. dropped items would float in midair if the ground was lower than before)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md750"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md751"></a>
+World</h3>
+<ul>
+<li><code>World::setChunk()</code> has the following changes:<ul>
+<li><code>$deleteEntitiesAndTiles</code> parameter has been removed.</li>
+<li>Entities are no longer deleted on chunk replacement.</li>
+<li>Tiles are no longer deleted on chunk replacement, unless one of the following conditions is met:<ul>
+<li>the target block in the new chunk doesn't expect a tile</li>
+<li>the target block in the new chunk expects a different type of tile (responsibility of the plugin developer <a class="el" href="protocolto-p.html">to</a> create the new tile)</li>
+<li>there's already a tile in the target chunk which conflicts with the old one</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Location::__construct()</code> has the following changes:<ul>
+<li><code>world</code> parameter is now 4th instead of last.</li>
+<li>All parameters are now mandatory.</li>
+</ul>
+</li>
+<li>Reverted addition of chunk modification counters in previous beta.</li>
+<li><code>Chunk::DIRTY_FLAG_TERRAIN</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>Chunk::DIRTY_FLAG_BLOCKS</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md752"></a>
+4.0.0-BETA9</h1>
+<p>Released 2nd November 2021.</p>
+<h2><a class="anchor" id="autotoc_md753"></a>
+General</h2>
+<ul>
+<li>Now analysed using level 9 on PHPStan 1.0.0.</li>
+<li><code>ext-pthreads</code> v4.0.0 or newer is now required.</li>
+<li><code>resources/vanilla</code> submodule has been removed. BedrockData is now included via Composer dependency <a href="https://packagist.org/packages/pocketmine/bedrock-data"><code>pocketmine/bedrock-data</code></a>.</li>
+<li><code>pocketmine/spl</code> Composer dependency has been dropped.</li>
+<li>The following Composer dependency versions are now required:<ul>
+<li><a href="https://github.com/pmmp/BedrockProtocol/tree/5.0.0+bedrock-1.17.40"><code>pocketmine/bedrock-protocol</code> v5.0.0</a> features substantial changes <a class="el" href="protocolto-p.html">to</a> its API compared <a class="el" href="protocolto-p.html">to</a> 3.0.1, which was used in 4.0.0-BETA8. Please see its <a href="https://github.com/pmmp/BedrockData/releases/tag/5.0.0+bedrock-1.17.40">release notes</a>.</li>
+<li><a href="https://github.com/pmmp/Log/tree/0.4.0"><code>pocketmine/log</code> v0.4.0</a> removes the <code>LoggerAttachment</code> interface and replaces logger attachment objects with closures.</li>
+<li><a href="https://github.com/pmmp/LogPthreads/tree/0.4.0"><code>pocketmine/log-pthreads</code> v0.4.0</a></li>
+<li><a href="https://github.com/pmmp/ClassLoader/tree/0.2.0"><code>pocketmine/classloader</code> v0.2.0</a></li>
+</ul>
+</li>
+<li>A noisy debug message in <code>World-&gt;updateAllLight()</code> has been removed.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md754"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md755"></a>
+Entity</h3>
+<ul>
+<li><code>Human-&gt;setLifetimeTotalXp()</code> now limits the maximum value <a class="el" href="protocolto-p.html">to</a> 2^31.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md756"></a>
+Event</h3>
+<ul>
+<li><code>BlockGrowEvent</code> is now called when cocoa pods grow.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md757"></a>
+Item</h3>
+<ul>
+<li>Added <code>Releasable-&gt;canStartUsingItem()</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md758"></a>
+Network</h3>
+<ul>
+<li>Added <code>NetworkInterfaceStartException</code>, which may be thrown by <code>Network-&gt;registerInterface()</code> and <code>NetworkInterface-&gt;start()</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md759"></a>
+Player</h3>
+<ul>
+<li><code>SurvivalBlockBreakHandler::createIfNecessary()</code> has been removed.</li>
+<li><code>SurvivalBlockBreakHandler-&gt;__construct()</code> is now public.</li>
+<li><code>UsedChunkStatus::REQUESTED()</code> has been renamed <a class="el" href="protocolto-p.html">to</a> <code>REQUESTED_SENDING</code>.</li>
+<li><code>UsedChunkStatus::REQUESTED_GENERATION()</code> has been added.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md760"></a>
+Utils</h3>
+<ul>
+<li><code>Promise</code> API has changed:<ul>
+<li>Promise-related classes have been moved <a class="el" href="protocolto-p.html">to</a> <code>pocketmine\promise</code> namespace.</li>
+<li>It's now split into <code>Promise</code> and <code>PromiseResolver</code>.</li>
+<li><code>PromiseResolver</code> provides only <code>resolve()</code> and <code>reject()</code>. It should be used by callbacks <a class="el" href="protocolto-p.html">to</a> resolve a promise.</li>
+<li><code>Promise</code> now provides only <code>onCompletion()</code> and <code>isResolved()</code> APIs. This should be given <a class="el" href="protocolto-p.html">to</a> consumers <a class="el" href="protocolto-p.html">to</a> allow them <a class="el" href="protocolto-p.html">to</a> handle the result of the async operation.</li>
+<li><code>PromiseResolver</code> must not be created directly. Use <code>new PromiseResolver</code> and <code>PromiseResolver-&gt;getPromise()</code>.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md761"></a>
+World</h3>
+<ul>
+<li>Improved performance of <code>setBlock()</code> by around 35% when the <code>$update</code> parameter is set <a class="el" href="protocolto-p.html">to</a> <code>true</code>.</li>
+<li>Improved performance of <code>setBlock()</code> by around 30% when the <code>$update</code> parameter is set <a class="el" href="protocolto-p.html">to</a> <code>false</code>.</li>
+<li><code>World-&gt;generateChunkCallback()</code> is no longer exposed <a class="el" href="protocolto-p.html">to</a> public API.</li>
+<li><code>World-&gt;getAdjacentChunks()</code> now returns an array indexed using <code>World::chunkHash()</code>, where the <code>x</code> and <code>z</code> components are the relative offsets from the target chunk (range -1 <a class="el" href="protocolto-p.html">to</a> +1).</li>
+<li><code>World-&gt;lockChunk()</code> now requires <code>ChunkLockId $lockId</code> parameter.</li>
+<li><code>World-&gt;unlockChunk()</code> now requires a <code>?ChunkLockId $lockId</code> parameter. If a non-null lockID is given, the lock on the chunk will only be removed if it matches the given lockID.</li>
+<li><code>World-&gt;unlockChunk()</code> now returns <code>bool</code> instead of <code>void</code> (<a class="el" href="protocolto-p.html">to</a> signal whether unlocking succeded or not).</li>
+<li>Added <code>ChunkLockId</code> class.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md762"></a>
+Fixes</h2>
+<h3><a class="anchor" id="autotoc_md763"></a>
+World</h3>
+<ul>
+<li>Fixed server crash when tiles with colliding positions are loaded from saved data. Now, an error is logged, but the server won't crash.</li>
+<li>Fixed server crash when liquids and other items flow into terrain locked for population. Now, an advisory locking mechanism is used, and population results will be discarded and recalculated if modifications are detected.</li>
+<li>Fixed various crashes that could occur if a chunk was flagged with <code>setPopulated(true)</code> after a promise had already been created for its population.</li>
+<li>Fixed <code>AssumptionFailedError</code> in <code>PopulationTask</code> when workers previously used for generation are shutdown, and then restarted on the fly by a generation request.</li>
+<li>Fixed assertion failure in <code>World-&gt;drainPopulationRequestQueue()</code> when requesting, cancelling and then re-requesting generation of a chunk while the generator was busy.</li>
+<li>Fixed generation potentially getting stuck if a population request was cancelled while the population task was running (failure <a class="el" href="protocolto-p.html">to</a> remove locks from used chunks).</li>
+<li>Fixed <code>World-&gt;requestChunkPopulation()</code> not taking into account that the target chunk may already be populated. This caused a variety of strange bugs and performance issues.</li>
+<li>Fixed potential memory leak caused by <code>World-&gt;unregisterChunkListenerFromAll()</code> not taking players into account.</li>
+<li>Fixed debug spam of <code>chunk has no loaders registered</code> messages during chunk generation.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md764"></a>
+Other fixes</h3>
+<ul>
+<li>Fixed server crash when unable <a class="el" href="protocolto-p.html">to</a> bind <a class="el" href="protocolto-p.html">to</a> the desired port. Now, the server will show an error and gracefully stop without a crashdump instead.</li>
+<li>Fixed server crash in <code>Player-&gt;showPlayer()</code> when the target is not in the same world.</li>
+<li>Fixed players, who died in hardcore mode and were unbanned, getting re-banned on next server join.</li>
+<li>Fixed cake block desync when attempting <a class="el" href="protocolto-p.html">to</a> eat in creative (eating in creative is not yet supported, but the block rollback was missing).</li>
+<li>Fixed players being able <a class="el" href="protocolto-p.html">to</a> eat items more quickly by dropping them while eating.</li>
+<li>Fixed arrows getting added <a class="el" href="protocolto-p.html">to</a> creative players' inventories when picked up.</li>
+<li>Fixed players re-requesting the same ungenerated chunks multiple times before they were sent.</li>
+<li>Fixed commands not working in some cases after using some control sequences on the console.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md765"></a>
+4.0.0-BETA10</h1>
+<p>Released 2nd November 2021.</p>
+<h2><a class="anchor" id="autotoc_md766"></a>
+Fixes</h2>
+<ul>
+<li>Fixed an issue with BedrockData JSON minification which broke the release build of 4.0.0-BETA9.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md767"></a>
+4.0.0-BETA11</h1>
+<p>Released 6th November 2021.</p>
+<h2><a class="anchor" id="autotoc_md768"></a>
+General</h2>
+<ul>
+<li><code>resources/locale</code> submodule has been removed. Language files are now included via Composer dependency <a href="https://packagist.org/packages/pocketmine/locale-data"><code>pocketmine/locale-data</code></a>.<ul>
+<li>This means it's now possible <a class="el" href="protocolto-p.html">to</a> run a server from git sources without cloning submodules :)</li>
+<li>All remaining submodules (DevTools, build/php) are non-essential for building and running a server.</li>
+</ul>
+</li>
+<li>Added a tool <code>tools/simulate-chunk-sending.php</code> <a class="el" href="protocolto-p.html">to</a> visualise the behaviour of <code>ChunkSelector</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md769"></a>
+Fixes</h2>
+<ul>
+<li>Fixed server crash on saving when player XP has reached int32 max (XP is now capped, similar <a class="el" href="protocolto-p.html">to</a> Java Edition).</li>
+<li>Fixed another edge case in chunk generation that led <a class="el" href="protocolto-p.html">to</a> assertion failures.</li>
+<li>Fixed server crash when finding a list of <code>TAG_Float</code> for entity positions instead of <code>TAG_Double</code>.</li>
+<li>Fixed fast eating when picking up items.</li>
+<li>Fixed terrain being invisible for a long time when teleporting into ungenerated terrain.</li>
+<li>Fixed weird chunk loading when teleporting into ungenerated terrain (sometimes farther chunks would render before closer ones, leaving holes in the map temporarily).</li>
+<li>Fixed players re-requesting chunks when turning their heads or jumping.</li>
+<li>Fixed bonemeal sometimes being consumed even when cancelling <code>BlockGrowEvent</code> and <code>StructureGrowEvent</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md770"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md771"></a>
+Event</h3>
+<ul>
+<li>Added <code>PlayerEmoteEvent</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md772"></a>
+Gameplay</h3>
+<ul>
+<li>Chunks are now sent in proper circles. This improves the experience when flying quickly parallel <a class="el" href="protocolto-p.html">to</a> X or Z axis, since now more chunks in front of the player will load sooner.</li>
+<li>Added support for emotes.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md773"></a>
+4.0.0-BETA12</h1>
+<p>Released 9th November 2021.</p>
+<h2><a class="anchor" id="autotoc_md774"></a>
+General</h2>
+<ul>
+<li>Introduced support for connecting via IPv6.<ul>
+<li>PHP binary used must now always be built with IPv6 support, even if IPv6 is disabled. This is because RakNet may still send link-local IPv6 loopback addresses in connection packets even when only using IPv4.</li>
+<li>The default port for IPv6 is <code>19133</code> (similar <a class="el" href="protocolto-p.html">to</a> Bedrock Dedicated Server).</li>
+<li>Port <code>19133</code> is used by default so that Minecraft Bedrock can detect IPv6 servers on LAN.</li>
+<li>GS4 Query is supported on both IPv4 and IPv6 according <a class="el" href="protocolto-p.html">to</a> <code>server.properties</code> settings.</li>
+<li>The following <code>server.properties</code> settings are influential:<ul>
+<li><code>enable-ipv6</code>: <code>on</code> by default. Disabling this completely disables IPv6 support.</li>
+<li><code>server-ipv6</code>: <code>::</code> by default (equivalent <a class="el" href="protocolto-p.html">to</a> "any IP", like <code>0.0.0.0</code> for IPv4). Most users shouldn't need <a class="el" href="protocolto-p.html">to</a> change this setting, and it doesn't appear in <code>server.properties</code> by default.</li>
+<li><code>server-portv6</code>: <code>19133</code> by default. You may run both IPv4 and IPv6 on the same port.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Various internal changes have been made <a class="el" href="protocolto-p.html">to</a> prepare for negative Y axis support (upcoming 1.18).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md775"></a>
+Fixes</h2>
+<ul>
+<li>Fixed resource packs not applying.</li>
+<li>Fixed inventory windows being unopenable after dying with inventory windows open.</li>
+<li>Fixed plugins being able <a class="el" href="protocolto-p.html">to</a> alter other plugins' permission defaults by redeclaring them in the <code>plugin.yml</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md776"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md777"></a>
+Block</h3>
+<ul>
+<li><code>VanillaBlocks::fromString()</code> has been removed.</li>
+<li>Added <code>CraftingTableInventory</code>. This exclusively represents a crafting table's 3x3 crafting grid.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md778"></a>
+Crafting</h3>
+<ul>
+<li><code>CraftingGrid</code> is now abstract.</li>
+<li>Removed <code>CraftingGrid-&gt;getHolder()</code>.</li>
+<li>The constructor of <code>CraftingGrid</code> no longer accepts a <code>Player</code> parameter.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md779"></a>
+Entity</h3>
+<h4><a class="anchor" id="autotoc_md780"></a>
+Effect</h4>
+<ul>
+<li><code>Effect-&gt;__construct()</code> once again accepts an <code>int $defaultDuration</code> parameter.</li>
+<li>Removed <code>VanillaEffects::fromString()</code>.</li>
+<li>Added <code>StringToEffectParser</code><ul>
+<li>Supports custom aliases!</li>
+<li>This is used by <code>/effect</code> <a class="el" href="protocolto-p.html">to</a> provide name support.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md781"></a>
+Event</h3>
+<ul>
+<li><code>InventoryOpenEvent</code> is now fired when a player opens a crafting table's UI.</li>
+<li><code>InventoryCloseEvent</code> is now fired when a player closes a crafting table's UI.</li>
+<li><code>PlayerDropItemEvent</code> will now prevent the drops from force-closing of the following inventories:<ul>
+<li>anvil</li>
+<li>enchanting table</li>
+<li>loom</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md782"></a>
+Inventory</h3>
+<ul>
+<li>Added <code>TemporaryInventory</code>. This should be implemented by any inventory whose contents should be evacuated when closing.</li>
+<li>Added <code>PlayerCraftingInventory</code>. This exclusively represents the player's own 2x2 crafting grid.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md783"></a>
+Item</h3>
+<ul>
+<li>Removed <code>VanillaItems::fromString()</code><ul>
+<li>Obsoleted by the far superior, much more dynamic, and plugin-customizable <code>StringToItemParser</code>.</li>
+<li><code>StringToItemParser</code> allows mapping strings <a class="el" href="protocolto-p.html">to</a> closure callbacks, allowing you <a class="el" href="protocolto-p.html">to</a> create aliases for <code>/give</code> for any item, including custom ones.</li>
+</ul>
+</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md784"></a>
+Enchantment</h4>
+<ul>
+<li>Removed <code>VanillaEnchantments::fromString()</code>.</li>
+<li>Added <code>StringToEnchantmentParser</code><ul>
+<li>Supports custom aliases!</li>
+<li>This is used by <code>/enchant</code> <a class="el" href="protocolto-p.html">to</a> provide name support.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md785"></a>
+Player</h3>
+<ul>
+<li>Removed <code>Player-&gt;setCraftingGrid()</code>. To open a 3x3 crafting grid <a class="el" href="protocolto-p.html">to</a> a player, use <code>setCurrentWindow(new CraftingTableInventory)</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md786"></a>
+Server</h3>
+<ul>
+<li>Added the following API methods:<ul>
+<li><code>Server-&gt;getIpV6()</code></li>
+<li><code>Server-&gt;getPortV6()</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md787"></a>
+4.0.0-BETA13</h1>
+<p>Released 25th November 2021.</p>
+<h2><a class="anchor" id="autotoc_md788"></a>
+General</h2>
+<ul>
+<li>Improved error messages when a plugin command name or alias contains an illegal character.</li>
+<li>Fixed script plugins reading tags from non-docblocks before the actual docblock.</li>
+<li>Added a sanity check <a class="el" href="protocolto-p.html">to</a> <code>Human-&gt;setCurrentTotalXp()</code> <a class="el" href="protocolto-p.html">to</a> try and catch an elusive bug that's been appearing in the wild - please get in touch if you know how <a class="el" href="protocolto-p.html">to</a> reproduce it!</li>
+<li>Updated <code>BUILDING.md</code> <a class="el" href="protocolto-p.html">to</a> reflect the fact that submodules are no longer required <a class="el" href="protocolto-p.html">to</a> build or run the server.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md789"></a>
+Internals</h2>
+<ul>
+<li>Crashdump rendering has been separated from crashdump data generation. This allows rendering crashdumps from existing JSON data.</li>
+<li>Direct iteration of arrays with string keys is now disallowed by a custom PHPStan rule. This is because numeric strings are casted <a class="el" href="protocolto-p.html">to</a> integers when used as array keys, which produces a variety of unexpected behaviour particularly for iteration.<ul>
+<li>To iterate on arrays with string keys, <code>Utils::stringifyKeys()</code> must now be used.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md790"></a>
+Fixes</h2>
+<ul>
+<li>Fixed various crashes involving bad entity data saved on disk (e.g. an item entity with invalid item would crash the server).</li>
+<li>Fixed various crashes involving arrays with numeric string keys.</li>
+<li>Fixed crash when players try <a class="el" href="protocolto-p.html">to</a> pickup XP while already having max XP.</li>
+<li>Fixed ungenerated chunks saved on disk by old versions of PocketMine-MP (before 3.0.0) being treated as corrupted during world conversion (they are now ignored instead).</li>
+<li>Fixed misleading corruption error message when saved chunks have missing NBT tags.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md791"></a>
+Gameplay</h2>
+<ul>
+<li>Fixed <code>/setworldspawn</code> setting incorrect positions based on player position when in negative coordinates.</li>
+<li><code>/setworldspawn</code> now accepts relative coordinates when used as a player.</li>
+<li>Added some extra aliases for <code>/give</code> and <code>/clear</code>: <code>chipped_anvil</code>, <code>coarse_dirt</code>, <code>damaged_anvil</code>, <code>dark_oak_standing_sign</code>, <code>jungle_wood_stairs</code>, <code>jungle_wooden_stairs</code> and <code>oak_standing_sign</code>.<ul>
+<li>Some of these were added for quality-of-life, others were added just <a class="el" href="protocolto-p.html">to</a> be consistent.</li>
+</ul>
+</li>
+<li>Fixed explosions dropping incorrect items when destroying blocks with tile data (e.g. banners, beds).</li>
+<li>Fixed the bounding box of skulls when mounted on a wall.</li>
+<li>Fixed podzol dropping itself when mined (instead of dirt).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md792"></a>
+API</h2>
+<h3><a class="anchor" id="autotoc_md793"></a>
+Entity</h3>
+<ul>
+<li><code>Projectile-&gt;move()</code> is now protected, like its parent.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md794"></a>
+Utils</h3>
+<ul>
+<li><code>Utils::parseDocComment()</code> now allows <code>-</code> in tag names.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md795"></a>
+4.0.0-BETA14</h1>
+<p>Released 30th November 2021.</p>
+<h2><a class="anchor" id="autotoc_md796"></a>
+General</h2>
+<ul>
+<li>The server will now log an EMERGENCY-level message when <code>forceShutdown()</code> is used for any other reason than a graceful shutdown.</li>
+<li>The server will now attempt <a class="el" href="protocolto-p.html">to</a> translate invalid blocks <a class="el" href="protocolto-p.html">to</a> valid equivalents when loading chunks. This fixes many issues with <code>update!</code> blocks appearing in worlds, particularly ghost structures (these would appear when world editors previously erased some blocks by setting their IDs but not metadata).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md797"></a>
+Fixes</h2>
+<ul>
+<li>Fixed <code>ConsoleReaderThread</code> spawning many zombie processes when running a server inside a Docker container.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md798"></a>
+4.0.0-BETA15</h1>
+<p>Released 30th November 2021.</p>
+<h2><a class="anchor" id="autotoc_md799"></a>
+General</h2>
+<ul>
+<li>Added support for Minecraft: Bedrock 1.18.0</li>
+<li>Removed support for earlier versions. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: SimplePacketHandler</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">SimplePacketHandler</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md94"></a>Put an end <a class="el" href="protocolto-p.html">to</a> the if-elseif instanceof hell.</p>
+<h1><a class="anchor" id="autotoc_md95"></a>
+API Documentation</h1>
+<h2><a class="anchor" id="autotoc_md96"></a>
+Packet Monitor</h2>
+<p>Monitor data packets - use this if you aren't modifying the outcome of the event.<br  />
+ Packet monitor registers DataPacket(Receive/Send)Event(s) at <code>MONITOR</code> priority.</p>
+<p>Use case:</p><ul>
+<li>Dumping extra data from packets</li>
+<li>Debugging whether a packet was sent / received</li>
+</ul>
+<div class="fragment"><div class="line"> </div>
+<div class="line">$packet_monitor = SimplePacketHandler::createMonitor($plugin);</div>
+<div class="line"> </div>
+<div class="line">$packet_monitor-&gt;monitorIncoming(<span class="keyword">function</span>(LoginPacket $packet, NetworkSession $origin) : void{</div>
+<div class="line">    $this-&gt;getLogger()-&gt;debug(<span class="stringliteral">&quot;Received LoginPacket from #&quot;</span> . spl_object_id($origin));</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line">$packet_monitor-&gt;monitorIncoming(<span class="keyword">function</span>(ServerSettingsResponsePacket $packet, NetworkSession $origin) : <span class="keywordtype">void</span>{</div>
+<div class="line">    $this-&gt;getLogger()-&gt;debug(<span class="stringliteral">&quot;Received server settings response from {$origin-&gt;getPlayer()-&gt;getName()}&quot;</span>);</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line">$packet_monitor-&gt;monitorOutgoing(<span class="keyword">function</span>(SetActorDataPacket $packet, NetworkSession $target) : <span class="keywordtype">void</span>{</div>
+<div class="line">    $this-&gt;getLogger()-&gt;debug(<span class="stringliteral">&quot;Sent SetActorDataPacket to #&quot;</span> . spl_object_id($target));</div>
+<div class="line">});</div>
+</div><!-- fragment --><p>The <code>LoginPacket</code> example above is the equivalent of: </p><div class="fragment"><div class="line"> </div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">function</span> onDataPacketReceive(DataPacketReceiveEvent $event) : void{</div>
+<div class="line">    $packet = $event-&gt;getPacket();</div>
+<div class="line">    <span class="keywordflow">if</span>($packet instanceof LoginPacket){</div>
+<div class="line">        $origin = $event-&gt;getOrigin();</div>
+<div class="line">        $this-&gt;getLogger()-&gt;debug(<span class="stringliteral">&quot;Received LoginPacket from #&quot;</span> . spl_object_id($origin));</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>The <code>SetActorDataPacket</code> example above is the equivalent of: </p><div class="fragment"><div class="line"> </div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">function</span> onDataPacketSend(DataPacketSendEvent $event) : void{</div>
+<div class="line">    foreach($event-&gt;getPackets() as $packet){</div>
+<div class="line">        <span class="keywordflow">if</span>($packet instanceof SetActorDataPacket){</div>
+<div class="line">            <span class="keywordflow">foreach</span>($event-&gt;getTargets() as $target){</div>
+<div class="line">                $this-&gt;getLogger()-&gt;debug(<span class="stringliteral">&quot;Sent SetActorDataPacket to #&quot;</span> . spl_object_id($target));</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md97"></a>
+Packet Interceptor</h2>
+<p>Handle data packets - DataPacket(Receive/Send)Event(s) are registered at &lt; <code>MONITOR</code> priority.</p>
+<p>Use case:</p><ul>
+<li>Blocking pocketmine from handling specific data packets</li>
+<li>Modifying data packets before pocketmine handles them</li>
+</ul>
+<div class="fragment"><div class="line"> </div>
+<div class="line">$packet_interceptor = SimplePacketHandler::createInterceptor($plugin);</div>
+<div class="line"> </div>
+<div class="line">$packet_interceptor-&gt;interceptIncoming(<span class="keyword">function</span>(AdventureSettingsPacket $packet, NetworkSession $origin) : bool{</div>
+<div class="line">    if($packet-&gt;getFlag(AdventureSettingsPacket::FLYING)){</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// cancels the DataPacketReceiveEvent</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// do nothing</span></div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line">$packet_interceptor-&gt;interceptOutgoing(<span class="keyword">function</span>(SetTimePacket $packet, NetworkSession $target) : <span class="keywordtype">bool</span>{</div>
+<div class="line">    $custom_player = CustomPlayerManager::get($target-&gt;getPlayer());</div>
+<div class="line">    <span class="keywordflow">if</span>($custom_player-&gt;getPTime() !== $packet-&gt;time){</div>
+<div class="line">        $target-&gt;sendDataPacket(SetTimePacket::create($custom_player-&gt;getPTime()));</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">});</div>
+</div><!-- fragment --><p>The <code>AdventureSettingsPacket</code> example above is the equivalent of: </p><div class="fragment"><div class="line"> </div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">function</span> onDataPacketReceive(DataPacketReceiveEvent $event) : void{</div>
+<div class="line">    $packet = $event-&gt;getPacket();</div>
+<div class="line">    <span class="keywordflow">if</span>($packet instanceof AdventureSettingsPacket){</div>
+<div class="line">        $origin = $event-&gt;getOrigin();</div>
+<div class="line">        <span class="keywordflow">if</span>($packet-&gt;getFlag(AdventureSettingsPacket::FLYING)){</div>
+<div class="line">            $event-&gt;cancel();</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>The <code>SetTimePacket</code> example above is the equivalent of: </p><div class="fragment"><div class="line"> </div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">function</span> onDataPacketSend(DataPacketSendEvent $event) : void{</div>
+<div class="line">    foreach($event-&gt;getPackets() as $packet){</div>
+<div class="line">        <span class="keywordflow">if</span>($packet instanceof SetTimePacket){</div>
+<div class="line">            $targets = $event-&gt;getTargets();</div>
+<div class="line">            $new_targets = $targets;</div>
+<div class="line">            <span class="keywordflow">foreach</span>($new_targets as $index =&gt; $target){</div>
+<div class="line">                $custom_player = CustomPlayerManager::get($target-&gt;getPlayer());</div>
+<div class="line">                <span class="keywordflow">if</span>($custom_player-&gt;getPTime() !== $packet-&gt;time){</div>
+<div class="line">                    $target-&gt;sendDataPacket(SetTimePacket::create($custom_player-&gt;getPTime()));</div>
+<div class="line">                    unset($new_targets[$index]);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span>(count($new_targets) !== count($targets)){</div>
+<div class="line">                <span class="comment">// Cancel the event, try sending the remaining targets the</span></div>
+<div class="line">                <span class="comment">// batch of packets again.</span></div>
+<div class="line">                $event-&gt;cancel();</div>
+<div class="line">                <span class="keywordflow">if</span>(count($new_targets) &gt; 0){</div>
+<div class="line">                    $new_target_players = [];</div>
+<div class="line">                    <span class="keywordflow">foreach</span>($new_targets as $new_target){</div>
+<div class="line">                        $new_target_players[] = $new_target-&gt;getPlayer();</div>
+<div class="line">                    }</div>
+<div class="line">                    $this-&gt;getServer()-&gt;broadcastPackets($new_target_players, $event-&gt;getPackets());</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

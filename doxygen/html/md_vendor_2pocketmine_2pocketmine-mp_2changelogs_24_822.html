@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 4.22.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">4.22.0</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md1222"></a>Released 7th June 2023.</p>
+<p><b>For Minecraft: Bedrock Edition 1.20.0</b></p>
+<p>This is a support release for Minecraft: Bedrock Edition 1.20.0.</p>
+<p><b>Plugin compatibility:</b> Plugins for previous 4.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the <code>pocketmine\network\mcpe</code> namespace. Do not update plugin minimum API versions unless you need new features added in this release.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h1><a class="anchor" id="autotoc_md1223"></a>
+Interim releases</h1>
+<p>If you're upgrading from 4.20.x directly <a class="el" href="protocolto-p.html">to</a> 4.22.x, please also read the following changelogs, as the interim releases contain important changes:</p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.22.0/changelogs/4.21.md#4210">4.21.0</a> - PHP 8.1 minimum version, minor performance improvements</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1224"></a>
+General</h1>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.20.0.</li>
+<li>Removed support for older versions.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1225"></a>
+Fixes</h1>
+<ul>
+<li>Removed deprecated <code>ReflectionProperty::setAccessible()</code> calls.</li>
+<li>Fixed jukebox music not stopping when destroyed by an explosion.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1226"></a>
+4.22.1</h1>
+<p>Released 9th June 2023.</p>
+<h2><a class="anchor" id="autotoc_md1227"></a>
+Fixes</h2>
+<ul>
+<li>Replaced workaround for an old teleporting client bug:<ul>
+<li>This workaround broke due <a class="el" href="protocolto-p.html">to</a> an additional client bug introduced by 1.20, causing players <a class="el" href="protocolto-p.html">to</a> become frozen <a class="el" href="protocolto-p.html">to</a> observers when teleported.</li>
+<li>The original client bug has still not been fixed, meaning a new workaround was needed, but no perfect solution could be found.</li>
+<li>The new workaround involves broadcasting teleport movements as regular movements, which causes unwanted interpolation between the old and new positions, but otherwise works correctly. This solution is not ideal, but it is the best we can do for now.</li>
+<li>See issues <a href="https://github.com/pmmp/PocketMine-MP/issues/4394">#4394</a> and <a href="https://github.com/pmmp/PocketMine-MP/issues/5810">#5810</a> for more details.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1228"></a>
+4.22.2</h1>
+<p>Released 1st July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1229"></a>
+Changes</h2>
+<ul>
+<li>Added obsoletion warnings <a class="el" href="protocolto-p.html">to</a> the server log at the end of the startup sequence.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1230"></a>
+Fixes</h2>
+<ul>
+<li>Fixed players being disconnected en masse with "Not authenticated" messages.<ul>
+<li>This occurred due <a class="el" href="protocolto-p.html">to</a> a check intended <a class="el" href="protocolto-p.html">to</a> disable the old authentication key after July 1st.</li>
+<li>We expected that the new key would have been deployed by Mojang by now, but it seems like that has not yet happened.</li>
+<li>Due <a class="el" href="protocolto-p.html">to</a> the lack of a hard date for the key changeover, we guessed that July 1st would be a safe bet, but this appears <a class="el" href="protocolto-p.html">to</a> have backfired.</li>
+<li>This version will accept both old and new keys indefinitely.</li>
+<li>A security release will be published <a class="el" href="protocolto-p.html">to</a> remove the old key after the transition occurs.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1231"></a>
+4.22.3</h1>
+<p>Released 11th July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1232"></a>
+Fixes</h2>
+<ul>
+<li>Fixed mishandling of NBT leading <a class="el" href="protocolto-p.html">to</a> a server crash when editing signs.</li>
+<li>Fixed an edge case crash that could occur in <code>AsyncTask-&gt;__destruct()</code> when thread-local storage referenced other <code>AsyncTask</code> objects.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1233"></a>
+Internals</h2>
+<ul>
+<li>Added a concurrency lock <a class="el" href="protocolto-p.html">to</a> prevent the <code>update-updater-api</code> GitHub Action from running for multiple releases at the same time (which would have caused one of them <a class="el" href="protocolto-p.html">to</a> fail due <a class="el" href="protocolto-p.html">to</a> git conflicts). </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

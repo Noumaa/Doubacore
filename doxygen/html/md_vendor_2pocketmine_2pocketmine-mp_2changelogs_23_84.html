@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.4</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.4</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.7.0</b></p>
+<p>This is a cumulative minor release featuring performance improvements, memory usage improvements, some new minor gameplay features, some API deprecations and additions, and significant changes <a class="el" href="protocolto-p.html">to</a> error handling.</p>
+<h3><a class="anchor" id="autotoc_md584"></a>
+Note</h3>
+<p>Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.</p>
+<p>However, some API features have been deprecated in this version. Plugin developers do not need <a class="el" href="protocolto-p.html">to</a> do anything about these deprecations immediately, however they may raise harmless warnings if used.</p>
+<p>Features marked **<code>@deprecated</code>** are <b>recommended</b> not <a class="el" href="protocolto-p.html">to</a> be used, but will continue <a class="el" href="protocolto-p.html">to</a> work for any future 3.x.y versions. They will be removed in the next major release (4.0).</p>
+<h1><a class="anchor" id="autotoc_md585"></a>
+3.4.0</h1>
+<h2><a class="anchor" id="autotoc_md586"></a>
+Core changes</h2>
+<h3><a class="anchor" id="autotoc_md587"></a>
+Performance &amp; memory improvements</h3>
+<ul>
+<li>Entity <code>EXHAUSTION</code> attribute is no longer synced <a class="el" href="protocolto-p.html">to</a> the client, which reduces network traffic for survival players and reduces client-sided lag.</li>
+<li>A redundant call was removed from an <code>Event</code> call hot path which improves event calling performance by ~15% per event handler executed.</li>
+<li>Light updates are now batched together and executed on the end of each tick. The effects of this are noticeable when setting a large number of blocks in a close area - significant performance improvements should be noticeable for world editors (the ones that didn't disable light updates) and liquid flow is now significantly less expensive.</li>
+<li>Internal enhancements have been made <a class="el" href="protocolto-p.html">to</a> subchunk light array interfacing <a class="el" href="protocolto-p.html">to</a> reduce branching and improve access performance.</li>
+<li>Memory usage of most chunks has dropped by ~30-40% due <a class="el" href="protocolto-p.html">to</a> some improvements <a class="el" href="protocolto-p.html">to</a> internal storage of unlit subchunks. In real terms this translates <a class="el" href="protocolto-p.html">to</a> ~30% memory usage reduction for a freshly generated world.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md588"></a>
+Error handling</h3>
+<p>The most notable core change in this release revolves around error handling. Internals have been cleaned up substantially <a class="el" href="protocolto-p.html">to</a> improve the server behaviour under occurrence of unexpected behaviour. The goal of this is <a class="el" href="protocolto-p.html">to</a> improve consistency and quality while reducing undefined runtime behaviour. The following changes have been made:</p><ul>
+<li>Throwing <b>unexpected</b> <code>Throwable</code>s in the following cases will now cause a server crash (except on network (this will be changed in the future)):<ul>
+<li>Event handlers</li>
+<li><code>Task-&gt;onRun()</code> on a scheduler</li>
+<li><code>AsyncTask-&gt;onCompletion()</code></li>
+<li><code>Command-&gt;execute()</code> and <code>CommandExecutor-&gt;onCommand()</code></li>
+</ul>
+</li>
+<li>Unexpected <code>Throwable</code>s thrown during packet handling will now cause the target player <a class="el" href="protocolto-p.html">to</a> be disconnected with an <code>Internal server error</code> message.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md589"></a>
+Other changes</h3>
+<ul>
+<li>Anti-flight has been removed, along with the <code>allow-flight</code> directive in <code>server.properties</code>.</li>
+<li>Server language is now controlled by the <code>language</code> directive in <code>server.properties</code>.</li>
+<li>Added <code>unban</code> and <code>unban-ip</code> as aliases of <code>pardon</code> and <code>pardon-ip</code> commands respectively.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md590"></a>
+API changes</h2>
+<h3><a class="anchor" id="autotoc_md591"></a>
+Block</h3>
+<ul>
+<li><code>BlockSpreadEvent</code> is now fired when lava or water tries <a class="el" href="protocolto-p.html">to</a> flow into a block.</li>
+<li><code>BlockFormEvent</code> is now fired when lava and water collide <a class="el" href="protocolto-p.html">to</a> form cobblestone, obsidian or stone.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md592"></a>
+Event</h3>
+<ul>
+<li>Added new method <code>Event-&gt;call()</code>. This should be used instead of <code>PluginManager-&gt;callEvent()</code> in plugins only supporting 3.4+.</li>
+<li><code>PluginManager-&gt;callEvent()</code> has been <code>@deprecated</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md593"></a>
+Level</h3>
+<ul>
+<li>Attempting <a class="el" href="protocolto-p.html">to</a> unload a level during its tick will now throw an <code>InvalidStateException</code>.</li>
+<li>Added the following new methods:<ul>
+<li><code>Level-&gt;broadcastPacketToViewers()</code></li>
+<li><code>Level-&gt;getViewersForPosition()</code></li>
+<li><code>Level-&gt;broadcastGlobalPacket()</code></li>
+<li><code>Level-&gt;getChunkAtPosition()</code></li>
+<li><code>Level-&gt;isInLoadedTerrain()</code></li>
+</ul>
+</li>
+<li><code>Level-&gt;addGlobalPacket()</code> has been <code>@deprecated</code>.</li>
+<li><code>LightUpdate</code> now allows calling <code>setAndUpdateLight()</code> for the same position multiple times (needed for light update batching).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md594"></a>
+Permission</h3>
+<ul>
+<li><code>Permission::getByName()</code> now throws an exception on invalid values instead of silently returning <code>DEFAULT_FALSE</code>. This may cause new errors <a class="el" href="protocolto-p.html">to</a> appear if your plugins had broken permission defaults in <code>plugin.yml</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md595"></a>
+Player</h3>
+<ul>
+<li><code>addWindow()</code> now has stricter validity checks and will now throw exceptions in the following cases: No window IDs left <a class="el" href="protocolto-p.html">to</a> use, and when a forced window ID collides with an existing window.</li>
+<li>The public <code>$speed</code> field has been removed (this was only used by anti-cheat which has now been removed).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md596"></a>
+Scheduler</h3>
+<ul>
+<li><code>AsyncTask-&gt;setResult()</code> has had the <code>$serialize</code> parameter removed - now it will automatically serialize (or not) as appropriate.</li>
+<li>Added a new <code>ClosureTask</code> which allows concisely scheduling closure execution on a <code>TaskScheduler</code>.</li>
+<li><code>TaskScheduler-&gt;__construct()</code> <code>$logger</code> parameter has been <code>@deprecated</code> and will be removed in a future major version.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md597"></a>
+Server</h3>
+<ul>
+<li>Added new method <code>Server-&gt;hasOfflinePlayerData(string $name) : bool</code>.</li>
+<li><code>Server-&gt;getAllowFlight()</code> has been <code>@deprecated</code>.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md598"></a>
+Utils</h3>
+<ul>
+<li><code>Config-&gt;save()</code> will no longer catch unexpected exceptions thrown while encoding data.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md599"></a>
+Gameplay changes</h2>
+<h3><a class="anchor" id="autotoc_md600"></a>
+Blocks</h3>
+<ul>
+<li>Rail connectivity has been implemented for normal, powered, detector and activator rails (but there are currently no minecarts).</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md601"></a>
+3.4.1</h1>
+<ul>
+<li>Updated crashdump format <a class="el" href="protocolto-p.html">to</a> be compatible with newest CA. This version or newer is required if you want <a class="el" href="protocolto-p.html">to</a> be able <a class="el" href="protocolto-p.html">to</a> submit crashdumps <a class="el" href="protocolto-p.html">to</a> crash.pmmp.io.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md602"></a>
+3.4.2</h1>
+<ul>
+<li><code>DataPacket</code> errors when writing <a class="el" href="protocolto-p.html">to</a> undefined fields are now more clear.</li>
+<li>Fixed trees being able <a class="el" href="protocolto-p.html">to</a> overwrite the log parts of other trees.</li>
+<li>Fixed <code>Player-&gt;sendForm()</code> not working during <code>PlayerJoinEvent</code>.</li>
+<li><code>Entity-&gt;setScale()</code> now explicitly requires a scale larger than 0.</li>
+<li>Adding invisible <code>FloatingTextParticle</code> <a class="el" href="protocolto-p.html">to</a> a level no longer causes an error.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md603"></a>
+3.4.3</h1>
+<ul>
+<li>Fixed burning TNT setting hurt entities on fire when exploding.</li>
+<li><code>~</code> relative coordinates now work in the <code>/particle</code> command.</li>
+<li>Various boring fixes <a class="el" href="protocolto-p.html">to</a> error stack trace reporting.</li>
+<li><code>Level-&gt;setChunk()</code> no longer deletes tiles and entities when replacing a chunk with itself.</li>
+<li>Fixed a generator race condition causing rare appearances of half-trees on the client in freshly generated terrain.</li>
+<li><code>Attribute-&gt;resetToDefault()</code> now fits the default per the min/max bounds, fixing crashes when the bounds are changed <a class="el" href="protocolto-p.html">to</a> exclude the default.</li>
+<li>Fixed a crash with LevelDB worlds when the <code>TAG_2D_MAPS</code> tag is missing.</li>
+<li>Fixed <code>Utils::getCoreCount()</code> crashing on some Debian variants. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

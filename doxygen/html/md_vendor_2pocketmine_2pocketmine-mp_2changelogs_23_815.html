@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 3.15</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">3.15</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><b>For Minecraft: Bedrock Edition 1.16.20</b></p>
+<h3><a class="anchor" id="autotoc_md488"></a>
+Note about API versions</h3>
+<p>Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should <b>only</b> update their required API <a class="el" href="protocolto-p.html">to</a> this version if you need the changes in this build.</p>
+<p><b>WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.</b> You should consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you do.</p>
+<h1><a class="anchor" id="autotoc_md489"></a>
+3.15.0</h1>
+<ul>
+<li>Added support for Minecraft: Bedrock Edition 1.16.20.</li>
+<li>Removed compatibility with 1.16.0.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md490"></a>
+Known issues (please don't open issues for these)</h2>
+<ul>
+<li>Walls don't connect <a class="el" href="protocolto-p.html">to</a> each other</li>
+<li>Pumpkin and melon stems may not connect <a class="el" href="protocolto-p.html">to</a> their corresponding pumpkin/melon</li>
+<li>New blocks, items &amp; mobs aren't implemented</li>
+<li>Nether doesn't exist</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md491"></a>
+3.15.1</h1>
+<ul>
+<li>Fixed various PHP 7.4 compatibility issues in Composer dependencies (primarily callback-validator).</li>
+<li>Fixed LevelDB worlds with corrupted <code>level.dat</code> crashing the server instead of failing gracefully.</li>
+<li>Fixed error spam when using strings for layers in flatworld presets (<code>e.g. bedrock,3xdirt,grass</code>).</li>
+<li>Fixed blocks not getting updated properly on explosions.</li>
+<li>Fixed <code>BlockGrowEvent</code> not being called when sugarcane grows.</li>
+<li>Potato crops now drop poisonous potatoes when harvested.</li>
+<li>Fixed the wrong number of potatoes being dropped when harvesting potato crops.</li>
+<li>Players no longer get pullbacks when sprinting on slabs, stairs and various other blocks when <code>player.anti-cheat.allow-movement-cheats</code> is set <a class="el" href="protocolto-p.html">to</a> <code>false</code>. (This bug has been around for over 5 years, so many of you will be used <a class="el" href="protocolto-p.html">to</a> its existence.)</li>
+<li>Fixed entity collision box calculation not taking clip distance into account.</li>
+<li>Entities now step up the correct height of the target block, instead of jumping into the air 0.6 blocks and falling back down.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md492"></a>
+3.15.2</h1>
+<ul>
+<li>Fixed issues with preloading <code>SubChunk</code>.</li>
+<li><code>/gc</code> and automatic garbage collection will now release unused heap blocks back <a class="el" href="protocolto-p.html">to</a> the OS. Previously, the PHP process might hold onto these blocks indefinitely even when not used, causing elevated real memory usage.</li>
+<li>Added some documentation <a class="el" href="protocolto-p.html">to</a> <code>FurnaceBurnEvent</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md493"></a>
+3.15.3</h1>
+<ul>
+<li>Fixed fall damage accumulation over continuous knockbacks (e.g. combo attacks in PvP).</li>
+<li>Fixed a bug in <code>Human-&gt;addXp()</code> that would cause a crash when saving player data.</li>
+<li><code>Human-&gt;addXp()</code> will no longer modify the target's total XP if <code>PlayerExperienceChangeEvent</code> was cancelled.</li>
+<li><code>AsyncPool-&gt;getTaskQueueSizes()</code> has been added <a class="el" href="protocolto-p.html">to</a> allow external detection of async pool overload. This is planned <a class="el" href="protocolto-p.html">to</a> be implemented as a core feature in the future, but it hasn't been done yet.</li>
+<li><code>BaseInventory-&gt;canAddItem()</code> behaviour now matches <code>addItem()</code> by considering the max stack size of the given item.</li>
+<li>Fixed a bug in generator options handling for worlds loaded via <code>pocketmine.yml</code>. This fix has the following side effects:<ul>
+<li>It's now possible <a class="el" href="protocolto-p.html">to</a> provide generator options as an <code>options</code> key when loading a world via <code>pocketmine.yml</code>.</li>
+<li>If generator options are not provided, the options from <code>server.properties</code> will be used, instead of using an empty preset. (It's not clear whether this is desired behaviour, but it was clearly intended, since there is code <a class="el" href="protocolto-p.html">to</a> do this which was broken until this release. As such, this behaviour is subject <a class="el" href="protocolto-p.html">to</a> change in the future.)</li>
+</ul>
+</li>
+<li>Fixed a bug in region-based world loading where some files without filename extensions and names containing a region filename extension (e.g a file named <code>amca</code> in a McRegion world) would cause the world not <a class="el" href="protocolto-p.html">to</a> load. These files are now ignored.</li>
+<li>Default network compression level has been lowered <a class="el" href="protocolto-p.html">to</a> 6, due <a class="el" href="protocolto-p.html">to</a> level 7 being 25% more expensive for only a marginal improvement in bandwidth.</li>
+<li>Fixed a performance issue with chunk requesting when players trigger chunk generation on first join.</li>
+<li>Setup wizard will now always show IP information, even if the user chose <a class="el" href="protocolto-p.html">to</a> skip the setup wizard when prompted. (This doesn't affect <code>--no-wizard</code> in any way.)</li>
+<li><code>Maximum memory (system)</code> is no longer reported in <code>/status</code> due <a class="el" href="protocolto-p.html">to</a> having a misleading output (it was the same as the current memory usage).</li>
+<li>The <code>Player Chunk Send</code> timer on timings reports now actually reports measurements of chunk sending, not chunk loading.</li>
+<li>A new parent timer <code>World Load</code> has been added <a class="el" href="protocolto-p.html">to</a> timings reports, which aggregates timings from <code>syncChunkLoad</code> and subtimings from all worlds.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md494"></a>
+3.15.4</h1>
+<ul>
+<li>Fixed a bug in the inventory transaction system that caused the server <a class="el" href="protocolto-p.html">to</a> freeze under some circumstances. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 5.5.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">5.5.0</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md1633"></a>Released 6th September 2023.</p>
+<p><b>For Minecraft: Bedrock Edition 1.20.10</b></p>
+<p>This is a minor feature release, including performance improvements, new API methods, and new gameplay features.</p>
+<p><b>Plugin compatibility:</b> Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the <code>pocketmine\network\mcpe</code> or <code>pocketmine\data</code> namespace. Do not update plugin minimum API versions unless you need new features added in this release.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h1><a class="anchor" id="autotoc_md1634"></a>
+Dependencies</h1>
+<ul>
+<li>Updated <code>pocketmine/math</code> dependency <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/pmmp/Math/releases/tag/1.0.0"><code>1.0.0</code></a>.</li>
+<li>Updated <code>pocketmine/nbt</code> dependency <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/pmmp/NBT/releases/tag/1.0.0"><code>1.0.0</code></a>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1635"></a>
+Performance</h1>
+<ul>
+<li>Some events are now no longer fired if no handlers are registered.<ul>
+<li>This improves performance by avoiding unnecessary object allocations and function calls.</li>
+<li>Events such as <code>DataPacketReceiveEvent</code>, <code>DataPacketSendEvent</code> and <code>PlayerMoveEvent</code> are optimized away almost completely by this change, offering some much-needed performance gains.</li>
+</ul>
+</li>
+<li>Significantly improved performance of small moving entities, such as dropped items.<ul>
+<li>This was achieved by a combination of changes, which together improved observed performance with 2000 item entities moving in water by 30-40%.</li>
+<li>The benefit of this will be most noticeable in SkyBlock servers, where large cactus farms can generate thousands of dropped items.</li>
+</ul>
+</li>
+<li><code>World-&gt;getCollisionBoxes()</code> now uses an improved search method, which reduces the work done by the function by almost 90% for small entities.<ul>
+<li>This improves performance of collision detection for small entities, such as dropped items.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1636"></a>
+Gameplay</h1>
+<h2><a class="anchor" id="autotoc_md1637"></a>
+General</h2>
+<ul>
+<li>Implemented enchanting using an enchanting table (yes, finally!)<ul>
+<li>Thanks <a class="el" href="protocolto-p.html">to</a> <a href="https://github.com/S3v3Nice">@S3v3Nice</a> for investing lots of time and effort into developing this.</li>
+<li>Since this feature is quite complex, it's possible there may be bugs. Please be vigilant and report any issues you find.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1638"></a>
+Blocks</h2>
+<ul>
+<li>The following new blocks have been implemented:<ul>
+<li>Pink Petals</li>
+</ul>
+</li>
+<li>Pressure plates are now functional, in the sense that they react when entities stand on them and perform the correct logic.<ul>
+<li>Note that since redstone is not yet implemented, pressure plates do not activate any redstone devices, similar <a class="el" href="protocolto-p.html">to</a> buttons and levers.</li>
+</ul>
+</li>
+<li>Signs can now be edited by right-clicking them.</li>
+<li>Signs can now be waxed using a honeycomb, which prevents them from being edited.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1639"></a>
+Items</h2>
+<ul>
+<li>The following new items have been implemented:<ul>
+<li>Enchanted Book</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1640"></a>
+API</h1>
+<h2><a class="anchor" id="autotoc_md1641"></a>
+&lt;tt&gt;pocketmine\block&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Block-&gt;getEnchantmentTags() : list&lt;string&gt;</code> returns a list of strings indicating which types of enchantment can be applied <a class="el" href="protocolto-p.html">to</a> the block when in item form</li>
+<li><code>public BlockTypeInfo-&gt;getEnchantmentTags() : list&lt;string&gt;</code></li>
+<li><code>protected PressurePlate-&gt;getActivationBox() : AxisAlignedBB</code> - returns the AABB entities must intersect with in order <a class="el" href="protocolto-p.html">to</a> activate the pressure plate (not the same as the visual shape)</li>
+<li><code>protected PressurePlate-&gt;hasOutputSignal() : bool</code> - returns whether the pressure plate has an output signal - this should be implemented by subclasses</li>
+<li><code>protected PressurePlate-&gt;calculatePlateState() : array{Block, ?bool}</code> - returns the state the pressure plate will change <a class="el" href="protocolto-p.html">to</a> if the given list of entities are standing on it, and a bool indicating whether the plate activated or deactivated this tick</li>
+<li><code>protected PressurePlate-&gt;filterIrrelevantEntities(list&lt;Entity&gt; $entities) : list&lt;Entity&gt;</code> - returns the given list filtered of entities that don't affect the plate's state (e.g. dropped items don't affect stone pressure plates)</li>
+<li><code>public BaseSign-&gt;isWaxed() : bool</code></li>
+<li><code>public BaseSign-&gt;setWaxed(bool $waxed) : $this</code></li>
+<li><code>public inventory\EnchantInventory-&gt;getInput() : Item</code></li>
+<li><code>public inventory\EnchantInventory-&gt;getLapis() : Item</code></li>
+<li><code>public inventory\EnchantInventory-&gt;getOutput(int $optionId) : ?Item</code> - returns the item that would be produced if the input item was enchanted with the selected option, or <code>null</code> if the option is invalid</li>
+<li><code>public inventory\EnchantInventory-&gt;getOption(int $optionId) : EnchantOption</code> - returns the enchanting option at the given index</li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>BlockTypeInfo-&gt;__construct()</code> now accepts an optional <code>list&lt;string&gt; $enchantmentTags</code> parameter</li>
+<li><code>PressurePlate-&gt;__construct()</code> now accepts an optional <code>int $deactivationDelayTicks</code> parameter</li>
+<li><code>WeightedPressurePlate-&gt;__construct()</code> now accepts optional <code>int $deactivationDelayTicks</code> and <code>float $signalStrengthFactor</code> parameters</li>
+<li><code>SimplePressurePlate-&gt;__construct()</code> now accepts an optional <code>int $deactivationDelayTicks</code> parameter</li>
+</ul>
+</li>
+<li>The following new classes have been added:<ul>
+<li><code>PinkPetals</code></li>
+<li><code>utils\BlockEventHelper</code> - provides helper methods for calling block-related events</li>
+</ul>
+</li>
+<li>The following classes have been deprecated:<ul>
+<li><code>WeightedPressurePlateLight</code></li>
+<li><code>WeightedPressurePlateHeavy</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1642"></a>
+&lt;tt&gt;pocketmine\entity&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Human-&gt;getEnchantmentSeed() : int</code> - returns the current seed used <a class="el" href="protocolto-p.html">to</a> randomize options shown on the enchanting table for this human</li>
+<li><code>public Human-&gt;setEnchantmentSeed(int $seed) : void</code></li>
+<li><code>public Human-&gt;regenerateEnchantmentSeed() : void</code> - returns a new randomly generated seed which can be set with <code>setEnchantmentSeed()</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1643"></a>
+&lt;tt&gt;pocketmine\event&lt;/tt&gt;</h2>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>block\FarmlandHydrationChangeEvent</code> - called when farmland is hydrated or dehydrated</li>
+<li><code>block\PressurePlateUpdateEvent</code> - called when a pressure plate is activated or changes its power output</li>
+<li><code>player\PlayerEnchantingOptionsRequestEvent</code> - called when a player puts an item <a class="el" href="protocolto-p.html">to</a> be enchanted into an enchanting table, <a class="el" href="protocolto-p.html">to</a> allow plugins <a class="el" href="protocolto-p.html">to</a> modify the enchanting options shown</li>
+<li><code>player\PlayerItemEnchantEvent</code> - called when a player enchants an item in an enchanting table</li>
+<li><code>world\WorldDifficultyChangeEvent</code> - called when a world's difficulty is changed</li>
+</ul>
+</li>
+<li>The following new API methods have been added:<ul>
+<li><code>public static Event::hasHandlers() : bool</code> - returns whether the event class has any registered handlers - used like <code>SomeEvent::hasHandlers()</code></li>
+<li><code>public HandlerListManager-&gt;getHandlersFor(class-string&lt;? extends Event&gt; $event) : list&lt;RegisteredListener&gt;</code> - returns a list of all registered listeners for the given event class, using cache if available</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1644"></a>
+&lt;tt&gt;pocketmine\inventory\transaction&lt;/tt&gt;</h2>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>EnchantingTransaction</code> - used when a player enchants an item in an enchanting table</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1645"></a>
+&lt;tt&gt;pocketmine\item&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public Armor-&gt;getMaterial() : ArmorMaterial</code> - returns an object containing properties shared by all items of the same armor material</li>
+<li><code>public ArmorTypeInfo-&gt;getMaterial() : ArmorMaterial</code></li>
+<li><code>public Item-&gt;getEnchantability() : int</code> - returns the enchantability value of the item - higher values increase the chance of more powerful enchantments being offered by an enchanting table</li>
+<li><code>public Item-&gt;getEnchantmentTags() : list&lt;string&gt;</code> - returns a list of strings indicating which types of enchantment can be applied <a class="el" href="protocolto-p.html">to</a> the item</li>
+<li><code>public ToolTier-&gt;getEnchantability() : int</code></li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>Item-&gt;__construct()</code> now accepts an optional <code>list&lt;string&gt; $enchantmentTags</code> parameter</li>
+<li><code>ArmorTypeInfo-&gt;__construct()</code> now accepts an optional <code>?ArmorMaterial $material</code> parameter</li>
+</ul>
+</li>
+<li>The following new classes have been added:<ul>
+<li><code>ArmorMaterial</code> - container for shared armor properties</li>
+<li><code>VanillaArmorMaterials</code> - all vanilla armor materials</li>
+<li><code>EnchantedBook</code> - represents an enchanted book item</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1646"></a>
+&lt;tt&gt;pocketmine\item\enchantment&lt;/tt&gt;</h2>
+<ul>
+<li>The following new classes have been added:<ul>
+<li><code>AvailableEnchantmentRegistry</code> - enchantments <a class="el" href="protocolto-p.html">to</a> be displayed on the enchanting table are selected from here - custom enchantments may be added</li>
+<li><code>EnchantingHelper</code> - static class containing various helper methods for enchanting tables</li>
+<li><code>EnchantingOption</code> - represents an option on the enchanting table menu</li>
+<li><code>IncompatibleEnchantmentGroups</code> - list of constants naming groups of enchantments that are incompatible with each other - custom enchantments may be added using these group names <a class="el" href="protocolto-p.html">to</a> make them incompatible with existing enchantments in the same group</li>
+<li><code>IncompatibleEnchantmentRegistry</code> - manages which enchantments are considered incompatible with each other - custom enchantments may be added using existing group names <a class="el" href="protocolto-p.html">to</a> make them incompatible with existing enchantments in the same group, or <a class="el" href="protocolto-p.html">to</a> entirely new groups</li>
+<li><code>ItemEnchantmentTagRegistry</code> - manages item enchantment compatibility tags and which tags include which other tags</li>
+<li><code>ItemEnchantmentTags</code> - list of constants naming item types for enchantment compatibility checks</li>
+</ul>
+</li>
+<li>The following classes have been deprecated<ul>
+<li><code>ItemFlags</code></li>
+</ul>
+</li>
+<li>The following API methods have been added:<ul>
+<li><code>public Enchantment-&gt;isCompatibleWith(Enchantment $other) : bool</code></li>
+<li><code>public Enchantment-&gt;getMinEnchantingPower()</code> - returns the minimum enchanting power (derived from enchantability and number of bookshelves) needed <a class="el" href="protocolto-p.html">to</a> allow this enchantment <a class="el" href="protocolto-p.html">to</a> show on the enchanting table with a given level</li>
+<li><code>public Enchantment-&gt;getMaxEnchantingPower()</code> - upper limit of enchanting power for this enchantment <a class="el" href="protocolto-p.html">to</a> be offered on the enchanting table with a given level</li>
+</ul>
+</li>
+<li>The following API methods have signature changes:<ul>
+<li><code>Enchantment-&gt;__construct()</code> now accepts optional <code>(\Closure(int $level) : int)|null $minEnchantingPower</code> and <code>int $enchantingPowerRange</code> parameters</li>
+<li><code>Enchantment-&gt;__construct()</code> parameters <code>$primaryItemFlags</code> and <code>$secondaryItemFlags</code> are now deprecated and no longer used</li>
+<li><code>ProtectionEnchantment-&gt;__construct()</code> has extra parameters <a class="el" href="protocolto-p.html">to</a> reflect <code>Enchantment-&gt;__construct()</code> changes</li>
+</ul>
+</li>
+<li>The following API methods have been deprecated:<ul>
+<li><code>Enchantment-&gt;getPrimaryItemFlags()</code> - use API methods provided by <code>AvailableEnchantmentRegistry</code> instead</li>
+<li><code>Enchantment-&gt;getSecondaryItemFlags()</code> - use API methods provided by <code>AvailableEnchantmentRegistry</code> instead</li>
+<li><code>Enchantment-&gt;hasPrimaryItemType()</code></li>
+<li><code>Enchantment-&gt;hasSecondaryItemType()</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1647"></a>
+&lt;tt&gt;pocketmine\plugin&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public PluginBase-&gt;getResourcePath(string $filename) : string</code> - returns a URI <a class="el" href="protocolto-p.html">to</a> an embedded resource file that can be used with <code>file_get_contents()</code> and similar functions</li>
+<li><code>public PluginBase-&gt;getResourceFolder() : string</code> - returns a URI <a class="el" href="protocolto-p.html">to</a> the plugin's folder of embedded resources</li>
+</ul>
+</li>
+<li>The following API methods have been deprecated:<ul>
+<li><code>PluginBase-&gt;getResource()</code> - prefer using <code>getResourcePath()</code> with <code>file_get_contents()</code> or other PHP built-in functions instead</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1648"></a>
+&lt;tt&gt;pocketmine\resourcepacks&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public ResourcePackManager-&gt;setResourcePacksRequired(bool $value) : void</code> - sets whether players must accept resource packs in order <a class="el" href="protocolto-p.html">to</a> join</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1649"></a>
+&lt;tt&gt;pocketmine\world\generator&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public GeneratorManager-&gt;addAlias(string $name, string $alias) : void</code> - allows registering a generator alias without copying the generator registration parameters</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1650"></a>
+&lt;tt&gt;pocketmine\world\sound&lt;/tt&gt;</h2>
+<ul>
+<li>The following new classes have been added:</li>
+<li><code>PressurePlateActivateSound</code></li>
+<li><code>PressurePlateDeactivateSound</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1651"></a>
+&lt;tt&gt;pocketmine\utils&lt;/tt&gt;</h2>
+<ul>
+<li>The following new API methods have been added:<ul>
+<li><code>public StringToTParser-&gt;registerAlias(string $existing, string $alias) : void</code> - allows registering a string alias without copying registration parameters</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1652"></a>
+Internals</h1>
+<ul>
+<li>Various <code>TypeIdMap</code> classes in the <code>pocketmine\data\bedrock</code> package now use the new <code>IntSaveIdMapTrait</code> <a class="el" href="protocolto-p.html">to</a> reduce code duplication.</li>
+<li>Added a new <code>ServerProperties</code> class containing constants for all known <code>server.properties</code> keys.</li>
+<li>Added a new <code>YmlServerProperties</code> class containing generated constants for all known <code>pocketmine.yml</code> keys. These keys can be used with <code>Config-&gt;getNested()</code>. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

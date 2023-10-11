@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Doubacore: 5.3.0</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Doubacore<span id="projectnumber">&#160;0.2.1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">5.3.0</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md1570"></a>Released 12th July 2023.</p>
+<p><b>For Minecraft: Bedrock Edition 1.20.10</b></p>
+<p>This is a support release for Minecraft: Bedrock Edition 1.20.10.</p>
+<p><b>Plugin compatibility:</b> Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the <code>pocketmine\network\mcpe</code> or <code>pocketmine\data</code> namespace. Do not update plugin minimum API versions unless you need new features added in this release.</p>
+<p><b>WARNING: If your plugin uses the <code>pocketmine\network\mcpe</code> namespace, you're not shielded by API change constraints.</b> Consider using the <code>mcpe-protocol</code> directive in <code>plugin.yml</code> as a constraint if you're using packets directly.</p>
+<h1><a class="anchor" id="autotoc_md1571"></a>
+Interim releases</h1>
+<p>If you're upgrading directly from 5.1.x <a class="el" href="protocolto-p.html">to</a> 5.3.x, please also read the following changelogs, as the interim releases contain important changes:</p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/5.2.0/changelogs/5.2.md#520">5.2.0</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1572"></a>
+Included releases</h1>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.23.0/changelogs/4.23.md#4230">4.23.0</a> - Support for Minecraft: Bedrock Edition 1.20.10</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1573"></a>
+Internals</h1>
+<ul>
+<li><code>BlockTypeNames</code>, <code>BlockStateNames</code>, <code>BlockStateStringValues</code> and <code>ItemTypeNames</code> in the <code>pocketmine\data\bedrock</code> package have BC-breaking changes <a class="el" href="protocolto-p.html">to</a> accommodate Bedrock 1.20.10.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1574"></a>
+5.3.1</h1>
+<p>Released 14th July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1575"></a>
+Included releases</h2>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.23.1/changelogs/4.23.md#4231">4.23.1</a> - Security fixes</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1576"></a>
+General</h2>
+<ul>
+<li>Updated <code>build/php</code> submodule <a class="el" href="protocolto-p.html">to</a> pmmp/PHP-Binaries@e0c918d1379465964acefd562d9e48f87cfc2c9e.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1577"></a>
+5.3.2</h1>
+<p>Released 18th July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1578"></a>
+Included releases</h2>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.23.2/changelogs/4.23.md#4232">4.23.2</a> - Fix for <code>sandboxId</code>-related login errors</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1579"></a>
+Documentation</h2>
+<ul>
+<li>Fixed documentation error in <code>StringToTParser</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1580"></a>
+Fixes</h2>
+<ul>
+<li>Fixed turtle helmet not being able <a class="el" href="protocolto-p.html">to</a> be unequipped.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1581"></a>
+Internals</h2>
+<ul>
+<li>Armor pieces are no longer set back into the armor inventory if no change was made. This reduces the number of slot updates sent <a class="el" href="protocolto-p.html">to</a> clients, as well as avoiding unnecessary updates for armor pieces which have Unbreaking enchantments.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1582"></a>
+5.3.3</h1>
+<p>Released 24th July 2023.</p>
+<h2><a class="anchor" id="autotoc_md1583"></a>
+Included releases</h2>
+<p><b>This release includes changes from the following releases:</b></p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.23.3/changelogs/4.23.md#4233">4.23.3</a> - Various bug fixes</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1584"></a>
+Fixes</h2>
+<ul>
+<li>Added a workaround for PM4 worlds with chunks corrupted by <a href="https://github.com/Refaltor77/CustomItemAPI">Refaltor77/CustomItemAPI</a>.<ul>
+<li>While this was not the fault of PocketMine-MP itself, a significant number of users were affected by this problem.</li>
+<li>This error was not detected by PM4 due <a class="el" href="protocolto-p.html">to</a> missing validation of certain data which should not have existed in 1.12.</li>
+<li>An error will now be logged when this corruption is detected, but the affected chunks should otherwise load normally.</li>
+</ul>
+</li>
+<li>Relaxed validation of expected 3D biome array counts per chunk in LevelDB worlds.<ul>
+<li>Vanilla Bedrock currently saves 24 palettes (and only 24 are required), but it saved 25, 32, or 64 biome palettes per chunk in older versions.</li>
+<li>Core validation for these padding biomes was very strict, enforcing exact compliance with vanilla.</li>
+<li>Since only 24 palettes are actually required, the remaining palettes may now be omitted irrespective of the chunk version.</li>
+<li>An error will still be logged when this mistake is detected, but the affected chunks will otherwise load normally.</li>
+</ul>
+</li>
+<li>Fixed <code>/kill</code> not working on players who had (re)spawned in the 3 seconds immediately after (re)spawning (due <a class="el" href="protocolto-p.html">to</a> <code>noDamageTicks</code>).</li>
+<li>Fixed <code>/kill</code> not working correctly for players with high levels of Health Boost or other health-altering effects.</li>
+<li>Fixed netherite items being destroyed by lava.</li>
+<li>Fireproof entities no longer display the burning animation when in fire or lava. This does not apply <a class="el" href="protocolto-p.html">to</a> creative players, who are immortal rather than being fireproof.</li>
+<li>Fixed frosted ice melting in certain conditions which didn't match vanilla Bedrock.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md1585"></a>
+5.3.4</h1>
+<p>Released 1st August 2023.</p>
+<h2><a class="anchor" id="autotoc_md1586"></a>
+Included releases</h2>
+<p>This release includes changes from the following releases:</p><ul>
+<li><a href="https://github.com/pmmp/PocketMine-MP/blob/4.23.4/changelogs/4.23.md#4234">4.23.4</a> - Item entity lag fix</li>
+</ul>
+<p>This release contains no other significant changes. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
