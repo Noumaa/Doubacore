@@ -2,7 +2,9 @@
 
 namespace Nouma\Doubacore\Models;
 
+use Nouma\Doubacore\Utils\ItemUtils;
 use pocketmine\item\Item;
+use pocketmine\player\Player;
 
 class Kit
 {
@@ -13,14 +15,26 @@ class Kit
     /** @var Item[] */
     private array $items;
 
-    private Item $helmet;
-    private Item $chestplate;
-    private Item $leggings;
-    private Item $boots;
+    private ?Item $helmet = null;
+    private ?Item $chestplate = null;
+    private ?Item $leggings = null;
+    private ?Item $boots = null;
 
     public function __construct(string $key = null)
     {
         $this->key = $key;
+    }
+
+    public function sendKit(Player $player, Kit $kit): void
+    {
+        foreach($kit->getItems() as $items)
+            ItemUtils::addItemOrDrop($player, $items);
+
+        foreach (["Helmet", "Chestplate", "Leggings", "Boots"] as $armorPart)
+        {
+            $getArmorPart = "get" . $armorPart;
+            $kit->$getArmorPart() != null && ItemUtils::addItemOrDrop($player, $kit->$getArmorPart());
+        }
     }
 
     public function getKey(): string
@@ -58,7 +72,7 @@ class Kit
         $this->items[] = $item;
     }
 
-    public function getHelmet(): Item
+    public function getHelmet(): ?Item
     {
         return $this->helmet;
     }
@@ -68,7 +82,7 @@ class Kit
         $this->helmet = $helmet;
     }
 
-    public function getChestplate(): Item
+    public function getChestplate(): ?Item
     {
         return $this->chestplate;
     }
@@ -78,7 +92,7 @@ class Kit
         $this->chestplate = $chestplate;
     }
 
-    public function getLeggings(): Item
+    public function getLeggings(): ?Item
     {
         return $this->leggings;
     }
@@ -88,7 +102,7 @@ class Kit
         $this->leggings = $leggings;
     }
 
-    public function getBoots(): Item
+    public function getBoots(): ?Item
     {
         return $this->boots;
     }

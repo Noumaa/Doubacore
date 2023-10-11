@@ -21,11 +21,19 @@ abstract class BaseManager
         return $models;
     }
 
-    abstract public function getConfig(): Config;
+    public function getConfig(): Config
+    {
+        return $this->config;
+    }
 
     abstract public function save($model);
 
     abstract public function get(string $key);
+
+    public function exists(string $key): bool
+    {
+        return $this->config->exists($key);
+    }
 
     protected function deserializeArray(string $key): ?array
     {

@@ -14,7 +14,7 @@ use pocketmine\player\Player;
 class ItemUtils
 {
 
-    public static function addPlayerItemOrDrop(Player $player, Item $item): void
+    public static function addItemOrDrop(Player $player, Item $item): void
     {
         $inventory = $player->getInventory();
         $position = $player->getPosition();

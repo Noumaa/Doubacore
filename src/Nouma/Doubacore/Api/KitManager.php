@@ -28,11 +28,11 @@ class KitManager
 
             foreach($kit["items"] as $itemString) {
                 $item = ItemUtils::loadItem(...explode(":", $itemString));
-                ItemUtils::addPlayerItemOrDrop($player, $item);
+                ItemUtils::addItemOrDrop($player, $item);
             }
 
             foreach (["helmet", "chestplate", "leggings", "boots"] as $armorPart)
-                isset($kit["helmet"]) and ItemUtils::addPlayerItemOrDrop($player, ItemUtils::loadItem(...explode(":", $kit[$armorPart])));
+                isset($kit["helmet"]) and ItemUtils::addItemOrDrop($player, ItemUtils::loadItem(...explode(":", $kit[$armorPart])));
         }
     }
 

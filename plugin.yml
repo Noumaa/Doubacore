@@ -2,7 +2,7 @@ name: Doubacore
 description: A bunch of essential tools for a PocketMine server
 main: Nouma\Doubacore\Doubacore
 api: 5.0.0
-version: 0.2.0
+version: 0.2.1
 author: Nouma
 
 permissions:
