@@ -2,5 +2,5 @@ no_permission: "§cYou can't do that ! §4{permission}"
 only_players: "§cOnly players can do this !"
 player_not_found: "§cPlayer not found !"
 commands:
-  balance:
-    description: "Check your money balance."
+  god:
+    description: "Become invincible."

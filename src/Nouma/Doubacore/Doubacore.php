@@ -7,7 +7,6 @@ use CortexPE\Commando\PacketHooker;
 use Nouma\Doubacore\Commands\God;
 use Nouma\Doubacore\Commands\Heal;
 use Nouma\Doubacore\Commands\Kit;
-use Nouma\Doubacore\Commands\Balance;
 use Nouma\Doubacore\Commands\Warp\DelWarp;
 use Nouma\Doubacore\Commands\Warp\SetWarp;
 use Nouma\Doubacore\Commands\Warp\Warp;
@@ -62,9 +61,6 @@ class Doubacore extends PluginBase
         $this->getServer()->getCommandMap()->register("Doubacore", new Warp($this));
 
         $this->getServer()->getCommandMap()->register("Doubacore", new Kit($this));
-
-        /** useless as bedrock economy has its own config */
-        $this->getServer()->getCommandMap()->register("Doubacore", new Balance($this));
 
         $this->getServer()->getPluginManager()->registerEvents(new SessionListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new ChatListener($this), $this);
