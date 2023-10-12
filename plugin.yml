@@ -37,3 +37,10 @@ permissions:
     default: true
   doubacore.command.kit.*:
     default: op
+
+  doubacore.command.balance:
+    default: true
+  doubacore.command.balance.self:
+    default: op
+  doubacore.command.balance.other:
+    default: op

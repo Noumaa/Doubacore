@@ -11,27 +11,21 @@ use pocketmine\utils\SingletonTrait;
 class Messages
 {
 
-    private Doubacore $plugin;
-    private Config $config;
+    private static Doubacore $plugin;
+    private static Config $config;
 
-    public function __construct(Doubacore $plugin)
+    public static function init(Doubacore $plugin): void
     {
         $locale = Doubacore::getLocale();
         $file = $plugin->getDataFolder() . "/messages/$locale.yml";
         $plugin->saveResource("messages/$locale.yml");
 
-        $this->plugin = $plugin;
-        $this->config = new Config($file, Config::YAML);
+        self::$plugin = $plugin;
+        self::$config = new Config($file);
     }
 
     public static function get(string $nestKey): mixed {
-        $locale = Doubacore::getLocale();
-        $file = "messages/$locale.yml";
-
-        Doubacore::getInstance()->saveResource($file);
-        $config = new Config($file);
-
-        return $config->getNested($nestKey, $nestKey);
+        return self::$config->getNested($nestKey, $nestKey);
     }
 
     public static function NO_PERMISSION(string $commandLabel, string $permission): string

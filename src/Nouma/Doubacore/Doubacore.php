@@ -7,7 +7,7 @@ use CortexPE\Commando\PacketHooker;
 use Nouma\Doubacore\Commands\God;
 use Nouma\Doubacore\Commands\Heal;
 use Nouma\Doubacore\Commands\Kit;
-use Nouma\Doubacore\Commands\Money;
+use Nouma\Doubacore\Commands\Balance;
 use Nouma\Doubacore\Commands\Warp\DelWarp;
 use Nouma\Doubacore\Commands\Warp\SetWarp;
 use Nouma\Doubacore\Commands\Warp\Warp;
@@ -43,11 +43,11 @@ class Doubacore extends PluginBase
         self::$instance = $this;
 
         $this->saveDefaultConfig();
+        Messages::init($this);
 
         $this->sessionManager = new SessionManager($this);
         WarpManager::setInstance(new WarpManager($this));
         KitManager::setInstance(new KitManager($this));
-
 
         if (!PacketHooker::isRegistered()) {
             PacketHooker::register($this);
@@ -63,7 +63,7 @@ class Doubacore extends PluginBase
         $this->getServer()->getCommandMap()->register("Doubacore", new Kit($this));
 
         /** useless as bedrock economy has its own config */
-        $this->getServer()->getCommandMap()->register("Doubacore", new Money($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new Balance($this));
 
         $this->getServer()->getPluginManager()->registerEvents(new SessionListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new DamageListener($this), $this);

@@ -1,1 +1,7 @@
 language: fra
+
+# Set to "none" to disable
+chat:
+  join_message: "§a§l+§r §7{player}"
+  quit_message: "§c§l-§r §7{player}"
+  welcome_message: "§dSouhaitez la bienvenue à §e{$player->getName()} §d!"

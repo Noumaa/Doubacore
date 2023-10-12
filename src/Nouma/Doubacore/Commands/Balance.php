@@ -15,7 +15,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\Server;
 
-class Money extends BaseCommand
+class Balance extends BaseCommand
 {
 
     private Doubacore $doubacore;
@@ -24,9 +24,9 @@ class Money extends BaseCommand
     {
         parent::__construct(
             $plugin,
-            "balance",
+            "money",
             Messages::CMD_BALANCE_DESCRIPTION(),
-            ["/money", "/bal"]
+            ["/balance", "/bal"] // Marche pas
         );
         $this->setPermission("doubacore.command.balance;doubacore.command.balance.self");
         $this->doubacore = $plugin;
@@ -40,9 +40,6 @@ class Money extends BaseCommand
         $this->registerArgument(0, new TargetPlayerArgument(true));
     }
 
-    /**
-     * @throws JsonException
-     */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
         if (!isset($args['player'])) {
