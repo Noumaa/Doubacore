@@ -5,3 +5,4 @@ chat:
   join_message: "§a§l+§r §7{player}"
   quit_message: "§c§l-§r §7{player}"
   welcome_message: "§dSouhaitez la bienvenue à §e{$player->getName()} §d!"
+  format: "§7{player}§r §8» §f{message}"

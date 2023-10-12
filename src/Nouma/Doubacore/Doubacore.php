@@ -11,6 +11,7 @@ use Nouma\Doubacore\Commands\Balance;
 use Nouma\Doubacore\Commands\Warp\DelWarp;
 use Nouma\Doubacore\Commands\Warp\SetWarp;
 use Nouma\Doubacore\Commands\Warp\Warp;
+use Nouma\Doubacore\Listeners\ChatListener;
 use Nouma\Doubacore\Listeners\DamageListener;
 use Nouma\Doubacore\Listeners\SessionListener;
 use Nouma\Doubacore\Managers\KitManager;
@@ -66,6 +67,7 @@ class Doubacore extends PluginBase
         $this->getServer()->getCommandMap()->register("Doubacore", new Balance($this));
 
         $this->getServer()->getPluginManager()->registerEvents(new SessionListener($this), $this);
+        $this->getServer()->getPluginManager()->registerEvents(new ChatListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new DamageListener($this), $this);
     }
 
