@@ -11,21 +11,39 @@
     "muqsit/simple-packet-handler": "*"
   },
   "require-dev": {
-    "pocketmine/pocketmine-mp": "^5.6"
+    "pocketmine/pocketmine-mp": "^5.6",
+    "cooldogepm/bedrockeconomy": "*"
   },
-  "repositories": [{
-    "type": "package",
-    "package": {
-      "name": "muqsit/simple-packet-handler",
-      "version": "1.0.0",
-      "source": {
-        "url": "https://github.com/Muqsit/SimplePacketHandler.git",
-        "type": "git",
-        "reference": "71af78006b2bbed324f48deebbdabfae222b432a"
-      },
-      "autoload": {
-        "classmap": ["src/"]
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "muqsit/simple-packet-handler",
+        "version": "1.0.0",
+        "source": {
+          "url": "https://github.com/Muqsit/SimplePacketHandler.git",
+          "type": "git",
+          "reference": "71af78006b2bbed324f48deebbdabfae222b432a"
+        },
+        "autoload": {
+          "classmap": [
+            "src/"
+          ]
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "cooldogepm/bedrockeconomy",
+        "version": "1.2.3",
+        "type": "drupal-theme",
+        "source": {
+          "url": "https://github.com/cooldogepm/BedrockEconomy.git",
+          "type": "git",
+          "reference": "pm5"
+        }
       }
     }
-  }]
+  ]
 }

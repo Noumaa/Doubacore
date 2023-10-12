@@ -1,0 +1,6 @@
+no_permission: "§cVous n'avez pas la permission ! §4{permission}"
+only_players: "§cSeuls les joueurs peuvent faire ceci !"
+player_not_found: "§cJoueur introuvable !"
+commands:
+  balance:
+    description: "Accéder à votre solde."

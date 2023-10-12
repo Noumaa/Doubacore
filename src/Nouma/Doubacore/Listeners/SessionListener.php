@@ -2,9 +2,11 @@
 
 namespace Nouma\Doubacore\Listeners;
 
+use JsonException;
 use Nouma\Doubacore\Doubacore;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 
 class SessionListener implements Listener
 {
@@ -17,6 +19,12 @@ class SessionListener implements Listener
     }
 
     public function onPlayerJoin(PlayerJoinEvent $event): void {
-        $this->plugin->getSessionManager()->load($event->getPlayer());
+    }
+
+    /**
+     * @throws JsonException
+     */
+    public function onPlayerQuit(PlayerQuitEvent $event): void {
+        $this->plugin->getSessionManager()->get($event->getPlayer())->save();
     }
 }

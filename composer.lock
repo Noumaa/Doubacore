@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4a3f68e987f330d4d36fade1ab5f2f1",
+    "content-hash": "a5f6606950259d24c2e1c9da07236051",
     "packages": [
         {
             "name": "muqsit/simple-packet-handler",
@@ -136,6 +136,16 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "cooldogepm/bedrockeconomy",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cooldogepm/BedrockEconomy.git",
+                "reference": "pm5"
+            },
+            "type": "drupal-theme"
         },
         {
             "name": "pocketmine/bedrock-block-upgrade-schema",
@@ -1271,5 +1281,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

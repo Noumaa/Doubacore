@@ -8,6 +8,7 @@ use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
 use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Managers\WarpManager;
+use Nouma\Doubacore\Messages;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 
@@ -65,7 +66,7 @@ class Warp extends BaseCommand
         }
 
         if (!$sender->hasPermission("doubacore.command.warp.*") && !$sender->hasPermission("doubacore.command.warp.{$warp->getKey()}")) {
-            $sender->sendMessage("§cVous n'avez pas la permission !");
+            $sender->sendMessage(Messages::NO_PERMISSION($aliasUsed, "doubacore.command.warp.{$warp->getKey()}"));
             return;
         }
 

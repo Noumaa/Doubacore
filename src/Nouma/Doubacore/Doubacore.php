@@ -7,6 +7,7 @@ use CortexPE\Commando\PacketHooker;
 use Nouma\Doubacore\Commands\God;
 use Nouma\Doubacore\Commands\Heal;
 use Nouma\Doubacore\Commands\Kit;
+use Nouma\Doubacore\Commands\Money;
 use Nouma\Doubacore\Commands\Warp\DelWarp;
 use Nouma\Doubacore\Commands\Warp\SetWarp;
 use Nouma\Doubacore\Commands\Warp\Warp;
@@ -20,6 +21,18 @@ use pocketmine\plugin\PluginBase;
 class Doubacore extends PluginBase
 {
 
+    private static Doubacore $instance;
+
+    public static function getInstance() : self
+    {
+        return self::$instance;
+    }
+
+    public static function getLocale(): string
+    {
+        return strtolower(self::getInstance()->getConfig()->getNested("language", "fra"));
+    }
+
     private SessionManager $sessionManager;
 
     /**
@@ -27,12 +40,14 @@ class Doubacore extends PluginBase
      */
     protected function onEnable(): void
     {
+        self::$instance = $this;
+
+        $this->saveDefaultConfig();
+
         $this->sessionManager = new SessionManager($this);
-
-        WarpManager::getInstance()->get("test")->getPosition();
-
         WarpManager::setInstance(new WarpManager($this));
         KitManager::setInstance(new KitManager($this));
+
 
         if (!PacketHooker::isRegistered()) {
             PacketHooker::register($this);
@@ -46,6 +61,9 @@ class Doubacore extends PluginBase
         $this->getServer()->getCommandMap()->register("Doubacore", new Warp($this));
 
         $this->getServer()->getCommandMap()->register("Doubacore", new Kit($this));
+
+        /** useless as bedrock economy has its own config */
+        $this->getServer()->getCommandMap()->register("Doubacore", new Money($this));
 
         $this->getServer()->getPluginManager()->registerEvents(new SessionListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new DamageListener($this), $this);

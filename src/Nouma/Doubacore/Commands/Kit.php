@@ -8,6 +8,7 @@ use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
 use Nouma\Doubacore\Managers\KitManager;
 use Nouma\Doubacore\Doubacore;
+use Nouma\Doubacore\Messages;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 
@@ -66,7 +67,7 @@ class Kit extends BaseCommand
         }
 
         if (!$sender->hasPermission("doubacore.command.kit.*") && !$sender->hasPermission("doubacore.command.kit.{$kit->getKey()}")) {
-            $sender->sendMessage("§cVous n'avez pas la permission !");
+            $sender->sendMessage(Messages::NO_PERMISSION($aliasUsed, "doubacore.command.kit.{$kit->getKey()}"));
             return;
         }
 

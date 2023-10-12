@@ -24,7 +24,7 @@ class SessionManager
     }
 
     public function get(Player $player): Session {
-        if (!key_exists($player->getName(), $this->sessions)) throw new SessionNotFoundException();
+        if (!key_exists($player->getName(), $this->sessions)) $this->load($player);
         return $this->sessions[$player->getName()];
     }
 }
