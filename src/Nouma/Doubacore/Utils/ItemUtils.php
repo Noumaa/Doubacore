@@ -44,4 +44,17 @@ class ItemUtils
 
         return $item;
     }
+
+    public static function saveItem(Item $item): string
+    {
+        $vanillaName = $item->getVanillaName();
+        $count = $item->getCount();
+        $customName = $item->getCustomName();
+        $enchantments = "";
+        foreach ($item->getEnchantments() as $enchant) {
+            if ($enchantments != "") $enchantments .= ":";
+            $enchantments .= $enchant->getType()->getName()->getText() . ':' . $enchant->getLevel();
+        }
+        return "$vanillaName:$count:$customName:$enchantments";
+    }
 }
