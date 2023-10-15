@@ -4,3 +4,8 @@ player_not_found: "§cJoueur introuvable !"
 commands:
   god:
     description: "Devenez invincible."
+  speed:
+    description: "Modifie la vitesse de marche et de vol."
+    set-speed:
+      target: "§e{player} §7a changé votre vitesse."
+      player: "§6Votre vitesse est désormais de §e{speed}"

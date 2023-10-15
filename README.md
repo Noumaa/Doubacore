@@ -11,6 +11,9 @@
 | `/heal`    | `doubacore.command.heal`            | Heal yourself.                       |
 |            | `doubacore.command.heal.self`       | Heal yourself.                       |
 |            | `doubacore.command.heal.other`      | Heal others.                         |
+| `/speed`   | `doubacore.command.speed`           | Change your speed.                   |
+|            | `doubacore.command.speed.self`      | Change your speed.                   |
+|            | `doubacore.command.speed.other`     | Change other's speed.                |
 | `/setwarp` | `doubacore.command.setwarp`         | Set a warp point.                    |
 | `/delwarp` | `doubacore.command.delwarp`         | Delete a warp point.                 |
 | `/warp`    | `doubacore.command.warp`            | Use warp command.                    |

@@ -20,6 +20,13 @@ permissions:
   doubacore.command.heal.other:
     default: op
 
+  doubacore.command.speed:
+    default: op
+  doubacore.command.speed.self:
+    default: op
+  doubacore.command.speed.other:
+    default: op
+
   doubacore.command.warp:
     default: op
   doubacore.command.warp.list:

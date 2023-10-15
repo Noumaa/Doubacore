@@ -7,6 +7,7 @@ use CortexPE\Commando\PacketHooker;
 use Nouma\Doubacore\Commands\God;
 use Nouma\Doubacore\Commands\Heal;
 use Nouma\Doubacore\Commands\Kit;
+use Nouma\Doubacore\Commands\Speed;
 use Nouma\Doubacore\Commands\Warp\DelWarp;
 use Nouma\Doubacore\Commands\Warp\SetWarp;
 use Nouma\Doubacore\Commands\Warp\Warp;
@@ -55,6 +56,7 @@ class Doubacore extends PluginBase
 
         $this->getServer()->getCommandMap()->register("Doubacore", new Heal($this));
         $this->getServer()->getCommandMap()->register("Doubacore", new God($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new Speed($this));
 
         $this->getServer()->getCommandMap()->register("Doubacore", new SetWarp($this));
         $this->getServer()->getCommandMap()->register("Doubacore", new DelWarp($this));
