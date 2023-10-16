@@ -24,3 +24,8 @@
 |            | `doubacore.command.kit.*`           | Grant access to all available kits.  |
 |            | `doubacore.command.kit.[kitName]`   | Grant access to a specific kit.      |
 |            | `doubacore.command.kit.list`        | List available kits.                 |
+| `/sethome` | `doubacore.command.sethome`         | Set a home teleportation point.      |
+| `/delhome` | `doubacore.command.delhome`         | Delete a home teleportation point.   |
+| `/home`    | `doubacore.command.home`            | Use home command.                    |
+|            | `doubacore.command.home.[maxHomes]` | Override `max-home` config value.    |
+|            | `doubacore.command.home.other`      | List and use others homes.           |

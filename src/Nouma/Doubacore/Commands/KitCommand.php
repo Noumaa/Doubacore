@@ -12,7 +12,7 @@ use Nouma\Doubacore\Messages;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 
-class Kit extends BaseCommand
+class KitCommand extends BaseCommand
 {
 
     private Doubacore $doubacore;

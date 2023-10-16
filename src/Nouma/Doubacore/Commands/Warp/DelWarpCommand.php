@@ -10,7 +10,7 @@ use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Managers\WarpManager;
 use pocketmine\command\CommandSender;
 
-class DelWarp extends BaseCommand
+class DelWarpCommand extends BaseCommand
 {
 
     private Doubacore $doubacore;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Nouma\Doubacore\Commands\Warp;
+namespace Nouma\Doubacore\Commands\Home;
 
 use CortexPE\Commando\args\RawStringArgument;
 use CortexPE\Commando\BaseCommand;
@@ -12,7 +12,7 @@ use Nouma\Doubacore\Messages;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 
-class Warp extends BaseCommand
+class HomeCommand extends BaseCommand
 {
 
     private Doubacore $doubacore;

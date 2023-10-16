@@ -4,13 +4,16 @@ namespace Nouma\Doubacore;
 
 use CortexPE\Commando\exception\HookAlreadyRegistered;
 use CortexPE\Commando\PacketHooker;
-use Nouma\Doubacore\Commands\God;
-use Nouma\Doubacore\Commands\Heal;
-use Nouma\Doubacore\Commands\Kit;
-use Nouma\Doubacore\Commands\Speed;
-use Nouma\Doubacore\Commands\Warp\DelWarp;
-use Nouma\Doubacore\Commands\Warp\SetWarp;
-use Nouma\Doubacore\Commands\Warp\Warp;
+use Nouma\Doubacore\Commands\GodCommand;
+use Nouma\Doubacore\Commands\HealCommand;
+use Nouma\Doubacore\Commands\Home\DelHomeCommand;
+use Nouma\Doubacore\Commands\Home\HomeCommand;
+use Nouma\Doubacore\Commands\Home\SetHomeCommand;
+use Nouma\Doubacore\Commands\KitCommand;
+use Nouma\Doubacore\Commands\SpeedCommand;
+use Nouma\Doubacore\Commands\Warp\DelWarpCommand;
+use Nouma\Doubacore\Commands\Warp\SetWarpCommand;
+use Nouma\Doubacore\Commands\Warp\WarpCommand;
 use Nouma\Doubacore\Listeners\ChatListener;
 use Nouma\Doubacore\Listeners\DamageListener;
 use Nouma\Doubacore\Listeners\SessionListener;
@@ -54,15 +57,19 @@ class Doubacore extends PluginBase
             PacketHooker::register($this);
         }
 
-        $this->getServer()->getCommandMap()->register("Doubacore", new Heal($this));
-        $this->getServer()->getCommandMap()->register("Doubacore", new God($this));
-        $this->getServer()->getCommandMap()->register("Doubacore", new Speed($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new HealCommand($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new GodCommand($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new SpeedCommand($this));
 
-        $this->getServer()->getCommandMap()->register("Doubacore", new SetWarp($this));
-        $this->getServer()->getCommandMap()->register("Doubacore", new DelWarp($this));
-        $this->getServer()->getCommandMap()->register("Doubacore", new Warp($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new KitCommand($this));
 
-        $this->getServer()->getCommandMap()->register("Doubacore", new Kit($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new SetWarpCommand($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new DelWarpCommand($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new WarpCommand($this));
+
+        $this->getServer()->getCommandMap()->register("Doubacore", new SetHomeCommand($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new DelHomeCommand($this));
+        $this->getServer()->getCommandMap()->register("Doubacore", new HomeCommand($this));
 
         $this->getServer()->getPluginManager()->registerEvents(new SessionListener($this), $this);
         $this->getServer()->getPluginManager()->registerEvents(new ChatListener($this), $this);

@@ -11,7 +11,7 @@ use Nouma\Doubacore\Managers\WarpManager;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 
-class SetWarp extends BaseCommand
+class SetWarpCommand extends BaseCommand
 {
 
     private Doubacore $doubacore;

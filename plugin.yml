@@ -39,15 +39,24 @@ permissions:
     default: op
 
   doubacore.command.kit:
+    description: Use kit command.
     default: op
   doubacore.command.kit.list:
+    description: List available kits.
     default: true
   doubacore.command.kit.*:
+    description: Grant access to all available kits.
     default: op
 
-  doubacore.command.balance:
+  doubacore.command.home:
+    description: Use home command.
     default: true
-  doubacore.command.balance.self:
-    default: op
-  doubacore.command.balance.other:
+  doubacore.command.sethome:
+    description: Set a home teleportation point.
+    default: true
+  doubacore.command.delhome:
+    description: Delete a home teleportation point.
+    default: true
+  doubacore.command.home.other:
+    description: List and use others homes.
     default: op

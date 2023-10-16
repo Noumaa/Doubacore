@@ -10,7 +10,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\Server;
 
-class Heal extends BaseCommand
+class GodCommand extends BaseCommand
 {
 
     private Doubacore $doubacore;
@@ -19,10 +19,10 @@ class Heal extends BaseCommand
     {
         parent::__construct(
             $plugin,
-            "heal",
-            "Soignez quelqu'un et nourrissez-le",
+            "god",
+            "Rendez quelqu'un invincible",
         );
-        $this->setPermission("doubacore.command.heal;doubacore.command.heal.self;doubacore.command.heal.other");
+        $this->setPermission("doubacore.command.god;doubacore.command.god.self;doubacore.command.god.other");
         $this->doubacore = $plugin;
     }
 
@@ -38,18 +38,18 @@ class Heal extends BaseCommand
     {
         if (!isset($args['player'])) {
             if (!($sender instanceof Player)) {
-                $sender->sendMessage('§cSeuls les joueurs peuvent se faire soigner !');
+                $sender->sendMessage('§cSeuls les joueurs peuvent être invincible !');
                 return;
             }
 
-            $sender->setHealth(20);
-            $sender->getHungerManager()->setFood(20);
-            $sender->getHungerManager()->setSaturation(20);
-            $sender->sendMessage('§6Comme neuf !');
+            $session = $this->doubacore->getSessionManager()->get($sender);
+
+            $session->setGod(!$session->isGod());
+            $sender->sendMessage($session->isGod() ? '§6Vous êtes désormais invincible.' : '§6Vous êtes désormais vulnérable.');
             return;
         }
 
-        if (!$sender->hasPermission('doubacore.command.heal.other')) {
+        if (!$sender->hasPermission('doubacore.command.god.other')) {
             $sender->sendMessage('§cVous n\'avez pas la permission !');
             return;
         }
@@ -60,11 +60,10 @@ class Heal extends BaseCommand
             return;
         }
 
-        $player->setHealth(20);
-        $player->getHungerManager()->setFood(20);
-        $player->getHungerManager()->setSaturation(20);
+        $session = $this->doubacore->getSessionManager()->get($player);
+        $session->setGod(!$session->isGod());
 
-        $player->sendMessage("§e{$sender->getName()} §6vous a soigné !");
-        $sender->sendMessage("§e{$player->getName()} §6a été soigné !");
+        $player->sendMessage($session->isGod() ? "§e{$sender->getName()} §6vous a rendu invincible." : "§e{$sender->getName()} §6vous a rendu vulnérable.");
+        $sender->sendMessage($session->isGod() ? "§e{$player->getName()} §6est désormais invincible." : "§e{$player->getName()} §6est désormais vulnérable.");
     }
 }

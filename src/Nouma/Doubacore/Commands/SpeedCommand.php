@@ -16,7 +16,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\Server;
 
-class Speed extends BaseCommand
+class SpeedCommand extends BaseCommand
 {
 
     private Doubacore $doubacore;
