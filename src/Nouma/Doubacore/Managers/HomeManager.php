@@ -5,9 +5,7 @@ namespace Nouma\Doubacore\Managers;
 use JsonException;
 use Nouma\Doubacore\Commands\Home\HomeCommand;
 use Nouma\Doubacore\Doubacore;
-use Nouma\Doubacore\Models\Kit;
-use Nouma\Doubacore\Models\Warp;
-use Nouma\Doubacore\Utils\ItemUtils;
+use Nouma\Doubacore\Models\Home;
 use pocketmine\Server;
 use pocketmine\utils\SingletonTrait;
 use pocketmine\world\Position;
@@ -23,12 +21,12 @@ class HomeManager extends BaseManager
 
     public function save($model)
     {
-        /** @var \Nouma\Doubacore\Models\Home $model */
-        $this->getConfig()->set($model->getKey()."name", $model->getName());
-        $this->getConfig()->set($model->getKey()."x", $model->getPosition()->getX());
-        $this->getConfig()->set($model->getKey()."y", $model->getPosition()->getY());
-        $this->getConfig()->set($model->getKey()."z", $model->getPosition()->getZ());
-        $this->getConfig()->set($model->getKey()."world", $model->getPosition()->getWorld()->getFolderName());
+        /** @var Home $model */
+        $this->getConfig()->setNested($model->getKey().".name", $model->getName());
+        $this->getConfig()->setNested($model->getKey().".x", $model->getPosition()->getX());
+        $this->getConfig()->setNested($model->getKey().".y", $model->getPosition()->getY());
+        $this->getConfig()->setNested($model->getKey().".z", $model->getPosition()->getZ());
+        $this->getConfig()->setNested($model->getKey().".world", $model->getPosition()->getWorld()->getFolderName());
         try {
             $this->getConfig()->save();
         } catch (JsonException $e) {
@@ -37,13 +35,13 @@ class HomeManager extends BaseManager
         }
     }
 
-    public function get(string $key): ?HomeCommand
+    public function get(string $key): ?Home
     {
         $data = $this->deserializeArray($key);
         if ($data == null) return null;
 
         if (!array_key_exists("name", $data)) return null;
-        $home = new \Nouma\Doubacore\Models\Home($key);
+        $home = new Home($key);
         $home->setName($data["name"]);
 
         $world = null;
@@ -64,14 +62,5 @@ class HomeManager extends BaseManager
         $home->setPosition($position);
 
         return $home;
-    }
-
-    public function getFromName(string $name): ?HomeCommand
-    {
-        foreach ($this->config->getAll() as $id => $array) {
-            if (!isset($array['name'])) continue;
-            if ($array['name'] == $name) return $this->get($id);
-        }
-        return null;
     }
 }

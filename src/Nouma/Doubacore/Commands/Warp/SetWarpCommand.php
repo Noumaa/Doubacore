@@ -8,8 +8,10 @@ use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
 use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Managers\WarpManager;
+use Nouma\Doubacore\Models\Warp;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use Ramsey\Uuid\Uuid;
 
 class SetWarpCommand extends BaseCommand
 {
@@ -35,9 +37,6 @@ class SetWarpCommand extends BaseCommand
         $this->registerArgument(0, new RawStringArgument("warp"));
     }
 
-    /**
-     * @throws JsonException
-     */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
         if (!($sender instanceof Player)) {
@@ -45,7 +44,13 @@ class SetWarpCommand extends BaseCommand
             return;
         }
 
-        WarpManager::setWarp($args['warp'], $sender->getPosition());
-        $sender->sendMessage("§6Le warp §e{$args['warp']} §6a été créé avec succès.");
+        $warp = WarpManager::getInstance()->getFromName($args['warp']);
+        if ($warp == null) $warp = new Warp(Uuid::uuid4()->toString());
+
+        $warp->setName($args['warp']);
+        $warp->setPosition($sender->getPosition());
+        WarpManager::getInstance()->save($warp);
+
+        $sender->sendMessage("§6Le warp §e{$warp->getName()} §6a été créé avec succès.");
     }
 }

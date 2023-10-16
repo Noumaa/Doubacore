@@ -59,7 +59,7 @@ class WarpCommand extends BaseCommand
             return;
         }
 
-        $warp = WarpManager::getInstance()->get($args['warp']);
+        $warp = WarpManager::getInstance()->getFromName($args['warp']);
         if ($warp == null) {
             $sender->sendMessage("§cLe warp n'existe pas !");
             return;

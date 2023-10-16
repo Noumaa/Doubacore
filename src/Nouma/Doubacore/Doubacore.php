@@ -17,6 +17,7 @@ use Nouma\Doubacore\Commands\Warp\WarpCommand;
 use Nouma\Doubacore\Listeners\ChatListener;
 use Nouma\Doubacore\Listeners\DamageListener;
 use Nouma\Doubacore\Listeners\SessionListener;
+use Nouma\Doubacore\Managers\HomeManager;
 use Nouma\Doubacore\Managers\KitManager;
 use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Session\SessionManager;
@@ -51,6 +52,7 @@ class Doubacore extends PluginBase
 
         $this->sessionManager = new SessionManager($this);
         WarpManager::setInstance(new WarpManager($this));
+        HomeManager::setInstance(new HomeManager($this));
         KitManager::setInstance(new KitManager($this));
 
         if (!PacketHooker::isRegistered()) {

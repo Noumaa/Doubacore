@@ -7,10 +7,12 @@ use CortexPE\Commando\BaseCommand;
 use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
 use Nouma\Doubacore\Doubacore;
+use Nouma\Doubacore\Managers\HomeManager;
 use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Messages;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use pocketmine\Server;
 
 class HomeCommand extends BaseCommand
 {
@@ -21,10 +23,11 @@ class HomeCommand extends BaseCommand
     {
         parent::__construct(
             $plugin,
-            "warp",
-            "Téléportez-vous au warp désigné",
+            "home",
+            "Téléportez-vous au home désigné",
+            ['homes']
         );
-        $this->setPermission("doubacore.command.warp;doubacore.command.warp.list");
+        $this->setPermission("doubacore.command.home");
         $this->doubacore = $plugin;
     }
 
@@ -33,7 +36,7 @@ class HomeCommand extends BaseCommand
      */
     protected function prepare(): void
     {
-        $this->registerArgument(0, new RawStringArgument("warp", true));
+        $this->registerArgument(0, new RawStringArgument("home", true));
     }
 
     /**
@@ -41,36 +44,30 @@ class HomeCommand extends BaseCommand
      */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
-        if (!isset($args['warp'])) {
-            if (count(WarpManager::getInstance()->getAll()) == 0) {
-                $sender->sendMessage("§6Aucun warp disponible.");
-                return;
-            }
-
-            $sender->sendMessage("§6Liste des warps :");
-            foreach (WarpManager::getInstance()->getAll() as $warp)
-                $sender->sendMessage(" §6- §e{$warp->getName()}§6: §e{$warp->getPosition()}");
-
-            return;
-        }
-
         if (!($sender instanceof Player)) {
-            $sender->sendMessage("§cSeuls les joueurs peuvent se téléporter !");
+            $sender->sendMessage(Messages::ONLY_PLAYERS());
             return;
         }
 
-        $warp = WarpManager::getInstance()->get($args['warp']);
-        if ($warp == null) {
-            $sender->sendMessage("§cLe warp n'existe pas !");
+        if ($aliasUsed == "homes") {
+            $sender->sendMessage("§6Liste des homes :");
+
+            foreach (HomeManager::getInstance()->getAll() as $home)
+                $sender->sendMessage(" §6- §e{$home->getName()}");
             return;
         }
 
-        if (!$sender->hasPermission("doubacore.command.warp.*") && !$sender->hasPermission("doubacore.command.warp.{$warp->getKey()}")) {
-            $sender->sendMessage(Messages::NO_PERMISSION($aliasUsed, "doubacore.command.warp.{$warp->getKey()}"));
+        $home = HomeManager::getInstance()->getFromName('home');
+        if (isset($args['home']))
+            $home = HomeManager::getInstance()->getFromName($args['home']);
+
+        if ($home == null) {
+            $sender->sendMessage("§cLe home n'existe pas, essayez plutôt :");
+            Server::getInstance()->dispatchCommand($sender, "homes");
             return;
         }
 
-        $warp->teleport($sender);
+        $home->teleport($sender);
         $sender->sendMessage("§6Pouf !");
     }
 }

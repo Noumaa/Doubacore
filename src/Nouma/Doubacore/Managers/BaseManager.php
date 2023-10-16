@@ -2,6 +2,7 @@
 
 namespace Nouma\Doubacore\Managers;
 
+use Nouma\Doubacore\Commands\Home\HomeCommand;
 use Nouma\Doubacore\Doubacore;
 use pocketmine\utils\BroadcastLoggerForwarder;
 use pocketmine\utils\Config;
@@ -39,6 +40,15 @@ abstract class BaseManager
             if ($this->get($key) != null) $models[] = $this->get($key);
         }
         return $models;
+    }
+
+    public function getFromName(string $name)
+    {
+        foreach ($this->config->getAll() as $id => $array) {
+            if (!isset($array['name'])) continue;
+            if ($array['name'] == $name) return $this->get($id);
+        }
+        return null;
     }
 
     /**

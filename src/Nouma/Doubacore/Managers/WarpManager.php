@@ -2,7 +2,9 @@
 
 namespace Nouma\Doubacore\Managers;
 
+use JsonException;
 use Nouma\Doubacore\Doubacore;
+use Nouma\Doubacore\Models\Home;
 use Nouma\Doubacore\Models\Kit;
 use Nouma\Doubacore\Models\Warp;
 use Nouma\Doubacore\Utils\ItemUtils;
@@ -21,7 +23,18 @@ class WarpManager extends BaseManager
 
     public function save($model)
     {
-        // TODO: Implement serialize() method.
+        /** @var Warp $model */
+        $this->getConfig()->setNested($model->getKey().".name", $model->getName());
+        $this->getConfig()->setNested($model->getKey().".x", $model->getPosition()->getX());
+        $this->getConfig()->setNested($model->getKey().".y", $model->getPosition()->getY());
+        $this->getConfig()->setNested($model->getKey().".z", $model->getPosition()->getZ());
+        $this->getConfig()->setNested($model->getKey().".world", $model->getPosition()->getWorld()->getFolderName());
+        try {
+            $this->getConfig()->save();
+        } catch (JsonException $e) {
+            Doubacore::getInstance()->getLogger()->warning('Error in saving warps : ');
+            var_dump($e);
+        }
     }
 
     public function get(string $key): ?Warp
@@ -34,7 +47,6 @@ class WarpManager extends BaseManager
         $warp->setName($data["name"]);
 
         $world = null;
-        Server::getInstance()->getPluginManager()->getPlugin();
 
         if (array_key_exists("world", $data))
             $world = Server::getInstance()->getWorldManager()->getWorldByName($data['world']);

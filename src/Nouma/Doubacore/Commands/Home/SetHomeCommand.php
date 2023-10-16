@@ -10,6 +10,7 @@ use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Managers\HomeManager;
 use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Messages;
+use Nouma\Doubacore\Models\Home;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use Ramsey\Uuid\Uuid;
@@ -35,26 +36,25 @@ class SetHomeCommand extends BaseCommand
      */
     protected function prepare(): void
     {
-        $this->registerArgument(0, new RawStringArgument("home"));
+        $this->registerArgument(0, new RawStringArgument("home", true));
     }
 
-    /**
-     * @throws JsonException
-     */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
         if (!($sender instanceof Player)) {
             $sender->sendMessage(Messages::ONLY_PLAYERS());
             return;
         }
+
+        if (!isset($args['home'])) $args['home'] = 'home';
+
         $home = HomeManager::getInstance()->getFromName($args['home']);
-        if ($home != null) {
-        } else {
-            $home = new \Nouma\Doubacore\Models\Home(Uuid::uuid4()->toString());
-            $home->setName($args['home']);
-            $home->setPosition($sender->getPosition());
-            HomeManager::getInstance()->save($home);
-        }
+        if ($home == null) $home = new Home(Uuid::uuid4()->toString());
+
+        $home->setName($args['home']);
+        $home->setPosition($sender->getPosition());
+        HomeManager::getInstance()->save($home);
+
         $sender->sendMessage("§2Point de home §a{$home->getName()} §2définis !");
     }
 }
