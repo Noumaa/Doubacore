@@ -6,6 +6,7 @@ use JsonException;
 use Nouma\Doubacore\Commands\Home\HomeCommand;
 use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Models\Home;
+use pocketmine\player\Player;
 use pocketmine\Server;
 use pocketmine\utils\SingletonTrait;
 use pocketmine\world\Position;
@@ -14,7 +15,7 @@ class HomeManager extends BaseManager
 {
     use SingletonTrait;
 
-    public function __construct(Doubacore $plugin)
+    public function __construct(Doubacore $plugin, Player $player)
     {
         parent::__construct($plugin, "homes");
     }

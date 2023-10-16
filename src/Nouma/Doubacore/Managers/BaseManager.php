@@ -29,6 +29,11 @@ abstract class BaseManager
 
     abstract public function save($model);
 
+    public function remove(string $uuid): void
+    {
+        $this->config->remove($uuid);
+    }
+
     /**
      *  Retrieve all saved elements.
      *  @return mixed Element[]

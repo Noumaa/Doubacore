@@ -8,6 +8,7 @@ use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
 use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Managers\WarpManager;
+use Nouma\Doubacore\Models\Warp;
 use pocketmine\command\CommandSender;
 
 class DelWarpCommand extends BaseCommand
@@ -39,12 +40,16 @@ class DelWarpCommand extends BaseCommand
      */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
-        if (WarpManager::getWarp($args['warp']) == null) {
+        /** @var Warp $warp $warp */
+        $warp = WarpManager::getInstance()->getFromName($args['warp']);
+
+        if ($warp == null) {
             $sender->sendMessage("§cLe warp §e{$args['warp']} §cn'existe pas !");
             return;
         }
 
-        WarpManager::removeWarp($args['warp']);
-        $sender->sendMessage("§6Le warp §e{$args['warp']} §6a été supprimé avec succès.");
+        WarpManager::getInstance()->remove($warp->getKey());
+
+        $sender->sendMessage("§2Le warp §a{$args['warp']} §2a été supprimé avec succès !");
     }
 }

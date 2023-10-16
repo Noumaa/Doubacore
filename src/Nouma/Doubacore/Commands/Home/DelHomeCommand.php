@@ -7,7 +7,10 @@ use CortexPE\Commando\BaseCommand;
 use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
 use Nouma\Doubacore\Doubacore;
+use Nouma\Doubacore\Managers\HomeManager;
 use Nouma\Doubacore\Managers\WarpManager;
+use Nouma\Doubacore\Models\Home;
+use Nouma\Doubacore\Models\Warp;
 use pocketmine\command\CommandSender;
 
 class DelHomeCommand extends BaseCommand
@@ -19,10 +22,10 @@ class DelHomeCommand extends BaseCommand
     {
         parent::__construct(
             $plugin,
-            "delwarp",
-            "Supprime un warp",
+            "delhome",
+            "Supprime un home.",
         );
-        $this->setPermission("doubacore.command.delwarp");
+        $this->setPermission("doubacore.command.delhome");
         $this->doubacore = $plugin;
     }
 
@@ -31,20 +34,21 @@ class DelHomeCommand extends BaseCommand
      */
     protected function prepare(): void
     {
-        $this->registerArgument(0, new RawStringArgument("warp"));
+        $this->registerArgument(0, new RawStringArgument("home"));
     }
 
-    /**
-     * @throws JsonException
-     */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
-        if (WarpManager::getWarp($args['warp']) == null) {
-            $sender->sendMessage("§cLe warp §e{$args['warp']} §cn'existe pas !");
+        /** @var Home $home */
+        $home = HomeManager::getInstance()->getFromName($args['home']);
+
+        if ($home == null) {
+            $sender->sendMessage("§cLe home §e{$args['home']} §cn'existe pas !");
             return;
         }
 
-        WarpManager::removeWarp($args['warp']);
-        $sender->sendMessage("§6Le warp §e{$args['warp']} §6a été supprimé avec succès.");
+        HomeManager::getInstance()->remove($home->getKey());
+
+        $sender->sendMessage("§2Le home §a{$args['home']} §2a été supprimé avec succès !");
     }
 }
