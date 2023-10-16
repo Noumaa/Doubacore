@@ -9,7 +9,7 @@
   },
   "require": {
     "muqsit/simple-packet-handler": "*",
-    "nouma/norm": "*"
+    "ext-pdo": "*"
   },
   "require-dev": {
     "pocketmine/pocketmine-mp": "^5.6",

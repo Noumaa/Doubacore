@@ -21,8 +21,8 @@ use Nouma\Doubacore\Managers\HomeManager;
 use Nouma\Doubacore\Managers\KitManager;
 use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Session\SessionManager;
+use Nouma\NORM\NORM;
 use pocketmine\plugin\PluginBase;
-use Shared\Nouma\NORM\Main;
 
 class Doubacore extends PluginBase
 {
@@ -45,11 +45,12 @@ class Doubacore extends PluginBase
      */
     protected function onEnable(): void
     {
-        $this->getLogger()->info(Main::test());
         self::$instance = $this;
 
         $this->saveDefaultConfig();
         Messages::init($this);
+
+        NORM::setInstance(new NORM($this, ));
 
         $this->sessionManager = new SessionManager($this);
         WarpManager::setInstance(new WarpManager($this));

@@ -15,7 +15,7 @@ class HomeManager extends BaseManager
 {
     use SingletonTrait;
 
-    public function __construct(Doubacore $plugin, Player $player)
+    public function __construct(Doubacore $plugin)
     {
         parent::__construct($plugin, "homes");
     }

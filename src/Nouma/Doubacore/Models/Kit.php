@@ -3,10 +3,11 @@
 namespace Nouma\Doubacore\Models;
 
 use Nouma\Doubacore\Utils\ItemUtils;
+use Nouma\NORM\IModel;
 use pocketmine\item\Item;
 use pocketmine\player\Player;
 
-class Kit
+class Kit implements IModel
 {
 
     private string $key;
@@ -110,5 +111,10 @@ class Kit
     public function setBoots(Item $boots): void
     {
         $this->boots = $boots;
+    }
+
+    public function getTableName(): string
+    {
+        return "kit";
     }
 }
