@@ -4,25 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5f6606950259d24c2e1c9da07236051",
+    "content-hash": "731ec95cac190457369460aa3ae46042",
     "packages": [
-        {
-            "name": "muqsit/simple-packet-handler",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Muqsit/SimplePacketHandler.git",
-                "reference": "71af78006b2bbed324f48deebbdabfae222b432a"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            }
-        }
-    ],
-    "packages-dev": [
         {
             "name": "adhocore/json-comment",
             "version": "1.2.1",
@@ -138,14 +121,45 @@
             "time": "2023-01-15T23:15:59+00:00"
         },
         {
-            "name": "cooldogepm/bedrockeconomy",
-            "version": "1.2.3",
+            "name": "muqsit/simple-packet-handler",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cooldogepm/BedrockEconomy.git",
-                "reference": "pm5"
+                "url": "https://github.com/Muqsit/SimplePacketHandler.git",
+                "reference": "71af78006b2bbed324f48deebbdabfae222b432a"
             },
-            "type": "drupal-theme"
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            }
+        },
+        {
+            "name": "nouma/norm",
+            "version": "1.0.6",
+            "dist": {
+                "type": "path",
+                "url": "D:/Windows/Documents/Serveurs MC/pocketmine/sources/NORM",
+                "reference": "f368b895ba60337c500dee4c187f0d83d67e260b"
+            },
+            "require": {
+                "pocketmine/pocketmine-mp": "^5.6"
+            },
+            "type": "library",
+            "extra": {
+                "virion": {
+                    "spec": "3.1",
+                    "namespace-root": "Nouma\\NORM",
+                    "shared-namespace-root": "Shared\\Nouma\\NORM"
+                }
+            },
+            "autoload": {
+                "Nouma\\NORM\\": "src"
+            },
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "pocketmine/bedrock-block-upgrade-schema",
@@ -1272,6 +1286,18 @@
                 }
             ],
             "time": "2023-07-28T09:04:16+00:00"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "cooldogepm/bedrockeconomy",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cooldogepm/BedrockEconomy.git",
+                "reference": "pm5"
+            },
+            "type": "drupal-theme"
         }
     ],
     "aliases": [],

@@ -22,10 +22,10 @@ use Nouma\Doubacore\Managers\KitManager;
 use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Session\SessionManager;
 use pocketmine\plugin\PluginBase;
+use Shared\Nouma\NORM\Main;
 
 class Doubacore extends PluginBase
 {
-
     private static Doubacore $instance;
 
     public static function getInstance() : self
@@ -45,6 +45,7 @@ class Doubacore extends PluginBase
      */
     protected function onEnable(): void
     {
+        $this->getLogger()->info(Main::test());
         self::$instance = $this;
 
         $this->saveDefaultConfig();

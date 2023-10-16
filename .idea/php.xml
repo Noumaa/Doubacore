@@ -39,6 +39,7 @@
       <path value="$PROJECT_DIR$/vendor/pocketmine/raklib-ipc" />
       <path value="$PROJECT_DIR$/vendor/pocketmine/snooze" />
       <path value="$PROJECT_DIR$/vendor/cooldogepm/bedrockeconomy" />
+      <path value="$PROJECT_DIR$/vendor/nouma/norm" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">

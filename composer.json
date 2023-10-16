@@ -8,7 +8,8 @@
     }
   },
   "require": {
-    "muqsit/simple-packet-handler": "*"
+    "muqsit/simple-packet-handler": "*",
+    "nouma/norm": "*"
   },
   "require-dev": {
     "pocketmine/pocketmine-mp": "^5.6",
@@ -44,6 +45,10 @@
           "reference": "pm5"
         }
       }
+    },
+    {
+      "type": "path",
+      "url": "D:\\Windows\\Documents\\Serveurs MC\\pocketmine\\sources\\NORM"
     }
   ]
 }
