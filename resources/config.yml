@@ -1,5 +1,12 @@
 language: fra
 
+# Time is a period of time when the player
+# has to stay before teleportation.
+# In seconds, set to -1 to disable
+teleportation:
+  cooldown: 30
+  time: 5
+
 # Set to "none" to disable
 chat:
   join_message: "§a§l+§r §7{player}"

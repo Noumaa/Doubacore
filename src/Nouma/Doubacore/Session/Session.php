@@ -16,6 +16,8 @@ class Session
     private Player $player;
     private Config $config;
 
+    private array $cooldowns = [];
+
     /** @var Home[] $homes */
     private array $homes;
     private bool $isGod;
@@ -117,5 +119,15 @@ class Session
     public function removeHome(Home $home): void
     {
         unset($this->homes[$home->getName()]);
+    }
+
+    public function getCooldowns(): array
+    {
+        return $this->cooldowns;
+    }
+
+    public function setCooldowns(array $cooldowns): void
+    {
+        $this->cooldowns = $cooldowns;
     }
 }

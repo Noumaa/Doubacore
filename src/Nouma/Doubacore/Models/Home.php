@@ -2,6 +2,10 @@
 
 namespace Nouma\Doubacore\Models;
 
+use DateInterval;
+use DateTime;
+use Exception;
+use Nouma\Doubacore\Doubacore;
 use pocketmine\player\Player;
 use pocketmine\world\Position;
 
@@ -17,8 +21,27 @@ class Home
         $this->position = $position;
     }
 
+    /**
+     * @throws Exception
+     */
     public function teleport(Player $player): void
     {
+        $session = Doubacore::getInstance()->getSessionManager()->get($player);
+        $cooldowns = $session->getCooldowns();
+
+        if (key_exists("home", $cooldowns)) {
+            $cooldown = $session->getCooldowns()["home"];
+
+            $duration = Doubacore::getInstance()->getConfig()->getNested("teleportation.cooldown");
+            if (date_diff(new DateTime(), new DateTime($cooldown)) < new DateInterval("{$duration}S")) {
+                $player->sendMessage("cooldown");
+                return;
+            }
+        }
+
+        $cooldowns["home"] = date_default_timezone_get();
+        $session->setCooldowns($cooldowns);
+
         $player->teleport($this->getPosition());
     }
 

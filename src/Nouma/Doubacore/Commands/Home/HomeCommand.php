@@ -37,9 +37,6 @@ class HomeCommand extends BaseCommand
         $this->registerArgument(0, new RawStringArgument("home", true));
     }
 
-    /**
-     * @throws JsonException
-     */
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
         if (!($sender instanceof Player)) {
