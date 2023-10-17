@@ -25,6 +25,6 @@ class SessionListener implements Listener
      * @throws JsonException
      */
     public function onPlayerQuit(PlayerQuitEvent $event): void {
-        $this->plugin->getSessionManager()->get($event->getPlayer())->save();
+        $this->plugin->getSessionManager()->save($event->getPlayer());
     }
 }

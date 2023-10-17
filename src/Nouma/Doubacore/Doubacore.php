@@ -22,16 +22,11 @@ use Nouma\Doubacore\Managers\KitManager;
 use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Session\SessionManager;
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\SingletonTrait;
 
 class Doubacore extends PluginBase
 {
-
-    private static Doubacore $instance;
-
-    public static function getInstance() : self
-    {
-        return self::$instance;
-    }
+    use SingletonTrait;
 
     public static function getLocale(): string
     {
@@ -45,14 +40,13 @@ class Doubacore extends PluginBase
      */
     protected function onEnable(): void
     {
-        self::$instance = $this;
+        self::setInstance($this);
 
         $this->saveDefaultConfig();
         Messages::init($this);
 
         $this->sessionManager = new SessionManager($this);
         WarpManager::setInstance(new WarpManager($this));
-        HomeManager::setInstance(new HomeManager($this));
         KitManager::setInstance(new KitManager($this));
 
         if (!PacketHooker::isRegistered()) {

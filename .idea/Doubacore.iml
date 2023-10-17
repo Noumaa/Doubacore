@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Nouma/Doubacore" isTestSource="false" packagePrefix="Nouma\Doubacore\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Paroxity/Commando" isTestSource="false" packagePrefix="CortexPE\Commando\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Nouma/NORM" isTestSource="false" packagePrefix="Nouma\NORM\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/muqsit/simple-packet-handler" />

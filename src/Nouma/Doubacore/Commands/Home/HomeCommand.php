@@ -7,8 +7,6 @@ use CortexPE\Commando\BaseCommand;
 use CortexPE\Commando\exception\ArgumentOrderException;
 use JsonException;
 use Nouma\Doubacore\Doubacore;
-use Nouma\Doubacore\Managers\HomeManager;
-use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Messages;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
@@ -49,17 +47,19 @@ class HomeCommand extends BaseCommand
             return;
         }
 
+        $session = $this->doubacore->getSessionManager()->get($sender);
+
         if ($aliasUsed == "homes") {
             $sender->sendMessage("§6Liste des homes :");
 
-            foreach (HomeManager::getInstance()->getAll() as $home)
+            foreach ($session->getHomes() as $home)
                 $sender->sendMessage(" §6- §e{$home->getName()}");
             return;
         }
 
-        $home = HomeManager::getInstance()->getFromName('home');
+        $home = $session->getHome('home');
         if (isset($args['home']))
-            $home = HomeManager::getInstance()->getFromName($args['home']);
+            $home = $session->getHome($args['home']);
 
         if ($home == null) {
             $sender->sendMessage("§cLe home n'existe pas, essayez plutôt :");

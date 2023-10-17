@@ -8,29 +8,18 @@ use pocketmine\world\Position;
 class Home
 {
 
-    private string $key;
     private string $name;
-
     private Position $position;
 
-    public function __construct(string $key = null)
+    public function __construct(string $name, Position $position)
     {
-        $this->key = $key;
+        $this->name = $name;
+        $this->position = $position;
     }
 
     public function teleport(Player $player): void
     {
         $player->teleport($this->getPosition());
-    }
-
-    public function getKey(): string
-    {
-        return $this->key;
-    }
-
-    public function setKey(string $key): void
-    {
-        !isset($this->key) && $this->key = $key;
     }
 
     public function getName(): string
@@ -40,7 +29,7 @@ class Home
 
     public function setName(string $name): void
     {
-        $this->name = $name;
+        !isset($this->name) && $this->name = $name;
     }
 
     public function getPosition(): Position

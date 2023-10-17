@@ -2,6 +2,7 @@
 
 namespace Nouma\Doubacore\Session;
 
+use JsonException;
 use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Exceptions\SessionNotFoundException;
 use pocketmine\player\Player;
@@ -21,6 +22,15 @@ class SessionManager
     public function load(Player $player): void {
         $session = new Session($player);
         $this->sessions[$player->getName()] = $session;
+    }
+
+    /**
+     * @throws JsonException
+     */
+    public function save(Player $player): void {
+        $session = $this->get($player);
+        $session->save();
+        unset($this->sessions[$player->getName()]);
     }
 
     public function get(Player $player): Session {

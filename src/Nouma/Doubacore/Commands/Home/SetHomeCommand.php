@@ -11,6 +11,7 @@ use Nouma\Doubacore\Managers\HomeManager;
 use Nouma\Doubacore\Managers\WarpManager;
 use Nouma\Doubacore\Messages;
 use Nouma\Doubacore\Models\Home;
+use Nouma\Doubacore\Session\SessionManager;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use Ramsey\Uuid\Uuid;
@@ -48,13 +49,11 @@ class SetHomeCommand extends BaseCommand
 
         if (!isset($args['home'])) $args['home'] = 'home';
 
-        $home = HomeManager::getInstance()->getFromName($args['home']);
-        if ($home == null) $home = new Home(Uuid::uuid4()->toString());
+        $session = $this->doubacore->getSessionManager()->get($sender);
 
-        $home->setName($args['home']);
-        $home->setPosition($sender->getPosition());
-        HomeManager::getInstance()->save($home);
+        $home = new Home($args['home'], $sender->getPosition());
+        $session->setHome($home);
 
-        $sender->sendMessage("§2Point de home §a{$home->getName()} §2définis !");
+        $sender->sendMessage("§2Point de home §a{$home->getName()} §2a été définis avec succès !");
     }
 }

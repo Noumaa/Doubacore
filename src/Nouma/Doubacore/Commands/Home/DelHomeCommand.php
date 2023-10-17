@@ -9,9 +9,11 @@ use JsonException;
 use Nouma\Doubacore\Doubacore;
 use Nouma\Doubacore\Managers\HomeManager;
 use Nouma\Doubacore\Managers\WarpManager;
+use Nouma\Doubacore\Messages;
 use Nouma\Doubacore\Models\Home;
 use Nouma\Doubacore\Models\Warp;
 use pocketmine\command\CommandSender;
+use pocketmine\player\Player;
 
 class DelHomeCommand extends BaseCommand
 {
@@ -39,16 +41,18 @@ class DelHomeCommand extends BaseCommand
 
     public function onRun(CommandSender $sender, string $aliasUsed, array $args): void
     {
-        /** @var Home $home */
-        $home = HomeManager::getInstance()->getFromName($args['home']);
-
-        if ($home == null) {
-            $sender->sendMessage("§cLe home §e{$args['home']} §cn'existe pas !");
+        if (!($sender instanceof Player)) {
+            $sender->sendMessage(Messages::ONLY_PLAYERS());
             return;
         }
 
-        HomeManager::getInstance()->remove($home->getKey());
+        if (!isset($args['home'])) $args['home'] = 'home';
 
-        $sender->sendMessage("§2Le home §a{$args['home']} §2a été supprimé avec succès !");
+        $session = $this->doubacore->getSessionManager()->get($sender);
+
+        $home = $session->getHome($args["home"]);
+        $session->removeHome($home);
+
+        $sender->sendMessage("§2Point de home §a{$home->getName()} §2a été supprimé avec succès !");
     }
 }
